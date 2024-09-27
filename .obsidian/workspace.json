@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自我決定論(Self-determination theory, SDT).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f7146220aed6336f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "變數、運算式、判斷式.md",
+                "file": "python/變數、運算式、判斷式.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "變數、運算式、判斷式.md",
+                "file": "python/變數、運算式、判斷式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "變數、運算式、判斷式.md",
+                "file": "python/變數、運算式、判斷式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "變數、運算式、判斷式.md"
+                "file": "python/變數、運算式、判斷式.md"
               }
             }
           }
@@ -158,10 +145,11 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "f7146220aed6336f",
+  "active": "8bf8c5022fb6c07b",
   "lastOpenFiles": [
     "自我決定論(Self-determination theory, SDT).md",
     "變數、運算式、判斷式.md",
+    "python/變數、運算式、判斷式.md",
     "python",
     "attachments/圖片1.png",
     "blogger",
@@ -206,7 +194,6 @@
     "統計跑法(好像還是不太整齊)/SPSS/01描述性檢定、反向題、高低組/01描述性檢定、反向題、高低組.md",
     "統計跑法(好像還是不太整齊)/SPSS/05迴歸/README.md",
     "統計跑法(好像還是不太整齊)/SPSS/04pearson相關/pearson相關.md",
-    "統計跑法(好像還是不太整齊)/SPSS/03t檢定/t檢定.md",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
     "混合評估策略的應用：提升學生興趣與學習效果/混合評估策略的應用：提升學生興趣與學習效果.canvas",
