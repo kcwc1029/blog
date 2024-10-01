@@ -1,3 +1,6 @@
+- 占有一塊連續的記憶體空間
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,3 +18,48 @@ int main()
     printf("Total: %.1f   Average: %.1f\n", Total, Total / 5); // Output total and average score
     return 0;
 }
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
+
+```c
+
+```
