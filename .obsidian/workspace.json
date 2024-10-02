@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/運算式、運算子、流程控制、迴圈.md",
+                "file": "C/【array】.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/運算式、運算子、流程控制、迴圈.md",
+                "file": "C/【array】.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C/運算式、運算子、流程控制、迴圈.md",
+                "file": "C/【array】.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C/運算式、運算子、流程控制、迴圈.md"
+                "file": "C/【array】.md"
               }
             }
           }
@@ -159,25 +159,30 @@
   },
   "active": "8bf8c5022fb6c07b",
   "lastOpenFiles": [
+    "C/【string】.md",
+    "C/【Function】.md",
+    "C/運算式、運算子、if、while.md",
+    "C/程式實例/ch9/ch9_9.c",
+    "C/程式實例/ch9/ch9_6.c",
+    "C/程式實例/ch9/ch9_7.c",
+    "C/程式實例/ch9/ch9_8.c",
+    "C/程式實例/ch9/ch9_5.c",
+    "C/程式實例/ch9/ch9_4.c",
+    "C/程式實例/ch9/ch9_36.c",
+    "C/程式實例/ch9/ch9_37.c",
+    "C/程式實例/ch9/ch9_35_1.c",
+    "C/程式實例/ch9/ch9_33.c",
+    "C/【array】.md",
+    "C/運算式、運算子、流程控制、迴圈.md",
+    "C/【binary, hex, ASCII】.md",
     "資料結構/array.md",
-    "資料結構",
     "C/array.md",
     "C/格式化輸入輸出.md",
-    "C/運算式、運算子、流程控制、迴圈.md",
     "C/資料型態、變數、常數.md",
     "自我決定論(Self-determination theory, SDT).md",
     "C/45.md",
-    "test.ipynb",
-    "C/test.exe",
     "Arduino/【使用pyserial 和 Firmata 協議來控制 Arduino 上的 LED】.md",
-    "Python/【迴圈】.ipynb",
     "Python/【變數、運算式、判斷式】.md",
-    "Python/【tuple】.ipynb",
-    "Python/【list】.ipynb",
-    "Python",
-    "C/test",
-    "C/test.c",
-    "C",
     "python/【變數、運算式、判斷式】.md",
     "變數、運算式、判斷式.md",
     "attachments/圖片1.png",
@@ -192,15 +197,10 @@
     "研究資訊/異常偵測：.md",
     "attachments/Pasted image 20240828162448.png",
     "文獻閱讀/理解學習者對高沉浸式虛擬現實系統的接受度：來自確認性和探索性PLS-SEM分析的見解.md",
-    "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.md",
-    "文獻閱讀/運算思維/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "統計跑法(好像還是不太整齊)/SPSS/05迴歸/調節效果/attachments/Pasted image 20240823142833.png",
     "統計跑法(好像還是不太整齊)/SPSS/05迴歸/調節效果/attachments/Pasted image 20240823141653.png",
     "統計跑法(好像還是不太整齊)/SPSS/06卡方檢定/attachments/Pasted image 20240823153056.png",
-    "統計跑法(好像還是不太整齊)/SPSS/05迴歸/中介效果/中介效果.md",
-    "統計跑法(好像還是不太整齊)/SPSS/05迴歸/調節效果/調節效果.md",
-    "統計跑法(好像還是不太整齊)/SPSS/05迴歸/階層迴歸/階層回歸.md",
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240820143145.png",
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813152920.png",
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813134901.png",
