@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-    int Score[5] = {87, 66, 90, 65, 70}; // Define an integer array Score[5] and assign scores
-    int i = 0;
-    float Total = 0;
-
-    for (i = 0; i < 5; i++) {
-        printf("The score of student %d is: %d\n", i + 1, Score[i]);
-        Total += Score[i]; // Calculate total score
-    }
-
-    printf("Total: %.1f   Average: %.1f\n", Total, Total / 5); // Output total and average score
+int main(){
+    int arr1[1];
+    float arr2[1];
+    char arr3[1];
+    printf("%d\n", sizeof(arr1));
+    printf("%d\n", sizeof(arr2));
+    printf("%d\n", sizeof(arr3));
     return 0;
 }
+// 4
+// 4
+// 1

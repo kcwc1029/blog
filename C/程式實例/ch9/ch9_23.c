@@ -1,0 +1,26 @@
+/*   ch9_23.c                  */
+#include <stdio.h>
+#include <stdlib.h>
+double PI = 3.1415926; 		/* global variable x */ 
+double area(float r)
+{  
+    double PI = 3.14;       /* local variable x  */   	
+    return PI * r * r;
+}
+double circumference(float r)
+{
+	return 2 * PI * r;
+}
+int main()
+{
+	double r;
+	printf("½Ð¿é¤J¶ê¥b®| = ");
+	scanf("%lf", &r);
+	printf("¶ê­±¿n = %lf\n", area(r));
+	printf("¶ê©Pªø = %lf\n", circumference(r));
+    system("pause");
+    return 0;   
+}
+
+
+
