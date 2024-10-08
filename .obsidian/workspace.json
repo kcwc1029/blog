@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/【array】.md",
+                "file": "C&C++/【OOP】.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,8 +97,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/【array】.md",
-                "collapseAll": false,
+                "file": "C&C++/【OOP】.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C/【array】.md",
+                "file": "C&C++/【OOP】.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C/【array】.md"
+                "file": "C&C++/【OOP】.md"
               }
             }
           }
@@ -159,26 +159,34 @@
   },
   "active": "8bf8c5022fb6c07b",
   "lastOpenFiles": [
-    "C/【string】.md",
+    "Python/2024計算機概論/【函數】.ipynb",
+    "C/test.exe",
+    "C/test.cpp",
     "C/【Function】.md",
+    "C/【OOP】.md",
+    "C/【String】.md",
+    "C/【C語言基本觀念】.md",
+    "C/【Array】.md",
+    "C/attachments/Pasted image 20241005142408.png",
+    "C/資料型態、變數、常數.md",
     "C/運算式、運算子、if、while.md",
+    "C/課程分配.md",
+    "資料結構/array.md",
+    "C/attachments",
+    "AnomalyDetection.ipynb",
+    "sensor_data.db-journal",
+    "sensor_data.db",
+    "C/String.md",
+    "C/【array】.md",
+    "C/【string】.md",
     "C/程式實例/ch9/ch9_9.c",
     "C/程式實例/ch9/ch9_6.c",
     "C/程式實例/ch9/ch9_7.c",
     "C/程式實例/ch9/ch9_8.c",
-    "C/程式實例/ch9/ch9_5.c",
-    "C/程式實例/ch9/ch9_4.c",
-    "C/程式實例/ch9/ch9_36.c",
-    "C/程式實例/ch9/ch9_37.c",
-    "C/程式實例/ch9/ch9_35_1.c",
-    "C/程式實例/ch9/ch9_33.c",
-    "C/【array】.md",
     "C/運算式、運算子、流程控制、迴圈.md",
     "C/【binary, hex, ASCII】.md",
-    "資料結構/array.md",
     "C/array.md",
     "C/格式化輸入輸出.md",
-    "C/資料型態、變數、常數.md",
     "自我決定論(Self-determination theory, SDT).md",
     "C/45.md",
     "Arduino/【使用pyserial 和 Firmata 協議來控制 Arduino 上的 LED】.md",
@@ -189,14 +197,7 @@
     "暫存(會刪掉).md",
     "還沒整理的東西001.md",
     "研究資訊/論文章節相關筆記.md",
-    "研究資訊/數據資料庫來源.md",
-    "小工具/給ob的設定/為obesidan增加圖片雲端儲存庫.md",
-    "小工具/給ob的設定/obsidian相關備註.md",
-    "Mood Journal/2024.07.md",
-    "研究資訊/YT上面論文學習頻道.md",
-    "研究資訊/異常偵測：.md",
     "attachments/Pasted image 20240828162448.png",
-    "文獻閱讀/理解學習者對高沉浸式虛擬現實系統的接受度：來自確認性和探索性PLS-SEM分析的見解.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "統計跑法(好像還是不太整齊)/SPSS/05迴歸/調節效果/attachments/Pasted image 20240823142833.png",
     "統計跑法(好像還是不太整齊)/SPSS/05迴歸/調節效果/attachments/Pasted image 20240823141653.png",
@@ -205,7 +206,6 @@
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813152920.png",
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813134901.png",
     "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813144603.png",
-    "統計跑法(好像還是不太整齊)/SPSS/attachments/Pasted image 20240813134711.png",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
     "混合評估策略的應用：提升學生興趣與學習效果/混合評估策略的應用：提升學生興趣與學習效果.canvas",
