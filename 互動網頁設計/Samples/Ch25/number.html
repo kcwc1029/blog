@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@3"></script>	
+  </head>
+  <body>
+    <div id="app">
+      <p>數字1：<input type="text" v-model.number="num1"></p>
+	  <p>數字2：<input type="text" v-model.number="num2"></p>	  
+	  <p>數字1+數字2：{{ num1 + num2 }} </p>
+    </div>
+    <script src="number.js"></script>
+  </body>
+</html>

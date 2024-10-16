@@ -1,0 +1,42 @@
+﻿@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%; 
+  min-width: 600px; 
+  max-width: 960px;		
+  background: beige;
+  margin: 0 auto;
+}	
+header {
+  width: 100%;	  
+  background: #eaeaea;		
+}
+#one {	    	  
+  width: 32%;
+  height: 300px;		
+  background: hotpink;
+  margin-right: 2%;  
+  float: left;        
+}	  
+#two {        
+  width: 32%;
+  height: 300px;		
+  background: deepskyblue;    
+  margin-right: 2%;	
+  float: left;	  
+}
+#three {        	  
+  width: 32%;
+  height: 300px;
+  background: orange;		
+  float: right;
+}
+footer {
+  width: 100%;
+  background: #eaeaea;		
+  clear: both;        
+}	 	  
+

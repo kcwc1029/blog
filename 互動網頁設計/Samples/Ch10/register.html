@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="register.css">
+    <title>美化表格與表單範例</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>註冊表單</h1>
+      <form action="#" method="post">
+        <table>
+          <tr>
+            <th><label for="name">姓名</label></th>
+            <td><input type="text" id="name" name="name" size="30" required></td>
+          </tr>
+          <tr>
+            <th><label for="email">電子郵件</label></th>
+            <td><input type="email" id="email" name="email" size="30" required></td>
+          </tr>		  
+          <tr>
+            <th><label>性別</label></th>
+            <td>
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">男</label>
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">女</label>
+            </td>
+          </tr>
+        </table>
+        <button type="submit">送出</button>
+      </form>
+    </div>
+  </body>
+</html>

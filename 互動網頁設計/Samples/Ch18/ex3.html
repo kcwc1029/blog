@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+	<meta charset="UTF-8">
+  </head>
+  <body>
+	<form>
+	  <label for="input1">文字方塊1:</label>
+	  <input type="text" id="input1"><br><br>
+	  <label for="input2">文字方塊2:</label>
+	  <input type="text" id="input2"><br><br>
+	  <label for="input3">文字方塊3:</label>
+	  <input type="text" id="input3"><br><br>
+	  <label for="input4">文字方塊4:</label>
+	  <input type="text" id="input4">
+	</form>
+
+	<script>
+	  const inputs = document.querySelectorAll('input');
+	  inputs.forEach((input, index) => {
+		input.addEventListener('keydown', (event) => {
+		  if (event.key === 'Tab') {
+			event.preventDefault();
+			const nextIndex = (index + 1) % inputs.length;
+			inputs[nextIndex].focus();
+		  }
+		});
+	  });
+	</script>
+  </body>
+</html>

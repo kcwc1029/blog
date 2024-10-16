@@ -1,0 +1,103 @@
+﻿@charset "UTF-8";
+/* 手機版與共用樣式 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%; 
+  max-width: 960px;		
+  margin: 0 auto;  
+}
+
+header, nav, main, footer {
+  display: block; 
+  width: 96%;  
+  margin: 0 auto;  
+}
+
+header {
+  color: white;
+  background: seagreen;
+}
+
+nav > ul {
+  display: flex;
+  margin-top: 20px;
+}
+
+nav > ul > li {  
+  width: 75px;  
+  margin-right: 10px;
+  padding: 10px;  
+  list-style: none;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+nav > ul > li > a {
+  display: block;
+  text-align: center;  
+  text-decoration: none; 
+  color: black;  
+}	
+
+hr {  
+  border-top: 1px solid rgba(0,0,0,0.2);  
+  margin: 50px 0 20px;
+}
+
+#title1 {
+  margin: 10px;
+  padding: 10px;
+}
+
+#title2 {
+  text-align: center;
+  margin: 50px 0 20px;  
+}
+
+.gridcontainer {
+  display: grid; 
+  gap: 20px;
+  grid-template-columns: 1fr;
+}  
+
+.img-photo {  
+  max-width: 100%;
+  height: auto;
+}
+
+.a-detail {  
+  text-decoration: none; 
+  color: #0066ff;
+  font-weight: bold;
+}
+
+.a-about {
+  text-decoration: none; 
+  color: #000000;
+  padding: 20px 0;
+}
+	 
+.a-back {  
+  float: right;
+  text-decoration: none; 
+  color: #0066ff; 
+  font-family: "Arial";
+}	
+
+/* 平板電腦版樣式 (501px ~ 768px) */
+@media screen and (min-width: 501px) {
+  .gridcontainer {
+    grid-template-columns: 1fr 1fr;
+  }	  
+} 
+
+/* PC版樣式 (≧769px) */
+@media screen and (min-width: 769px) {
+  .gridcontainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }	
+}

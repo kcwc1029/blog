@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      var X = 'WowWowWowWowWow';
+	  var Y = 'Hello, world!';
+      // 顯示0 (首次出現的索引)
+	  document.write(X.indexOf('Wow') + '<br>');	
+	  // 顯示12 (最後出現的索引)
+      document.write(X.lastIndexOf('Wow') + '<br>');
+	  // 顯示true (包含 'ow')
+      document.write(X.includes('ow') + '<br>'); 
+      // 顯示false (不是以 'ow' 開頭)	  
+      document.write(X.startsWith('ow') + '<br>'); 	  
+	  // 顯示H (索引0為字母H)
+	  document.write(Y.charAt(0) + '<br>');
+	  // 顯示 ["Hell", ", w", "rld!"] (以 'o' 做分割)
+      document.write(Y.split('o') + '<br>');
+	  // 顯示llo (從索引2擷取3個字元)
+      document.write(Y.substr(2, 3) + '<br>');
+	  // 顯示ello (擷取索引1 ~ 4的字元)
+      document.write(Y.slice(1, 5) + '<br>');
+      // 顯示hello, world! (全部小寫)
+      document.write(Y.toLowerCase() + '<br>');	  
+    </script>
+  </head>
+</html>

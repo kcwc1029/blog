@@ -1,0 +1,10 @@
+﻿@charset "UTF-8";
+.container {
+  background: beige;	
+  display: grid;
+}
+.item {
+  background: cyan;
+  padding: 10px;
+}	  
+

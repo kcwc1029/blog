@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@3"></script>	
+  </head>
+  <body>
+    <div id="app">
+      <p>已婚：{{ married }} </p>
+      <input type="radio" id="yes" value="是" v-model="married">
+      <label for="yes">是</label>
+      <input type="radio" id="no" value="否" v-model="married">
+      <label for="no">否</label>
+    </div>
+    <script src="radio.js"></script>
+  </body>
+</html>

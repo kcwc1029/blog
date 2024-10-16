@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>快樂部落格</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+	  <!-- 頁首 -->
+      <header class="py-3 border-bottom">
+        <div class="row">
+          <div class="col-6">
+            <a href="#" class="fs-2 link-dark link-underline-opacity-0">快樂部落格</a>
+          </div>          
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <a href="#" class="link-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg></a>
+            <a href="#" class="btn btn-outline-secondary">登入</a>
+          </div>
+        </div>
+      </header>
+  
+      <!-- 導覽列 -->
+      <div class="py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+          <a href="#" class="nav-item nav-link link-body-emphasis">美食</a>
+          <a href="#" class="nav-item nav-link link-body-emphasis">影視</a>
+          <a href="#" class="nav-item nav-link link-body-emphasis">旅遊</a>
+          <a href="#" class="nav-item nav-link link-body-emphasis">健康</a>
+          <a href="#" class="nav-item nav-link link-body-emphasis">藝文</a>
+	      <a href="#" class="nav-item nav-link link-body-emphasis">親子</a>
+	      <a href="#" class="nav-item nav-link link-body-emphasis">家居</a>
+	      <a href="#" class="nav-item nav-link link-body-emphasis">美妝</a>
+	      <a href="#" class="nav-item nav-link link-body-emphasis">寵物</a>
+          <a href="#" class="nav-item nav-link link-body-emphasis">3C</a>      
+        </nav>
+      </div>
+  
+      <!-- 介紹區 -->
+      <div class="p-5 my-4 rounded text-body-emphasis bg-body-secondary">        
+        <h1 class="display-5 fst-italic">記錄一切美好的部落格</h1>
+        <p class="lead my-3">數十萬部落客真心推薦，充滿活力的創作園地、友善親切的操作介面，歡迎加入我們的行列！</p>        
+      </div>
+    </div>
+
+    <!-- 內容區 -->    
+    <div class="container">
+	  <h3>★熱門毛小孩精選★</h3>
+      <div class="row">		        
+		<!-- 文章 -->	 
+        <div class="col-md-8">		
+		  <!-- 第一張圖片 -->
+          <img src="pet1.png" class="img-fluid rounded my-2">
+		  <p>2023年12月by<a href="#">星野愛</a></p>
+          <p>灰白色的貓咪悠閒地趴在晴朗的沙灘上，陽光灑在牠柔軟的毛皮上，看起來格外絲滑柔順。貓咪的身體微微蜷曲，呈現出極度的放鬆，彷彿整個世界都停滯了，讓人感受到寧靜而愜意的氛圍。</p>
+          <hr>
+	      <!-- 第二張圖片 -->
+		  <img src="pet2.png" class="img-fluid rounded my-2">
+		  <p>2023年12月by<a href="#">阿葵亞</a></p>
+          <p>在廣闊的綠色草地上，一隻迷人的博美狗正盡情奔跑。牠的毛皮如絲般柔軟，如陽光下的黃金閃爍。博美狗的小耳朵飛揚著，像是在聆聽大自然的歌聲。牠的舌頭嘖嘖作響，透露出純粹的快樂和自由。</p>
+          <hr>		  		  
+          <!-- 上一篇、下一篇按鈕 -->		  
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="#" class="btn btn-outline-primary rounded-pill">上一篇</a></li>
+            <li class="list-inline-item"><a href="#" class="btn btn-outline-primary rounded-pill">下一篇</a></li>
+          </ul>          
+        </div>
+        
+		<!-- 側邊欄 -->
+        <div class="col-md-3 offset-md-1">
+          <!-- 第一個卡片 -->
+          <div class="card text-dark bg-light mb-4">
+            <div class="card-header">關於我們</div>
+            <div class="card-body">               
+              <p class="card-text">這是由一群愛吃、愛玩、愛生活、愛分享的部落客所組成的部落格，專門特搜好吃好玩的美食、景點與生活點滴，也歡迎同好與我們一起分享！</p>    
+            </div>
+          </div> 			  
+          <!-- 第二個卡片 -->
+          <div class="card text-dark bg-light mb-4">
+            <div class="card-header">美食推薦</div>
+            <div class="card-body">               
+              <ul class="list-unstyled">
+                <li><a href="#">島嶼法式海鮮</a></li>
+                <li><a href="#">法國的秘密甜點</a></li>               
+                <li><a href="#">興波咖啡</a></li>
+                <li><a href="#">平安京茶事</a></li>
+                <li><a href="#">凱蒂小姐的甜點</a></li>                
+                <li><a href="#">望月樓</a></li>                
+                <li><a href="#">Fogant法式餐廳</a></li>
+              </ul>			  
+            </div>
+		  </div>  
+          <!-- 第三個卡片 -->
+          <div class="card text-dark bg-light mb-4">
+            <div class="card-header">廣告連結</div>
+            <div class="card-body">               
+              <ul class="list-unstyled">
+                <li><a href="#">廣告連結1</a></li>
+                <li><a href="#">廣告連結2</a></li>
+                <li><a href="#">廣告連結3</a></li>               
+              </ul>			  
+            </div>
+		  </div>  
+        </div>       
+      </div>
+    </div>
+	
+    <!-- 頁尾 -->
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>&copy;2023快樂媒體公司提供&middot;<a href="#">隱私權政策</a>&middot;<a href="#">服務條款</a></p>
+      <p class="mb-0"><a href="#">Back to top</a></p>
+    </footer>	
+  </body>
+</html>

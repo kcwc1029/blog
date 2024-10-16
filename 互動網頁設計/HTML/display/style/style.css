@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body table thead {
+  background-color: deepskyblue;
+}
+body table tbody {
+  background-color: rgb(141, 155, 236);
+}/*# sourceMappingURL=style.css.map */

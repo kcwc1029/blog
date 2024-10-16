@@ -1,0 +1,115 @@
+﻿@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 40px;
+  padding: 10px;
+  background: royalblue;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.menu > li {
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 100%;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar, .bar::before, .bar::after {
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 2px;
+  display: block;  
+  position: absolute;  
+  transition: transform 300ms;
+}
+
+.bar::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.bar::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#hamburger {
+  display: none;
+}
+
+#hamburger:checked + .hamburger-icon .bar::before {
+  margin-top: 0;
+  transform: rotate(45deg);
+}
+  
+#hamburger:checked + .hamburger-icon .bar {
+  background-color: rgba(255, 255, 255, 0);
+}
+  
+#hamburger:checked + .hamburger-icon .bar::after {
+  margin-top: 0;
+  transform: rotate(-45deg);
+}
+
+/* 可視區域小於等於768px的樣式 */
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: flex;
+  }
+  
+  .menu {
+    width: 100%;
+    margin-top: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .menu > li {
+    width: 100%;
+    margin: 0;    
+    background: black;
+    color: white;
+    text-align: center;
+  }  
+  
+  #hamburger ~ .menu li {
+    height: 0;
+    padding: 0;
+    border-bottom: 0;
+    transition: 300ms;
+  }
+  
+  #hamburger:checked ~ .menu li {
+    height: 20px;
+    padding: 15px 0;	
+    border-bottom: 1px solid #777777;
+    transition: 300ms;
+  }
+}
