@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+	  div {	    
+	    width: 300px;
+		height: 150px;
+		border: green solid 1px;
+		overflow: scroll;
+	    background-image: url(pic.jpg);        		
+	  }
+	  #one {background-attachment: scroll;}
+	  #two {background-attachment: fixed;}
+	  #three {background-attachment: local;}
+      p {white-space: pre-line;}      
+    </style>
+  </head>
+  <body>
+    <h3>scroll</h3>
+    <div id="one">    
+	  <h1>妹妹背著洋娃娃</h1>
+      <p>妹妹背著洋娃娃
+         走到花園來看花
+         娃娃哭了叫媽媽
+         樹上小鳥笑哈哈</p>
+    </div>
+	<h3>fixed</h3>
+    <div id="two">    
+	  <h1>妹妹背著洋娃娃</h1>
+      <p>妹妹背著洋娃娃
+         走到花園來看花
+         娃娃哭了叫媽媽
+         樹上小鳥笑哈哈</p>
+    </div>
+    <h3>local</h3>
+	<div id="three">    
+	  <h1>妹妹背著洋娃娃</h1>
+      <p>妹妹背著洋娃娃
+         走到花園來看花
+         娃娃哭了叫媽媽
+         樹上小鳥笑哈哈</p>
+    </div>	
+  </body>
+</html>

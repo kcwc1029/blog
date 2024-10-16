@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="ress.css">
+    <link rel="stylesheet" href="custom.css">
+    <title>自訂表單</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>聯絡我們</h1>
+      <form class="custom-form">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="name" required>            
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>            
+        <label for="msg">訊息</label>
+        <textarea id="msg" name="msg" rows="4" required></textarea>            
+        <button type="submit">送出</button>
+      </form>
+    </div>
+  </body>
+</html>

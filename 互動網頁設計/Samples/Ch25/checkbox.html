@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@3"></script>	
+  </head>
+  <body>
+    <div id="app">
+      <p>興趣(可複選)：{{ interest }} </p>
+      <input type="checkbox" id="item1" value="閱讀" v-model="interest">
+      <label for="item1">閱讀</label>
+      <input type="checkbox" id="item2" value="運動" v-model="interest">
+      <label for="item2">運動</label>
+	  <input type="checkbox" id="item3" value="園藝" v-model="interest">
+      <label for="item3">園藝</label>
+    </div>
+    <script src="checkbox.js"></script>
+  </body>
+</html>

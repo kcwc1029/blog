@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>快樂旅遊</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">快樂旅遊</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
+          <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbar1">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">機票</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">訂房</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">團體</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">國內旅遊</a>
+                <a class="dropdown-item" href="#">國外旅遊</a>
+              </div>
+            </li>
+          </ul>		  
+		  <form class="d-flex">
+      		<input class="form-control me-2" type="search" placeholder="輸入景點">
+      		<button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+	<!-- 輪播 -->
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- 輪播指示 -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <!-- 輪播內容 -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="tour1.jpg" class="d-block w-100" alt="合掌村">
+          <div class="carousel-caption">
+            <h5>超值行程－日本白川鄉合掌村</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="tour2.jpg" class="d-block w-100" alt="貝維德雷宮">
+          <div class="carousel-caption">
+            <h5>超值行程－奧地利貝維德雷宮</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="tour3.jpg" class="d-block w-100" alt="布拉格">
+          <div class="carousel-caption">
+            <h5>超值行程－捷克布拉格</h5>
+          </div>
+        </div>
+      </div>
+      <!-- 輪播控制 -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" 
+        data-bs-slide="prev"><span class="carousel-control-prev-icon"></span> 
+        <span class="visually-hidden">Previous</span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" 
+        data-bs-slide="next"><span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span></button>
+    </div>
+
+    <!-- 內容區 -->
+    <div class="container-fluid mt-3">
+      <!-- 三個警報效果 -->
+	  <div class="alert alert-primary" role="alert">
+        <a href="#" class="alert-link"><strong>關西小小兵！</strong></a>環球影城、哈利波特、星光派對五日！
+      </div>
+      <div class="alert alert-secondary" role="alert">
+        <a href="#" class="alert-link"><strong>沖繩五星！</strong></a>海洋博公園、玉泉王國村、五星住宿四日！
+      </div>
+      <div class="alert alert-danger" role="alert">
+        <a href="#" class="alert-link"><strong>消暑一起GO！</strong></a>峇里島五日遊四人同行一人免費！
+      </div>
+	  
+      <!-- 四個卡片 -->
+	  <div class="row">
+        <div class="col-sm-6 col-md-3">
+		  <div class="card mb-3">
+            <img class="card-img-top" src="photo1.jpg">            
+            <div class="card-body">
+              <h5 class="card-title">暑假暢遊東京</h5>
+              <p class="card-text">暢遊東京迪士尼樂園、三鷹宮崎駿美術館、箱根海盜船、台場購物趣五日！</p>
+			  <a href="#" class="btn btn-primary">詳細資料</a>
+            </div>
+		  </div>
+        </div>
+         <div class="col-sm-6 col-md-3">
+		  <div class="card mb-3">
+            <img class="card-img-top" src="photo2.jpg">            
+            <div class="card-body">
+              <h5 class="card-title">純淨瑞士深呼吸</h5>
+              <p class="card-text">白朗峰、少女峰、孤傲的山王－馬特洪峰、三大景觀列車、小鎮馬車遊十日！</p>
+			  <a href="#" class="btn btn-primary">詳細資料</a>
+            </div>
+		  </div>
+        </div>		
+        <div class="col-sm-6 col-md-3">
+		  <div class="card mb-3">
+            <img class="card-img-top" src="photo3.jpg">            
+            <div class="card-body">
+              <h5 class="card-title">九州鐵道旅行</h5>
+              <p class="card-text">由布院之森列、豪斯登堡、湯布院、夢天空步道、別府空中纜車、雙溫泉五日！</p>            
+			  <a href="#" class="btn btn-primary">詳細資料</a>
+            </div>
+          </div>		  
+		</div>
+		<div class="col-sm-6 col-md-3">
+		  <div class="card mb-3">
+            <img class="card-img-top" src="photo4.jpg">            
+            <div class="card-body">
+              <h5 class="card-title">夏戀北海道</h5>
+              <p class="card-text">花現富良野、函館小樽情、星野度假村、浪漫水之教堂、三大蟹吃到飽五日！</p>
+              <a href="#" class="btn btn-primary">詳細資料</a>			  
+            </div>
+          </div>		  
+		</div>
+      </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="container-fluid">
+      <hr>		
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2023快樂旅遊公司 &middot; <a href="#">隱私權</a> &middot; <a href="#">聯絡我們</a></p>
+    </footer>	
+  </body>
+</html>

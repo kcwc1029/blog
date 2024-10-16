@@ -1,0 +1,29 @@
+﻿@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%; 
+  min-width: 600px; 
+  max-width: 960px;		
+  background: beige;
+  margin: 0 auto;
+}	
+header {
+  width: 100%;	  
+  background: #eaeaea;		
+}
+footer {
+  width: 100%;	  
+  background: #eaeaea;		
+}
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  
+  grid-template-rows: 150px 150px 150px;
+  gap: 20px;
+}	
+.griditem {	      	    
+  background: lightgreen;  
+}	 	  

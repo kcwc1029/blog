@@ -1,0 +1,11 @@
+﻿@charset "UTF-8";
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.item {
+  background: cyan;
+  padding: 10px;
+  margin: 10px;
+}	  
+

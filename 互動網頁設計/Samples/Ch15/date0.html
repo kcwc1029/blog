@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">    
+  </head>
+  <body>
+    <script>
+	  let dt1 = new Date();
+      let dt2 = new Date('November 26, 1989 02:30:00');
+      let dt3 = new Date('1989-11-26T02:30:00');
+      let dt4 = new Date(1989, 10, 26, 2, 30, 0);
+      let dt5 = new Date(1989, 10, 26);
+	  let dt6 = new Date(628021800000);
+
+      let dt7 = new Date();			// 建立一個名稱為dt6的Date物件
+      dt7.setFullYear(1989);		// 將年份設定為1989年
+	  dt7.setMonth(10);				// 將月份設定為11月
+	  dt7.setDate(26);				// 將日期設定為26日      
+      dt7.setHours(2);				// 將小時設定為2點
+      dt7.setMinutes(30);			// 將分鐘設定為30分
+      dt7.setSeconds(0);			// 將秒數設定為0秒
+      
+	  document.write("dt1的日期時間為" + dt1 + "<br>");
+	  document.write("dt2的日期時間為" + dt2 + "<br>");
+	  document.write("dt3的日期時間為" + dt3 + "<br>");
+	  document.write("dt4的日期時間為" + dt4 + "<br>");
+	  document.write("dt5的日期時間為" + dt5 + "<br>");
+	  document.write("dt6的日期時間為" + dt6 + "<br>");
+	  document.write("dt7的日期時間為" + dt7);
+    </script>
+  </body>
+</html>

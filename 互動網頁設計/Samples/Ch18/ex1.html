@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" onmouseover="changeColor(this)" onmouseout="changeColor(this)"></div>  
+    <script>
+	  function changeColor(elem) {
+        if (elem.style.backgroundColor === 'red') {
+          elem.style.backgroundColor = 'blue';
+        }
+        else {
+          elem.style.backgroundColor = 'red';
+        }
+      }
+	</script>
+  </body>
+</html>
