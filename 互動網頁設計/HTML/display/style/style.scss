@@ -1,15 +1,22 @@
+@charset "UTF-8"
 *{
     box-sizing: border-box;
-    // margin: 0;
-    // padding: 0;
+    margin: 0;
+    padding: 0;
 }
-body{
-    table{
-        thead{
-            background-color: deepskyblue
+
+body {
+    p {
+        /* 針對 <p> 元素中的 <a> 標籤設置樣式 */
+        a:link {
+            color: black;
         }
-        tbody{
-            background-color: rgb(141, 155, 236)
+        a:visited {
+            color: red;
         }
-    };
+        a:hover {
+            background: lightblue;
+        }
+    }
+    
 }

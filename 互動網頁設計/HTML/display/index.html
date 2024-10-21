@@ -1,17 +1,56 @@
+<!-- 示範代碼 -->
 <!DOCTYPE html>
 <html lang="en">
 <head> 
     <meta charset="UTF-8">  
     <base href="/display/index.html">
-    <link rel="stylesheet" href="style/style.css">
     <title>互動網頁設計</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        table{
+            border: 2px solid red;
+            border-collapse: collapse;
+            caption{
+                caption-side: bottom;
+            }
+            th{
+                border: 2px solid black;
+                background-color: lightskyblue;
+            }
+            td{
+                border: 2px solid black;
+                background-color: lightcyan;
+            }
+        }
+        
+    </style>
 </head>
-<body> 
-    <ul>
-        <li><a href="http://www.es.ncku.edu.tw/esncku/zh/" target="_blank"></a>連結到工科網頁</li>
-        <li><a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2
-            Freg-acad.ncku.edu.tw%2Fvar%2Ffile%2F41%2F1041%2Fimg%2F2825%2Frest.
-            doc&wdOrigin=BROWSELINK" download>退學申請單</a></li>
-    </ul>
+<body>
+    <table>
+        <caption>表格標題</caption>
+        <tr>
+            <th>圖片</th>
+            <th>名稱</th>
+        </tr>
+        <tr>
+            <td><img src="./img/角色-兔兔.png" alt="" width="200"></td>
+            <td>兔兔</td>
+        </tr>
+        <tr>
+            <td><img src="./img/角色-吉伊卡哇.png" alt="" width="200"></td>
+            <td>吉伊卡哇</td>
+        </tr>
+        <tr>
+            <td><img src="./img/角色-小八貓.png" alt="" width="200"></td>
+            <td>小八貓</td>
+        </tr>
+        <tr>
+            <td><img src="./img/角色-小桃鼠.png" alt="" width="200"></td>
+            <td>小桃鼠</td>
+        </tr>
+    </table>
 </body>
 </html>

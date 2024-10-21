@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "互動網頁設計/HTML/HTML5.md",
+                "file": "互動網頁設計/HTML/CSS.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "互動網頁設計/HTML/HTML5.md",
+                "file": "互動網頁設計/HTML/CSS.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "互動網頁設計/HTML/HTML5.md",
+                "file": "互動網頁設計/HTML/CSS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/HTML/HTML5.md"
+                "file": "互動網頁設計/HTML/CSS.md"
               }
             }
           }
@@ -147,17 +147,22 @@
   },
   "active": "fd80f7ae026b76d9",
   "lastOpenFiles": [
-    "互動網頁設計/TailwindCSS/pptA379.tmp",
-    "互動網頁設計/HTML/ppt2738.tmp",
-    "互動網頁設計/Samples/Ch25/vshow.js",
-    "互動網頁設計/Samples/Ch25/vshow.html",
-    "互動網頁設計/Samples/Ch25/vif.js",
-    "互動網頁設計/Samples/Ch25/vif.html",
-    "互動網頁設計/Samples/Ch25/vfor5.js",
-    "互動網頁設計/Samples/Ch25/vfor5.html",
-    "互動網頁設計/Samples/Ch25/vfor4.js",
-    "互動網頁設計/Samples/Ch25/vfor3.js",
-    "互動網頁設計/Samples/Ch25/vfor4.html",
+    "Python/2024計算機概論/calculator.py",
+    "Python/2024計算機概論/__pycache__/greet.cpython-312.pyc",
+    "Python/2024計算機概論/greet.py",
+    "Python/2024計算機概論/__pycache__/make_band.cpython-312.pyc",
+    "Python/2024計算機概論/make_band.py",
+    "Python/2024計算機概論/__pycache__/make_food.cpython-312.pyc",
+    "Python/2024計算機概論/__pycache__",
+    "Python/2024計算機概論/make_food.py",
+    "Python/2024計算機概論/【module & package】.ipynb",
+    "Python/2024計算機概論/【module & package】.pynb",
+    "Python/test.py",
+    "互動網頁設計/HTML/attachments/Pasted image 20241019154014.png",
+    "互動網頁設計/HTML/demo04_z-index/img/吉伊卡哇.jpg",
+    "互動網頁設計/HTML/demo03_float/img/吉伊卡哇.jpg",
+    "互動網頁設計/HTML/HTML5.md",
+    "互動網頁設計/HTML/CSS.md",
     "互動網頁設計/Samples/Ch25/rose.jpg",
     "互動網頁設計/Samples/Ch24/Tulips.jpg",
     "互動網頁設計/Samples/Ch24/boy.png",
@@ -165,11 +170,7 @@
     "互動網頁設計/Samples/Ch21/tour3.jpg",
     "互動網頁設計/Samples/Ch21/tour1.jpg",
     "互動網頁設計/Samples/Ch21/H.png",
-    "互動網頁設計/Samples/Ch21/flower2.jpg",
-    "互動網頁設計/Samples/Ch21/g1.png",
-    "互動網頁設計/Samples/Ch21/flower1.jpg",
     "互動網頁設計/CSS/SASS.md",
-    "互動網頁設計/HTML/HTML5.md",
     "互動網頁設計/HTML/SASS.md",
     "Arduino/【使用pyserial 和 Firmata 協議來控制 Arduino 上的 LED】.md",
     "Python/2024計算機概論/SASS.md",
@@ -192,7 +193,6 @@
     "C/String.md",
     "C/【array】.md",
     "C/【string】.md",
-    "C/運算式、運算子、流程控制、迴圈.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
