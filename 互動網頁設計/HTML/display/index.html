@@ -1,56 +1,46 @@
-<!-- 示範代碼 -->
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <meta charset="UTF-8">  
-    <base href="/display/index.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/demo05_flexbox/">
     <title>互動網頁設計</title>
-    <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        table{
-            border: 2px solid red;
-            border-collapse: collapse;
-            caption{
-                caption-side: bottom;
-            }
-            th{
-                border: 2px solid black;
-                background-color: lightskyblue;
-            }
-            td{
-                border: 2px solid black;
-                background-color: lightcyan;
-            }
-        }
-        
-    </style>
 </head>
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100%;
+        background-color: #c7ffcf;
+    }
+    header{
+        width: 100%;
+        background-color: #5370d0;
+    }
+    .container{
+        display: flex;
+        justify-content: space-around;
+    }
+    .item{
+        background-color: rgb(162, 221, 246); 
+        height: 10rem;       
+        width: 30%;
+    }
+    footer{
+        width: 100%;
+        background-color: #5370d0;
+    }
+</style>
 <body>
-    <table>
-        <caption>表格標題</caption>
-        <tr>
-            <th>圖片</th>
-            <th>名稱</th>
-        </tr>
-        <tr>
-            <td><img src="./img/角色-兔兔.png" alt="" width="200"></td>
-            <td>兔兔</td>
-        </tr>
-        <tr>
-            <td><img src="./img/角色-吉伊卡哇.png" alt="" width="200"></td>
-            <td>吉伊卡哇</td>
-        </tr>
-        <tr>
-            <td><img src="./img/角色-小八貓.png" alt="" width="200"></td>
-            <td>小八貓</td>
-        </tr>
-        <tr>
-            <td><img src="./img/角色-小桃鼠.png" alt="" width="200"></td>
-            <td>小桃鼠</td>
-        </tr>
-    </table>
+    <header><h1>header</h1></header>
+    <div class="container">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+    </div>
+    <footer><h1>footer</h1></footer>
 </body>
 </html>
