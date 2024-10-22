@@ -530,7 +530,6 @@ p {
 body{
    position: relative;	
 }
-
 .box-1{
 }
 .box-2{
@@ -899,7 +898,7 @@ body{
 ## CSS版面設計
 
 ### 彈性盒子版面(flexbox)
-- 原則：,就是在HTML文件中建立一個稱為Flex Container(彈性容器)的父元素，然後在父元素中放入一個或多個稱為Flex Item(彈性項目)的子元素。
+- 原則：就是在HTML文件中建立一個稱為Flex Container(彈性容器)的父元素，然後在父元素中放入一個或多個稱為Flex Item(彈性項目)的子元素。
 - 在設定flex後，預設會是由左向右排
 - 設定方式：display: flex
 ![upgit_20241019_1729323710.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241019_1729323710.png)
@@ -1054,7 +1053,7 @@ body{
     - 瀏覽器會根據螢幕自動調整內容。
     - 維護簡單，因為只需管理一份網站。
     - 能夠節省伺服器資源與更新成本。
-- RWD優缺點：
+- RWD缺點：
     - 在舊版瀏覽器或不支持HTML5和CSS3的環境中，響應式網頁可能出現問題。
     - 設計與測試需要考慮不同的裝置尺寸與解析度。
 - 響應式網頁設計的技術
@@ -1127,7 +1126,7 @@ body{
 </html>
 ```
 
-#### 手機、平板、電腦螢幕查詢
+#### 螢幕方向查詢
 ![upgit_20241019_1729330039.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241019_1729330039.png)
 ![upgit_20241019_1729330047.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241019_1729330047.png)
 

@@ -1,19 +1,28 @@
 @charset "UTF-8";
-* {
+*{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body p {
-  /* 針對 <p> 元素中的 <a> 標籤設置樣式 */
+/* 假設你有以下兩個樣式對 `<p>` 元素設定顏色： */
+p {
+  color: blue;
 }
-body p a:link {
-  color: black;
+
+p {
+  color: red !important;
 }
-body p a:visited {
-  color: red;
+/* 
+在這種情況下，即使正常情況下第二個 `color: red;` 應該被覆蓋，
+因為它加了 `!important`，最終 `<p>` 的文字會顯示為紅色，而不是藍色。 
+*/
+
+
+body{
+  position: relative;	
 }
-body p a:hover {
-  background: lightblue;
-}/*# sourceMappingURL=style.css.map */
+.box-2{
+  position: absolute;
+  left: 100px;
+}

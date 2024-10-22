@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.5
+    "width": 263.5,
+    "collapsed": true
   },
   "right": {
     "id": "79307622f03786a1",
@@ -134,7 +135,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -147,17 +149,18 @@
   },
   "active": "fd80f7ae026b76d9",
   "lastOpenFiles": [
-    "Python/2024計算機概論/calculator.py",
-    "Python/2024計算機概論/__pycache__/greet.cpython-312.pyc",
-    "Python/2024計算機概論/greet.py",
-    "Python/2024計算機概論/__pycache__/make_band.cpython-312.pyc",
-    "Python/2024計算機概論/make_band.py",
-    "Python/2024計算機概論/__pycache__/make_food.cpython-312.pyc",
-    "Python/2024計算機概論/__pycache__",
-    "Python/2024計算機概論/make_food.py",
-    "Python/2024計算機概論/【module & package】.ipynb",
-    "Python/2024計算機概論/【module & package】.pynb",
-    "Python/test.py",
+    "互動網頁設計/CSS/pptE27.tmp",
+    "互動網頁設計/CSS/pptA2E.tmp",
+    "互動網頁設計/CSS/pptAF4B.tmp",
+    "互動網頁設計/CSS/ppt1F9D.tmp",
+    "互動網頁設計/CSS/ppt9994.tmp",
+    "互動網頁設計/CSS/ppt7E2B.tmp",
+    "互動網頁設計/CSS/ppt355E.tmp",
+    "互動網頁設計/CSS/ppt941C.tmp",
+    "互動網頁設計/CSS/ppt6598.tmp",
+    "互動網頁設計/CSS/ppt11D9.tmp",
+    "互動網頁設計/CSS/pptA505.tmp",
+    "互動網頁設計/HTML/attachments/Pasted image 20241022142858.png",
     "互動網頁設計/HTML/attachments/Pasted image 20241019154014.png",
     "互動網頁設計/HTML/demo04_z-index/img/吉伊卡哇.jpg",
     "互動網頁設計/HTML/demo03_float/img/吉伊卡哇.jpg",
@@ -169,7 +172,6 @@
     "互動網頁設計/Samples/Ch21/tour2.jpg",
     "互動網頁設計/Samples/Ch21/tour3.jpg",
     "互動網頁設計/Samples/Ch21/tour1.jpg",
-    "互動網頁設計/Samples/Ch21/H.png",
     "互動網頁設計/CSS/SASS.md",
     "互動網頁設計/HTML/SASS.md",
     "Arduino/【使用pyserial 和 Firmata 協議來控制 Arduino 上的 LED】.md",
