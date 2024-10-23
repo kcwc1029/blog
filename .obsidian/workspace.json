@@ -11,8 +11,12 @@
             "id": "6b94bd8fef7c546d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.5,
-    "collapsed": true
+    "width": 263.5
   },
   "right": {
     "id": "79307622f03786a1",
@@ -82,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "互動網頁設計/Bootstrap/Bootstrap.md"
+              }
             }
           }
         ],
@@ -127,8 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -141,19 +147,21 @@
   },
   "active": "6b94bd8fef7c546d",
   "lastOpenFiles": [
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/column位移.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/列的垂直對齊方式.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/欄的水平對齊方式 copy.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/欄的水平對齊方式.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container03.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container02 copy.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container02.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container01 copy.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container01.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/示範container.html",
+    "互動網頁設計/理論課上的小demo/demo08_bootstrap/index.html",
+    "互動網頁設計/Bootstrap/Bootstrap.md",
     "互動網頁設計/CSS/CSS.md",
     "互動網頁設計/HTML/CSS.md",
     "互動網頁設計/理論課上的小demo/demo03_float/img/吉伊卡哇.jpg",
-    "互動網頁設計/理論課上的小demo/demo03_float/index.html",
-    "互動網頁設計/理論課上的小demo/demo03_float/img",
-    "互動網頁設計/理論課上的小demo/demo03_float",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構/style/style.scss",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構/style/style.css.map",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構/style/style.css",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構/style",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構/index.html",
-    "互動網頁設計/理論課上的小demo/demo01_展示語意結構",
-    "互動網頁設計/理論課上的小demo/display/style/style.css.map",
     "互動網頁設計/理論課上的小demo/display/img/角色-小八貓.png",
     "互動網頁設計/理論課上的小demo/display/img/角色-小桃鼠.png",
     "互動網頁設計/理論課上的小demo/display/img/角色-吉伊卡哇.png",
@@ -185,8 +193,6 @@
     "C/課程分配.md",
     "資料結構/array.md",
     "C/String.md",
-    "C/【array】.md",
-    "C/【string】.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
