@@ -28,7 +28,41 @@
 </html>
 ```
 
-## 使用Bootstrap網格系統
+## color
+- 【參考】[Color · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/customize/color/)
+- Bootstrap 提供一個擴展的顏色系統，讓開發者可以自訂樣式和元件。主要的主題顏色包括 **Primary**、**Secondary**、**Success**、**Danger**、**Warning**、**Info**、**Light**、**Dark** 等。
+- Bootstrap 也提供像 `.bg-primary` 和 `.text-danger` 讓開發者快速套用背景和文字顏色。
+
+![upgit_20241023_1729685304.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729685304.png)
+
+
+![upgit_20241023_1729692029.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729692029.png)
+
+![upgit_20241023_1729692042.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729692042.png)
+
+
+## 斷點(breakpoint)
+- 【參考】[Breakpoints · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/layout/breakpoints/)
+- 斷點的目標是行動優先與響應式設計，使用最少的樣式讓最小斷點能夠運作，然後逐漸調整樣式以適用於較大的裝置。
+
+| 斷點                | 類別前置詞 | 可視區域的寬度  |
+| ----------------- | ----- | -------- |
+| Extra small       |       | <576px   |
+| Small             | sm    | ≥ 576px  |
+| Medium            | md    | ≥ 768px  |
+| Large             | lg    | ≥ 992px  |
+| Extra large       | xl    | ≥ 1200px |
+| Extra extra large | xxl   | ≥ 1400px |
+
+## 容器(container)
+- 【參考】[Containers · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/layout/containers/)
+- 是Bootstrap最基本的版面配置元素，可以讓網格系統的列與欄保持適當的邊界和留白。
+- `.container`, which sets a `max-width` at each responsive breakpoint
+- `.container-{breakpoint}`, which is `width: 100%` until the specified breakpoint
+-  `.container-fluid`, which is `width: 100%` at all breakpoints
+![upgit_20241024_1729739486.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729739486.png)
+
+## grid
 - Bootstrap提供一個網格系統(gird system)，讓使用者藉此開發適應不同裝置的網頁，達到響應式網頁設計的目的。
 - Bootstrap網格系統是透過橫向的row(列)和直向的column(行)來設計網頁版面。
 - 它將網頁寬度平均分割為12等分，稱為12個column。
@@ -61,30 +95,7 @@
 ![upgit_20241023_1729681349.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729681349.png)
 	
 
-### 處理prettier
-- [導入 Prettier - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天 (ithome.com.tw)](https://ithelp.ithome.com.tw/articles/10205684)
-- [如何在 Visual Studio Code 中使用 Prettier (freecodecamp.org)](https://www.freecodecamp.org/chinese/news/how-to-use-prettier-in-visual-studio-code/)
-
-## 斷點(breakpoint)
-- 斷點的目標是行動優先與響應式設計，使用最少的樣式讓最小斷點能夠運作，然後逐漸調整樣式以適用於較大的裝置。
-
-| 斷點                | 類別前置詞 | 可視區域的寬度  |
-| ----------------- | ----- | -------- |
-| Extra small       |       | <576px   |
-| Small             | sm    | ≥ 576px  |
-| Medium            | md    | ≥ 768px  |
-| Large             | lg    | ≥ 992px  |
-| Extra large       | xl    | ≥ 1200px |
-| Extra extra large | xxl   | ≥ 1400px |
-
-## 容器(container)
-- 是Bootstrap最基本的版面配置元素，可以讓網格系統的列與欄保持適當的邊界和留白。
-- .container:根據不同的響應式斷點變更最大容器寬度。
-- .container-fluid:容器寬度是可視區域的100%寬度，兩側沒有留白。
-- .container-{breakpoint}:容器寬度是可視區域的100%寬度，直到超過指定的斷點，兩側才會有留白。
-
-- 可以查看示範container01-03.html
-
+## columns
 ### 欄的水平對其方式
 - 我們可以使用.justify-content -* 類別設定欄的水平對齊方式
 ![upgit_20241023_1729683924.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729683924.png)
@@ -106,9 +117,114 @@
 ![upgit_20241023_1729684619.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729684619.png)
 
 
-## color
-- 【參考】[Color · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/customize/color/)
-- Bootstrap 提供一個擴展的顏色系統，讓開發者可以自訂樣式和元件。主要的主題顏色包括 **Primary**、**Secondary**、**Success**、**Danger**、**Warning**、**Info**、**Light**、**Dark** 等。
-- Bootstrap 也提供像 `.bg-primary` 和 `.text-danger` 讓開發者快速套用背景和文字顏色。
+### gutters、padding、margine
+- Bootstrap 的 **gutters** 是欄位之間的間距，主要透過欄位的水平（`gx-*`）和垂直（`gy-*`）間距進行控制。
+- 預設為 1.5rem (24px)，並可依據響應式需求調整。你可以使用 `.g-*` 同時設定水平與垂直的間距。
+- 要完全移除 gutters，可以使用 `.g-0`，使欄位無縫對接。
 
-![upgit_20241023_1729685304.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729685304.png)
+
+## Image
+- 【參考】[Images · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/content/images/)
+- 響應式圖片(Responsive images)：`class="img-fluid"`，相當於`max-width: 100%; height: auto;`。
+- Image thumbnails：相當於給圖片一個1px的邊框。
+![upgit_20241023_1729693691.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729693691.png)
+- 文繞圖效果
+![upgit_20241023_1729693944.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729693944.png)
+
+![upgit_20241023_1729693927.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729693927.png)
+
+## table
+[Tables · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/content/tables/)
+- 處理表格顏色
+```html
+<!-- On tables -->
+<table class="table-primary">...</table>
+<table class="table-secondary">...</table>
+<table class="table-success">...</table>
+<table class="table-danger">...</table>
+<table class="table-warning">...</table>
+<table class="table-info">...</table>
+<table class="table-light">...</table>
+<table class="table-dark">...</table>
+
+<!-- On rows -->
+<tr class="table-primary">...</tr>
+<tr class="table-secondary">...</tr>
+<tr class="table-success">...</tr>
+<tr class="table-danger">...</tr>
+<tr class="table-warning">...</tr>
+<tr class="table-info">...</tr>
+<tr class="table-light">...</tr>
+<tr class="table-dark">...</tr>
+
+<!-- On cells (`td` or `th`) -->
+<tr>
+  <td class="table-primary">...</td>
+  <td class="table-secondary">...</td>
+  <td class="table-success">...</td>
+  <td class="table-danger">...</td>
+  <td class="table-warning">...</td>
+  <td class="table-info">...</td>
+  <td class="table-light">...</td>
+  <td class="table-dark">...</td>
+</tr>
+```
+- 相間顏色：`.table-striped`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 處理prettier
+- [導入 Prettier - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天 (ithome.com.tw)](https://ithelp.ithome.com.tw/articles/10205684)
+- [如何在 Visual Studio Code 中使用 Prettier (freecodecamp.org)](https://www.freecodecamp.org/chinese/news/how-to-use-prettier-in-visual-studio-code/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
