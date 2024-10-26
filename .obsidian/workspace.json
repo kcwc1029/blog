@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
+                "file": "互動網頁設計/JavaScript/JavaScript.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
+                "file": "互動網頁設計/JavaScript/JavaScript.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "互動網頁設計/Bootstrap/Bootstrap.md",
+                "file": "互動網頁設計/JavaScript/JavaScript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/Bootstrap/Bootstrap.md"
+                "file": "互動網頁設計/JavaScript/JavaScript.md"
               }
             }
           }
@@ -147,29 +147,30 @@
   },
   "active": "6b94bd8fef7c546d",
   "lastOpenFiles": [
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured01.jpg.crdownload",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured04.jpg",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured04.jpg.crdownload",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured03.jpg",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured03.jpg.crdownload",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured02.jpg",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured02.jpg.crdownload",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/featured01.jpg",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img/img01.jpg",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/img",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog/index.html",
-    "互動網頁設計/Bootstrap/bootstrap_demo01_blog",
-    "互動網頁設計/Bootstrap/bootstrap_demo01",
-    "互動網頁設計/理論課上的小demo/demo08_bootstrap/table.html",
-    "互動網頁設計/理論課上的小demo/demo08_bootstrap/grid.html",
-    "互動網頁設計/理論課上的小demo/demo08_bootstrap/img/吉伊卡哇.jpg",
-    "互動網頁設計/Bootstrap/Bootstrap.md",
     "互動網頁設計/CSS/CSS.md",
+    "互動網頁設計/Bootstrap/display/img/teacher01.jpg",
+    "互動網頁設計/Bootstrap/display/img/carousel02.jpg",
+    "互動網頁設計/Bootstrap/display/img/carousel03.jpg",
+    "互動網頁設計/Bootstrap/display/img/carousel04.jpg",
+    "互動網頁設計/Bootstrap/display/img/bg_image01.jpg",
+    "互動網頁設計/Bootstrap/display/img/carousel01.jpg",
+    "互動網頁設計/Bootstrap/display/img",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/img/teacher01.jpg",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/img/carousel04.jpg",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/img/carousel03.jpg",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/img/carousel02.jpg",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/index.html",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab/img",
+    "互動網頁設計/Bootstrap/bootstrap_demo03_lab",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/teacher01.jpg.crdownload",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/~g_image01.tmp",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/bg_image01.jpg.crdownload",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/carousel04.jpg.crdownload",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/carousel03.jpg.crdownload",
+    "互動網頁設計/Bootstrap/bootstrap_demo03/img/carousel02.jpg.crdownload",
+    "互動網頁設計/JavaScript/JavaScript.md",
+    "互動網頁設計/Bootstrap/Bootstrap.md",
     "互動網頁設計/HTML/CSS.md",
-    "互動網頁設計/理論課上的小demo/demo03_float/img/吉伊卡哇.jpg",
-    "互動網頁設計/理論課上的小demo/display/img/角色-小八貓.png",
-    "互動網頁設計/理論課上的小demo/display/img/角色-小桃鼠.png",
-    "互動網頁設計/理論課上的小demo/display/img/角色-吉伊卡哇.png",
     "互動網頁設計/HTML/HTML5.md",
     "互動網頁設計/CSS/SASS.md",
     "互動網頁設計/HTML/SASS.md",
@@ -191,7 +192,6 @@
     "C/運算式、運算子、if、while.md",
     "C/課程分配.md",
     "資料結構/array.md",
-    "C/String.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",

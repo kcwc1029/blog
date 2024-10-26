@@ -1,46 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/demo05_flexbox/">
-    <title>互動網頁設計</title>
-</head>
-<style>
-    *{
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-    body{
-        width: 100%;
-        background-color: #c7ffcf;
-    }
-    header{
-        width: 100%;
-        background-color: #5370d0;
-    }
-    .container{
-        display: flex;
-        justify-content: space-around;
-    }
-    .item{
-        background-color: rgb(162, 221, 246); 
-        height: 10rem;       
-        width: 30%;
-    }
-    footer{
-        width: 100%;
-        background-color: #5370d0;
-    }
-</style>
-<body>
-    <header><h1>header</h1></header>
-    <div class="container">
-        <div class="item">item1</div>
-        <div class="item">item2</div>
-        <div class="item">item3</div>
-    </div>
-    <footer><h1>footer</h1></footer>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>互動網頁設計</title>
+    </head>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <body>
+        <ul class="food">
+            <li class="desert">點心4</li>
+            <li><a href="https://scholar.google.com.tw/" id="engine">google學術</a></li>
+        </ul>
+    </body>
+    <script>
+        let engine = document.querySelector("#engine");
+        if (engine.hasAttribute("href")) {
+            let attr = engine.getAttribute("href");
+            console.log(attr);
+            engine.setAttribute("href", "https://www.youtube.com/");
+        }
+    </script>
 </html>
