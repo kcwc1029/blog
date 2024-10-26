@@ -21,6 +21,9 @@
 ## CSS介紹
 - CSS（Cascading Style Sheets，層疊樣式表）用來控制網頁的外觀，包括排版、顯示格式、樣式及視覺效果，提升了HTML的設計靈活性與美觀。
 - HTML原本是設計來處理內容的結構化，對於美觀方面的控制有限。CSS允許網頁開發者控制外觀，讓內容和呈現分離，這樣能提高維護的靈活度和效率。
+### 片片推薦
+- [成為網頁設計師的第一步！快速上手 HTML & CSS 展開你的網頁設計之旅！ (youtube.com)](https://www.youtube.com/watch?v=6HHN0G2cwBM)
+- 
 ## 在HTML中套用CSS
 - 分為三種方式：
 	- 行內樣式：使用style屬性設定CSS。
