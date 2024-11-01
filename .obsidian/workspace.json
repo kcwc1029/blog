@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md",
+                "file": "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md",
+                "file": "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md",
+                "file": "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md"
+                "file": "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md"
               }
             }
           }
@@ -147,29 +147,30 @@
   },
   "active": "6b94bd8fef7c546d",
   "lastOpenFiles": [
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/README.md",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/script.js",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/style.css",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/index.html",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice06.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice06.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice05.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice05.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice04.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice04.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice03.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice03.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice02.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice02.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice01.png",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img/dice01.png.crdownload",
+    "互動網頁設計/JavaScript/javascript_demo_pig_game/img",
+    "互動網頁設計/JavaScript/JavaScript.md",
     "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
     "互動網頁設計/JavaScript/attachments/Pasted image 20241101110817.png",
-    "互動網頁設計/JavaScript/javascript_demo_guess_number/script.js",
-    "互動網頁設計/JavaScript/javascript_demo_guess_number/style.css",
-    "互動網頁設計/JavaScript/javascript_demo_guess_number/index.html",
-    "互動網頁設計/JavaScript/javascript_demo_guess_number/index.jtml",
-    "互動網頁設計/JavaScript/javascript_demo_guess_number",
-    "互動網頁設計/JavaScript/javascript_demo01",
     "互動網頁設計/JavaScript/attachments/Pasted image 20241030162820.png",
-    "互動網頁設計/JavaScript/attachments",
     "互動網頁設計/Bootstrap/display/img/自嘲熊04.jpg",
     "互動網頁設計/Bootstrap/display/img/自嘲熊05.jpg",
-    "互動網頁設計/Bootstrap/display/img/自嘲熊03.jpg",
-    "互動網頁設計/Bootstrap/display/img/自嘲熊02.jpg",
-    "互動網頁設計/Bootstrap/display/img/自嘲熊01.jpg",
-    "互動網頁設計/Bootstrap/display/img/bg.jpg",
-    "互動網頁設計/Bootstrap/display/img",
-    "互動網頁設計/Bootstrap/display/img copy/自嘲熊05.jpg",
-    "互動網頁設計/Bootstrap/display/img copy/自嘲熊04.jpg",
-    "互動網頁設計/Bootstrap/display/img copy",
-    "互動網頁設計/Bootstrap/bootstrap_demo04_books/img/自嘲熊05.jpg.crdownload",
     "互動網頁設計/CSS/CSS.md",
-    "互動網頁設計/JavaScript/JavaScript.md",
     "互動網頁設計/Bootstrap/Bootstrap.md",
     "互動網頁設計/HTML/CSS.md",
     "互動網頁設計/HTML/HTML5.md",
@@ -192,7 +193,6 @@
     "C/資料型態、變數、常數.md",
     "C/運算式、運算子、if、while.md",
     "C/課程分配.md",
-    "資料結構/array.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
