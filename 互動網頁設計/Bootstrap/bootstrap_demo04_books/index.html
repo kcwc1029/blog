@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Klee+One&family=LXGW+WenKai+TC:wght@300;400;700&display=swap");
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+                /*  */
+                font-family: "LXGW WenKai TC", serif;
+                font-weight: 700;
+                font-style: normal;
+            }
+            .home {
+                background-image: url(./img/bg.jpg);
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: center;
+            }
+        </style>
     </head>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"
-    />
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Klee+One&family=LXGW+WenKai+TC:wght@300;400;700&display=swap");
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            /*  */
-            font-family: "LXGW WenKai TC", serif;
-            font-weight: 700;
-            font-style: normal;
-        }
-        .home {
-            background-image: url("./img/bg.jpg");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-    </style>
     <body>
-        <!-- TODO: nav -->
-        <nav class="navbar navbar-expand-lg bg-secondary-subtle shadow-lg">
-            <div class="container">
+        <!-- TODO: navbar -->
+        <nav class="navbar navbar-expand-lg bg-secondary-subtle fixed-top shadow-lg">
+            <!-- fixed-top是原生CSS的position: fixed; -->
+
+            <!-- 這邊由container-fluid改成這邊由container -->
+            <div class="container px-4">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button
                     class="navbar-toggler"
@@ -51,16 +54,19 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link02</a>
+                            <a class="nav-link" href="#">Link01</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link03</a>
+                            <a class="nav-link" href="#">Link01</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link04</a>
+                            <a class="nav-link" href="#">Link01</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link05</a>
+                            <a class="nav-link" href="#">Link01</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link01</a>
                         </li>
                     </ul>
                 </div>
@@ -70,33 +76,34 @@
         <!-- TODO: home -->
         <section class="home">
             <div class="container p-5">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="display-1 text-center">我好累</p>
-                        <p class="display-3 text-center">人生怎麼那麼難...</p>
-                        <p class="fs-5 text-center">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, velit?
-                        </p>
+                <div class="row d-flex justify-content-center align-items-center p-5">
+                    <div class="col-lg-7 text-center">
+                        <h1 class="display-1">我好累</h1>
+                        <h1 class="display-3">人生怎麼那麼難...</h1>
+                        <p class="laed">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
-                    <div class="col-lg-5">
-                        <img src="./img/自嘲熊01.jpg" class="img-fluid" alt="..." style="width: 20rem" />
+                    <div class="col-lg-5 text-center">
+                        <img src="./img/自嘲熊01.jpg" class="img-fluid" style="width: 20rem" alt="" />
                     </div>
                 </div>
             </div>
         </section>
 
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
         <!-- TODO: Subscribe -->
-        <section class="Subscribe">
-            <div class="container-fluid bg-dark p-3">
-                <h1 class="text-white">請救救助教，原來這就是爆肝的感覺...</h1>
-                <form action="" method="post" class="row p-4">
-                    <div class="col-lg-4">
-                        <input type="text" class="form-control" id="" aria-describedby="" placeholder="捐贈者大名" />
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="text" class="form-control" id="" aria-describedby="" placeholder="捐贈者大名" />
-                    </div>
-                    <div class="col-lg-4"><button type="submit" class="btn btn-info w-50">確定捐贈</button></div>
+        <section class="Subscribe bg-dark">
+            <div class="container-fluid p-4">
+                <h1 class="text-light">請救救助教，原來這就是爆肝的感覺...</h1>
+                <!-- 他這邊是一個form，標籤不要寫錯，然後裡面的輸入眶要放form-control -->
+                <form class="row p-4">
+                    <div class="col"><input type="text" class="form-control" placeholder="捐贈者大名" required /></div>
+                    <div class="col"><input type="text" class="form-control" placeholder="捐贈者大名" required /></div>
+                    <div class="col"><button type="submit" class="btn btn-info">感謝你拯救瀕死的助教</button></div>
                 </form>
             </div>
         </section>
@@ -105,19 +112,19 @@
         <section class="Features">
             <div class="container">
                 <div class="row p-4">
-                    <div class="col-lg-3 text-center border border-2 border-primary p-3">
+                    <div class="col-lg-3 border border-2 border-primary p-3 text-center">
+                        <h1 class="fs-3">你過的好嗎</h1>
+                        <p class="">不，其實我過的不太好</p>
+                    </div>
+                    <div class="col-lg-3 bg-primary text-white p-3 text-center">
                         <h1>你過的好嗎</h1>
                         <p>不，其實我過的不太好</p>
                     </div>
-                    <div class="col-lg-3 text-center text-bg-primary text-white p-3">
-                        <h1>你過的好嗎</h1>
-                        <p>不，其實我過的不太好</p>
+                    <div class="col-lg-3 border border-2 border-primary p-3 text-center">
+                        <h1 class="fs-3">你過的好嗎</h1>
+                        <p class="">不，其實我過的不太好</p>
                     </div>
-                    <div class="col-lg-3 text-center border border-2 border-primary p-3">
-                        <h1>你過的好嗎</h1>
-                        <p>不，其實我過的不太好</p>
-                    </div>
-                    <div class="col-lg-3 text-center text-bg-primary text-white p-3">
+                    <div class="col-lg-3 bg-primary text-white p-3 text-center">
                         <h1>你過的好嗎</h1>
                         <p>不，其實我過的不太好</p>
                     </div>
@@ -126,11 +133,14 @@
         </section>
 
         <!-- TODO: Why-->
-        <section class="why">
+        <section class="why m-4">
             <div class="container">
                 <h1>Accordion示範</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, voluptas.</p>
-                <div class="accordion p-3" id="accordionExample">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt sint nostrum maxime error quia
+                    alias veniam iure libero voluptates totam.
+                </p>
+                <div class="accordion px-5" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button
@@ -212,88 +222,77 @@
         </section>
 
         <!-- TODO: Authors -->
-        <section class="authors">
-            <div class="container-fluid bg-secondary-subtle p-4">
-                <h1 class="text-primary text-center">自嘲熊</h1>
-                <p class="text-muted text-center pb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, doloribus?
-                </p>
+        <section class="author bg-secondary-subtle">
+            <div class="container text-center py-4">
+                <h1 class="text-primary">Meet The Authors</h1>
+                <p class="lead text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-3 border border-2 border-black m-3">
+                    <div class="col-lg-3 border border-2 border-dark m-3">
                         <img
-                            src="./img/自嘲熊01.jpg"
+                            src="./img/自嘲熊02.jpg"
+                            alt=""
                             class="img-fluid rounded-circle position-relative"
-                            alt="..."
-                            style="top: -50px; left: 50%; transform: translateX(-50%)"
+                            style="top: -20px; left: 50%; transform: translateX(-50%)"
                         />
-                        <h1 class="text-center">自嘲熊</h1>
-                        <p class="text-center">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere sint quae
-                            consectetur ipsam accusamus!
+                        <h1>自嘲熊</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere mollitia dolorem nesciunt
+                            amet id neque assumenda omnis, officia consectetur dolore.
                         </p>
                     </div>
-                    <div class="col-lg-3 border border-2 border-black m-3">
+                    <div class="col-lg-3 border border-2 border-dark m-3">
                         <img
-                            src="./img/自嘲熊01.jpg"
+                            src="./img/自嘲熊02.jpg"
+                            alt=""
                             class="img-fluid rounded-circle position-relative"
-                            alt="..."
-                            style="top: -50px; left: 50%; transform: translateX(-50%)"
+                            style="top: -20px; left: 50%; transform: translateX(-50%)"
                         />
-                        <h1 class="text-center">自嘲熊</h1>
-                        <p class="text-center">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere sint quae
-                            consectetur ipsam accusamus!
+                        <h1>自嘲熊</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere mollitia dolorem nesciunt
+                            amet id neque assumenda omnis, officia consectetur dolore.
                         </p>
                     </div>
-                    <div class="col-lg-3 border border-2 border-black m-3">
+                    <div class="col-lg-3 border border-2 border-dark m-3">
                         <img
-                            src="./img/自嘲熊01.jpg"
+                            src="./img/自嘲熊02.jpg"
+                            alt=""
                             class="img-fluid rounded-circle position-relative"
-                            alt="..."
-                            style="top: -50px; left: 50%; transform: translateX(-50%)"
+                            style="top: -20px; left: 50%; transform: translateX(-50%)"
                         />
-                        <h1 class="text-center">自嘲熊</h1>
-                        <p class="text-center">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere sint quae
-                            consectetur ipsam accusamus!
+                        <h1>自嘲熊</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere mollitia dolorem nesciunt
+                            amet id neque assumenda omnis, officia consectetur dolore.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TODO: Form -->
-        <section class="Form">
-            <div class="container p-3">
-                <h1>傳送表單</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quam ipsum a sint odit incidunt
-                    corrupti! Qui quaerat possimus cum!
-                </p>
+        <!-- TODO: contact-->
+        <!-- form 用法參考https://getbootstrap.com/docs/5.3/forms/input-group/ -->
+
+        <section class="contact">
+            <div class="container p-4">
                 <form action="" method="post" class="row">
                     <div class="col-lg-7">
+                        <h1>Get In Touch</h1>
+                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempore!</p>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">
-                                <svg
+                            <span class="input-group-text" id="basic-addon1"
+                                ><svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
                                     height="16"
                                     fill="currentColor"
-                                    class="bi bi-back"
+                                    class="bi bi-person-fill"
                                     viewBox="0 0 16 16"
                                 >
-                                    <path
-                                        d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"
-                                    />
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                                 </svg>
                             </span>
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Username"
-                                aria-label="Username"
-                                aria-describedby="basic-addon1"
-                            />
+                            <input type="text" class="form-control" placeholder="Username" />
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
@@ -310,13 +309,7 @@
                                     />
                                 </svg>
                             </span>
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="email"
-                                aria-label="email"
-                                aria-describedby="basic-addon1"
-                            />
+                            <input type="text" class="form-control" placeholder="email" />
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
@@ -325,11 +318,14 @@
                                     width="16"
                                     height="16"
                                     fill="currentColor"
-                                    class="bi bi-envelope"
+                                    class="bi bi-mailbox-flag"
                                     viewBox="0 0 16 16"
                                 >
                                     <path
-                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                                        d="M10.5 8.5V3.707l.854-.853A.5.5 0 0 0 11.5 2.5v-2A.5.5 0 0 0 11 0H9.5a.5.5 0 0 0-.5.5v8zM5 7c0 .334-.164.264-.415.157C4.42 7.087 4.218 7 4 7s-.42.086-.585.157C3.164 7.264 3 7.334 3 7a1 1 0 0 1 2 0"
+                                    />
+                                    <path
+                                        d="M4 3h4v1H6.646A4 4 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3V3a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3"
                                     />
                                 </svg>
                             </span>
@@ -344,9 +340,11 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <img src="./img/自嘲熊05.jpg" class="img-fluid" alt="..." style="height: 30rem" />
+                        <img src="./img/自嘲熊05.jpg" class="img-fluid" style="height: 30rem" alt="" />
                     </div>
-                    <button type="submit" class="btn btn-outline-dark">提交</button>
+                    <div class="col">
+                        <button class="btn btn-outline-dark w-100">送出</button>
+                    </div>
                 </form>
             </div>
         </section>
