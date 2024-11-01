@@ -869,7 +869,7 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 ![upgit_20241031_1730379759.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730379759.png)
 
 ## 製作javascript lab01
-
+- [blog/互動網頁設計/JavaScript/javascript_demo_guess_number at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_guess_number)
 
 
 
