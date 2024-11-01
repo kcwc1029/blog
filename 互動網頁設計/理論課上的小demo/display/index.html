@@ -3,28 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <title>互動網頁設計</title>
     </head>
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
     <body>
-        <ul class="food">
-            <li class="desert">點心4</li>
-            <li><a href="https://scholar.google.com.tw/" id="engine">google學術</a></li>
-        </ul>
+        <form action="">
+            <label for="num">會員編號</label>
+            <input type="text" size="20" id="num" />
+            <br />
+            <p id="msg"></p>
+            <button type="submit">提交</button>
+        </form>
     </body>
     <script>
-        let engine = document.querySelector("#engine");
-        if (engine.hasAttribute("href")) {
-            let attr = engine.getAttribute("href");
-            console.log(attr);
-            engine.setAttribute("href", "https://www.youtube.com/");
-        }
+        num = document.querySelector("#num");
+        msg = document.querySelector("#msg");
+        num.addEventListener("focus", () => {
+            msg.textContent = "要記得輸入8位";
+        });
+
+        num.addEventListener("blur", function () {
+            if (this.value.length === 8) {
+                msg.textContent = "";
+            } else {
+                msg.textContent = "我跟你說要輸入8個字";
+            }
+        });
     </script>
 </html>
