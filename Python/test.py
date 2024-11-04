@@ -1,10 +1,47 @@
-import logging
+from multiprocessing import Process, Value, Array, Lock
+from time import sleep
 
-# 設定 logging 等級為 DEBUG，這樣所有等級的訊息都會顯示
-logging.basicConfig(level=logging.WARNING)
+# 定義第一個任務
+def task1(lock, n, a):
+    lock.acquire()  # 獲取鎖
+    num1 = n.value
+    num1 += 100
+    sleep(0.2)
+    n.value = num1
 
-logging.debug('This is a DEBUG message')    # 顯示調試資訊
-logging.info('This is an INFO message')     # 顯示一般資訊
-logging.warning('This is a WARNING message') # 顯示警告資訊
-logging.error('This is an ERROR message')   # 顯示錯誤資訊
-logging.critical('This is a CRITICAL message') # 顯示嚴重錯誤資訊
+    for i in range(len(a)):
+        a[i] = a[i] * a[i]
+    lock.release()  # 釋放鎖
+
+# 定義第二個任務
+def task2(lock, n, a):
+    lock.acquire()  # 獲取鎖
+    num2 = n.value
+    num2 += 200
+    sleep(0.2)
+    n.value = num2
+
+    for i in range(len(a)):
+        a[i] = -a[i]
+    lock.release()  # 釋放鎖
+
+if __name__ == '__main__':
+    lock = Lock()
+    num = Value('d', 0.0)  # 定義共享變數，double 類型
+    arr = Array('i', range(10))  # 定義共享陣列，int 類型
+
+    # 創建進程
+    p1 = Process(target=task1, args=(lock, num, arr))
+    p2 = Process(target=task2, args=(lock, num, arr))
+
+    # 啟動進程
+    p1.start()
+    p2.start()
+
+    # 等待進程結束
+    p1.join()
+    p2.join()
+
+    # 輸出結果
+    print(f"num = {num.value}")
+    print(f"arr = {arr[:]}")

@@ -1,5 +1,17 @@
 - JavaScript是一種應用廣泛的瀏覽器端Script，瀏覽器大多內建JavaScript直譯器。
 - JavaScript和HTML、CSS都是網頁設計的核心技術，其中JavaScript用來定義網頁的行為，例如即時更新地圖、輪播圖片等。
+## 基本運作流程
+1. 瀏覽器透過作業系統,將網址發送給DNS Server3
+2. DNS Server解析網址,將處理的結果組成完整的IP位址並回傳。
+3. 瀏覽器知道IP位址後發出網路請求,透過TCP/IP4的通訊協定對 Target Server,也就是網頁所在的伺服器來建立連線。
+4. Target Server收到請求後,把所需的資源以封包的形式回應。
+5. 解析完封包後,瀏覽器會收到相關的檔案和狀態資訊。
+6. 以網頁最常見的資源-HTML和CSS來說,會分別透過各自的Parser建立樹狀結構的資料模型-DOM Tree和CSSOM Tree。
+7. 瀏覽器把DOM Tree整理出可見的節點5,並套用對應的CSSOM規則,形成Render Tree的資料結構。
+8. 瀏覽器透過Render Tree,計算出每個節點對應到頁面上的實際位置、形狀與大小等資訊,最後輸出一個Layout的資料模型。
+9. 瀏覽器透過這個Layout進行最後的繪製動作,渲染在頁面上。
+![upgit_20241103_1730615963.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730615963.png)
+
 
 ## 在HTML中寫js
 - 寫在script裡面。
@@ -20,14 +32,30 @@
 	- funtion
 	- array
 	- object：是一種關聯陣列(associative array)，比較像是python的字典。
-## var, let, const
+## 變數與常數
 - [JavaScript var let const的区别 - Web前端工程师面试题讲解 (youtube.com)](https://www.youtube.com/watch?v=aqZuCthC5BY)
+1. JavaScript引擎解析到等號右邊的資料,也就是test,轉為二進位後新增進記憶體中。
+2. JavaScript引擎解析到等號左邊的變數var1,把var1宣告(declare)在記憶體中。
+3. 把變數var1指派(assign)到資料test,作為初始值。
+![upgit_20241103_1730618059.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618059.png)
+
+### 作用域(Scope)
+- 全域作用域(Global Scope)：程式碼的任何地方都可以存取跟操作該變數。
+- 函式作用域(Function Scope)：
+- 區塊作用域(Block Scope)：像是for/while迴圈範圍、if...else條件句範圍。
+![upgit_20241103_1730618375.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618375.png)
 
 ## 函數
-- 使用者自訂函數
+![upgit_20241103_1730618563.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618563.png)
+
+- 輸入的對應叫做參數(Arguments/Parameters),用途是傳入程序所對應到的「函式」,讓函式對參數進行處理。
+- 輸出的對應叫做返回(return),並且有兩種狀態：
+	- 有回傳值,表示函式執行完後,會取得結果
+	- 另一種則是undefined,簡單來說就是事情做完就結束了。
+- 函式就是包覆程序中一連串的動作,可重複性地呼叫(call/invoke)來執行動作內容,來取得輸出或完成目的。
 ```js
-// 使用者自訂函數
-function showMsg() {
+// 函式表達式(Function Expression)
+const showMsg = function() {
     let userName = prompt("請書入名稱");
     alert(userName + "你好");
 }
@@ -43,12 +71,48 @@ let sum = (a, b) => {
 };
 ```
 
+### 閉包(Closure) 和柯里化(Currying)
+- 在 JavaScript 中，函式是一級函式，也就是說，函式可以像變數一樣傳遞。由於這個特性，我們可以在函式內部返回另一個函式，並利用閉包保存某些變數的值。
+- 假設有一個函式需要多個參數，但其中一些參數經常是固定的（例如 API 的基礎 URL），那麼我們可以將這些固定的參數抽出來，讓整體函式使用上更方便。
+```js
+let configURL;
+configURL = getAPIURL01("https://myapp.com", "user/config");
+// 一般函數
+function getAPIURL01(base, url) {
+	return base + "/" + url;
+}
+
+
+// closure
+function getAPIURL02(base) {
+	return function (url) {
+		return base + "/" + url;
+	};
+}
+let getRemoteAPI = getAPIURL02("https://myapp.com");
+configURL = getRemoteAPI("user/config");
+```
+### 立即執行函式(Immediately Invoked Function,IIFE)
+- 定義完立即函式後不用再呼叫,就能馬上執行函式內的運算,有回傳值的話也會立即賦值給指定變數。
+- 立即函式的優點：
+	- 裡面的變數不會被提升,造成汙染全域的問題。
+	- 程式碼只須執行一次來求值的話,也很適合使用。
+```js
+var myArray = ["Yuri", "Zoe"];
+const getResult = (function () {
+	var myArray = [1, 2, 3, 4, 5, 6, 7];
+	return myArray.join("");
+})();
+
+console.log(getResult, myArray); // 1234567 ['Yuri', 'Zoe']
+```
+
 ## 物件導向基本概念：
 - 物件 (Object)：可以代表生活中任何物品，包含屬性與方法。例如，汽車是物件，包含品牌與速度等屬性。
 - 屬性 (Property)：物件的特徵，例如汽車的顏色、大小。
 - 方法 (Method)：物件可以執行的動作，例如發動汽車 (startCar)。
 - 事件 (Event)：特定情況下的反應，例如加速事件 (accelerate)。
-- 類別 (Class)：定義物件的模板，例如 `Car` 類別下有不同品牌的汽車物件。
+	- 類別 (Class)：定義物件的模板，例如 `Car` 類別下有不同品牌的汽車物件。
 ![upgit_20241024_1729761090.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729761090.png)
 
 ### JavaScript中的三種物件模型：
@@ -155,6 +219,314 @@ try{
 	無論有無發生例外都會執行的敘述
 }
 ```
+
+
+## 原型(Prototype)
+- 在 JavaScript 中，所有物件都有一個隱藏屬性叫做 `[[Prototype]]`，這個屬性指向另一個物件，我們稱之為「原型」。通過這個機制，一個物件可以「繼承」其原型上的屬性和方法。
+### 建構函式
+- 在 JavaScript 中，如果你想要創建多個類似的物件，通常會使用「建構函式」(constructor function)。
+```js
+function Person(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+}
+```
+- 當你想要創建一個新物件時，可以使用 `new` 關鍵字，並且呼叫建構函式。
+```js
+const ta = new Person({
+    name: "TA",
+    age: 23,
+});
+console.log(ta); // 輸出 { name: "TA", age: 23 }
+```
+
+### `prototype` 屬性
+- 如果我們想要讓所有 `Person` 建構函式創建的物件共享一些方法或屬性，可以使用 `prototype` 屬性。所有由 `Person` 創建的物件都會共享這些方法。
+```js
+Person.prototype.introduce = function() {
+    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+};
+
+// 所有由 `Person` 建構函式創建的物件都可以使用 `introduce` 方法：
+ta.introduce(); // 輸出 "Hi, I'm TA and I'm 23 years old."
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        // 建立一個prototype
+        function Person(attributes) {
+            this.name = attributes.name;
+            this.age = attributes.age;
+        }
+
+        // 使用 new 關鍵字創建物件
+        const Yuri = new Person({
+            name: "Yuri",
+            age: 23,
+        });
+
+        // 擴充 prototype 的屬性
+        Person.prototype.legalAge = 18;
+        Person.prototype.commuteWay = function () {
+            return this.age > this.legalAge ? "開車" : "走路";
+        };
+
+        // 確認是否為同一個 prototype
+        console.log(Object.getPrototypeOf(Yuri) === Person.prototype); // 應該輸出 true
+        console.log(Yuri.commuteWay()); // 應該輸出 "開車" 或 "走路"
+    </script>
+</html>
+```
+
+
+## 原型鏈 (Prototype Chain)
+- 使用 `Object.create()`
+```js
+// 立一個基礎的物件作為最上層的原型
+const baseProto = {
+	species: "Human",
+	sayHello: function () {
+		console.log(`Hello, I'm a ${this.species}`);
+	},
+};
+
+// 使用 Object.create() 繼承 baseProto
+const personProto = Object.create(baseProto);
+personProto.name = "Alice";
+personProto.introduce = function () {
+	console.log(`Hi, my name is ${this.name}`);
+};
+
+// 進一步創建新的物件，並讓它繼承 personProto，形成一條更長的原型鏈。
+const student = Object.create(personProto);
+student.grade = "A";
+student.study = function () {
+	console.log(`${this.name} is studying.`);
+};
+
+// 用 student 來呼叫原型鏈中各層的屬性和方法：
+student.name = "Bob"; // 設定 student 的 name 屬性
+student.introduce(); // 輸出: Hi, my name is Bob
+student.sayHello(); // 輸出: Hello, I'm a Human
+student.study(); // 輸出: Bob is studying.
+console.log(student.grade); // 輸出: A
+```
+
+## this
+### 執行環境的生命週期
+- 創造階段 (Creation Phase)：
+    - 分配記憶體空間給變數和函式。
+    - 進行變數提升 (Hoisting)。
+    - 建立執行環境所需的資料結構。
+    - 將函式放入呼叫堆疊 (Call Stack)，等待執行。
+- 執行階段 (Execution Phase)：
+    - 逐行執行程式碼。
+    - 透過 `this` 和作用域鏈，存取所需的變數和函式。
+    - 當函式執行完成或遇到 `return`，從堆疊中移除執行環境。
+
+### 執行環境的分類
+1. 全域執行環境 (Global Execution Context)：
+    - 在程式啟動時首先建立的執行環境。
+    - 負責管理全域變數和函式，並將 `this` 綁定到全域物件（瀏覽器中是 `window`，Node.js 中是 `global`）。
+    - 當程式中呼叫函式時，會建立新的執行環境並放入呼叫堆疊中。
+2. 函式/局部執行環境 (Function/Local Execution Context)：
+    - 每當呼叫一個函式時，會為該函式建立一個新的執行環境。
+    - `this` 的指向會根據呼叫方式而定，不像全域環境中那樣固定。
+```js
+const callJoe = () => {
+	console.log("hello, i am joe");
+};
+
+const callDava = () => {
+	callJoe();
+	console.log("hello, i am Dave");
+};
+console.log("hello global");
+callDava();
+console.log("godbye scope");
+
+// hello global
+// hello, i am joe
+// hello, i am Dave
+// godbye scope
+```
+
+- this是透過物建中的建構子產生，this會指向建構子。
+- 當要存取或執行自己的成員時,就可以透過this來進行。
+```js
+class Book {
+	constructor(name) {
+		// 建構子
+		this.name = name;
+	}
+	getName() {
+		return "書名" + this.name;
+	}
+}
+
+let mtBook = new Book("小王子");
+console.log(mtBook.getName()); // 書名小王子
+```
+
+- 不過在JavaScript中,this關鍵字會隨著執行環境、特殊的語法、函式呼叫的方式等會有變動。
+- 這種動態決定函式執行環境中this對象,我們通常叫做「綁定」(binding)。
+
+### 預設綁定(Default binding)
+- 在全域宣告的函式,this會預設指向全域物件(可能是瀏覽器中的window,或是Node.js中的global)。
+```js
+function getThis1() {
+	console.log("[全域] 函式陳述式 this 指向:", this);
+}
+
+const getThis2 = function () {
+	console.log("[全域] 函式表達式 this 指向:", this);
+};
+
+const getThis3 = () => console.log("[全域] 箭頭函式 this 指向:", this);
+
+getThis1(); // [全域] 函式陳述式 this 指向: Window
+getThis2(); // [全域] 函式表達式 this 指向: Window
+getThis3(); // [全域] 箭頭函式 this 指向: Window
+```
+
+### 隱式綁定(Implicit binding)
+- 物件中如果有方法實作，當呼叫方法時,this會指向物件本身。
+- 箭頭函式有自己一套的綁定規則,並不符合隱式綁定。
+- 箭頭函式的this對象，主要是看上一層的作用域指向的this對象。
+```js
+function getThis1() {
+	console.log("[全域] 函式陳述式 this 指向:", this);
+}
+
+const getThis2 = function () {
+	console.log("[全域] 函式表達式 this 指向:", this);
+};
+
+const getThis3 = () => console.log("[全域] 箭頭函式 this 指向:", this);
+
+getThis1(); // [全域] 函式陳述式 this 指向: Window
+getThis2(); // [全域] 函式表達式 this 指向: Window
+getThis3(); // [全域] 箭頭函式 this 指向: Window
+```
+### 隱式綁定(Implicit binding)
+```js
+const book = {
+	name: "小王子",
+	getThis1: function () {
+		console.log("[物件] inline函式 this:", this);
+	},
+};
+
+book.getThis1(); // [物件] inline函式 this: {name: '小王子' ...}
+```
+
+### 顯式綁定(Explicit binding)
+
+#### 綁定函數(bind function)
+- 在 JavaScript 中，當我們希望函式的 `this` 值被綁定到特定對象，或者想在呼叫函式時自動傳入一些固定的參數。
+- `bind` 可以讓你創建一個新的函式，這個函式的 `this` 值被綁定到特定對象，並且可以預設某些參數。
+- `function.bind(thisValue, arg1, arg2, ..., argN);` 
+	- thisValue：要綁定的 `this` 對象，必須指定。
+	- arg1, arg2, ..., argN：可選的參數列表
+```js
+const my0bject = {
+	x: 10,
+	addX: function (valuel, value2) {
+		return value1 + value2 + this.x;
+	},
+};
+
+//透過 bind 建立新的函式
+const addXFunction = my0bject.addX.bind({ x: 3 }, 1, 2);
+
+console.log(myObject.addX(1, 2)); // 13 ( this fld my0bject )
+console.log(addXFunction()); // 6 ( this #/ { x: 3} )
+```
+
+#### 呼叫函數(call function)
+- `call` 是 JavaScript 中的一個函式方法，用於改變函式內部的 `this` 指向，並立即執行該函式。
+- 與 `bind` 不同的是，`call` 不會返回一個新的函式，而是直接執行。
+```js
+const myObject = {
+	x: 10,
+	addX: function (value1, value2) {
+		return value1 + value2 + this.x;
+	},
+};
+
+// 使用原始函式
+const result01 = myObject.addX(1, 2);
+console.log(result01); // 應輸出：13 (1 + 2 + 10)
+
+// 透過 call 修改 this 指向並執行函式
+const result02 = myObject.addX.call({ x: 3 }, 1, 2);
+console.log(result02); // 應輸出：6 (1 + 2 + 3)
+```
+
+#### 呼叫函數(apply function)
+- 跟call依樣，差別是後面的參數要放到陣列裡。
+```js
+const myObject = {
+	x: 10,
+	addX: function (value1, value2) {
+		return value1 + value2 + this.x;
+	},
+};
+
+// 使用原始函式
+const result01 = myObject.addX(1, 2);
+console.log(result01); // 應輸出：13 (1 + 2 + 10)
+
+// 透過 call 修改 this 指向並執行函式
+const result02 = myObject.addX.apply({ x: 3 }, [1, 2]);
+console.log(result02); // 應輸出：6 (1 + 2 + 3)
+```
+
+## 模組(module) -- ES Module(MSM)
+![upgit_20241103_1730625196.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730625196.png)
+
+### 匯出
+```js
+let maginNum = 1000;
+const printMsg = function (msg) {
+    console.log("ESM example", msg);
+};
+
+class Robot {}
+
+// ESM匯出
+export { maginNum, printMsg, Robot };
+
+// 也可以使用as
+// export { maginNum as mg, printMsg, Robot };
+```
+
+### 匯入
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script type="module">
+        import { maginNum, printMsg, Robot } from "./js/index.js";
+        // import * as Mymodule from "./js/index.js"; // 為模組命名
+        console.log(printMsg(maginNum));
+    </script>
+</html>
+```
+
 
 ## 文件物件模型(Document Object Model、DOM)
 - DOM 是一種由 W3C 制定的應用程式介面，提供操作 HTML、XML 文件結構的方式。
@@ -662,6 +1034,200 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 ![upgit_20241031_1730369962.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369962.png)
 
 
+
+## 陣列(array)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- <link rel="stylesheet" href="style.css" /> -->
+    </head>
+    <body></body>
+    <script>
+        let arr = ["A", "B", "C", "D", "E", "F"];
+        let temp = ["G", "H", "I", "J", "K", "L"];
+        console.log(arr.slice(2));
+        console.log(arr.slice(2, 4));
+        console.log(arr.slice(-1));
+        console.log(...arr); // 解包
+
+        // TODO: reverse
+        console.log(arr.reverse()); // 解包
+
+        // TODO: concat
+        console.log(arr.concat(temp));
+        console.log([...arr, ...temp]);
+
+        // TODO: join
+        console.log(arr.join("-"));
+    </script>
+</html>
+```
+
+- 基本操作
+```js
+// 宣告陣列
+let arr1 = [1, 2, 3];
+console.log(arr1);
+
+// 取值
+let temp = arr1[0];
+console.log(temp);
+
+// 查詢
+let man = { name: "joe" };
+let arr2 = ["yuri", man, 23];
+console.log(arr2.indexOf(23));
+
+// 是否含有該元素
+// includes(target, position)
+console.log(arr2.includes("yuri"));
+console.log(arr2.includes("yuri", 2));
+
+// 檢查每個元素(條件為AND)
+// every(executor, thisValue)
+let arr3 = [3, 12, 24, 72];
+console.log(
+    "every(executor, thisValue)",
+    arr3.every((value) => {
+        return value % 2 === 0; // 加上 return
+    })
+);
+
+// 檢查每個元素(條件為OR)
+// some(executor, thisValue)
+console.log(
+    "some(executor, thisValue)",
+    arr3.some((value) => {
+        return value % 2 === 0; // 加上 return
+    })
+);
+
+// find：尋找第一個符合元素(沒有回傳undefined)
+const inventories = [
+    { name: "apples", quantity: 2 },
+    { name: "bananas", quantity: 3 },
+    { name: "cherries", quantity: 5 },
+    { name: "tomatoes", quantity: 3 },
+];
+
+console.log(
+    inventories.find((inventories) => {
+        return (inventories.quantity = 3);
+    })
+);
+
+// findIndex：跟find依樣，但是回傳index
+console.log(
+    inventories.findIndex((inventories) => {
+        return (inventories.quantity = 3);
+    })
+);
+
+// filter：尋找所有符合元素(沒有回傳undefined)
+console.log(
+    inventories.filter((inventories) => {
+        return (inventories.quantity = 3);
+    })
+);
+
+// 移除最後一個元素
+let arr4 = [1, 2, 3];
+console.log(arr4.pop(), arr4);
+arr4.push(4);
+console.log(arr4);
+
+// 切片
+console.log(arr4.slice(1, 3));
+
+// 取代
+console.log(arr4.length);
+arr4.fill("AAA", 0, 2); // 取代index=0, 1
+console.log(arr4);
+
+// 反轉
+console.log(arr4.reverse());
+
+// 合併
+console.log(arr4.concat(arr1));
+
+// 元素合併
+console.log(arr4.join(""));
+
+// 遍歷
+const candidates = [
+    { name: "Ann", seniority: 8, englishNative: false },
+    { name: "Bob", seniority: 5, englishNative: false },
+    { name: "Joe", seniority: 7, englishNative: true },
+];
+
+let score = candidates.map((value, index) => {
+    let temp = value.englishNative ? -10 : 10;
+    return value.seniority * 10 + temp;
+});
+console.log(score);
+
+// reduce 方法是 JavaScript 中用來對陣列的每一個元素進行累加或聚合操作的一種方法。
+// 通常用於將陣列縮減為單一的值，像是計算總和、統計數據等。
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+
+console.log(sum); // 輸出: 10
+
+// keys()、values()、entries() ->返回是一個跌帶物件
+let arr5 = ["a", "b", "c"];
+const keyIterator = arr5.keys();
+const valIterator = arr5.values();
+const entIterator = arr5.entries();
+for (i of keyIterator) {
+    console.log(i);
+}
+```
+
+- 陣列的解構賦值
+```js
+// 陣列的解構賦值
+let [name1, name2, name3] = ["Yuri", "Zoe", "Bob"];
+console.log(name1, name2, name3); // Yuri Zoe Bob
+
+[name1, name2, ...otherNames] = ["Yuri", "Zoe", "Bob", "Sam", "Ann", "Joe"];
+console.log(name1, name2, otherNames); // Yuri Zoe ['Bob', 'Sam', 'Ann', 'Joe']
+```
+
+## set跟weakset
+- 建立物件型別的變數時,記憶體會先配置空間給這份資料，變數本身則是以「參考」的形式指到資料。
+- 強參考(Strong Reference)：因此只要這份資料有被一個以上的變數參考,就會留存在記憶體中。
+- 弱參考(Weak Reference)：就算這份資料有被參考到,但是在程式操作後仍然可以被清理,釋放出記憶體空間
+- weakset：
+	- 只接受物件型別的資料型態作為元素值
+	- 元素會以弱參考的方式參考到資料本身。因此當資料在記憶體中被回收時，對應的元素參考也會跟著被移除。
+	- 對於要存取DOM元素，使用weakSet，在記憶體上會比較理想。
+```js
+// 建立容器
+let set01 = new Set([1, 2, 3]);
+// WeakSet 只能儲存物件，不能儲存基本資料類型（如 number、string 等）
+let weakset01 = new WeakSet([{ id: 1 }, { id: 2 }, { id: 3 }]);
+
+// 查看元素個數
+console.log(set01.size);
+
+set01.add(4); // 增加
+set01.delete(4); // 刪除
+console.log(set01.has(2)); // 檢查
+
+const entries = set01.entries(); // 使用正確的變數名稱 set01
+for (let [key, value] of entries) {
+    console.log(key, value); // 因為在 Set 中，key 和 value 是相同的
+}
+// 清空
+set01.clear();
+```
 ## 事件處理
 ### 事件驅動(Event Driven)
 - Windows 作業系統中的視窗會持續監控使用者的各種事件，如視窗打開、關閉、調整大小、移動、輸入等。系統會根據接收到的事件訊息，將其傳遞給對應的視窗處理。
@@ -870,13 +1436,290 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 
 ## 製作javascript lab01
 - [blog/互動網頁設計/JavaScript/javascript_demo_guess_number at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_guess_number)
+## 製作javascript lab02
+- [blog/互動網頁設計/JavaScript/javascript_demo_pig_game at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_pig_game)
+
+
+## 類別(class)
+- `class` 是 ES6 (ECMAScript 2015) 引入的語法糖，主要用來讓 JavaScript 的物件導向寫法更接近其他傳統 OOP 語言 (例如 Java、C++)
+- `class` 背後其實還是基於 prototype-based inheritance (原型繼承) 的機制。所以在底層上，`class` 實際上是透過 prototype 的方式來實現物件導向。
+```js
+class Product {
+    constructor(name, price, PIN) {
+        this.name = name;
+        this.price = price;
+        this.__PIN = PIN; // 私有屬性
+    }
+
+    displayProduct() {
+        console.log(`name: ${this.name}`);
+        console.log(`price: ${this.price}`);
+    }
+
+    // 靜態方法
+    static printInfo() {
+        console.log("把你阿罵賣掉");
+    }
+
+    // 透過method取出私有屬性
+    
+}
+
+Product.printInfo(); // 靜態方法
+
+const product01 = new Product("TA01", 78);
+const product02 = new Product("TA02", 87);
+product02.displayProduct();
+```
+
+## 回調函數(callback)
+- 中心思想：一個很大的Process，他會需要一段時間。
+- 因為所有的網路請求都可能會造成阻塞JS執行，導致後續任務無法被快速處裡。
+- 同步執行(Synchronous execution)：
+- 異步執行(Asynchronous execution)：
+```js
+// 一開始先輸出1，延遲3秒在打印2，然後駔後打印3
+console.log(1);
+
+// setTimeout就是一個callback function
+setTimeout(() => {
+    console.log(2);
+}, 3000);
+
+console.log(3);
+```
+
+## Promise
+- 為了處理caallback hell
+```js
+// 先準備食材，花費 2 秒。
+// 加熱鍋具，花費 1 秒。
+// 加入食材並開始烹煮，花費 3 秒。
+// 最後調味，花費 1 秒。
+console.log("開始準備流程...");
+
+// 模擬第一步驟：先準備食材（2秒）
+setTimeout(() => {
+    console.log("步驟 1：準備食材完成");
+
+    // 模擬第二步驟：加熱鍋具（1秒）
+    setTimeout(() => {
+        console.log("步驟 2：加熱鍋具完成");
+
+        // 模擬第三步驟：加入食材並開始烹煮（3秒）
+        setTimeout(() => {
+            console.log("步驟 3：加入食材並烹煮完成");
+
+            // 模擬第四步驟：進行最後調味（1秒）
+            setTimeout(() => {
+                console.log("步驟 4：調味完成，準備上菜");
+
+                // 最後步驟：上菜完成
+                console.log("所有步驟完成，上菜！");
+            }, 1000);
+        }, 3000);
+    }, 1000);
+}, 2000);
+```
+- promise(承諾)：就像我們在現實中承諾對方做一件事
+	- 待定(pending)
+	- 履行(resolve)
+	- 不履行(reject)
+
+![upgit_20241104_1730691126.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241104_1730691126.png)
+
+```js
+// 將callback hell改成promise
+function prepareIngredients() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 1：準備食材完成");
+            resolve();
+        }, 2000);
+    });
+}
+
+function heatPan() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 2：加熱鍋具完成");
+            resolve();
+        }, 1000);
+    });
+}
+
+function cookIngredients() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 3：加入食材並烹煮完成");
+            resolve();
+        }, 3000);
+    });
+}
+
+function addSeasoning() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 4：調味完成，準備上菜");
+            resolve();
+        }, 1000);
+    });
+}
+
+// 執行流程
+console.log("開始準備流程...");
+
+prepareIngredients()
+    .then(() => heatPan())
+    .then(() => cookIngredients())
+    .then(() => addSeasoning())
+    .then(() => {
+        console.log("所有步驟完成，上菜！");
+    })
+    .catch((error) => console.error("發生錯誤:", error));
+```
+
+```js
+// 展示resolve、reject跟finally的用法
+function getEven() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const n = Math.floor(Math.random() * 100);
+            console.log("生成的數字:", n);
+            if (n % 2 === 0) {
+                console.log("resolve:", n);
+                resolve(n); // 偶數時 resolve
+            } else {
+                console.log("reject:", n);
+                reject("生成的數字不是偶數"); // 奇數時 reject
+            }
+        }, 1000);
+    });
+}
+getEven()
+    .then((result) => {
+        result = result + 10; // 計算並返回新結果
+        console.log("then 第一環節", result);
+        return result; // 返回新的結果，讓下一個 .then 繼續接收
+    })
+    .then((result) => {
+        result = result / 2; // 計算並返回新結果
+        console.log("then 第二環節", result);
+        return result; // 返回新的結果
+    })
+    .then((result) => console.log("then:", result))
+    .catch((error) => console.error("error:", error))
+    .finally(() => console.log("執行結束~~"));
+```
+
+## 非同步：async與await
+- 將Promise納入標準後,解決了以往寫非同步時容易產生的回呼地獄。
+- 不過如果有多個非同步,或是有複雜的判斷邏輯時,Promise的寫法還是會讓程式產生巢狀結構,語意上也不好解讀。
+- 所以async與await主要是用來簡化 `.then` 的語法，使非同步程式碼更易讀，更接近同步風格(可以避免過多的 `.then` 嵌套)。
+```js
+// 基本格式
+
+// 模擬一個返回 Promise 的非同步函數
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("資料獲取成功");
+        }, 1000);
+    });
+}
+
+// 使用 async/await
+async function getData() {
+    try {
+        const result = await fetchData(); // 等待 Promise 完成
+        console.log(result); // 輸出: 資料獲取成功
+    } catch (error) {
+        console.error("發生錯誤:", error);
+    }
+}
+
+getData();
+```
+
+```js
+function prepareIngredients() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 1：準備食材完成");
+            resolve();
+        }, 2000);
+    });
+}
+
+function heatPan() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 2：加熱鍋具完成");
+            resolve();
+        }, 1000);
+    });
+}
+
+function cookIngredients() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 3：加入食材並烹煮完成");
+            resolve();
+        }, 3000);
+    });
+}
+
+function addSeasoning() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("步驟 4：調味完成，準備上菜");
+            resolve();
+        }, 1000);
+    });
+}
+
+// 使用 async/await 實現執行流程
+async function cookProcess() {
+    console.log("開始準備流程...");
+
+    try {
+        await prepareIngredients();
+        await heatPan();
+        await cookIngredients();
+        await addSeasoning();
+        console.log("所有步驟完成，上菜！");
+    } catch (error) {
+        console.error("發生錯誤:", error);
+    }
+}
+
+// 執行流程
+cookProcess();
+```
+
+## 產生器
+產生器是一種特殊的函數，可以暫停其執行並在需要時恢復。產生器函數會返回一個**迭代器物件**，每次執行產生器函數的 `next()` 方法時，就會暫停在 `yield` 關鍵字上，並返回 `yield` 後的值。
+
+## 高階知識點
+
+產生器 (Generator)
+Symbol 與符號 (Symbol)
+Proxy
+Reflect
+WeakRef 與 FinalizationRegistry
+Intl (國際化)
+
+## JS建議的學習順序總結：
+- **Three.js** - 入門 3D 圖形概念。
+- **Babylon.js** - 進階 3D 開發和遊戲應用。
+- **D3.js** - 資料視覺化，學會展示數據。
+- **TensorFlow.js** - 機器學習應用，增強智能。
+- **PixiJS** - 專注於高效的 2D 圖形渲染和動畫。
 
 
 
 
-
-
-
+![upgit_20241102_1730513872.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730513872.png)
 
 
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="./index.html" />
+        <link rel="icon" href="./img/shortcut.png" type="image/png" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Bankist</title>
+    </head>
+    <body>
+        <!-- TODO: nav -->
+        <nav>
+            <p class="welcome">請先登錄</p>
+            <img src="./img/icon.png" alt="Logo" class="logo" />
+            <form class="login">
+                <input type="text" placeholder="username" class="login__input login__input--user" />
+                <!-- In practice, use type="password" -->
+                <input type="text" placeholder="PIN" maxlength="6" class="login__input login__input--pin" />
+                <button class="login__btn">確認 &rarr;</button>
+            </form>
+        </nav>
+
+        <main class="app">
+            <!-- BALANCE -->
+            <div class="balance">
+                <div>
+                    <p class="balance__label">目前帳戶</p>
+                    <p class="balance__date">時間： <span class="date">2024.11.01</span></p>
+                </div>
+                <p class="balance__value">$000</p>
+            </div>
+
+            <!-- MOVEMENTS -->
+            <div class="movements">
+                <div class="movements__row">
+                    <div class="movements__type movements__type--deposit">存款：2</div>
+                    <div class="movements__date">3 days ago</div>
+                    <div class="movements__value">$400$</div>
+                </div>
+                <div class="movements__row">
+                    <div class="movements__type movements__type--withdrawal">提款：1</div>
+                    <div class="movements__date">2024.11.01</div>
+                    <div class="movements__value">$-378</div>
+                </div>
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="summary">
+                <p class="summary__label">總收入</p>
+                <p class="summary__value summary__value--in">$100</p>
+                <p class="summary__label">總支出</p>
+                <p class="summary__value summary__value--out">$21</p>
+                <p class="summary__label">合計</p>
+                <p class="summary__value summary__value--interest">$200</p>
+                <button class="btn--sort">&downarrow; SORT</button>
+            </div>
+
+            <!-- OPERATION: TRANSFERS -->
+            <div class="operation operation--transfer">
+                <h2>轉帳專區</h2>
+                <form class="form form--transfer">
+                    <input type="text" class="form__input form__input--to" />
+                    <input type="number" class="form__input form__input--amount" />
+                    <button class="form__btn form__btn--transfer">&rarr;</button>
+                    <label class="form__label">轉帳金額</label>
+                    <label class="form__label">目標帳戶</label>
+                </form>
+            </div>
+
+            <!-- OPERATION: LOAN -->
+            <div class="operation operation--loan">
+                <h2>申請貸款</h2>
+                <form class="form form--loan">
+                    <input type="number" class="form__input form__input--loan-amount" />
+                    <button class="form__btn form__btn--loan">&rarr;</button>
+                    <label class="form__label form__label--loan">貸款金額</label>
+                </form>
+            </div>
+
+            <!-- OPERATION: CLOSE -->
+            <div class="operation operation--close">
+                <h2>關閉帳戶</h2>
+                <form class="form form--close">
+                    <input type="text" class="form__input form__input--user" />
+                    <input type="password" maxlength="6" class="form__input form__input--pin" />
+                    <button class="form__btn form__btn--close">&rarr;</button>
+                    <label class="form__label">帳戶名稱</label>
+                    <label class="form__label">PIN確認</label>
+                </form>
+            </div>
+
+            <!-- LOGOUT TIMER -->
+            <p class="logout-timer">You will be logged out in <span class="timer">05:00</span></p>
+        </main>
+    </body>
+    <script src="./script.js"></script>
+</html>

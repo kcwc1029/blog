@@ -1,27 +1,20 @@
-document.write(Number.MAX_VALUE);
-document.write("<br>");
-document.write(Number.MIN_VALUE);
-document.write("<br>");
-document.write(Number.NaN);
-document.write("<br>");
-document.write(Number.NaN);
-document.write("<br>");
-document.write(Number.isNaN(100));
-document.write("<br>");
-document.write(Number.isFinite(100));
-document.write("<br>");
-document.write(Number.isInteger(100));
-document.write("<br>");
-document.write(Number.parseFloat("1.8x"));
-document.write("<br>");
-document.write(Number.parseInt("1.8x"));
-document.write("<br>");
-let x = 123.456;
-document.write(x.toExponential());
-document.write("<br>");
-document.write(x.toFixed(2));
-document.write("<br>");
-document.write(x.toString());
-document.write("<br>");
-document.write(x.toPrecision(8));
-document.write("<br>");
+// 模擬一個返回 Promise 的非同步函數
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("資料獲取成功");
+        }, 1000);
+    });
+}
+
+// 使用 async/await
+async function getData() {
+    try {
+        const result = await fetchData(); // 等待 Promise 完成
+        console.log(result); // 輸出: 資料獲取成功
+    } catch (error) {
+        console.error("發生錯誤:", error);
+    }
+}
+
+getData();
