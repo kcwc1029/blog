@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- jQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <button id="hideBtn">隱藏</button>
+        <button id="showBtn">顯示</button>
+        <button id="toggleBtn">切換顯示</button>
+        <button id="fadeInBtn">淡入顯示</button>
+        <button id="fadeOutBtn">淡出隱藏</button>
+        <button id="slideDownBtn">滑動顯示</button>
+        <button id="slideUpBtn">滑動隱藏</button>
+        <h1 id="element">Hello, jQuery!</h1>
+    </body>
+    <script>
+        // 隱藏
+        $("#hideBtn").on("click", function () {
+            $("#element").hide(600);
+        });
+
+        // 顯示
+        $("#showBtn").on("click", function () {
+            $("#element").show(600);
+        });
+
+        // 切換顯示/隱藏
+        $("#toggleBtn").on("click", function () {
+            $("#element").toggle(600);
+        });
+
+        // 淡入顯示
+        $("#fadeInBtn").on("click", function () {
+            $("#element").fadeIn(600);
+        });
+
+        // 淡出隱藏
+        $("#fadeOutBtn").on("click", function () {
+            $("#element").fadeOut(600);
+        });
+
+        // 滑動顯示
+        $("#slideDownBtn").on("click", function () {
+            $("#element").slideDown(600);
+        });
+
+        // 滑動隱藏
+        $("#slideUpBtn").on("click", function () {
+            $("#element").slideUp(600);
+        });
+    </script>
+</html>
