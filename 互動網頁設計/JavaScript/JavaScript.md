@@ -71,7 +71,7 @@ let sum = (a, b) => {
 };
 ```
 
-### 閉包(Closure) 和柯里化(Currying)
+### 閉包(Closure) 和Currying
 - 在 JavaScript 中，函式是一級函式，也就是說，函式可以像變數一樣傳遞。由於這個特性，我們可以在函式內部返回另一個函式，並利用閉包保存某些變數的值。
 - 假設有一個函式需要多個參數，但其中一些參數經常是固定的（例如 API 的基礎 URL），那麼我們可以將這些固定的參數抽出來，讓整體函式使用上更方便。
 ```js
@@ -1698,21 +1698,263 @@ cookProcess();
 ```
 
 ## 產生器
-產生器是一種特殊的函數，可以暫停其執行並在需要時恢復。產生器函數會返回一個**迭代器物件**，每次執行產生器函數的 `next()` 方法時，就會暫停在 `yield` 關鍵字上，並返回 `yield` 後的值。
+- 產生器是一種特殊的函數，可以暫停其執行並在需要時恢復。
+- 產生器函數會返回一個**迭代器物件**，每次執行產生器函數的 `next()` 方法時，就會暫停在 `yield` 關鍵字上，並返回 `yield` 後的值。
+- **`yield`**：用於暫停產生器函數的執行，並返回一個值。
+- **`next()`**：用於控制產生器的執行。每次調用 `next()`，產生器函數會從上次暫停的 `yield` 位置繼續執行
+- 應用場景：
+	- 可以用產生器來逐步處理大量資料，而不會一次性加載全部資料。
+	- 配合 `for await...of` 與 `async` 可以實現非同步代碼的同步流程控制。
+```js
+function* myGenerator() {
+    let number = 0;
+    while (true) {
+        number++;
+        yield number.toString().padStart(3, 0);
+    }
+}
 
-## 高階知識點
+// 回傳兩個值
+// value：當前取出的值
+// done：是否跌待完成
+const iterator = myGenerator();
+console.log(iterator.next()); // {value: '001', done: false}
+console.log(iterator.next()); // {value: '002', done: false}
+console.log(iterator.next()); // {value: '003', done: false}
+```
 
-產生器 (Generator)
-Symbol 與符號 (Symbol)
-Proxy
-Reflect
-WeakRef 與 FinalizationRegistry
-Intl (國際化)
+```js
+// 配合 `for await...of` 與 `async` 可以實現非同步代碼的同步流程控制
+function fetchStatusResult() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const statuses = ["ready", "in progress", "completed"];
+            const status = statuses[Math.floor(Math.random() * statuses.length)];
+            console.log("Fetched status:", status);
+            resolve(status);
+        }, 2000); // 模擬1秒的延遲
+    });
+}
+
+// 使用 async generator 函數逐步獲取狀態
+async function* checkStatus(times) {
+    for (let i = 1; i <= times; i++) {
+        const status = await fetchStatusResult();
+        yield status; // 暫停並返回當前狀態
+    }
+}
+
+// 主函數，控制非同步流程
+(async () => {
+    let generator = checkStatus(3); // 設置要檢查的次數
+    console.log("開始檢查狀態...");
+    for await (let status of generator) {
+        console.log("目前狀態:", status);
+        if (status === "completed") {
+            console.log("狀態已完成，結束檢查。");
+            break;
+        }
+    }
+    console.log("檢查流程結束。");
+})();
+```
+
+## Symbol
+- `Symbol` 是 JavaScript 中新增的一種原始資料型別，與 `string`、`number`、`boolean` 等並列。
+- `Symbol` 最主要的用途是用來建立唯一的標識（identifier）
+- 每個 `Symbol` 都是唯一的，且即使兩個 `Symbol` 表面上內容相同，它們也是不相等的。
+- 在需要建立物件的私有屬性或避免名稱衝突時非常有用。
+```js
+// 使用 Symbol() 函數來建立一個新的 Symbol
+const mySymbol = Symbol();
+console.log(mySymbol); // Symbol()
+
+// 傳入一個字串作為描述(幫助除錯)，並不會影響 Symbol 的唯一性
+const symbolWithDescription = Symbol("description");
+console.log(symbolWithDescription); // Symbol(description)
+
+// Symbol 的唯一性
+const sym1 = Symbol("unique");
+const sym2 = Symbol("unique");
+
+console.log(sym1 === sym2); // false
+```
+
+
+## 代理物件(Proxy)
+- 用來代理目標物建，也就是「改變、中介」目標物建的基礎操作。
+- 基本語法：`const proxy = new Proxy(target, handler);`
+	- `target`：要代理的物件
+	- `handler`：定義攔截行為的物件，它包含若干“攔截器”方法（稱為 traps），這些方法會在對 `target` 執行特定操作時被觸發。
+### 常見的 `Proxy` 操作方法（Traps）
+- `get(target, property)`：攔截對屬性的讀取操作。
+- `set(target, property, value)`：攔截對屬性的設定操作。
+- `deleteProperty(target, property)`：攔截屬性的刪除操作。
+- `has(target, property)`：攔截 `in` 操作符（例如 `prop in obj`）。
+- `apply(target, thisArg, args)`：攔截函數的呼叫。
+- `construct(target, args)`：攔截 `new` 操作符。
+```js
+let profile = {
+    name: "TA",
+    firstName: "T",
+    lastName: "A",
+    age: 23,
+};
+
+// 如果想要完整取的名子
+console.log(profile.firstName + profile.lastName); // 多個屬性組合才能滿足需求
+
+// 透過proxy
+let proxy = new Proxy(profile, {
+    get: function (target, property) {
+        if (property == "completeName") {
+            return target.firstName + target.lastName;
+        } else {
+            return target[property];
+        }
+    },
+});
+
+console.log(proxy.completeName);
+console.log(proxy.firstName);
+```
+
+```js
+// 透過 get 和 set 來攔截屬性的讀取與設定。
+const person = {
+    name: "Alice",
+    age: 25,
+};
+
+const personProxy = new Proxy(person, {
+    get(target, property) {
+        console.log(`讀取屬性 ${property}`);
+        return target[property];
+    },
+    set(target, property, value) {
+        console.log(`設定屬性 ${property} 為 ${value}`);
+        target[property] = value;
+        return true;
+    },
+});
+
+console.log(personProxy.name); // 讀取屬性 name -> Alice
+personProxy.age = 30; // 設定屬性 age 為 30
+console.log(personProxy.age); // 讀取屬性 age -> 30
+```
+
+```js
+// deleteProperty 可以攔截刪除屬性的行為，甚至可以禁止某些屬性的刪除。
+const data = { id: 1, secret: "password" };
+
+
+const dataProxy = new Proxy(data, {
+    deleteProperty(target, property) {
+        if (property === "secret") {
+            console.log("不允許刪除 secret 屬性");
+            return false;
+        }
+        delete target[property];
+        return true;
+    },
+});
+
+delete dataProxy.secret; // 不允許刪除 secret 屬性
+delete dataProxy.id; // 成功刪除 id
+console.log(data); // { secret: "password" }
+```
+
+```js
+// apply 操作可以攔截函數的呼叫。這個攔截器只在 target 是函數時使用。
+const sum = (a, b) => a + b;
+
+const sumProxy = new Proxy(sum, {
+    apply(target, thisArg, args) {
+        console.log(`呼叫函數並傳入參數：${args}`);
+        return target(...args);
+    }
+});
+
+console.log(sumProxy(5, 10)); // 呼叫函數並傳入參數：5,10 -> 15
+```
+
+```js
+// has 操作可以攔截 in 運算符，用來檢查某屬性是否存在於物件中。
+const settings = { theme: "dark", language: "en" };
+
+const settingsProxy = new Proxy(settings, {
+    has(target, property) {
+        if (property === "password") {
+            console.log("禁止訪問密碼屬性");
+            return false;
+        }
+        return property in target;
+    },
+});
+
+console.log("theme" in settingsProxy); // true
+console.log("password" in settingsProxy); // 禁止訪問密碼屬性 -> false
+```
+
+### `Proxy` 的用途
+1. 資料驗證：用 `set` 攔截器來驗證資料輸入是否合法。
+2. 屬性監控：監控對物件屬性的讀取、設定和刪除操作。
+3. 隱藏資料：使用 `get` 和 `has` 操作來隱藏某些屬性。
+4. 函數攔截：用 `apply` 攔截器來處理函數的呼叫行為。
+5. 虛擬屬性：在 `get` 操作中生成虛擬屬性而不是在物件上直接定義。
+
+
+## 映射(Reflect)
+- 可以想成它是為某些內建方法或運算指令,提供另一種替代方式。
+- 在某些情況下,使用映射提供的方法反而會比較理想(提供更合適的回傳結果、統一使用函式呼叫的方式、提升程式碼的可讀性等等)。
+- `Reflect` 沒有構造函數，因此不需要 `new` 關鍵字。所有方法都直接調用。
+```js
+Reflect.get(target, property, receiver);
+Reflect.set(target, property, value, receiver);
+Reflect.has(target, property);
+Reflect.deleteProperty(target, property);
+Reflect.apply(target, thisArgument, argumentsList);
+Reflect.construct(target, argumentsList);
+```
+
+```js
+// Reflect.get(target, property, receiver)
+// 用於讀取物件的屬性。這個方法與 target[property] 的效果相似，但更安全。
+const person = { name: "Alice", age: 25 };
+console.log(Reflect.get(person, "name")); // Alice
+console.log(Reflect.get(person, "age")); // 25
+
+// Reflect.set(target, property, value, receiver)
+// 類似 target[property] = value，如果設定成功，返回 true，否則返回 false。
+Reflect.set(person, "age", 30);
+console.log(person.age); // 30
+
+// eflect.has(target, property)
+// 檢查物件是否有某個屬性。相當於 property in target。
+console.log(Reflect.has(person, "name")); // true
+console.log(Reflect.has(person, "height")); // false
+
+// Reflect.deleteProperty(target, property)
+// 用於刪除物件的屬性。相當於 delete target[property]
+Reflect.deleteProperty(person, "age");
+console.log(person); // { name: "Alice" }
+
+// Reflect.apply(target, thisArgument, argumentsList)
+// 用於調用函數，類似於 Function.prototype.apply()。它允許我們在指定的 this 上下文中執行函數。
+function greet(name) {
+    return `Hello, ${name}`;
+}
+
+console.log(Reflect.apply(greet, undefined, ["Alice"])); // Hello, Alice
+```
+
+### 可能還要放reflect跟proxy的結合，但好難.....
+- [JavaScript: Proxy & Reflect (youtube.com)](https://www.youtube.com/watch?v=CR-I1XwHqxQ)
+
 
 ## JS建議的學習順序總結：
 - **Three.js** - 入門 3D 圖形概念。
 - **Babylon.js** - 進階 3D 開發和遊戲應用。
-- **D3.js** - 資料視覺化，學會展示數據。
 - **TensorFlow.js** - 機器學習應用，增強智能。
 - **PixiJS** - 專注於高效的 2D 圖形渲染和動畫。
 
