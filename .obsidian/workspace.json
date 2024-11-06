@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "程式設計(leetcode)/Lession01數組基礎.md",
+                "file": "程式設計(leetcode)/Lession數組基礎.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d521f9664a56aefd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "互動網頁設計/jQuery/jQuery.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f7a1df7d72da26c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "互動網頁設計/Vue/Vue.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "程式設計(leetcode)/Lession01數組基礎.md",
+                "file": "互動網頁設計/jQuery/jQuery.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "程式設計(leetcode)/Lession01數組基礎.md",
+                "file": "互動網頁設計/jQuery/jQuery.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "程式設計(leetcode)/Lession01數組基礎.md"
+                "file": "互動網頁設計/jQuery/jQuery.md"
               }
             }
           }
@@ -145,11 +170,29 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "6b94bd8fef7c546d",
+  "active": "1431614dcd080964",
   "lastOpenFiles": [
+    "互動網頁設計/Vue/Vue.md",
+    "互動網頁設計/jQuery/jQuery.md",
+    "程式設計(leetcode)/Lession數組基礎.md",
+    "Python/solar_animation.gif",
+    "Python/temp_images/image_296.png",
+    "Python/temp_images/image_295.png",
+    "Python/temp_images/image_294.png",
+    "Python/temp_images/image_293.png",
+    "Python/temp_images/image_292.png",
+    "Python/temp_images/image_291.png",
+    "Python/temp_images/image_290.png",
+    "Python/temp_images/image_289.png",
+    "Python/temp_images/image_288.png",
+    "Python/temp_images",
+    "Python/【星空作畫】.ipynb",
     "程式設計(leetcode)/預計排課.md",
+    "程式設計(leetcode)/Lession數學.md",
+    "互動網頁設計/Vue/display/index.html",
+    "互動網頁設計/Vue/display",
+    "互動網頁設計/Vue",
     "互動網頁設計/JavaScript/ECharts.js.md",
-    "程式設計(leetcode)/Lession01數組基礎.md",
     "自我決定論(Self-determination theory, SDT).md",
     "README.md",
     "C&C++/【OOP】.md",
@@ -161,26 +204,10 @@
     "互動網頁設計/JavaScript/D3.js.md",
     "互動網頁設計/Bootstrap/Bootstrap.md",
     "互動網頁設計/理論課上的小demo/display/js/macarons.js",
-    "互動網頁設計/jQuery/jQuery.md",
     "互動網頁設計/CSS/~$CSS.pptx",
     "互動網頁設計/Figma/~$Figma01.pptx",
     "程式設計(leetcode)",
     "Python/【OpenAI】.ipynb",
-    "Python/temp image/thumb dir",
-    "Python/temp image/thumb_dir",
-    "Python/temp image/source dir/image08.jpg",
-    "Python/temp image/source dir/image07.jpg",
-    "Python/temp image/source dir/image06.jpg",
-    "Python/temp image/source dir/image05.jpg",
-    "Python/temp image/source dir/image04.jpg",
-    "Python/temp image/source dir/image03.jpg",
-    "Python/temp image/source dir/image02.jpg",
-    "Python/temp image/source dir/image01.jpg",
-    "Python/temp image/source dir",
-    "Python/temp image/image08.jpg",
-    "Python/temp image/image07.jpg",
-    "Python/temp image",
-    "Python/2024計算機概論/temp image",
     "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
     "互動網頁設計/JavaScript/javascript_demo_pig_game/README.md",
     "互動網頁設計/CSS/CSS.md",
@@ -190,9 +217,6 @@
     "互動網頁設計/HTML/SASS.md",
     "Arduino/【使用pyserial 和 Firmata 協議來控制 Arduino 上的 LED】.md",
     "Python/2024計算機概論/SASS.md",
-    "Figma/【figma基本操作】.md",
-    "Figma/【好用工具】.md",
-    "Figma/【關於UIUX的工作流程】.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
