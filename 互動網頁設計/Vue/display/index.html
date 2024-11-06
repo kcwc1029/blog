@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pokémon API Example</title>
-        <!-- jQuery CDN -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
     </head>
+
     <body>
-        <h1>Pokémon Information</h1>
-        <input type="text" id="pokemonName" placeholder="Enter Pokémon name" />
-        <button id="fetchPokemon">Fetch Pokémon</button>
-
-        <!-- Display Pokémon data -->
-        <div id="pokemonInfo" style="display: none">
-            <h2 id="name"></h2>
-            <img id="sprite" alt="Pokémon Image" />
-            <p>Type: <span id="type"></span></p>
-            <p>Height: <span id="height"></span></p>
-            <p>Weight: <span id="weight"></span></p>
+        <div class="container">
+            <form class="row">
+                <div class="my-3">
+                    <label for="userEmail" class="form-label">電子郵件</label>
+                    <input type="email" class="form-control" id="userEmail" />
+                    <div id="comment1" class="form-text">*必填欄位</div>
+                </div>
+                <div class="my-3">
+                    <label for="userPWD" class="form-label"></label>
+                    <input type="password" class="form-control" id="userPWD" />
+                    <div id="comment2" class="form-text">*必填欄位</div>
+                </div>
+                <button type="submit" class="btn btn-primary">提交</button>
+            </form>
         </div>
-
-        <script>
-            // Fetch Pokémon data when the button is clicked
-            $(document).ready(function () {
-                $("#fetchPokemon").on("click", function () {
-                    const pokemonName = $("#pokemonName").val().toLowerCase();
-
-                    // Call PokeAPI using jQuery's AJAX method
-                    $.ajax({
-                        url: `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
-                        method: "GET",
-                        success: function (data) {
-                            // Update HTML with Pokémon data
-                            $("#name").text(data.name);
-                            $("#sprite").attr("src", data.sprites.front_default);
-                            $("#type").text(data.types.map((typeInfo) => typeInfo.type.name).join(", "));
-                            $("#height").text(data.height);
-                            $("#weight").text(data.weight);
-                            $("#pokemonInfo").show();
-                        },
-                        error: function () {
-                            alert("Pokémon not found. Please try another name.");
-                            $("#pokemonInfo").hide();
-                        },
-                    });
-                });
-            });
-        </script>
     </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
 </html>

@@ -28,31 +28,25 @@
 </html>
 ```
 
-## color
-- 【參考】[Color · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/customize/color/)
-- Bootstrap 提供一個擴展的顏色系統，讓開發者可以自訂樣式和元件。主要的主題顏色包括 **Primary**、**Secondary**、**Success**、**Danger**、**Warning**、**Info**、**Light**、**Dark** 等。
-- Bootstrap 也提供像 `.bg-primary` 和 `.text-danger` 讓開發者快速套用背景和文字顏色。
-
-![upgit_20241023_1729685304.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729685304.png)
-
-
-![upgit_20241023_1729692029.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729692029.png)
-
-![upgit_20241023_1729692042.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729692042.png)
+## Bootstrap網格系統
+- Bootstrap網格系統是透過橫向的row(列)和直向的column(行)來設計網頁版面。
+- 它將網頁寬度平均分割為12等分，稱為12個column。
+- 假設要使用兩個`<div>`元素製作寬度為1:1的雙欄版面，那麼這兩個`<div>`元素是位於相同的row，並分別占用6個column。
+- 假設要使用兩個`<div>`元素製作寬度為2:1的雙欄版面，那麼這兩個`<div>`元素是位於相同的row，並分別占用8和4個column。
 
 
 ## 斷點(breakpoint)
 - 【參考】[Breakpoints · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/layout/breakpoints/)
 - 斷點的目標是行動優先與響應式設計，使用最少的樣式讓最小斷點能夠運作，然後逐漸調整樣式以適用於較大的裝置。
 
-| 斷點                | 類別前置詞 | 可視區域的寬度  |
-| ----------------- | ----- | -------- |
-| Extra small       |       | <576px   |
-| Small             | sm    | ≥ 576px  |
-| Medium            | md    | ≥ 768px  |
-| Large             | lg    | ≥ 992px  |
-| Extra large       | xl    | ≥ 1200px |
-| Extra extra large | xxl   | ≥ 1400px |
+| 斷點                | 類別前置詞      | 可視區域的寬度  |
+| ----------------- | ---------- | -------- |
+| Extra small       |            | <576px   |
+| Small             | sm         | ≥ 576px  |
+| Medium            | md(手機)(預設) | ≥ 768px  |
+| Large             | lg(一般電腦螢幕) | ≥ 992px  |
+| Extra large       | xl         | ≥ 1200px |
+| Extra extra large | xxl        | ≥ 1400px |
 
 ## 容器(container)
 - 【參考】[Containers · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/layout/containers/)
@@ -123,6 +117,71 @@
 - 要完全移除 gutters，可以使用 `.g-0`，使欄位無縫對接。
 
 
+## 排版
+### 標題
+- 針對標題本身的`<h1>`到`<h6>`，也可以下display-1(1到6)，去設定大小。
+### 行內文字
+- 針對`<mark>`、`<small>`、`<u>`、`<s>`等元素，BS5提供.mark、.small、.text-decoration-underline、.text-decoration-line作為對應調整。
+- Text-truncate：文字長度過多改成「…」
+- 針對段落的字體，可以用fs調整。
+### 清單
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <ul>
+            <li>item01</li>
+            <li>item02</li>
+        </ul>
+        <!-- 前面小點清除 -->
+        <ul class="list-unstyled">
+            <li>item01</li>
+            <li>item02</li>
+        </ul>
+        <!-- 排列inline -->
+        <ul class="list-inline">
+            <li class="list-inline-item">item01</li>
+            <li class="list-inline-item">item02</li>
+            <!-- 沒下class，就會排到下一行 -->
+            <li>item03</li>
+        </ul>
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
+</html>
+```
+
+## 文字
+- 文字樣式：
+![upgit_20241106_1730875052.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730875052.png)
+
+- 靠O對齊：text-start、text-center、text-left。
+- 是否要換行：text-wrap、text-nowrap。
+- 文字大小寫轉換：text-lowercase、text-uppercase、text-capitalize
+- 去掉文字裝飾：.text-decoration-none
+- 加上底線：text-decoration-underline
+- 加上刪除線：text-decoration-line-through
+## 色彩
+![upgit_20241106_1730874803.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730874803.png)
+
+## 背景
+![upgit_20241106_1730874880.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730874880.png)
+
 ## Image
 - 【參考】[Images · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/content/images/)
 - 響應式圖片(Responsive images)：`class="img-fluid"`，相當於`max-width: 100%; height: auto;`。
@@ -133,43 +192,61 @@
 
 ![upgit_20241023_1729693927.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241023_1729693927.png)
 
-## table
-[Tables · Bootstrap v5.3 (getbootstrap.com)](https://getbootstrap.com/docs/5.3/content/tables/)
-- 處理表格顏色
-```html
-<!-- On tables -->
-<table class="table-primary">...</table>
-<table class="table-secondary">...</table>
-<table class="table-success">...</table>
-<table class="table-danger">...</table>
-<table class="table-warning">...</table>
-<table class="table-info">...</table>
-<table class="table-light">...</table>
-<table class="table-dark">...</table>
-
-<!-- On rows -->
-<tr class="table-primary">...</tr>
-<tr class="table-secondary">...</tr>
-<tr class="table-success">...</tr>
-<tr class="table-danger">...</tr>
-<tr class="table-warning">...</tr>
-<tr class="table-info">...</tr>
-<tr class="table-light">...</tr>
-<tr class="table-dark">...</tr>
-
-<!-- On cells (`td` or `th`) -->
-<tr>
-  <td class="table-primary">...</td>
-  <td class="table-secondary">...</td>
-  <td class="table-success">...</td>
-  <td class="table-danger">...</td>
-  <td class="table-warning">...</td>
-  <td class="table-info">...</td>
-  <td class="table-light">...</td>
-  <td class="table-dark">...</td>
-</tr>
-```
-- 相間顏色：`.table-striped`
+## 框線
+- 設定框線位置
+![upgit_20241106_1730874310.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730874310.png)
+- 設定框線粗度：border-1(1到5)
+- 設定框線透明度：border-opacity-10(10、25、50、75)
+- 設定框線原角：
+	- round-0(0到5)
+	- round-pill：橢圓形
+	- round-circle：圓形
+- 設定框線色彩
+![upgit_20241106_1730874457.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730874457.png)
 
 
+## 超連結
+- 設定超連結顏色：link-underline-顏色
+- 設定超連結透明度
+![upgit_20241106_1730875586.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730875586.png)
 
+
+## 間距(spacing)
+- 通用格式為 `{property}{sides}-{size}`。
+- 屬性 (property)
+	- `m`: 邊界 (margin)。
+	- `p`: 留白 (padding)。
+- 側邊 (sides)
+	- `t`: 上邊界或留白 (top)。
+	- `b`: 下邊界或留白 (bottom)。
+	- `s`: 左邊界或留白 (start)。
+	- `e`: 右邊界或留白 (end)。
+	- `x`: 左右邊界或左右留白。
+	- `y`: 上下邊界或上下留白。
+	- `blank`: 四周邊界或四周留白。
+- 大小：0-5、auto
+
+## 長寬百分比
+- 長度百分比：h-25(25、50、75、100、auto)。
+- 寬度百分比：w-25(25、50、75、100、auto)。
+
+## 垂直對齊
+![upgit_20241106_1730876145.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730876145.png)
+
+
+## 表單(form)
+- 在form裡面使用labal時，一定要加上class=form-label。
+- 輸入欄(input、textarea、select)要加上class=form-control。
+- 表單如果有說明文字，要加上class=form-text。
+![upgit_20241106_1730877934.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730877934.png)
+
+- 如果要在input前後面加上span，要加上class="input-group"
+![upgit_20241106_1730878015.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730878015.png)
+
+- 針對select：要加上class="form-select"
+![upgit_20241106_1730878086.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730878086.png)
+
+- 針對checkbox、radio：
+	- 最外面的div要放class="form-check"
+	- 勾選欄位；class="form-check-input"
+	- 文字標籤：class="form-check-label"
