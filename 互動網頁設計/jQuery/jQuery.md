@@ -231,6 +231,8 @@ $(選擇器).method(參數)
 
 - addClass()
 - removeClass()
+- hasclass()
+- toggleClass()
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -355,6 +357,7 @@ $(選擇器).method(參數)
 </html>
 ```
 
+
 ### 取得元素高度寬度
 ```html
 <!DOCTYPE html>
@@ -406,6 +409,9 @@ $(選擇器).method(參數)
     </script>
 </html>
 ```
+
+
+
 
 ## jQuery DOM 操作方法
 
@@ -588,6 +594,94 @@ $("input").on("click", function (e) {
 });
 ```
 
+
+
+## jQuery 的 HTML 表單驗證
+- 表單驗證 (Form Validation) 是用來檢查使用者在表單欄位輸入的資料是否正確，防止使用者輸入錯誤資料。
+	- 忘記輸入資料
+	- 資料格式不正確
+	- 資料超出範圍
+### 使用 click 事件的表單驗證
+- 當使用者按下 **"提交"** 按鈕後，檢查是否有任何必填欄位是空白。
+- 若有空白欄位，則會自動將其框線標示為紅色，以提示使用者補充資料。
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>表單驗證示範</title>
+    <style type="text/css">
+        .error { border: 2px solid red; }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <form action="#">
+            姓名: <input type="text" id="name"/><br/>
+            電郵: <input type="text" id="email"/><br/>
+            <textarea rows="5" cols="25" id="comment"></textarea><br/>
+            <input type="submit" value="送出"/>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+	        // 【:】過濾選擇器 (Filter Selector)，用來選取特定類型(type)的元素。
+            $(':submit').click(function(event) {
+                $(':text').each(function() {
+                    if($(this).val().length == 0) {
+                        $(this).addClass('error');
+                    }
+                });
+                event.preventDefault();
+            });
+            
+			// TODO: 使用者在做修正
+            $(':input').focus(function() {
+                $(this).removeClass('error');
+            });
+        });
+    </script>
+</body>
+</html>
+```
+### 即時驗證欄位資料
+- 當使用者離開 (blur) 某個輸入欄位時，立即檢查該欄位的輸入是否為空。
+- 若欄位為空，則顯示紅色框線，並提示使用者補充資料。
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>即時驗證欄位資料</title>
+    <style type="text/css">
+        .error { border: 2px solid red; }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <form action="#">
+            姓名: <input type="text" id="name"/><br/>
+            電郵: <input type="text" id="email"/><br/>
+            <textarea rows="5" cols="25" id="comment"></textarea><br/>
+            <input type="submit" value="送出"/>
+        </form>
+    </div>
+
+    <script>
+        $(':input').blur(function() {
+            if($(this).val().length == 0) {
+                $(this).addClass('error');
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+
 ## Query 動畫與特效
 ### 基本特效
 - hide()：隱藏符合的元素
@@ -677,7 +771,148 @@ $("input").on("click", function (e) {
 ```
 
 
-### AJAX
+## AJAX
+- load()：將伺服端的遠端文件使用AJAX方式載入
+- getScript()：使用AJAX方式執行伺服端JavaScript程式檔案
+- get()：使用HTTP GET方法送出AJAX請求和取得回應
+- post()：使用HTTP POST方法送出AJAX請求和取得回應
+- getJSON()：使用HTTP GET方法取得伺服端的JSON資料
+	- 僅限 JSON 資料。若伺服器回應的資料不是 JSON 格式，請求會失敗。
+	- 簡化處理 JSON 格式的資料，不需要再手動 `JSON.parse()`。
+- ajax()：使用XMLHttpRequest物件送出AJAX請求
+	- 是 jQuery 提供的 **最通用、最靈活** 的 AJAX 方法，允許你自訂各種請求參數 (如 HTTP 方法、資料類型、標頭、回應處理等)。
+### 在AJAX中談JSON
+- 「JSON」的全名是(JavaScript Object Notation)，這是一種AJAX技術常用的資料交換格式,類似XML,事實上,JSON就是一個JavaScript物件的文字表示法。
+- JSON 與 JavaScript 物件之間的轉換：
+	- **將 JavaScript 物件轉換為 JSON 字串**：`JSON.stringify()`
+	- **將 JSON 字串轉換為 JavaScript 物件**：`JSON.parse()`
+```html
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    </head>
+    <body></body>
+    <script>
+        const person = {
+            name: "吉伊卡哇",
+            age: 25,
+            email: "example@gmail.com",
+            skills: ["HTML", "CSS", "JavaScript"],
+        };
+
+        // TODO: 將 JavaScript 物件轉為 JSON 字串
+        const jsonString = JSON.stringify(person);
+        console.log(jsonString);
+
+        // 格式化輸出（增加縮排）
+        const formattedJson = JSON.stringify(person, null, 4);
+        console.log(formattedJson);
+
+        // TODO: 將 JSON 字串轉為 JavaScript 物件
+        console.log(person);
+        // 訪問轉換後的物件屬性
+        console.log(person.name); // "吉伊卡哇"
+        console.log(person.skills); // ["HTML", "CSS", "JavaScript"]
+    </script>
+</html>
+```
+### load()：將伺服端的遠端文件使用AJAX方式載入
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Load Example</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div id="pokemon-info">寶可夢資訊將載入這裡</div>
+        <button id="load-btn">載入皮卡丘資料</button>
+
+        <script>
+            $("#load-btn").click(function () {
+                $("#pokemon-info").load("https://pokeapi.co/api/v2/pokemon/pikachu", function (response, status, xhr) {
+                    if (status === "error") {
+                        $("#pokemon-info").text("無法載入資料");
+                    } else {
+                        $("#pokemon-info").text(response);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+### get()：使用HTTP GET方法送出AJAX請求和取得回應
+- 取得寶可夢資料（例如皮卡丘），並在控制台中顯示名稱和重量。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GET Example</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="get-btn">取得皮卡丘資料</button>
+        <div id="result"></div>
+        <script>
+            $("#get-btn").click(function () {
+                $.get("https://pokeapi.co/api/v2/pokemon/pikachu", function (data) {
+                    $("#result").html(`
+                        <p>名稱: ${data.name}</p>
+                        <p>重量: ${data.weight}</p>
+                    `);
+                    console.log("名稱:", data.name);
+                    console.log("重量:", data.weight);
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+### ajax()：使用XMLHttpRequest物件送出AJAX請求
+- 支援 **GET**、**POST**、**PUT**、**DELETE** 等多種 HTTP 方法。
+- 可以設定回應資料的類型，如 `json`、`xml`、`html`、`text`。
+- 可以設定錯誤處理 (`error`) 及完成時的處理 (`complete`)。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>AJAX Example</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="ajax-btn">取得寶可夢charmander的 AJAX 資料</button>
+        <div id="ajax-result"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#ajax-btn").click(function () {
+                    $.ajax({
+                        url: "https://pokeapi.co/api/v2/pokemon/charmander",
+                        method: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $("#ajax-result").html(`名稱: ${data.name}, 高度: ${data.height}`);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("錯誤:", error);
+                            $("#ajax-result").text("無法取得資料，請稍後再試");
+                        },
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+- AJAX：取的寶可挊API
 ```html
 <!DOCTYPE html>
 <html lang="en">

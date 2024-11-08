@@ -1237,6 +1237,14 @@ set01.clear();
 	- 點擊事件：當使用者在 HTML 元素上點擊時觸發。
 - 事件觸發後，事件驅動模式會依次執行事件，讓程式等待執行完成後再處理後續事件。
 
+### 事件處理模型
+- 事件捕捉 (Event Capturing)：
+	- 當事件觸發時，從最外層的父元素開始捕捉，逐層向內直到觸發事件的元素。
+- 事件冒泡 (Event Bubbling)：
+	- 事件由觸發的元素開始，逐層向上冒泡至最外層的父元素。
+![upgit_20241108_1731048567.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048567.png)
+![upgit_20241108_1731048572.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048572.png)
+
 ### 事件類型
 #### 使用者介面(UI)事件
 - 與使用者界面變動有關的事件。
@@ -1695,6 +1703,149 @@ async function cookProcess() {
 
 // 執行流程
 cookProcess();
+```
+## Fetch API
+- 基本用法
+```js
+fetch(url, Request物件 )
+    .then(response物件 => response.json()) // 將回應轉成 JSON 格式
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+- 上述fetch()函數送出參數URL網址的HTTP Request請求，回應為的是ES6的Promise物件。
+- HTTP狀態404和500仍然是呼叫resolve()，不過會指定Response的ok屬性值從true改為false
+- 只有網路錯誤或中斷網路等情況下,才會呼叫reject()函數。
+- 回傳的Response物件是一種 ReadableStream物件，因此可以用下列方式取的值定類型資料：
+	- text()：回應文字字串
+	- json()：回傳JSON物件
+	- blob()：回傳二進位資料,例如:圖片
+### Request 物件的常用屬性
+- method：HTTP 請求方法：GET、POST、PUT、DELETE
+- headers：HTTP 標頭資訊
+- body：請求的資料（GET 和 HEAD 不適用）
+### Response 物件的常用屬性
+- headers：取得回應資料的標頭資訊
+- ok：請求是否成功（true 或 false）
+- status：HTTP 狀態碼（200 表示成功）
+- statusText：HTTP 狀態文字（如 "OK"）
+```html
+<!-- TODO: GET：從寶可夢 API 取得資料 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fetch API Example</title>
+    </head>
+    <body>
+        <button id="fetch-btn">取得寶可夢資料</button>
+        <pre id="result"></pre>
+
+        <script>
+            // 定義一個非同步函數來處理請求
+            async function fetchPokemonData() {
+                const resultElement = document.getElementById("result");
+                try {
+                    // 使用 fetch 並等待回應
+                    const response = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+
+                    // 如果回應不是 OK，拋出錯誤
+                    if (!response.ok) {
+                        throw new Error(`HTTP 錯誤：${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    // 顯示資料
+                    resultElement.textContent = `名稱: ${data.name}\n高度: ${data.height}\n重量: ${data.weight}`;
+                } catch (error) {
+                    console.error("取得資料失敗:", error);
+                    resultElement.textContent = "無法取得資料，請稍後再試";
+                }
+            }
+
+            // 監聽按鈕的點擊事件，執行非同步函數
+            document.getElementById("fetch-btn").addEventListener("click", fetchPokemonData);
+        </script>
+    </body>
+</html>
+```
+
+```html
+<!-- TODO: POST：傳送 JSON 資料到伺服器 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fetch API POST Form</title>
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body class="bg-light">
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">表單資料提交（Fetch API）</h2>
+
+            <!-- 表單區塊 -->
+            <form id="contactForm" class="card p-4 shadow">
+                <div class="mb-3">
+                    <label for="name" class="form-label">姓名：</label>
+                    <input type="text" class="form-control" id="name" placeholder="請輸入您的姓名" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">提交</button>
+            </form>
+
+            <!-- 結果顯示區 -->
+            <div id="result" class="mt-4"></div>
+        </div>
+
+        <script>
+            // 監聽表單提交事件
+            document.getElementById("contactForm").addEventListener("submit", async function (event) {
+                event.preventDefault(); // 防止表單預設的提交行為
+
+                // 取得輸入的資料
+                const name = document.getElementById("name").value;
+
+                // 準備要 POST 的資料
+                const formData = {
+                    name: name,
+                };
+
+                try {
+                    // 使用 Fetch API 發送 POST 請求
+                    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(formData),
+                    });
+
+                    // 解析伺服器的回應
+                    const result = await response.json();
+
+                    // 顯示提交結果
+                    document.getElementById("result").innerHTML = `
+                    <div class="alert alert-success">
+                        <h5>提交成功！</h5>
+                        <p>回應資料：</p>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>
+                    </div>
+                `;
+                } catch (error) {
+                    console.error("提交失敗:", error);
+                    document.getElementById("result").innerHTML = `
+                    <div class="alert alert-danger">
+                        <h5>提交失敗</h5>
+                        <p>請稍後再試。</p>
+                    </div>
+                `;
+                }
+            });
+        </script>
+    </body>
+</html>
 ```
 
 ## 產生器
