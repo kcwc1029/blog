@@ -22,6 +22,7 @@
 - MVVM 是 MVC 的進階版，分離了視圖(View)和業務邏輯(Model)。
 - 引入了 ViewModel 層，用於處理業務邏輯和 UI 間的資料綁定。
 - MVVM 適合於需要雙向資料綁定的應用場景，並引入了 WPF 等技術的支援。
+![upgit_20241106_1730879598.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730879598.png)
 
 ### Vue.js 與 React 的比較
 - 優勢
@@ -198,8 +199,116 @@
 ```
 ![upgit_20241105_1730778585.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241105_1730778585.png)
 
-## v-bind：插值&綁定屬性(單向綁定)
+
+
+## 起手式
+- 這邊引入vue跟bootstrap5的CDN
+- mount：將實體掛載到HTML的物件當中。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">{{message}}</div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "hello vue",
+                };
+            },
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+## 文字綁定(單向)
+### 使用mustache標籤
+- 是一種樣板與法。
+![upgit_20241106_1730880069.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730880069.png)
+
+### v-text
+![upgit_20241106_1730880329.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730880329.png)
+
+### v-html
+![upgit_20241106_1730880830.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730880830.png)
+
+## 屬性綁定(單向)
+### v-bind
 - v-bind可以改成「:」
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p v-html="message"></p>
+            <!-- TODO: 綁訂單個屬性 -->
+            <img v-bind:src="img" alt="" srcset="" />
+            <!-- TODO: 綁訂多個屬性：用一個物件包起來 -->
+            <img v-bind="objectImg" />
+            <!-- TODO: 綁訂布林值-->
+            <button :disabled="isDisable">這是button</button>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "<h1>hello vue</h1>",
+                    img: "./img/image01.jpg",
+                    objectImg: {
+                        src: "./img/image01.jpg",
+                        width: "500",
+                    },
+                    isDisable: true,
+                };
+            },
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+- 另一個範例
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -246,10 +355,15 @@
         app.mount("#user-goal");
     </script>
 </html>
-
 ```
 
-## methods：在Vue中處理數據
+## mathods、computed、watch屬性
+### mathods屬性
+- 可以在這個屬性內定義方法。
+- 用來定義方法，適合處理觸發性或事件驅動的操作，例如按鈕點擊事件或表單提交。
+- `methods` 中的方法每次呼叫都會重新執行，不會自動快取結果。
+![upgit_20241106_1730882597.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730882597.png)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -273,38 +387,83 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body>
-        <header class="container my-4 p-4 bg-success text-white text-center rounded shadow">
-            <h1 class="display-4">Vue Course Goals</h1>
-        </header>
-        <section id="user-goal" class="container my-4 p-4 border rounded text-center shadow">
-            <h2 class="h2 text-success border-bottom pb-2 mb-4">My Course Goal</h2>
-
-            <p class="fs-5 fw-bold bg-success text-white py-2 px-3 rounded-pill">{{ outputGoal() }}</p>
-        </section>
+        <div id="app">
+            <p>身高(cm):{{ height }}</p>
+            <p>體重(kg):{{ weight}}</p>
+            <p>BMI: {{BMI()}}</p>
+        </div>
     </body>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    goalA: "this is goal A",
-                    goalB: "this is goal B",
+                    height: 176,
+                    weight: 62,
                 };
             },
             methods: {
-                outputGoal() {
-                    const randomNum = Math.random();
-                    if (randomNum < 0.5) return this.goalA;
-                    else return this.goalB;
+                BMI() {
+                    return (this.weight / (this.height / 100) ** 2).toFixed(2);
                 },
             },
         });
-        app.mount("#user-goal");
+        app.mount("#app");
     </script>
 </html>
 ```
+### computed屬性
+- 適合計算屬性，當依賴的資料改變時才會重新計算，並且結果會自動快取。
+- 宣告：要括弧(放參數)
+- 函數內要有return
+- 呼叫：以屬性進行呼叫
+![upgit_20241106_1730883199.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730883199.png)
 
-## v-html：放有包含標籤的內容
-- {{物件}}：適用於只單純文字。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>身高(cm): {{ height }}</p>
+        <p>體重(kg): {{ weight }}</p>
+        <p>BMI: {{ BMI }}</p>
+    </div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                height: 176,
+                weight: 62,
+            };
+        },
+        computed: {
+            BMI() {
+                return (this.weight / (this.height / 100) ** 2).toFixed(2);
+            },
+        },
+    });
+    app.mount("#app");
+</script>
+</html>
+```
+
+
+### watch屬性
+- 適合監聽指定資料的變化，當指定的資料改變時執行相應的回調函數。
+- `watch` 屬性通常用於執行非同步操作（例如 API 請求），或在資料改變時進行複雜的邏輯處理。
+- 會有兩個參數(新值, 舊值)
+![upgit_20241106_1730883762.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730883762.png)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -313,54 +472,86 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vue Basics</title>
         <!-- Bootstrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-        ></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Vue -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body>
-        <header class="container my-4 p-4 bg-success text-white text-center rounded shadow">
-            <h1 class="display-4">Vue Course Goals</h1>
-        </header>
-        <section id="user-goal" class="container my-4 p-4 border rounded text-center shadow">
-            <h2 class="h2 text-success border-bottom pb-2 mb-4">My Course Goal</h2>
-            <!-- 如果是要給整個html -> v-html -->
-            <div class="" v-html="outputHTML()"></div>
-        </section>
+        <div id="app">
+            <p>身高(cm): {{ height }}</p>
+            <p>體重(kg): {{ weight }}</p>
+            <input type="number" v-model="weight" placeholder="修改體重" />
+            <p>BMI: {{ bmi }}</p>
+        </div>
     </body>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    goalA: "this is goal A",
-                    goalB: "this is goal B",
+                    height: 176,
+                    weight: 62,
+                    bmi: null,
                 };
             },
             methods: {
-                outputHTML() {
-                    const randomNum = Math.random();
-                    if (randomNum < 0.5) return "<p>randomNum < 0.5</p>";
-                    else return "<p>randomNum > 0.5</p>";
+                updateBMI() {
+                    this.bmi = (this.weight / (this.height / 100) ** 2).toFixed(2);
+                },
+            },
+            watch: {
+                // TODO: 監測數值修改 -> 有修改就去執行methods的updateBMI()
+                weight(newWeight, oldWeight) {
+                    this.updateBMI();
                 },
             },
         });
-        app.mount("#user-goal");
+        app.mount("#app");
     </script>
 </html>
 ```
 
+## v-on 事件處理
+- 可以減寫為「@」
+![upgit_20241106_1730884093.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730884093.png)
 
-## v-on：事件監聽
-- v-on可以改成@
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="countPlus()">點讚次數：{{count}}</button>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 0,
+                };
+            },
+            methods: {
+                countPlus() {
+                    this.count++;
+                },
+            },
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+- 另一個例子
 ![upgit_20241105_1730785366.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241105_1730785366.png)
 
 ```html
@@ -423,8 +614,7 @@
     </script>
 </html>
 ```
-
-- 如果要做出【鍵盤輸入，同時顯示】之效果。
+- 另一個例子：如果要做出【鍵盤輸入，同時顯示】之效果。
 ![upgit_20241105_1730785901.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241105_1730785901.png)
 
 ```html
@@ -478,6 +668,274 @@
             },
         });
         app.mount("#events");
+    </script>
+</html>
+```
+
+
+## v-model 雙向綁定(表單)
+- 時線文字輸入同步顯示
+![upgit_20241106_1730884392.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730884392.png)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" name="" id="" v-model="message" />
+            <p>輸入訊息如下：{{message}}</p>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "",
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+- radio搭配v-model
+![upgit_20241107_1730955196.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730955196.png)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO: radio 搭配v-model -->
+            <p>確認哥布林 {{Goblin}}</p>
+            <input type="radio" name="" id="yes" value="是" v-model="Goblin" />
+            <label for="yes">是</label>
+            <input type="radio" name="" id="no" value="否" v-model="Goblin" />
+            <label for="no">否</label>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    Goblin: "是", // 使用小寫的 true
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+- checkbox搭配v-model
+![upgit_20241107_1730955335.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730955335.png)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO: checkbox 搭配v-model -->
+            <p>興趣(可複選):{{interest}}</p>
+            <input type="checkbox" id="item1" value="閱讀" v-model="interest" />
+            <label for="item1">閱讀</label>
+            <input type="checkbox" id="item2" value="運動" v-model="interest" />
+            <label for="item2">運動</label>
+            <input type="checkbox" id="item3" value="園藝" v-model="interest" />
+            <label for="item3">園藝</label>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    interest: [], // 使用陣列裝有選的
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+- textarea搭配v-model
+![upgit_20241107_1730955486.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730955486.png)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO: textarea 搭配v-model -->
+            <textarea rows="5" v-model="message"></textarea>
+            <p style="white-space: pre-line">輸入訊息如下: <br />{{ message }}</p>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "", // 使用陣列裝有選的
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+- selected搭配v-model
+![upgit_20241107_1730955669.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730955669.png)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO: select 搭配v-model -->
+            <p>最高學歷:{{education}}</p>
+            <select v-model="education">
+                <option disabled value="">請選擇一個</option>
+                <option value="碩士或以上">碩士或以上</option>
+                <option value="大專">大專</option>
+                <option value="高中或以下">高中或以下</option>
+            </select>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    education: "", // 使用陣列裝有選的
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+### V-model & 修飾字(modifier)
+- lazy：
+	- v-model指令預設會監聽文字方塊的input事件，只要使用者一敲擊鍵盤就會觸發input事件。
+	- 加上lazy後，改成使用者按下【enter】才會顯示。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO:  -->
+            <input type="text" v-model.lazy="message" />
+            <p>輸入訊息如下 :<br />{{message }}</p>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "", // 使用陣列裝有選的
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+- trim：去除前後空白字元。
+- number：將輸入資料視為數值。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- TODO:  -->
+            <p>1 : <input type="text" v-model.number="num1" /></p>
+            <p>2 : <input type="text" v-model.number="num2" /></p>
+            <p>數字1+數字2:{{num1 +num2}}</p>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    num1: 0,
+                    num2: 0,
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
     </script>
 </html>
 ```
@@ -653,8 +1111,8 @@
         app.mount("#events");
     </script>
 </html>
-
 ```
+
 ## v-once：鎖定內容
 ![upgit_20241105_1730788141.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241105_1730788141.png)
 
@@ -717,13 +1175,11 @@
 </html>
 ```
 
-## v-model：雙向綁定指令
-![upgit_20241105_1730788434.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241105_1730788434.png)
+## CSS綁定
+- 綁定class：`:class={"class名稱", "vue屬性"}`
+- 綁定style：`:syle={"css屬性", "vue屬性"}`
+![upgit_20241107_1730958088.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730958088.png)
 
-- `v-model` 本質上是 **將數據綁定到表單元素的值**（即 `v-bind:value`），並且在用戶輸入或選擇表單元素時，自動 **監聽 input 或 change 事件**（相當於 `v-on:input`），將表單元素的值同步回 Vue 的數據中。
-- 實作：
-	- 輸入框輸入，同時顯示
-	- 【reset】按鈕，把資料清除
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -732,168 +1188,52 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vue Basics</title>
         <!-- Bootstrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-        ></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Vue -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
-    <body class="bg-light">
-        <header class="container my-4 p-4 bg-success text-white text-center rounded shadow">
-            <h1 class="display-5">Vue Events</h1>
-        </header>
-
-        <section id="events" class="container my-4 p-4 text-center border rounded shadow bg-white">
-            <h2 class="text-success border-bottom pb-2 mb-4">Events in Action</h2>
-
-            <!-- TODO: 使用v-model -->
-            <input type="text" placeholder="請隨意姓名" v-model="name" />
-            <button class="btn btn-danger" v-on:click="reset()">情除</button>
-
-            <hr />
-            <p class="fs-5 fw-bold mt-4 bg-success text-white rounded-pill">姓名: {{name}}</p>
-        </section>
+    <style>
+        .class1 {
+            background-color: aquamarine;
+        }
+        .class2 {
+            background-color: cornflowerblue;
+        }
+    </style>
+    <body>
+        <div id="app">
+            <!-- 切換 class 基於 isHovered 的值 -->
+            <h1 :class="isHovered ? 'class1' : 'class2'" @mouseover="over()" @mouseout="out()">姊姊你會唱哈基米嗎</h1>
+            <h1 :style="{'background-color': bgColor}" @mouseover="over()" @mouseout="out()">姊姊你會唱哈基米嗎</h1>
+        </div>
     </body>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    name: "",
+                    isHovered: false,
+                    bgColor: "cornflowerblue",
                 };
             },
             methods: {
-                reset() {
-                    this.name = "";
+                over() {
+                    this.isHovered = true;
+                    this.bgColor = "aquamarine";
+                },
+                out() {
+                    this.isHovered = false;
+                    this.bgColor = "cornflowerblue";
                 },
             },
         });
-        app.mount("#events");
+        app.mount("#app");
     </script>
 </html>
 ```
 
-## 引入計算屬性(Computed Properties)
-- **自動依賴追蹤**：計算屬性會自動追蹤它所依賴的數據，一旦依賴的數據發生變化，計算屬性會自動重新計算。
-- **緩存功能**：計算屬性具有緩存機制，只有當依賴的數據改變時，計算屬性才會重新計算。這與方法不同，方法每次調用時都會執行，而計算屬性只在需要時才執行計算。
-- **讀取與寫入**：計算屬性可以具有 getter 和 setter。這允許我們在需要時定義計算屬性的寫入操作，使計算屬性不僅可以計算值，還可以設置值。
-## 計算屬性 (`computed`) vs 方法 (`methods`)
-- **計算屬性 (`computed`)** 更適合於需要多次使用且不頻繁變動的計算場景，具有緩存機制和自動更新優勢。
-- **方法 (`methods`)** 更靈活，適合於單次操作或不需要緩存的情境，每次調用會執行完整的計算邏輯。
 
-| 特性        | 計算屬性 (`computed`)           | 方法 (`methods`)         |
-| --------- | --------------------------- | ---------------------- |
-| **緩存機制**  | 有緩存功能，依賴的數據未改變時返回緩存的結果      | 沒有緩存功能，每次調用都會重新執行      |
-| **使用場景**  | 適合需要多次使用的計算結果，並且不頻繁變動的數據    | 適合執行一次性操作或不需要重複計算的情況   |
-| **自動更新**  | 當依賴的數據改變時，自動重新計算並更新結果       | 不會自動更新，每次需要調用時重新執行     |
-| **性能**    | 性能更佳，當依賴數據未改變時，重複使用計算結果無需重算 | 每次調用都會執行完整的計算邏輯，性能相對較低 |
-| **代碼可讀性** | 更簡潔，適合重複引用的計算邏輯             | 適合僅在特定情境下執行的操作         |
-| **響應式特性** | 具有響應式追蹤能力，自動追蹤依賴數據          | 無響應式追蹤能力，不會自動隨依賴數據更新   |
-
-## method、compute、watch (這個我做不出範例)
-###  `methods`：用於定義函數和事件處理
-- `methods` 是用來定義可以被調用的函數，通常用於事件處理或需要手動觸發的操作。
-	- 主要用途：響應事件、手動調用的操作、不需要緩存的計算
-	- 特點：每次調用 `method`，Vue 都會執行其中的邏輯，沒有緩存。
-
-```javascript
-const app = Vue.createApp({
-  data() {
-    return {
-      name: "",
-    };
-  },
-  methods: {
-    greet() {
-      alert(`Hello, ${this.name}!`);
-    },
-    getNameLength() {
-      return this.name.length;
-    }
-  }
-});
-```
-
-在模板中：
-```html
-<input v-model="name" placeholder="Enter your name">
-<button @click="greet">Greet</button>
-<p>Name Length (method): {{ getNameLength() }}</p>
-```
-
-**說明**：
-- 當按下「Greet」按鈕時，`greet` 方法被觸發。
-- `getNameLength` 方法可以顯示 `name` 的長度，但每次調用都會重新計算。
-
----
-
-### `computed`：計算屬性，帶有緩存功能
-- `computed` 是一種屬性，但它本質上是一個有緩存的函數，用來處理依賴於其他數據的計算。
-- 主要用途：依賴於數據的計算且需要重複使用的場景
-- 特點：緩存結果，當依賴的數據未變化時，不會重新計算，提高性能
-```javascript
-const app = Vue.createApp({
-  data() {
-    return {
-      name: "",
-    };
-  },
-  computed: {
-    nameWithLength() {
-      return `${this.name} (${this.name.length} characters)`;
-    }
-  }
-});
-// 當 `name` 改變時，`nameWithLength` 會重新計算，並返回 `name` 和它的字數。
-// 若 `name` 沒有改變，重複訪問 `nameWithLength` 不會重新計算，因為計算結果已被緩存。
-```
-
-在模板中：
-```html
-<input v-model="name" placeholder="Enter your name">
-<p>Name with Length (computed): {{ nameWithLength }}</p>
-```
-
-
-
-### `watch`：監聽數據變化並執行副作用操作
-- `watch` 是用來監聽數據變化並在變化時執行回調函數，適合異步操作、處理副作用、或監聽多層數據。
-- 主要用途：在數據變化時執行某些操作，例如異步請求或複雜的邏輯
-- 特點：監聽指定的數據變化，執行特定的邏輯，不適合處理直接顯示的計算結果
-```javascript
-const app = Vue.createApp({
-  data() {
-    return {
-      age: 25,
-    };
-  },
-  watch: {
-    age(newAge, oldAge) {
-      console.log(`Age changed from ${oldAge} to ${newAge}`);
-      if (newAge >= 30) {
-        alert("You're getting older!");
-      }
-    }
-  }
-});
-// 當 `age` 改變時，`watch` 會監聽到變化，並打印出 `oldAge` 和 `newAge`。//
-// 若 `age` 大於等於 30，會彈出一個警告訊息。
-// `watch` 常用於異步操作或複雜邏輯，例如監聽數據變化後發起 API 請求。
-```
-
-在模板中：
-```html
-<input type="number" v-model="age" placeholder="Enter your age">
-<p>Your age: {{ age }}</p>
-```
-## 動態添加CSS
+### 另一個例子：動態添加CSS
 ```html
 	<!DOCTYPE html>
 <html lang="en">
@@ -1025,79 +1365,630 @@ const app = Vue.createApp({
 </html>
 ```
 
-
-## v-if、v-for、v-show
+## v-if、v-else、v-else條件式渲染
+![upgit_20241107_1730960487.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730960487.png)
 ```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vue Course Goals</title>
+        <title>Vue Basics</title>
         <!-- Bootstrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
-        <!-- VUE -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <style>
-            body {
-                font-family: "Jost", sans-serif;
-            }
-            .goal-list {
-                background-color: #8ddba4;
-                color: #1f1f1f;
-                font-weight: bold;
-                border-radius: 25px;
-            }
-        </style>
     </head>
     <body>
-        <header class="container mt-4 p-4 bg-success text-white text-center rounded shadow">
-            <h1 class="display-5">Vue Course Goals</h1>
-        </header>
+        <div id="app">
+            <div v-if="type === 'X'">X</div>
+            <div v-else-if="type === 'Y'">Y</div>
+            <div v-else-if="type === 'Z'">Z</div>
+            <div v-else>Not X/Y/Z</div>
+            <button @click="change()">切換不同div</button>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    arr: ["X", "Y", "Z"],
+                    type: "X",
+                };
+            },
+            methods: {
+                change() {
+                    this.type = this.arr[Math.floor(Math.random() * this.arr.length)];
+                },
+            },
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
 
-        <section id="app" class="container mt-5 p-4 bg-light rounded shadow">
-            <h2 class="text-success border-bottom pb-2 mb-4">My Course Goals</h2>
+### v-show
+- 他是將元素增加sttle="display:none"，仍有出現在html，但並不會顯示出來。
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="toggle = !toggle">切換</button>
+            <h1 v-show="toggle">Hello, Vue.js !</h1>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    toggle: true,
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
 
-            <!-- Input and Button -->
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter a new goal" v-model="enterGoalValue" />
-                <button class="btn btn-danger" @click="addGoal()">Add Goal</button>
-            </div>
-
-            <!-- TODO: 如果使用v-show，他是【沒達成條件->隱藏】，但還是有出現 -->
-            <p class="text-muted" v-show="goals.length===0">v-show --> No goals have been added yet - please start adding some!</p>
-
-            <!-- TODO: v-if 有條件的渲染，未達成條件則不渲染 -->
-            <p class="text-muted" v-if="goals.length===0">v-if --> No goals have been added yet - please start adding some!</p>
-
-            <!-- TODO: v-else -->
-            <ul class="list-group" v-else>
-                <!-- TODO: v-for -->
-                <li v-for="(item, index) in goals" class="list-group-item goal-list my-2 text-center">{{item}}-{{index}}</li>
+## v-for清單渲染
+![upgit_20241107_1730960976.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730960976.png)
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Basics</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="(item, index) in arr" :key="index">{{item}}-{{index}}</li>
             </ul>
-        </section>
+        </div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    arr: ["dog", "cat", "bird"],
+                };
+            },
+            methods: {},
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+## ref 
+- `ref` 是 Vue 中用來創建響應式數據或 DOM 元素的引用
+- 允許我們追蹤和更新變數或直接操作 DOM 元素，使用 `.value` 來訪問和修改它的內容。
+- 我們來探討，把輸入內容顯示出來，有幾種方式。
+- 第一種
+![upgit_20241107_1730967671.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730967671.png)
+
+
+- 第二種：利用按鈕的方式去顯示值
+![upgit_20241107_1730968090.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730968090.png)
+
+- 第二種：利用ref
+![upgit_20241107_1730969074.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730969074.png)
+
+## 虛擬DOM
+![upgit_20241107_1730969230.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730969230.png)
+
+![upgit_20241107_1730969270.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730969270.png)
+
+### 簡單介紹 Vue 的虛擬 DOM
+
+1. **什麼是虛擬 DOM**：虛擬 DOM 是一種 JavaScript 表示法，它創建了一棵與真實 DOM 相似的樹狀結構，用來模擬頁面 UI 的狀態。當數據發生變化時，Vue 會先更新虛擬 DOM 樹，然後將其與上一版本的虛擬 DOM 進行比較，找出變更之處。
+2. **如何工作**：
+    - **數據更新**：當 Vue 中的數據發生變化時，Vue 會自動更新對應的虛擬 DOM 樹。
+    - **差異比較**：Vue 將新舊虛擬 DOM 樹進行比較，識別出需要改變的節點和屬性。
+    - **精準更新**：Vue 只將改變的部分同步到真實 DOM 中，避免不必要的重排和重繪，從而提升渲染效能。
+3. **為什麼使用虛擬 DOM**：
+    - **性能優化**：直接操作真實 DOM 是耗時的，虛擬 DOM 可以減少直接操作真實 DOM 的次數。
+    - **響應式渲染**：Vue 將數據和視圖分離，通過虛擬 DOM 來自動處理數據與視圖的同步。
+    - **跨瀏覽器一致性**：虛擬 DOM 幫助 Vue 跨瀏覽器進行一致的渲染。
+
+### 簡單類比
+
+可以把虛擬 DOM 想像成頁面的「快照」。每次數據變化時，Vue 會生成新的快照（虛擬 DOM），並與之前的快照進行對比，這樣 Vue 就能知道需要更新哪些部分，而不必重新渲染整個頁面。
+
+### 總結
+
+虛擬 DOM 是 Vue 用來提升渲染性能的核心技術，通過構建、比較和更新虛擬 DOM，Vue 能夠快速、精準地將變化同步到真實 DOM 中，從而提升整體的渲染效率。
+
+## vue的生命週期
+![upgit_20241107_1730969426.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241107_1730969426.png)
+
+在 Vue 中，**生命週期（Lifecycle）** 是指 Vue 元件從創建到銷毀過程中的一系列階段。Vue 提供了生命週期鉤子函數（hook functions），允許我們在元件的不同階段執行特定的代碼。了解生命週期可以幫助我們更好地控制元件的行為，尤其是在異步操作或 DOM 操作中。
+
+### Vue 生命週期的主要階段
+
+Vue 的生命週期可以分為以下四個主要階段：
+
+1. **創建階段（Creation）**
+2. **掛載階段（Mounting）**
+3. **更新階段（Updating）**
+4. **銷毀階段（Destruction）**
+
+以下是各階段的詳細說明：
+
+---
+
+### 1. 創建階段（Creation）
+
+在這個階段，Vue 會初始化元件的數據、事件和觀察等，但此時尚未將元件掛載到 DOM 上，頁面上看不到元件的內容。
+
+- **`beforeCreate`**：元件實例剛剛創建，數據和事件還未初始化，無法使用 `data` 和 `methods`。通常不常使用。
+  
+  ```javascript
+  beforeCreate() {
+    console.log("元件正在創建（beforeCreate）");
+  }
+  ```
+
+- **`created`**：元件實例已創建，`data`、`methods` 都已初始化，可以進行初始數據的設置或執行異步操作（如 AJAX 請求）。
+  
+  ```javascript
+  created() {
+    console.log("元件已創建（created）");
+  }
+  ```
+
+---
+
+### 2. 掛載階段（Mounting）
+
+在這個階段，Vue 會將模板渲染為虛擬 DOM，然後將虛擬 DOM 挂載到真實 DOM 上，讓頁面顯示元件的內容。
+
+- **`beforeMount`**：在掛載到 DOM 之前調用，虛擬 DOM 已經創建，尚未插入到頁面中。此階段可以用來查看虛擬 DOM。
+  
+  ```javascript
+  beforeMount() {
+    console.log("元件即將掛載到 DOM（beforeMount）");
+  }
+  ```
+
+- **`mounted`**：元件已掛載到 DOM，真實 DOM 已渲染完成。可以在此階段進行 DOM 操作，比如獲取元素尺寸、設置監聽器等。
+  
+  ```javascript
+  mounted() {
+    console.log("元件已掛載到 DOM（mounted）");
+  }
+  ```
+
+---
+
+### 3. 更新階段（Updating）
+
+當元件的 `data` 或 `props` 發生變化時，Vue 會進行重新渲染，此時元件會進入更新階段。
+
+- **`beforeUpdate`**：當數據發生變化，重新渲染之前調用。此時虛擬 DOM 已更新，但尚未同步到真實 DOM。
+  
+  ```javascript
+  beforeUpdate() {
+    console.log("元件數據更新前（beforeUpdate）");
+  }
+  ```
+
+- **`updated`**：重新渲染後調用，虛擬 DOM 已與真實 DOM 同步。通常用於執行 DOM 操作或依賴最新數據的操作。
+  
+  ```javascript
+  updated() {
+    console.log("元件數據更新後（updated）");
+  }
+  ```
+
+---
+
+### 4. 銷毀階段（Destruction）
+
+當元件從 DOM 中移除或其生命周期結束時，它會進入銷毀階段。
+
+- **`beforeUnmount`**：元件銷毀之前調用。可以用來清除定時器或事件監聽器等資源，避免內存洩漏。
+  
+  ```javascript
+  beforeUnmount() {
+    console.log("元件即將被銷毀（beforeUnmount）");
+  }
+  ```
+
+- **`unmounted`**：元件已完全銷毀，與 DOM 的關聯已斷開。此時所有事件監聽器和數據綁定已解除。
+  
+  ```javascript
+  unmounted() {
+    console.log("元件已銷毀（unmounted）");
+  }
+  ```
+
+---
+
+### 生命週期鉤子總結
+
+以下是 Vue 生命週期的執行順序：
+
+1. **beforeCreate** → **created**
+2. **beforeMount** → **mounted**
+3. **beforeUpdate** → **updated**
+4. **beforeUnmount** → **unmounted**
+
+---
+
+### 什麼時候使用各個鉤子？
+
+- **created**：用於進行初始數據加載、異步請求等操作。
+- **mounted**：用於操作已掛載的 DOM 元素，如第三方庫的初始化。
+- **beforeUpdate** 和 **updated**：用於監測數據變化後的動態操作。
+- **beforeUnmount** 和 **unmounted**：用於清理資源（如事件監聽器或定時器）避免內存洩漏。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Lifecycle Demo</title>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Vue 生命週期示範</h1>
+            <!-- 按鈕用來切換元件顯示與否 -->
+            <button @click="toggleComponent">切換元件顯示</button>
+            <!-- 使用 v-if 控制元件的顯示與隱藏 -->
+            <my-component v-if="showComponent"></my-component>
+        </div>
 
         <script>
-            Vue.createApp({
+            // 定義一個子元件 MyComponent，用於演示 Vue 的生命週期
+            const MyComponent = {
+                template: `<div><p>這是一個元件</p></div>`,
+                
+                // 生命週期鉤子：元件實例被創建之前
+                beforeCreate() {
+                    console.log("beforeCreate：元件實例正在創建中");
+                },
+                
+                // 生命週期鉤子：元件實例創建完成，數據和方法已初始化
+                created() {
+                    console.log("created：元件實例已創建完成");
+                },
+                
+                // 生命週期鉤子：元件準備掛載到 DOM，但尚未完成
+                beforeMount() {
+                    console.log("beforeMount：元件即將掛載到 DOM");
+                },
+                
+                // 生命週期鉤子：元件已經掛載到 DOM，可以操作真實的 DOM 元素
+                mounted() {
+                    console.log("mounted：元件已掛載到 DOM");
+                },
+                
+                // 生命週期鉤子：在數據變更、重新渲染之前調用
+                beforeUpdate() {
+                    console.log("beforeUpdate：元件數據即將變更，準備重新渲染");
+                },
+                
+                // 生命週期鉤子：數據更新完成，DOM 已同步更新
+                updated() {
+                    console.log("updated：元件已重新渲染並更新 DOM");
+                },
+                
+                // 生命週期鉤子：元件即將從 DOM 中移除，適合在此進行清理操作
+                beforeUnmount() {
+                    console.log("beforeUnmount：元件即將從 DOM 中移除");
+                },
+                
+                // 生命週期鉤子：元件已經從 DOM 中完全移除
+                unmounted() {
+                    console.log("unmounted：元件已從 DOM 中移除");
+                },
+            };
+
+            // 創建 Vue 應用程式
+            const app = Vue.createApp({
+                components: {
+                    MyComponent, // 註冊 MyComponent 供父元件使用
+                },
                 data() {
                     return {
-                        enterGoalValue: "",
-                        goals: [],
+                        showComponent: true, // 控制 MyComponent 的顯示與隱藏
                     };
                 },
                 methods: {
-                    addGoal() {
-                        this.goals.push(this.enterGoalValue);
+                    // 切換顯示或隱藏元件
+                    toggleComponent() {
+                        this.showComponent = !this.showComponent;
                     },
                 },
-            }).mount("#app");
+            });
+
+            app.mount("#app");
         </script>
     </body>
 </html>
-
 ```
+
+## component
+- 沒有component的問題
+```html
+<!-- NOTE: 所有的li都是吃同一個methode跟同一個data，所以會一起展開/關閉 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Friend List</title>
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body class="bg-light">
+        <header class="container text-center my-5">
+            <h1 class="display-5 text-white bg-primary p-3 rounded shadow">Friend List</h1>
+        </header>
+        <section id="app" class="container">
+            <ul class="list-unstyled">
+                <li v-for="(item, index) in friends" :key="item.id" class="card mb-3 shadow border-0">
+                    <div class="card-body text-center">
+                        <h2 class="card-title h4 text-primary">{{item.name}}</h2>
+                        <button @click="toggleDetails()" class="btn btn-danger mb-2">Show Details</button>
+                        <ul v-if="datailAreVisible" class="list-group list-group-flush">
+                            <li class="list-group-item border border-2 shadow"><strong>Phone:</strong> {{item.phone}}</li>
+                            <li class="list-group-item border border-2 shadow"><strong>Email:</strong> {{item.email}}</li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- 靜態框架 -->
+                <!-- <li class="card mb-3 shadow border-0">
+                    <div class="card-body text-center">
+                        <h2 class="card-title h4 text-primary">Julie Jones</h2>
+                        <button class="btn btn-danger mb-2">Show Details</button>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border border-2 shadow"><strong>Phone:</strong> 09876 543 221</li>
+                            <li class="list-group-item border border-2 shadow"><strong>Email:</strong> julie@localhost.com</li>
+                        </ul>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    datailAreVisible: false,
+                    friends: [
+                        {
+                            id: "001",
+                            name: "吉伊卡哇",
+                            phone: "77777777",
+                            email: "77777777@gmail.com",
+                        },
+                        {
+                            id: "002",
+                            name: "小八貓",
+                            phone: "88888888",
+                            email: "88888888@gmail.com",
+                        },
+                        {
+                            id: "003",
+                            name: "兔兔",
+                            phone: "88888888",
+                            email: "88888888@gmail.com",
+                        },
+                        {
+                            id: "004",
+                            name: "小桃鼠   ",
+                            phone: "88888888",
+                            email: "88888888@gmail.com",
+                        },
+                    ],
+                };
+            },
+            methods: {
+                toggleDetails() {
+                    this.datailAreVisible = !this.datailAreVisible;
+                },
+            },
+        });
+        app.mount("#app");
+    </script>
+</html>
+```
+
+- 時做component：
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue Friend List</title>
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body class="bg-light">
+        <header class="container text-center my-5">
+            <h1 class="display-5 text-white bg-primary p-3 rounded shadow">Friend List</h1>
+        </header>
+        <section id="app" class="container">
+            <ul class="list-unstyled">
+                <!-- 使用 v-for 迴圈來生成每個 friend-contact 元件 -->
+                <!-- :key="friend.id"：用來追蹤每個元件的唯一 -->
+                <!-- :friend="friend"：這個語法將父層的 friend 資料作為 props 傳遞到每個 friend-contact 元件中。 -->
+                <friend-contact v-for="friend in friends" :key="friend.id" :friend="friend"></friend-contact>
+            </ul>
+        </section>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    friends: [
+                        {
+                            id: "001",
+                            name: "吉伊卡哇",
+                            phone: "77777777",
+                            email: "77777777@gmail.com",
+                        },
+                        {
+                            id: "002",
+                            name: "小八貓",
+                            phone: "88888888",
+                            email: "88888888@gmail.com",
+                        },
+                        {
+                            id: "003",
+                            name: "兔兔",
+                            phone: "99999999",
+                            email: "99999999@gmail.com",
+                        },
+                        {
+                            id: "004",
+                            name: "小桃鼠",
+                            phone: "66666666",
+                            email: "66666666@gmail.com",
+                        },
+                    ],
+                };
+            },
+        });
+
+        // TODO: 定義 friend-contact 元件
+        app.component("friend-contact", {
+            props: ["friend"], // 接收 `friend` 資料
+            template: `
+            <li class="card mb-3 shadow border-0">
+                <div class="card-body text-center">
+                    <h2 class="card-title h4 text-primary">{{ friend.name }}</h2>
+                    <button @click="toggleDetails()" class="btn btn-danger mb-2">
+                        {{ datailAreVisible ? 'Hide Details' : 'Show Details' }}
+                    </button>
+                    <ul v-if="datailAreVisible" class="list-group list-group-flush">
+                        <li class="list-group-item border border-2 shadow">
+                            <strong>Phone:</strong> {{ friend.phone }}
+                        </li>
+                        <li class="list-group-item border border-2 shadow">
+                            <strong>Email:</strong> {{ friend.email }}
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        `,
+            data() {
+                return {
+                    datailAreVisible: false,
+                };
+            },
+            methods: {
+                toggleDetails() {
+                    this.datailAreVisible = !this.datailAreVisible;
+                },
+            },
+        });
+
+        app.mount("#app");
+    </script>
+</html>
+```
+
+## vue CLI
+- 安裝nodejs
+	- 可以透過檢查
+```
+node -v
+npm -v
+```
+- 全域安裝 Vue CLI
+```
+npm install -g @vue/cli
+vue --version
+```
+- 常見問題
+```
+// vue : 因為這個系統上已停用指令碼執行，所以無法載入 C:\Users\33313\AppData\Roaming\npm\vue.ps1 檔案。
+
+# 解決方法
+以管理員身份執行PowerShell，輸入以下指令檢查目前的執行政策：
+Get-ExecutionPolicy
+// 通常會顯示 `Restricted`，表示不允許執行任何腳本。
+
+# 更改執行政策
+// 輸入以下指令，將執行政策更改為 `RemoteSigned`（允許本地腳本執行，但遠端下載的腳本需要簽署）
+Set-ExecutionPolicy RemoteSigned
+```
+- 創建新 Vue 專案
+```
+vue create my-vue-project
+cd my-vue-project // 切換到專案目錄
+```
+- 運行開發伺服器
+```
+npm run serve
+// 這會啟動開發伺服器，通常會在 `http://localhost:8080` 上運行。
+```
+![upgit_20241108_1731044252.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044252.png)
+
+### vscode可以安裝的套件
+
+![upgit_20241108_1731044557.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044557.png)
+![upgit_20241108_1731044582.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044582.png)
+
+### 專案架構
+![upgit_20241108_1731054583.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731054583.png)
+
+### 在vue引入bootstrap
+- npm安裝：`npm install bootstrap`
+- 在main.js引入
+```js
+// TODO: bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+```
+![upgit_20241108_1731056383.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731056383.png)
+
+![upgit_20241108_1731056404.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731056404.png)
+
+
+## 增加元件(component)
+![upgit_20241108_1731057088.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057088.png)
+
+![upgit_20241108_1731057655.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057655.png)
+
+![upgit_20241108_1731057696.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057696.png)
+
+![upgit_20241108_1731057708.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057708.png)
+
+
+
+
+
+
+
