@@ -55,8 +55,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,8 +105,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.5,
-    "collapsed": true
+    "width": 263.5
   },
   "right": {
     "id": "79307622f03786a1",
@@ -123,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "互動網頁設計/Vue/Vue.md",
+                "file": "程式設計(leetcode)/Lession數組基礎.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "互動網頁設計/Vue/Vue.md",
+                "file": "程式設計(leetcode)/Lession數組基礎.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/Vue/Vue.md"
+                "file": "程式設計(leetcode)/Lession數組基礎.md"
               }
             }
           }
@@ -183,44 +181,44 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "f7a1df7d72da26c7",
+  "active": "6b94bd8fef7c546d",
   "lastOpenFiles": [
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/ws/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/sockjs/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/serve-static/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/serve-index/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/send/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/retry/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/range-parser/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/qs/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/parse-json/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/normalize-package-data/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@types/node-forge/package.json",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@vue/reactivity/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/unicode-match-property-value-ecmascript/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/unicode-property-aliases-ecmascript/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/unicode-canonical-property-names-ecmascript/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/unicode-match-property-ecmascript/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/regenerate/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/regjsgen/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/regexpu-core/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/events/security.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/events/Readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/events/History.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/batch/Readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/batch/History.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/estraverse/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/eslint-scope/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/eslint-scope/CHANGELOG.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-extglob/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-glob/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/merge2/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/array-union/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/globby/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/@vue/runtime-core/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/source-map-js/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/js-tokens/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/js-tokens/CHANGELOG.md",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/templates.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/util.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/index.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.js.map",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.d.ts",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.js.map",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/index.js",
+    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.d.ts",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/yargs/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/yargs/CHANGELOG.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/regexpp/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/regenerator-runtime/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/parse5/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/parent-module/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/param-case/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/p-try/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/p-retry/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/p-locate/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/p-limit/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/on-headers/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/on-headers/HISTORY.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/on-finished/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/on-finished/HISTORY.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/object.assign/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/object.assign/CHANGELOG.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/is-plain-object/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/is-plain-obj/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/is-number/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/is-fullwidth-code-point/readme.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/esquery/node_modules/estraverse/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/esquery/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/espree/node_modules/eslint-visitor-keys/README.md",
+    "互動網頁設計/Vue/delete_vue_project/node_modules/espree/node_modules/eslint-visitor-keys/CHANGELOG.md",
     "互動網頁設計/Vue/delete_vue_project/src/assets/logo.png",
     "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/scss/school-book.png",
     "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/scss/pojoaque.jpg",

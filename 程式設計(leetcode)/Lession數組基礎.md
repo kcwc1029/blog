@@ -1,3 +1,130 @@
+## 前期超簡單解
+### 136. Single Number
+- 只有一個數出現1次，其他都出現2次。
+- 阿...這一題他是要找唯一一個的時候，有很多種解法拉(map、排序...)
+- 排序
+```cpp
+class Solution {
+public:
+    // 用map
+    int singleNumber(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end()); // i需要+2，去錯開檢查過的值
+        for(int i=0;i<n-1;i+=2){
+            if(nums[i]!=nums[i+1]){
+                return nums[i];
+            }
+        }
+        return nums[n-1];
+    }
+};
+```
+- 用map
+```cpp
+class Solution {
+public:
+    // 用map
+    int singleNumber(vector<int>& nums) {
+        map<int, int>m;
+        for(int i:nums) m[i]++;
+        for (auto i : m) {
+            if (i.second == 1) {
+                return i.first;
+            }
+        }
+        return -1;
+        
+    }
+};
+```
+- 這邊示範他的最佳解：XOR
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = nums[0];
+        int n = nums.size();
+        for(int i=1;i<n;i++){
+            ans ^= nums[i];
+        }
+        return ans;
+    }
+};
+```
+### 137. Single Number II
+- 只有一個數出現1次，其他都出現3次。
+- 解法1：用map紀錄次數。
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        map<int, int>m;
+        for(int i:nums) m[i]++;
+        for (auto i : m) {
+            if (i.second == 1) {
+                return i.first;
+            }
+        }
+        return -1;
+    }
+};
+// - Your runtime beats 37.05 % of cpp submissions
+// - Your memory usage beats 24.74 % of cpp submissions (13.4 MB)
+```
+
+- 解法2：用陣列紀錄：因為她有說數值範圍到2^32，
+![upgit_20241108_1731067383.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731067383.png)
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        // 建立一個長度為 32 且所有元素為 0 的 vector，
+        vector<int> v(32, 0);
+        
+        // 累加所有數字在每個位元上的 1 的數量
+        for (int num : nums) {
+            for (int i = 0; i < 32; ++i) {
+                v[i] += ((num >> i) & 1); // 計算第 i 位是否為 1，並累加到 v[i]
+            }
+        }
+
+        // 計算只出現一次的數字
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (v[i] % 3 != 0) {
+                ans |= (1 << i); // 將該位設為 1
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### 260. Single Number III
+- 兩個數出現1次，其他都出現2次。
+```cpp
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        int xorsum = 0;
+        for (int num: nums) {
+            xorsum ^= num;
+        }
+        // 使用無符號整數來計算 lsb，防止溢位(我也看不懂)
+        int lsb = (xorsum == INT_MIN ? xorsum : xorsum & (-xorsum));
+        
+        int type1 = 0, type2 = 0;
+        for (int num: nums) {
+            if (num & lsb) {
+                type1 ^= num;
+            } else {
+                type2 ^= num;
+            }
+        }
+        return {type1, type2};
+    }
+};
+```
 ## 模擬
 ### 66. Plus One
 - ![upgit_20241106_1730892149.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241106_1730892149.png)
@@ -245,7 +372,6 @@ public:
 ```
 
 
-
 ## map
 
 ### 1. Two Sum
@@ -462,6 +588,37 @@ public:
 };
 ```
 
+### 202. Happy Number
+- 快樂數定義：每一次將該數值替換為她每個位置的數字的平方和
+- 判斷是否為快樂數=>要記錄
+- 解法1：用set紀錄
+```cpp
+class Solution {
+public:
+    // 解法1
+    int getNext(int n){
+        int num = 0;
+        while(n>10){
+            int i = n%10;
+            n/=10;
+            num+=(i*i);
+        }
+        return num;
+    }
+
+    bool isHappy(int n) {
+        set<int>s;
+        while(n!=1 && s.find(n) == s.end()){
+            s.insert(n);
+            n = getNext(n);
+        }
+        // 跑出迴圈條件：
+        // n=1
+        // n 重複了
+        return n==1;
+    }
+};
+```
 
 ## 二分搜尋
 ### 35. Search Insert Position
@@ -542,4 +699,49 @@ public:
 };
 ```
 
+## 滑動窗口(sliding window)
+### 219. Contains Duplicate II
+- 返回布林
+	- true：`nums[i] == nums[j]` 且 `abs(i - j) <= k`
+- 解法1：用map紀錄
+```cpp
+class Solution {
+public:
+    // 解法1：用map，key為元素、index為出現位置的索引
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        map<int, int>m;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            // 已經出現過一次
+            if(m.count(nums[i]) && abs(i-m[nums[i]])<=k){
+                return true;
+            }else{
+                m[nums[i]] = i;
+            }
+        }
+        return false;
+    }
+};
+```
+- 解法2：
+![upgit_20241110_1731235566.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241110_1731235566.png)
 
+```cpp
+class Solution {
+public:
+    // 解法2：sliding window(滑動窗口)
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        set <int> s;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            // 檢查
+            if(s.find(nums[i]) != s.end()) return true;
+            // 把頭加進去
+            s.insert(nums[i]);
+            // 把頭踢掉
+            if(s.size()>k) s.erase(nums[i-k]);
+        }
+        return false;
+    }
+};
+```
