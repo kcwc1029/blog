@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "程式設計(leetcode)/Lession數組基礎.md",
+                "file": "程式設計(leetcode)/字串基礎.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "字串基礎"
             }
           },
           {
@@ -28,7 +30,9 @@
                 "file": "互動網頁設計/jQuery/jQuery.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "jQuery"
             }
           },
           {
@@ -40,7 +44,9 @@
                 "file": "互動網頁設計/Vue/Vue.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Vue"
             }
           },
           {
@@ -52,10 +58,13 @@
                 "file": "互動網頁設計/JavaScript/JavaScript.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "JavaScript"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -75,7 +84,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "檔案瀏覽器"
             }
           },
           {
@@ -90,7 +101,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜尋"
             }
           },
           {
@@ -98,7 +111,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "書籤"
             }
           }
         ]
@@ -121,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "程式設計(leetcode)/Lession數組基礎.md",
+                "file": "互動網頁設計/Vue/Vue.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +144,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Vue 的反向連結"
             }
           },
           {
@@ -138,10 +155,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "程式設計(leetcode)/Lession數組基礎.md",
+                "file": "互動網頁設計/Vue/Vue.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Vue 的對外連結"
             }
           },
           {
@@ -152,7 +171,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "標籤"
             }
           },
           {
@@ -161,8 +182,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "程式設計(leetcode)/Lession數組基礎.md"
-              }
+                "file": "互動網頁設計/Vue/Vue.md"
+              },
+              "icon": "lucide-list",
+              "title": "Vue 的大綱"
             }
           }
         ],
@@ -174,6 +197,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "daily-notes:開啟今天的每日筆記": false,
       "switcher:開啟快速切換": false,
       "graph:查看關聯圖": false,
       "canvas:建立新畫布": false,
@@ -181,54 +205,54 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "6b94bd8fef7c546d",
+  "active": "f7a1df7d72da26c7",
   "lastOpenFiles": [
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/templates.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/util.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source/index.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/node_modules/chalk/source",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.js.map",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.d.ts",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/test/test.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.js.map",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/index.js",
-    "互動網頁設計/Vue/my-vue-project/node_modules/cli-highlight/dist/theme.d.ts",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/yargs/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/yargs/CHANGELOG.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/regexpp/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/regenerator-runtime/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/parse5/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/parent-module/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/param-case/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/p-try/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/p-retry/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/p-locate/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/p-limit/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/on-headers/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/on-headers/HISTORY.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/on-finished/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/on-finished/HISTORY.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/object.assign/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/object.assign/CHANGELOG.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-plain-object/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-plain-obj/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-number/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/is-fullwidth-code-point/readme.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/esquery/node_modules/estraverse/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/esquery/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/espree/node_modules/eslint-visitor-keys/README.md",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/espree/node_modules/eslint-visitor-keys/CHANGELOG.md",
-    "互動網頁設計/Vue/delete_vue_project/src/assets/logo.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/scss/school-book.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/scss/pojoaque.jpg",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/scss/brown-papersq.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/styles/school-book.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/styles/pojoaque.jpg",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/highlight.js/styles/brown-papersq.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/renderkid/docs/images/usage.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/renderkid/docs/images/display.png",
-    "互動網頁設計/Vue/delete_vue_project/node_modules/renderkid/docs/images/bullets-1.png",
+    "互動網頁設計/Vue/Vue.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/declarations/util/Range.d.ts",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/declarations/util/memorize.d.ts",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/declarations/util/hints.d.ts",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/declarations/keywords/undefinedAsNull.d.ts",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/declarations/keywords/absolutePath.d.ts",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/dist/util/Range.js",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/dist/util/memorize.js",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/dist/util/hints.js",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/dist/keywords/undefinedAsNull.js",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/dist/keywords/absolutePath.js",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/@types/eslint/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/supports-color/readme.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/schema-utils/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/json-schema-traverse/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/jest-worker/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/eslint-webpack-plugin/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/ajv/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/node_modules/ajv-keywords/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@vue/cli-plugin-eslint/logo.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/compat-data/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/watchpack/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-runtime/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-parameters/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-modules-commonjs/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-for-of/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-classes/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/plugin-transform-block-scoping/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-validator-option/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-validator-identifier/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-module-transforms/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-module-imports/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-create-regexp-features-plugin/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-create-class-features-plugin/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/helper-compilation-targets/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/@babel/generator/README.md",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/styles/school-book.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/styles/pojoaque.jpg",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/styles/brown-papersq.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/scss/school-book.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/scss/pojoaque.jpg",
+    "互動網頁設計/Vue/vue-project-01/node_modules/highlight.js/scss/brown-papersq.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/renderkid/docs/images/usage.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/renderkid/docs/images/display.png",
+    "互動網頁設計/Vue/vue-project-01/node_modules/renderkid/docs/images/bullets-1.png",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",

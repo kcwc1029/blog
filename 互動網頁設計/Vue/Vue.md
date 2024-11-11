@@ -1946,7 +1946,7 @@ Set-ExecutionPolicy RemoteSigned
 ```
 - 創建新 Vue 專案
 ```
-vue create my-vue-project
+npm create my-vue-project
 cd my-vue-project // 切換到專案目錄
 ```
 - 運行開發伺服器
@@ -1986,6 +1986,38 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 ![upgit_20241108_1731057708.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057708.png)
 
+
+## component 通訊
+- **不加括號**：僅在事件觸發時執行方法（推薦用法）。
+- **加上括號**：在綁定時就立即執行方法（通常不是你想要的行為）。
+
+### props (property的縮寫)
+- 他是單向數據流(父元件=>子元件)
+- 支援的 prop 值：String、Number、Boolean、Array、Object、Date、Function、Symbol
+![upgit_20241111_1731303575.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731303575.png)
+
+![upgit_20241111_1731307509.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731307509.png)
+
+![upgit_20241111_1731307551.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731307551.png)
+
+
+
+### $emit 
+- 他是單向數據流(子元件=>父元件)
+![upgit_20241111_1731310224.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731310224.png)
+
+![upgit_20241111_1731310543.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731310543.png)
+
+![upgit_20241111_1731310677.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731310677.png)
+
+### `provide` 和 `inject`(雙向傳遞)
+- 這是vue3 Composition API 的核心，讓你在setup中直接去定義所有的屬性(ref)跟方法。
+- 假設你有一個父元件和多個深層嵌套的子元件。你希望所有的子元件都可以存取父元件的資料，但又不想在每一層中都使用 `props` 傳遞，那麼 `provide` 和 `inject` 就非常適合這種情境。
+- 要在 Vue 3 中實現雙向資料傳遞，我們可以利用 `provide` 和 `inject`，結合 `ref` 或 `reactive`，使資料在父元件和子元件之間雙向同步更新。
+![upgit_20241111_1731315028.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731315028.png)
+
+- 這邊提供gpt給的範例：
+![upgit_20241111_1731315283.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731315283.png)
 
 
 
