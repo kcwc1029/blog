@@ -1946,7 +1946,7 @@ Set-ExecutionPolicy RemoteSigned
 ```
 - 創建新 Vue 專案
 ```
-npm create my-vue-project
+vue create my-vue-project
 cd my-vue-project // 切換到專案目錄
 ```
 - 運行開發伺服器
@@ -2018,6 +2018,78 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 - 這邊提供gpt給的範例：
 ![upgit_20241111_1731315283.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731315283.png)
+
+
+## Global vs Local Components
+ - 全局
+![upgit_20241112_1731390517.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731390517.png)
+- 也可以把它放到local => 把TheHeader.vue放到App.vue
+
+![upgit_20241112_1731390936.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731390936.png)
+
+
+
+
+## scoped style
+- 在 Vue 中，彼此的`<style>`標籤的屬性是會互相影響的。
+- `scoped` 是一個用於 `<style>` 標籤的屬性，可以讓樣式**只應用於當前組件**，而不會影響到其他組件的樣式。這有助於防止樣式衝突，保持專案的模組化和可維護性。
+![upgit_20241112_1731391986.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731391986.png)
+
+##   `<component>` 動態元件
+- `<component>` 是 Vue 提供的特殊元件，用於根據變數動態渲染不同的子元件。這在需要動態切換不同視圖或元件的情況下特別有用，例如標籤頁、步驟表單、多步驟向導等。
+- 建立動態元件
+```js
+// ActiveGoals.vue
+<template>
+  <div>
+    <h2>Active Goals</h2>
+    <p>這裡是 Active Goals 的內容。</p>
+  </div>
+</template>
+```
+```js
+// ManageGoals.vue
+<template>
+  <div>
+    <h2>Manage Goals</h2>
+    <p>這裡是 Manage Goals 的內容。</p>
+  </div>
+</template>
+```
+- 在app.vue中使用
+![upgit_20241112_1731394081.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731394081.png)
+
+### Keeping Dynamic Components Alive
+- `keep-alive` 是 **Vue** 提供的一個內建元件，用於**緩存動態元件**。
+- 當你在應用中使用動態元件（例如透過 `<component>` 標籤來切換不同的子元件）時，使用 `keep-alive` 可以防止元件在切換時被銷毀，而是將其緩存起來，這樣切換回來時就能保留元件的狀態。
+
+## Teleport (Vue3)
+- 在某些情況下，你可能需要將元件的內容顯示在應用程式的根級別（或其他特定的 DOM 節點）中，而不被限制在父組件的作用範圍內。常見的應用場景包括：
+	- 彈出視窗 (Modal)、通知 (Notification)、提示框 (Tooltip) 等，這些元素通常需要顯示在視窗的最上層，而不應受限於嵌套的父元素的 z-index 或 CSS 影響。
+	- 全螢幕覆蓋層，例如遮罩背景層（Backdrop）。
+
+![upgit_20241112_1731397278.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731397278.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
