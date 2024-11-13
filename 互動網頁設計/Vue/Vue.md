@@ -1,5 +1,4 @@
 
-
 ## Vue.js 介紹
 - Vue.js 是基於 Angular 和 React 的基礎上開發的框架，結合了這兩者的優勢，並保留了其獨特的特性。
 - 它在前端框架中具有市場佔有率，且逐漸受到更多開發者的認可。
@@ -2071,28 +2070,192 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 ![upgit_20241112_1731397278.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241112_1731397278.png)
 
 
+## 表單
+![upgit_20241113_1731479306.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731479306.png)
+
+### 驗證欄位 
+![upgit_20241113_1731479493.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731479493.png)
+
+### 下拉式清單selected
+![upgit_20241113_1731480358.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731480358.png)
+
+
+### checkbox
+![upgit_20241113_1731480921.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731480921.png)
+
+
+### radio
+![upgit_20241113_1731480852.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731480852.png)
+
+### 提交
+![upgit_20241113_1731481020.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731481020.png)
+
+
+## 發送HTTP請求
+- 建立firebase的realtime database
+![upgit_20241113_1731482476.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731482476.png)
+- 有兩種方式：
+	- axiox
+	- fetch
+### POST 發送表單
+![upgit_20241113_1731483162.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731483162.png)
+
+### GET(通過button觸發)
+![upgit_20241113_1731484506.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731484506.png)
+
+```html
+<template>
+    <div class="container mt-5">
+        <form @submit.prevent="saveData" class="p-4 border rounded shadow">
+            <!-- Name Input -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" v-model="formData.name" @blur="validInput" class="form-control" />
+                <div v-if="formData.namevalid === 'invalid'" class="text-danger mt-1">請輸入有效username</div>
+            </div>
+
+            <!-- Age Input -->
+            <div class="mb-3">
+                <label for="age" class="form-label">Your Age (Years)</label>
+                <input type="number" id="age" v-model.number="formData.age" class="form-control" />
+            </div>
+
+            <!-- Dropdown: How did you hear about us? -->
+            <div class="mb-3">
+                <label for="source" class="form-label">How did you hear about us?</label>
+                <select id="source" v-model="formData.source" class="form-select">
+                    <option value="Google">Google</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Advertisement">Advertisement</option>
+                </select>
+            </div>
+
+            <!-- Checkbox Group: Interests -->
+            <div class="mb-3">
+                <label class="form-label">What are you interested in?</label>
+                <div class="form-check">
+                    <input type="checkbox" id="news" value="News" v-model="formData.interests" class="form-check-input" />
+                    <label for="news" class="form-check-label">News</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="tutorials" value="Tutorials" v-model="formData.interests" class="form-check-input" />
+                    <label for="tutorials" class="form-check-label">Tutorials</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="nothing" value="Nothing" v-model="formData.interests" class="form-check-input" />
+                    <label for="nothing" class="form-check-label">Nothing</label>
+                </div>
+            </div>
+
+            <!-- Radio Buttons: How do you learn? -->
+            <div class="mb-3">
+                <label class="form-label">How do you learn?</label>
+                <div class="form-check">
+                    <input type="radio" id="video" value="Video Courses" v-model="formData.learningMethod" class="form-check-input" />
+                    <label for="video" class="form-check-label">Video Courses</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="blogs" value="Blogs" v-model="formData.learningMethod" class="form-check-input" />
+                    <label for="blogs" class="form-check-label">Blogs</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="other" value="Other" v-model="formData.learningMethod" class="form-check-input" />
+                    <label for="other" class="form-check-label">Other</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Save Data</button>
+        </form>
+        <button @click="loadData" type="submit" class="btn btn-success w-100">load Data</button>
+    </div>
+</template>
+
+<script setup>
+import { reactive, ref } from "vue";
+const loadedData = ref([]);
+const formData = reactive({
+    name: "",
+    age: 0,
+    source: "Google",
+    interests: [],
+    learningMethod: "Video Courses",
+    namevalid: "",
+});
+
+const validInput = () => {
+    if (formData.name === "") formData.namevalid = "invalid";
+    else formData.namevalid = "valid";
+    console.log(formData.namevalid);
+};
+
+fetch("https://vue-http-demo-f3460-default-rtdb.firebaseio.com/" + "surveys.json", {
+    method: "POST",
+});
+
+// TODO: 發送表單資料到 Firebase 的函數
+const saveData = async () => {
+    // 檢查表單是否已填寫
+    if (formData.name === "" || formData.age === 0) {
+        alert("請填寫所有必填欄位");
+        return;
+    }
+    try {
+        const response = await fetch("https://vue-http-demo-f3460-default-rtdb.firebaseio.com/surveys.json", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+        if (!response.ok) throw new Error("發送資料失敗！");
+
+        const data = await response.json();
+        console.log("表單資料已成功送出", data);
+    } catch (e) {
+        console.log("錯誤", e);
+        alert("發送資料失敗，請稍後再試。");
+    }
+};
+
+// 從 Firebase 讀取資料
+const loadData = async () => {
+    try {
+        const response = await fetch("https://vue-http-demo-f3460-default-rtdb.firebaseio.com/surveys.json", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) throw new Error("讀取資料失敗！");
+
+        const data = await response.json();
+        if (data) {
+            // 確保使用 .value 來更新 ref
+            loadedData.value = Object.values(data);
+            console.log("已載入資料", loadedData.value);
+        } else console.log("無資料可載入");
+    } catch (error) {
+        console.error("錯誤", error);
+        alert("讀取資料失敗，請稍後再試。");
+    }
+};
+</script>
+
+<style scoped></style>
+```
+
+
+### 掛載元件時載入數據
+- 先查看vue元件的生命週期
+![upgit_20241113_1731484737.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731484737.png)
+
+![upgit_20241113_1731485307.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731485307.png)
+
+### loading動畫
+- 其實就是設定一個boolen，在適當時間跳true/false。在搭配`<p v-if="...">`
+![upgit_20241113_1731486131.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731486131.png)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 要學的東西
+- vue Router (路由)
+- Pinia / Vuex（狀態管理）=> pinia
+- Vite
