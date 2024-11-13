@@ -3,16 +3,18 @@
 
 using namespace std;
 int main(){
-    int n;
-    int m;
-    cin>>n;
-    for(int i=0; i<n; i++){
-        cin>>m;
-        // if
-        cout<<m<<endl;  
+    int columnNumber = 1;
+    string s;
+    while(columnNumber > 0){
+        columnNumber--;
+        ans+=columnNumber%26 + 'A';
+        columnNumber/=26;
     }
-    // cout<<n;
-    return 0;
+    reverse(ans.begin(), ans.end());
+    return ans;
 }
+
+
+// g++ test.cpp -o test.exe
 
 
