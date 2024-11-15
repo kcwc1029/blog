@@ -1,15 +1,15 @@
 - JavaScript是一種應用廣泛的瀏覽器端Script，瀏覽器大多內建JavaScript直譯器。
 - JavaScript和HTML、CSS都是網頁設計的核心技術，其中JavaScript用來定義網頁的行為，例如即時更新地圖、輪播圖片等。
 ## 基本運作流程
-1. 瀏覽器透過作業系統,將網址發送給DNS Server3
-2. DNS Server解析網址,將處理的結果組成完整的IP位址並回傳。
-3. 瀏覽器知道IP位址後發出網路請求,透過TCP/IP4的通訊協定對 Target Server,也就是網頁所在的伺服器來建立連線。
-4. Target Server收到請求後,把所需的資源以封包的形式回應。
-5. 解析完封包後,瀏覽器會收到相關的檔案和狀態資訊。
-6. 以網頁最常見的資源-HTML和CSS來說,會分別透過各自的Parser建立樹狀結構的資料模型-DOM Tree和CSSOM Tree。
+1. 瀏覽器透過作業系統，將網址發送給DNS Server。
+2. DNS Server解析網址，將處理的結果組成完整的IP位址並回傳。
+3. 瀏覽器知道IP位址後發出網路請求，透過TCP/IP4的通訊協定對 Target Server，也就是網頁所在的伺服器來建立連線。
+4. Target Server收到請求後，把所需的資源以封包的形式回應。
+5. 解析完封包後，瀏覽器會收到相關的檔案和狀態資訊。
+6. HTML和CSS會分別透過各自的Parser建立樹狀結構的資料模型：DOM Tree和BOM Tree。
 7. 瀏覽器把DOM Tree整理出可見的節點5,並套用對應的CSSOM規則,形成Render Tree的資料結構。
-8. 瀏覽器透過Render Tree,計算出每個節點對應到頁面上的實際位置、形狀與大小等資訊,最後輸出一個Layout的資料模型。
-9. 瀏覽器透過這個Layout進行最後的繪製動作,渲染在頁面上。
+8. v瀏覽器透過Render Tree計算出每個節點對應到頁面上的實際位置、形狀與大小等資訊,，輸出一個Layout的資料模型。
+9. 瀏覽器透過這個Layout渲染在頁面上。
 ![upgit_20241103_1730615963.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730615963.png)
 
 
@@ -20,19 +20,13 @@
 
 ## data type
 - JavaScript的型別分為基本型別(primitive type)與物件型別(object type)兩種類型。
-- 基本型別指的是單純的值(例如數值、字串、布林等)。
-- 而物件型別會參照某個資料結構，裡面包含資料和用來操作資料的方法。
-- 基本型別：
-	- number：採用IEEE754 Double形式，其中包含NaN(非數值)、Infinity、-Infinity。
-	- string
-	- boolen
-	- undefined
-	- null
-- 物件型別：
-	- funtion
-	- array
-	- object：是一種關聯陣列(associative array)，比較像是python的字典。
-## 變數與常數
+- 基本型別(primitive type： number 、 string 、 boolen、 undefined、 null等。
+- 物件型別(object type)：
+	- Funtion
+	- Array
+	- Object(JS的Object比較像是python的dictionery，屬於一種關聯陣列(associative array))
+
+
 - [JavaScript var let const的区别 - Web前端工程师面试题讲解 (youtube.com)](https://www.youtube.com/watch?v=aqZuCthC5BY)
 1. JavaScript引擎解析到等號右邊的資料,也就是test,轉為二進位後新增進記憶體中。
 2. JavaScript引擎解析到等號左邊的變數var1,把var1宣告(declare)在記憶體中。

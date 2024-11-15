@@ -2252,7 +2252,8 @@ const loadData = async () => {
 - 其實就是設定一個boolen，在適當時間跳true/false。在搭配`<p v-if="...">`
 ![upgit_20241113_1731486131.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241113_1731486131.png)
 
-
+## vue router
+- 安裝：`npm install vue-router@4`
 
 
 ## 要學的東西

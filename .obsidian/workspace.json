@@ -8,34 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6b94bd8fef7c546d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C&C++/【02 Introduction to C Programming】.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "【02 Introduction to C Programming】"
-            }
-          },
-          {
-            "id": "d521f9664a56aefd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "互動網頁設計/jQuery/jQuery.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "jQuery"
-            }
-          },
-          {
             "id": "f7a1df7d72da26c7",
             "type": "leaf",
             "state": {
@@ -50,21 +22,21 @@
             }
           },
           {
-            "id": "c79e0b4038d4a64c",
+            "id": "a08994187a51bc07",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md",
+                "file": "C&C++/【04 Functions】.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JavaScript"
+              "title": "【04 Functions】"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md"
+                "file": "C&C++/【04 Functions】.md"
               },
               "icon": "lucide-list",
-              "title": "JavaScript 的大綱"
+              "title": "【04 Functions】 的大綱"
             }
           }
         ],
@@ -205,50 +177,50 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "c79e0b4038d4a64c",
+  "active": "a08994187a51bc07",
   "lastOpenFiles": [
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/utils/is.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/utils/get-hook-script.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/utils/find-parent.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/utils/find-hooks-dir.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/utils",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/uninstall.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/runner.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/install.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src/hooks.json",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/src",
-    "互動網頁設計/Vue/vue-project-02/node_modules/yorkie/node_modules/cross-spawn/lib/util/resolveCommand.js",
-    "互動網頁設計/Vue/vue-project-02/node_modules/word-wrap/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/v8-compile-cache/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/type-check/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/strip-json-comments/readme.md",
+    "互動網頁設計/Vue/Vue.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/package.json",
+    "互動網頁設計/Vue/vue-project-03/src/components/nav/TheNavigation.vue",
+    "互動網頁設計/Vue/vue-project-03/src/components/nav",
+    "互動網頁設計/Vue/vue-project-03/src/components/users/UsersList.vue",
+    "互動網頁設計/Vue/vue-project-03/src/components/users",
+    "互動網頁設計/Vue/vue-project-03/src/components/teams/TeamsList.vue",
+    "互動網頁設計/Vue/vue-project-03/src/components/teams",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@vue/devtools-api/package.json",
+    "互動網頁設計/Vue/vue-project-03/node_modules/vue-router/package.json",
+    "互動網頁設計/Vue/vue-project-03/node_modules/bootstrap/package.json",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/LICENSE.md",
+    "C&C++/【04 Functions】.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/neo-async/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/json-parse-better-errors/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/json-parse-better-errors/LICENSE.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/json-parse-better-errors/CHANGELOG.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/is-ci/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/isarray/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/ci-info/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/ci-info/CHANGELOG.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/strip-indent/readme.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/require-from-string/readme.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pseudomap/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/human-signals/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/human-signals/CHANGELOG.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/strip-final-newline/readme.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/core-util-is/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/process-nextick-args/readme.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/process-nextick-args/license.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/LICENSE.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/pinpoint/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/pinpoint/LICENSE.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/colord/README.md",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/display.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/usage.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/bullets-1.png",
-    "互動網頁設計/Vue/vue-project-02/node_modules/regexpp/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/read-pkg-up/node_modules/type-fest/readme.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/read-pkg-up/readme.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/prelude-ls/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/prelude-ls/CHANGELOG.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/ora/node_modules/chalk/readme.md",
-    "互動網頁設計/Vue/Vue.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/ora/readme.md",
-    "互動網頁設計/JavaScript/JavaScript.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/node-forge/flash/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/imurmurhash/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/hpack.js/node_modules/readable-stream/doc/wg-meetings/2015-01-30.md",
     "互動網頁設計/Vue/vue-project-02/node_modules/highlight.js/scss/school-book.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/highlight.js/scss/pojoaque.jpg",
     "互動網頁設計/Vue/vue-project-02/node_modules/highlight.js/scss/brown-papersq.png",
-    "互動網頁設計/Vue/vue-project-02/node_modules/functional-red-black-tree/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/copy-webpack-plugin/node_modules/schema-utils/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/copy-webpack-plugin/node_modules/schema-utils/CHANGELOG.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/copy-webpack-plugin/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/babel-plugin-polyfill-corejs3/core-js-compat/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/ajv/lib/dotjs/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/acorn-jsx/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/@popperjs/core/README.md",
-    "互動網頁設計/Vue/vue-project-02/node_modules/@popperjs/core/LICENSE.md",
     "互動網頁設計/Vue/attachments/Pasted image 20241113142821.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/highlight.js/styles/school-book.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/highlight.js/styles/pojoaque.jpg",
