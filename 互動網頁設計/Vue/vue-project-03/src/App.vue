@@ -1,14 +1,14 @@
 <template>
+    <!-- 導覽列 => TheNavigation.vue -->
     <the-navigation></the-navigation>
-    <main>
-        <router-view></router-view>
-    </main>
+    <!-- 吃router的defaule -->
+    <router-view></router-view>
+    <!-- 吃router的footer -->
+    <router-view name="footer"></router-view>
 </template>
 
 <script setup>
 import TheNavigation from "./components/nav/TheNavigation.vue";
 </script>
 
-<style>
-/* 可以在這裡添加您的樣式 */
-</style>
+<style></style>

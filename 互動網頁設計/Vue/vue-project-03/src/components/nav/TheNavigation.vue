@@ -7,7 +7,7 @@
             <router-link to="/users" class="nav-link">Users</router-link>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <router-link to="/about" class="nav-link">about</router-link>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -15,3 +15,9 @@
     </ul>
 </template>
 <script setup></script>
+<style>
+.router-link-active {
+    color: #efd6d6 !important;
+    background-color: #d34b4b !important;
+}
+</style>

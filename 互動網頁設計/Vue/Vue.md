@@ -2254,9 +2254,70 @@ const loadData = async () => {
 
 ## vue router
 - 安裝：`npm install vue-router@4`
+### 實現nav之間切換
+![upgit_20241115_1731659663.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731659663.png)
+
+- main.js
+	- 這邊createMemoryHistory要改成createWebHistory
+![upgit_20241115_1731659851.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731659851.png)
+
+- App.vue
+![upgit_20241115_1731659871.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731659871.png)
+
+- TheNavigation.vue
+![upgit_20241115_1731659904.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731659904.png)
+
+### 實現button做頁面切換
+![upgit_20241115_1731660052.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731660052.png)
+
+### 設定linkActiveClass
+![upgit_20241115_1731660568.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731660568.png)
+
+
+## Vue Router 中資料如何傳遞
+### 動態路由參數 (params)
+- main.js
+	- 動態路由參數通常用於需要在 URL 中嵌入動態資料的情境，例如 `/users/:userId`。
+![upgit_20241115_1731666206.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731666206.png)
+
+![upgit_20241115_1731666271.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731666271.png)
+
+### 使用 查詢參數 (query)
+- 查詢參數通常用於傳遞可選的、非必需的資料，格式為 /search?keyword=vue。
+![upgit_20241115_1731666562.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731666562.png)
+
+![upgit_20241115_1731666674.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731666674.png)
+
+### 獲補所有路徑
+- main.js
+![upgit_20241115_1731667018.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731667018.png)
+
+### 使用命名視圖 (Named Views) 渲染多個路由
+![upgit_20241115_1731668387.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731668387.png)
+- App.vue
+![upgit_20241115_1731668442.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731668442.png)
+
+
+## Pinia
+- **Pinia** 是一個輕量級且現代的狀態管理庫
+- Pinia 是 Vue 團隊推薦的替代方案，因其擁有更簡單的 API、更好的開發體驗以及與 Vue 3 的更緊密整合。
+```
+app.use(pinia)
+```
+
+### 建立pinia
+![upgit_20241115_1731670961.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241115_1731670961.png)
+
+### Store
+- Store 用於集中管理 Vue.js 應用的全域狀態，適合需要在多個組件間共享的資料。
+	- 全域共享資料(例如：使用者登入資訊、權限角色、偏好設定)
+	- 跨組件共享狀態(例如：導航欄和設定頁面需要共用的用戶名稱)
+	- 跨頁面保存狀態(例如：多步驟表單資料需要在頁面切換間保持)
+- 何時不需要 Store？
+	- 組件本地狀態(按鈕顯示/隱藏、彈出視窗開關)
+	- 短暫存在的資料(通知提示、表單驗證訊息)
 
 
 ## 要學的東西
-- vue Router (路由)
 - Pinia / Vuex（狀態管理）=> pinia
 - Vite
