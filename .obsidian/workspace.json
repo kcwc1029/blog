@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【05Arrays】.md",
+                "file": "C&C++/【06Points】.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【05Arrays】"
+              "title": "【06Points】"
             }
           }
         ],
@@ -154,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/【05Arrays】.md"
+                "file": "C&C++/【06Points】.md"
               },
               "icon": "lucide-list",
-              "title": "【05Arrays】 的大綱"
+              "title": "【06Points】 的大綱"
             }
           }
         ],
@@ -179,20 +179,21 @@
   },
   "active": "a08994187a51bc07",
   "lastOpenFiles": [
-    "2024-11-15.md",
     "C&C++/【05Arrays】.md",
-    "C&C++/【04 Functions】.md",
+    "C&C++/【06Points】.md",
     "互動網頁設計/Vue/Vue.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/package.json",
-    "互動網頁設計/Vue/vue-project-03/src/components/nav/TheNavigation.vue",
-    "互動網頁設計/Vue/vue-project-03/src/components/nav",
-    "互動網頁設計/Vue/vue-project-03/src/components/users/UsersList.vue",
-    "互動網頁設計/Vue/vue-project-03/src/components/users",
-    "互動網頁設計/Vue/vue-project-03/src/components/teams/TeamsList.vue",
-    "互動網頁設計/Vue/vue-project-03/src/components/teams",
-    "互動網頁設計/Vue/vue-project-03/node_modules/@vue/devtools-api/package.json",
-    "互動網頁設計/Vue/vue-project-03/node_modules/vue-router/package.json",
-    "互動網頁設計/Vue/vue-project-03/node_modules/bootstrap/package.json",
+    "互動網頁設計/Vue/vue-project-03/src/components/stores/TaskStore.js",
+    "互動網頁設計/Vue/vue-project-03/src/components/stores",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin/vue-demi-switch.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin/vue-demi-fix.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.mjs",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.d.ts",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.cjs",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v2.7/index.mjs",
+    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v2.7/index.d.ts",
+    "2024-11-15.md",
+    "C&C++/【04 Functions】.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/LICENSE.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/neo-async/README.md",
@@ -214,7 +215,6 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/process-nextick-args/license.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/LICENSE.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/pinpoint/README.md",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/display.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/usage.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/bullets-1.png",
