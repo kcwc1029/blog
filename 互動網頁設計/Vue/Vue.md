@@ -1960,6 +1960,11 @@ npm run serve
 ![upgit_20241108_1731044557.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044557.png)
 ![upgit_20241108_1731044582.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044582.png)
 
+- Vue Devtools
+	- [Vue.js devtools - Chrome 線上應用程式商店](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?pli=1)
+![upgit_20241118_1731929845.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731929845.png)
+
+
 ### 專案架構
 ![upgit_20241108_1731054583.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731054583.png)
 
@@ -2316,8 +2321,57 @@ app.use(pinia)
 - 何時不需要 Store？
 	- 組件本地狀態(按鈕顯示/隱藏、彈出視窗開關)
 	- 短暫存在的資料(通知提示、表單驗證訊息)
+![upgit_20241118_1731908867.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731908867.png)
+
+### 使用stroe的資料
+- 假設我要在App.vue使用(引入的是函數，所以要實例化)。
+![upgit_20241118_1731909117.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731909117.png)
+
+### getter
+- 就是vue2的compute這個屬性這樣。
+- 主要用於計算衍生狀態（derived state），即從 `state` 中計算出新的資料，類似於 Vue 的計算屬性 (computed properties)。
+- 具備快取功能 (caching)，只有當 state 發生變化時才會重新計算。
+- 他有點類似python的method。
+![upgit_20241118_1731924201.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731924201.png)
+
+- 使用
+![upgit_20241118_1731924239.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731924239.png)
+
+### Action
+- actions 是用來封裝邏輯和行為的函數。
+- 相比於 getters，actions 更加靈活。
+- 通常用於處理業務邏輯、修改 state、甚至執行異步操作(如 API 請求)。
+![upgit_20241118_1731929407.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731929407.png)
+
+![upgit_20241118_1731929585.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731929585.png)
 
 
-## 要學的東西
-- Pinia / Vuex（狀態管理）=> pinia
-- Vite
+## axios
+- Axios 是一個基於 Promise 的 HTTP 請求庫，用於在瀏覽器和 Node.js 中發送 HTTP 請求。它可以幫助我們輕鬆地與後端 API 進行通信，發送 GET、POST、PUT、DELETE 等各種類型的請求。
+- 為什麼使用 Axios？
+	- 更簡單的語法：相比原生的 fetch，Axios 提供了更簡潔的語法和豐富的功能。
+	- 自動解析 JSON：Axios 會自動將伺服器返回的 JSON 資料解析成物件。
+	- 支援請求攔截器和回應攔截器：可以在請求發送或收到回應之前執行額外的邏輯。
+	- 支援超時設置：可以為每個請求設置超時。
+```
+npm install axios
+```
+
+![upgit_20241118_1731932523.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731932523.png)
+
+![upgit_20241118_1731932579.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731932579.png)
+
+## storeToRefs
+- 當你從 Store 中提取 state、getters 時，直接解構可能會導致響應性丟失。
+```js
+const { count, doubleCount } = useCounterStore();
+```
+- 因此，在解構時，使用storeToRefs
+![upgit_20241118_1731933312.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731933312.png)
+
+![upgit_20241118_1731933353.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731933353.png)
+
+
+
+
+
