@@ -35,8 +35,7 @@
               "title": "【06Points】"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -154,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/【06Points】.md"
+                "file": "互動網頁設計/Vue/Vue.md"
               },
               "icon": "lucide-list",
-              "title": "【06Points】 的大綱"
+              "title": "Vue 的大綱"
             }
           }
         ],
@@ -177,21 +176,29 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "a08994187a51bc07",
+  "active": "f7a1df7d72da26c7",
   "lastOpenFiles": [
-    "C&C++/【05Arrays】.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/form_data.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/populate.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/browser.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib",
+    "互動網頁設計/Vue/vue-project-03/node_modules/delayed-stream/lib/delayed_stream.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/delayed-stream/lib",
+    "互動網頁設計/Vue/vue-project-03/node_modules/combined-stream/lib/combined_stream.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/combined-stream/lib",
+    "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/terminator.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/streamify.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/state.js",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/SECURITY.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/helpers/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/env/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/core/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/adapters/README.md",
+    "互動網頁設計/Vue/vue-project-03/node_modules/axios/MIGRATION_GUIDE.md",
     "C&C++/【06Points】.md",
+    "C&C++/【05Arrays】.md",
     "互動網頁設計/Vue/Vue.md",
-    "互動網頁設計/Vue/vue-project-03/src/components/stores/TaskStore.js",
-    "互動網頁設計/Vue/vue-project-03/src/components/stores",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin/vue-demi-switch.js",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin/vue-demi-fix.js",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/bin",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.mjs",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.d.ts",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v3/index.cjs",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v2.7/index.mjs",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pinia/node_modules/vue-demi/lib/v2.7/index.d.ts",
     "2024-11-15.md",
     "C&C++/【04 Functions】.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/README.md",
@@ -207,14 +214,6 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/strip-indent/readme.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/require-from-string/readme.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/pseudomap/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/human-signals/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/human-signals/CHANGELOG.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/strip-final-newline/readme.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/core-util-is/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/process-nextick-args/readme.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/process-nextick-args/license.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/@sideway/address/LICENSE.md",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/display.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/usage.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/bullets-1.png",
