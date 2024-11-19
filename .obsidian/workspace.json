@@ -27,15 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【06Points】.md",
+                "file": "C&C++/【07Characters and Strings】.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【06Points】"
+              "title": "【07Characters and Strings】"
+            }
+          },
+          {
+            "id": "51e308193212992e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "程式設計(leetcode)/字串基礎.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "字串基礎"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,10 +168,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/Vue/Vue.md"
+                "file": "C&C++/【07Characters and Strings】.md"
               },
               "icon": "lucide-list",
-              "title": "Vue 的大綱"
+              "title": "【07Characters and Strings】 的大綱"
             }
           }
         ],
@@ -176,8 +191,14 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "f7a1df7d72da26c7",
+  "active": "a08994187a51bc07",
   "lastOpenFiles": [
+    "C&C++/【06Points】.md",
+    "C&C++/【07Characters and Strings】.md",
+    "程式設計(leetcode)/字串基礎.md",
+    "程式設計(leetcode)/預計排課.md",
+    "程式設計(leetcode)/stack.md",
+    "互動網頁設計/Vue/Vue.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/form_data.js",
     "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/populate.js",
     "互動網頁設計/Vue/vue-project-03/node_modules/form-data/lib/browser.js",
@@ -188,7 +209,6 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/combined-stream/lib",
     "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/terminator.js",
     "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/streamify.js",
-    "互動網頁設計/Vue/vue-project-03/node_modules/asynckit/lib/state.js",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/SECURITY.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/helpers/README.md",
@@ -196,9 +216,7 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/core/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/adapters/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/MIGRATION_GUIDE.md",
-    "C&C++/【06Points】.md",
     "C&C++/【05Arrays】.md",
-    "互動網頁設計/Vue/Vue.md",
     "2024-11-15.md",
     "C&C++/【04 Functions】.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/@popperjs/core/README.md",
@@ -211,9 +229,6 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/isarray/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/ci-info/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/ci-info/CHANGELOG.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/strip-indent/readme.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/require-from-string/readme.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/pseudomap/README.md",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/display.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/usage.png",
     "互動網頁設計/Vue/vue-project-02/node_modules/renderkid/docs/images/bullets-1.png",
