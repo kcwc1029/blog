@@ -11,10 +11,14 @@
             "id": "ec5799a923d75f16",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "C&C++/【09File Processing】.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新分頁"
+              "title": "【09File Processing】"
             }
           }
         ]
@@ -134,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "C&C++/【09File Processing】.md"
+              },
               "icon": "lucide-list",
-              "title": "大綱"
+              "title": "【09File Processing】 的大綱"
             }
           }
         ],
@@ -158,41 +164,42 @@
   },
   "active": "ec5799a923d75f16",
   "lastOpenFiles": [
-    "C&C++/leetcode題目/attachments/20241112_051037663_iOS.png",
-    "C&C++/leetcode題目/attachments/20241106_112148821_iOS.png",
-    "C&C++/leetcode題目/字串基礎.md",
+    "C&C++/【07Characters and Strings】.md",
+    "C&C++/【09File Processing】.md",
+    "C&C++/【08 Structures, Unions, Bit Manipulation and Enumerations】.md",
+    "C&C++/leetcode題目/位運算.md",
     "C&C++/leetcode題目/預計排課.md",
     "C&C++/leetcode題目/數組基礎.md",
-    "C&C++/leetcode題目/位運算.md",
+    "程式設計(leetcode)/attachments/20241112_051037663_iOS.png",
+    "程式設計(leetcode)/attachments/20241106_112148821_iOS.png",
+    "程式設計(leetcode)/預計排課.md",
+    "程式設計(leetcode)/stack.md",
+    "程式設計(leetcode)/字串基礎.md",
+    "程式設計(leetcode)/數組基礎.md",
+    "程式設計(leetcode)/attachments",
+    "程式設計(leetcode)",
+    "Python/用python星空作畫/【星空作畫】.ipynb",
+    "Python/用python星空作畫",
+    "Python/temp image/source dir/image04.jpg",
+    "Python/temp image/source dir/image08.jpg",
+    "Python/temp image/source dir/image07.jpg",
+    "Python/temp image/source dir/image06.jpg",
+    "Python/temp image/source dir/image05.jpg",
+    "Python/temp image/source dir/image02.jpg",
+    "Python/temp image/source dir/image03.jpg",
+    "Python/temp image/source dir/image01.jpg",
+    "Python/temp image/source dir",
+    "Python/temp image",
+    "C&C++/leetcode題目/字串基礎.md",
     "C&C++/leetcode題目/stack.md",
     "C&C++/leetcode題目/attachments",
     "C&C++/leetcode題目",
     "C&C++/課程分配.md",
     "Python/openAI/【OpenAI】.ipynb",
     "Python/openAI/【langchain】.ipynb",
-    "Python/openAI",
-    "Python/2024計算機概論/【虛擬環境】.ipynb",
-    "Python/2024計算機概論/【多執行續】.ipynb",
-    "Python/2024計算機概論/【PyPI】.ipynb",
-    "C&C++/程式實例/ch20/ch20_4/show.c",
-    "C&C++/程式實例/ch20/ch20_4/mypro20_4.layout",
     "互動網頁設計/Vue/Vue.md",
-    "C&C++/【08 Structures, Unions, Bit Manipulation and Enumerations】.md",
-    "程式設計(leetcode)/attachments/20241106_112148821_iOS.png",
-    "程式設計(leetcode)/attachments/20241112_051037663_iOS.png",
-    "程式設計(leetcode)/數組基礎.md",
-    "程式設計(leetcode)/預計排課.md",
-    "程式設計(leetcode)/字串基礎.md",
-    "程式設計(leetcode)/stack.md",
-    "Python/temp image/source dir/image08.jpg",
-    "Python/temp image/source dir/image07.jpg",
-    "Python/temp image/source dir/image06.jpg",
-    "Python/temp image/source dir/image05.jpg",
-    "Python/temp image/source dir/image04.jpg",
-    "Python/temp image/source dir/image03.jpg",
     "互動網頁設計/JavaScript/JavaScript.md",
     "互動網頁設計/JavaScript/javascript_demo_guess_number/README.md",
-    "C&C++/【07Characters and Strings】.md",
     "C&C++/【06Points】.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/SECURITY.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/README.md",
