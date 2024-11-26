@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【11 Other C Topics】.md",
+                "file": "C&C++/leetcode題目/位運算.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【11 Other C Topics】"
+              "title": "位運算"
             }
           },
           {
@@ -153,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/【11 Other C Topics】.md"
+                "file": "C&C++/leetcode題目/位運算.md"
               },
               "icon": "lucide-list",
-              "title": "【11 Other C Topics】 的大綱"
+              "title": "位運算 的大綱"
             }
           }
         ],
@@ -176,14 +176,14 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "ec5799a923d75f16",
+  "active": "1431614dcd080964",
   "lastOpenFiles": [
+    "C&C++/【11 Other C Topics】.md",
     "Python/openAI/video-script-generator/emotion.py",
     "Python/openAI/video-script-generator/__pycache__/emotion.cpython-312.pyc",
     "Python/openAI/AI Memory.ipynb",
     "C&C++/【09 File Processing】.md",
     "C&C++/【10 Preprocessor(預處理器)】.md",
-    "C&C++/【11 Other C Topics】.md",
     "C&C++/leetcode題目/位運算.md",
     "Python/openAI/video-script-generator/__pycache__/utils.cpython-312.pyc",
     "Python/openAI/video-script-generator/__pycache__",
@@ -192,7 +192,6 @@
     "Python/openAI/video-script-generator",
     "Python/openAI/streamlit(小練習)/app.py",
     "Python/openAI/streamlit(小練習)/demo.ipynb",
-    "Python/openAI/streamlit(小練習)",
     "ubuntu/ubuntu.md",
     "2024-11-22.md",
     "C&C++/【07Characters and Strings】.md",
