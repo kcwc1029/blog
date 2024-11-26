@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【10】Preprocessor(預處理器).md",
+                "file": "C&C++/【11 Other C Topics】.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【10】Preprocessor(預處理器)"
+              "title": "【11 Other C Topics】"
             }
           },
           {
@@ -35,8 +35,7 @@
               "title": "位運算"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -154,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/leetcode題目/位運算.md"
+                "file": "C&C++/【11 Other C Topics】.md"
               },
               "icon": "lucide-list",
-              "title": "位運算 的大綱"
+              "title": "【11 Other C Topics】 的大綱"
             }
           }
         ],
@@ -177,15 +176,25 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "cc1ace592d6a8ecc",
+  "active": "ec5799a923d75f16",
   "lastOpenFiles": [
-    "C&C++/【10】Preprocessor(預處理器).md",
+    "Python/openAI/video-script-generator/emotion.py",
+    "Python/openAI/video-script-generator/__pycache__/emotion.cpython-312.pyc",
+    "Python/openAI/AI Memory.ipynb",
+    "C&C++/【09 File Processing】.md",
+    "C&C++/【10 Preprocessor(預處理器)】.md",
+    "C&C++/【11 Other C Topics】.md",
+    "C&C++/leetcode題目/位運算.md",
+    "Python/openAI/video-script-generator/__pycache__/utils.cpython-312.pyc",
+    "Python/openAI/video-script-generator/__pycache__",
+    "Python/openAI/video-script-generator/utils.py",
+    "Python/openAI/video-script-generator/main.py",
+    "Python/openAI/video-script-generator",
+    "Python/openAI/streamlit(小練習)/app.py",
+    "Python/openAI/streamlit(小練習)/demo.ipynb",
+    "Python/openAI/streamlit(小練習)",
     "ubuntu/ubuntu.md",
     "2024-11-22.md",
-    "ubuntu",
-    "C&C++/leetcode題目/位運算.md",
-    "Python/openAI/requirements.txt",
-    "C&C++/【09File Processing】.md",
     "C&C++/【07Characters and Strings】.md",
     "C&C++/【08 Structures, Unions, Bit Manipulation and Enumerations】.md",
     "C&C++/leetcode題目/預計排課.md",
@@ -196,10 +205,6 @@
     "程式設計(leetcode)/stack.md",
     "程式設計(leetcode)/字串基礎.md",
     "程式設計(leetcode)/數組基礎.md",
-    "程式設計(leetcode)/attachments",
-    "程式設計(leetcode)",
-    "Python/用python星空作畫/【星空作畫】.ipynb",
-    "Python/用python星空作畫",
     "Python/temp image/source dir/image04.jpg",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
@@ -208,12 +213,8 @@
     "Python/temp image/source dir/image02.jpg",
     "Python/temp image/source dir/image03.jpg",
     "Python/temp image/source dir/image01.jpg",
-    "Python/temp image/source dir",
-    "Python/temp image",
     "C&C++/leetcode題目/字串基礎.md",
     "C&C++/leetcode題目/stack.md",
-    "C&C++/leetcode題目/attachments",
-    "C&C++/leetcode題目",
     "C&C++/課程分配.md",
     "互動網頁設計/Vue/Vue.md",
     "互動網頁設計/JavaScript/JavaScript.md",
@@ -223,8 +224,6 @@
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/helpers/README.md",
     "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/env/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/core/README.md",
-    "互動網頁設計/Vue/vue-project-03/node_modules/axios/lib/adapters/README.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
