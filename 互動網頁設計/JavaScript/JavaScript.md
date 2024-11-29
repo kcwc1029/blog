@@ -66,31 +66,40 @@ let sum = (a, b) => {
 ```
 
 ### 閉包(Closure) 和Currying
-- 在 JavaScript 中，函式是一級函式，也就是說，函式可以像變數一樣傳遞。由於這個特性，我們可以在函式內部返回另一個函式，並利用閉包保存某些變數的值。
-- 假設有一個函式需要多個參數，但其中一些參數經常是固定的（例如 API 的基礎 URL），那麼我們可以將這些固定的參數抽出來，讓整體函式使用上更方便。
+- Closure：是指在函式內部返回另一個函式時，內部函式可以「記住」外部函式的變數，即使外部函式已經執行完畢。
 ```js
-let configURL;
-configURL = getAPIURL01("https://myapp.com", "user/config");
-// 一般函數
-function getAPIURL01(base, url) {
-	return base + "/" + url;
+// 使用閉包生成函式
+function getAPIURL(base) {
+    return function (endpoint) {
+        return base + "/" + endpoint;
+    };
 }
 
-
-// closure
-function getAPIURL02(base) {
-	return function (url) {
-		return base + "/" + url;
-	};
-}
-let getRemoteAPI = getAPIURL02("https://myapp.com");
-configURL = getRemoteAPI("user/config");
+// 基礎 URL 設定
+let getRemoteAPI = getAPIURL("https://myapp.com");
+console.log(getRemoteAPI("user/config")); // 輸出：https://myapp.com/user/config
 ```
-### 立即執行函式(Immediately Invoked Function,IIFE)
-- 定義完立即函式後不用再呼叫,就能馬上執行函式內的運算,有回傳值的話也會立即賦值給指定變數。
-- 立即函式的優點：
-	- 裡面的變數不會被提升,造成汙染全域的問題。
-	- 程式碼只須執行一次來求值的話,也很適合使用。
+- 函數柯里化 (Currying)：將一個需要多個參數的函式，拆分成一系列只接受單一參數的函式，逐步傳遞參數來完成最終計算。
+```js
+// 柯里化的函式
+const getAPIURL = base => endpoint => `${base}/${endpoint}`;
+
+// 固定基礎 URL
+let getRemoteAPI = getAPIURL("https://myapp.com");
+console.log(getRemoteAPI("user/config")); // 輸出：https://myapp.com/user/config
+console.log(getRemoteAPI("products/list")); // 輸出：https://myapp.com/products/list
+```
+![upgit_20241126_1732603338.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241126_1732603338.png)
+
+
+
+### 立即執行函式(Immediately Invoked Function, IIFE)
+- IIFE(Immediately Invoked Function)是一種在定義完後立即執行的函式。
+- 不需要顯式呼叫，函式會自動執行一次。
+- IIFE 的優點
+	- 防止汙染全域變數：變數作用域被封裝在函式內，不會影響全域範圍。
+	- 適合一次性運算：適用於僅需執行一次的初始化或計算邏輯，簡化代碼結構。
+	- 立即求值：如果函式有回傳值，會立即返回並賦值給變數。
 ```js
 var myArray = ["Yuri", "Zoe"];
 const getResult = (function () {
@@ -102,44 +111,172 @@ console.log(getResult, myArray); // 1234567 ['Yuri', 'Zoe']
 ```
 
 ## 物件導向基本概念：
-- 物件 (Object)：可以代表生活中任何物品，包含屬性與方法。例如，汽車是物件，包含品牌與速度等屬性。
-- 屬性 (Property)：物件的特徵，例如汽車的顏色、大小。
-- 方法 (Method)：物件可以執行的動作，例如發動汽車 (startCar)。
-- 事件 (Event)：特定情況下的反應，例如加速事件 (accelerate)。
-	- 類別 (Class)：定義物件的模板，例如 `Car` 類別下有不同品牌的汽車物件。
+- 物件 (Object)：代表生活中的事物，由 屬性 (Property) 和 方法 (Method) 組成。
+	- 汽車是一個物件，包含品牌 (屬性) 和啟動 (方法)。
+- 屬性 (Property)：描述物件的特徵或狀態。
+	- 汽車的顏色、大小等。
+- 方法 (Method)：描述物件可以執行的行為或操作。
+	- 汽車的發動、停止、加速等動作。
+- 事件 (Event)：特定情況下物件的反應，例如按下按鈕觸發某動作。
+	- 汽車的加速事件 (accelerate)。
+### 類別與物件的關係
+- 類別 (Class)：定義物件的模板或藍圖，用於創建具相同屬性和方法的物件。
+	- Car 類別可以用來創建 Toyota 和 Tesla 等物件。
+- 物件 (Object)：類別的實例化結果。
 ![upgit_20241024_1729761090.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729761090.png)
+
+
+
+### 建立物件的兩種方式
+
+#### 使用實體方式 (Object Literal)
+- 語法簡單直觀，適合快速建立物件。
+- 直接使用花括號 {} 定義物件及其屬性與方法。
+```js
+// 建立物件
+let user = {
+    name: "TA",
+    age: 24,
+    showMsg: function () {
+        window.alert("Hi, 我是 " + this.name + "!");
+    },
+};
+
+// 操作物件
+user.age = 18;      // 修改屬性
+delete user.age;    // 刪除屬性
+console.log(user.name); // 輸出：TA
+```
+
+#### 使用建構子方式 (Constructor Function)
+- 適合建立結構相似的多個物件。
+- 使用 new Object() 或自定義建構子函式進行建立。
+```js
+// 建立物件
+let user = new Object();
+user.name = "TA";
+user.age = 23;
+user.showMsg = function () {
+    window.alert("Hi, 我是 " + this.name + "!");
+};
+
+// 呼叫方法
+user.showMsg(); // 彈出訊息：Hi, 我是 TA!
+```
+
+### 物件導向的四大特性 (OOP)
+####  封裝 (Encapsulation)
+- 將物件的屬性和方法封裝在內部，限制外部直接存取，提供物件的安全性。
+- 使用 getter 和 setter 來間接存取或修改屬性。
+```js
+class User {
+    #password; // 私有屬性
+    constructor(name, password) {
+        this.name = name;
+        this.#password = password;
+    }
+    // Getter
+    get password() {
+        return "密碼是隱藏的！";
+    }
+    // Setter
+    set password(newPassword) {
+        this.#password = newPassword;
+    }
+}
+
+let user = new User("TA", "12345");
+console.log(user.password); // 輸出：密碼是隱藏的！
+user.password = "67890";     // 更新密碼
+```
+#### 繼承 (Inheritance)
+- 子類別繼承父類別的屬性和方法，實現代碼重用。
+- 使用 extends 關鍵字實現繼承。
+```js
+class Vehicle {
+    constructor(brand) {
+        this.brand = brand;
+    }
+    start() {
+        console.log(this.brand + " 啟動！");
+    }
+}
+
+class Car extends Vehicle {
+    constructor(brand, model) {
+        super(brand); // 呼叫父類別的建構子
+        this.model = model;
+    }
+    drive() {
+        console.log(this.brand + " " + this.model + " 正在行駛！");
+    }
+}
+
+let myCar = new Car("Toyota", "Corolla");
+myCar.start();  // 輸出：Toyota 啟動！
+myCar.drive();  // 輸出：Toyota Corolla 正在行駛！
+```
+#### 多型 (Polymorphism)
+- 不同的物件可以用相同的方法呼叫，並根據物件的類型執行不同的行為。
+- 可透過覆寫 (Override) 父類別的方法來實現。
+```js
+class Animal {
+    speak() {
+        console.log("動物發出聲音！");
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log("狗叫：汪汪！");
+    }
+}
+
+class Cat extends Animal {
+    speak() {
+        console.log("貓叫：喵喵！");
+    }
+}
+
+let animals = [new Dog(), new Cat(), new Animal()];
+animals.forEach(animal => animal.speak());
+// 輸出：
+// 狗叫：汪汪！
+// 貓叫：喵喵！
+// 動物發出聲音！
+```
+#### 抽象 (Abstraction)
+- 將物件的核心功能對外暴露，隱藏不必要的細節。
+- JavaScript 中可透過抽象類別或接口模擬抽象。
+```js
+class Shape {
+    // 抽象方法 (子類必須實現)
+    getArea() {
+        throw new Error("子類必須實現 getArea 方法！");
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+    getArea() {
+        return Math.PI * this.radius ** 2;
+    }
+}
+
+let myCircle = new Circle(5);
+console.log(myCircle.getArea()); // 輸出：78.53981633974483
+```
+
 
 ### JavaScript中的三種物件模型：
 - ECMAScript物件模型：基本語法與資料型別。
 - DOM物件模型：針對 HTML 元素的操作。
 - BOM物件模型：瀏覽器相關的物件，例如 `Window`、`Location`。
 
-### 使用實體方式建立物件
-```js
-// 建立物件
-let user = {
-    name: "TA",
-    age: 24,
-    showMsg: () => {
-        window.alert("Hi, 我是" + this.name + "!");
-    },
-};
 
-// 更改物件
-user.age = 18;
-
-// 刪除物件
-delete user.age;
-```
-### 使用建構子建立物件
-```js
-let user = new Object();
-user.name = "TA";
-user.age = 23;
-user.showMsg = () => {
-    window.alert("Hi, 我是" + this.name + "!");
-};
-```
 
 ## 內建物件
 ### number物件
@@ -148,37 +285,90 @@ user.showMsg = () => {
 ![upgit_20241024_1729768068.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768068.png)
 
 ```js
-document.write(Number.MAX_VALUE);
-document.write("<br>");
-document.write(Number.MIN_VALUE);
-document.write("<br>");
-document.write(Number.NaN);
-document.write("<br>");
-document.write(Number.NaN);
-document.write("<br>");
-document.write(Number.isNaN(100));
-document.write("<br>");
-document.write(Number.isFinite(100));
-document.write("<br>");
-document.write(Number.isInteger(100));
-document.write("<br>");
-document.write(Number.parseFloat("1.8x"));
-document.write("<br>");
-document.write(Number.parseInt("1.8x"));
-document.write("<br>");
+////////// 常用屬性 //////////
+
+// 表示 JavaScript 中數字型別能表示的最大值&最小值
+console.log(Number.MAX_VALUE); // 輸出：約 1.7976931348623157e+308
+console.log(Number.MIN_VALUE); // 輸出：約 5e-324
+// Not-a-Number
+console.log(Number.NaN); // 輸出：NaN
+// 正無窮大和負無窮大
+console.log(Number.POSITIVE_INFINITY); // 輸出：Infinity
+console.log(Number.NEGATIVE_INFINITY); // 輸出：-Infinity
+
+////////// 常用方法 //////////
+
+// 判斷某個值是否為 NaN。
+console.log(Number.isNaN(100)); // 輸出：false
+console.log(Number.isNaN(NaN)); // 輸出：true
+// 判斷某個值是否為有限數值（排除 Infinity 和 NaN）
+console.log(Number.isFinite(100)); // 輸出：true
+console.log(Number.isFinite(Infinity)); // 輸出：false
+// 判斷某個值是否為整數
+console.log(Number.isInteger(100)); // 輸出：true
+// 將字串解析為浮點數
+console.log(Number.parseFloat("1.8x")); // 輸出：1.8
+// 將字串解析為整數
+console.log(Number.parseInt("1.8x")); // 輸出：1
+// 將數字轉換為指定小數位數的字串
 let x = 123.456;
-document.write(x.toExponential());
-document.write("<br>");
-document.write(x.toFixed(2));
-document.write("<br>");
-document.write(x.toString());
-document.write("<br>");
-document.write(x.toPrecision(8));
-document.write("<br>");
+console.log(x.toFixed(2)); // 輸出：123.46
+
+// 將數字轉換為字串
+let x = 123.456;
+console.log(x.toString()); // 輸出：123.456
+
 ```
 ### string物件
 ![upgit_20241024_1729768723.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768723.png)
+```js
+////////// 查詢與檢查 //////////
+// indexOf(str[, start])：返回指定子字串 str 第一次出現的位置，若不存在則返回 -1。
+let text = "Hello, world!";
+console.log(text.indexOf("world")); // 輸出：7
+console.log(text.indexOf("JavaScript")); // 輸出：-1
 
+// startsWith(str[, start])：判斷字串是否以 str 開頭，返回布林值。
+let text = "JavaScript";
+console.log(text.startsWith("Java")); // 輸出：true
+console.log(text.startsWith("Script")); // 輸出：false
+
+// endsWith(str[, start])：判斷字串是否以 str 結尾，返回布林值。
+let text = "JavaScript";
+console.log(text.endsWith("Script")); // 輸出：true
+console.log(text.endsWith("Java")); // 輸出：false
+
+////////// 取部分字串 //////////
+// slice(begin[, end])：提取從 begin 到 end-1 的字串。
+let text = "Hello, world!";
+console.log(text.slice(0, 5)); // 輸出：Hello
+console.log(text.slice(-6)); // 輸出：world!
+
+////////// 大小寫轉換 //////////
+let text = "HELLO";
+console.log(text.toLowerCase()); // 輸出：hello
+console.log(text.toUpperCase()); // 輸出：HELLO
+
+////////// 分割 //////////
+// split(separator)： 根據指定分隔符將字串分割為陣列。
+let text = "apple,banana,cherry";
+console.log(text.split(",")); // 輸出：["apple", "banana", "cherry"]
+
+////////// 組合 //////////
+// concat(...str)：將多個字串拼接成一個字串。
+let text1 = "Hello";
+let text2 = "World";
+console.log(text1.concat(", ", text2)); // 輸出：Hello, World
+
+////////// 清除 //////////
+// trim()： 移除字串前後的空白字元。
+let text = "   Hello, World!   ";
+console.log(text.trim()); // 輸出：Hello, World!
+////////// 重複 //////////
+// repeat(count)：將字串重複指定次數後返回新字串。
+let text = "Ha";
+console.log(text.repeat(3)); // 輸出：HaHaHa
+```
 ### Math物件
 ![upgit_20241024_1729768754.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768754.png)
 
@@ -190,9 +380,45 @@ document.write("<br>");
 
 ![upgit_20241024_1729768794.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768794.png)
 
+```js
+////////// 常用屬性 //////////
+console.log(Math.PI); // 輸出：3.141592653589793
+console.log(Math.E); // 輸出：2.718281828459045
+
+////////// 基本運算 //////////
+console.log(Math.abs(-5)); // 返回數值的絕對值
+console.log(Math.max(10, 20, 30)); // 返回參數中的最大值
+console.log(Math.min(10, 20, 30)); // 返回參數中的最小值
+console.log(Math.random()); // 返回一個介於 0 到 1 之間的隨機數（不包含 1）
+console.log(Math.pow(2, 3)); // 返回 base 的 exponent 次方。
+
+////////// 進位與捨去 //////////
+console.log(Math.ceil(4.2)); // 無條件進位
+console.log(Math.floor(4.8)); // 無條件捨去
+console.log(Math.round(4.5)); // 四捨五入
+
+////////// 平方根與指數 //////////
+console.log(Math.sqrt(9)); // 輸出：3
+console.log(Math.cbrt(27)); // 平方根。輸出：3
+```
+
 ### Date物件
 ![upgit_20241024_1729768822.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768822.png)
 
+```js
+////////// 獲取日期與時間 //////////
+let now = new Date();
+console.log(now.getFullYear()); // 輸出：2024
+console.log(now.getMonth()); // 輸出：10 (代表 11 月)
+console.log(now.getDate()); // 返回當月的日期（1-31）
+console.log(now.getDay()); // 返回星期幾（0-6，0 表示星期日）
+console.log(now.getHours()); // 返回小時（0-23）
+console.log(now.getMinutes()); //返回分鐘（0-59）
+console.log(now.getSeconds()); // 返回秒數（0-59）
+
+////////// 獲取時間戳與時區 //////////
+console.log(now.getTime()); // 返回自 1970 年 1 月 1 日以來的毫秒數
+```
 
 ### Array物件
 ![upgit_20241024_1729768863.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768863.png)
@@ -203,7 +429,48 @@ document.write("<br>");
 
 ![upgit_20241024_1729768890.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768890.png)
 
-### Error物件
+```js
+////////// 基本操作 //////////
+// 判斷 obj 是否為陣列，返回布林值。
+console.log(Array.isArray([1, 2, 3])); // 輸出：true
+console.log(Array.isArray("123")); // 輸出：false
+// 返回指定元素 el 的第一個索引值，若不存在則返回 -1。
+let arr = [1, 2, 3, 2];
+console.log(arr.indexOf(2)); // 輸出：1
+
+////////// 排序 //////////
+let arr = [3, 1, 4];
+console.log(arr.sort()); // 輸出：[1, 3, 4]
+console.log(arr.sort((a, b) => b - a)); // 輸出：[4, 3, 1]
+let arr = [1, 2, 3];
+console.log(arr.reverse()); // 輸出：[3, 2, 1]
+
+////////// 切割 //////////
+let arr = [1, 2, 3, 4];
+console.log(arr.slice(1, 3)); // 輸出：[2, 3]
+
+////////// 新增與刪除 //////////
+let arr = [1, 2];
+arr.push(3); // [1, 2, 3]
+console.log(arr.pop()); // 輸出：3
+console.log(arr); // 輸出：[1, 2]
+
+let arr = [1, 2, 3];
+console.log(arr.shift()); // 刪除並返回陣列第一個元素。
+console.log(arr); // 輸出：[2, 3]
+arr.unshift(1); // 在陣列開頭新增元素，返回新陣列長度。
+console.log(arr); // 輸出：[1, 2, 3]
+
+////////// 其他操作 //////////
+let arr = ["a", "b", "c"];
+console.log(arr.join("-")); // 將陣列元素連接成字串
+
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+console.log(arr1.concat(arr2)); // 合併多個陣列，返回新陣列。
+```
+
+### Error 物件與錯誤處理機制
 ```js
 try{
 	可能發生例外之敘述
@@ -213,10 +480,24 @@ try{
 	無論有無發生例外都會執行的敘述
 }
 ```
-
+- Error 物件常用屬性
+	- `message`： 錯誤的簡短描述。
+	- `name`： 錯誤名稱（如 `TypeError`、`ReferenceError`）。
+	- `stack`： 錯誤的堆疊資訊（詳細的錯誤呼叫鏈路）。
+```js
+try {
+    let arr = null;
+    arr.push(1); // 會拋出錯誤
+} catch (error) {
+    console.log("錯誤名稱：" + error.name);       // 錯誤名稱：TypeError
+    console.log("錯誤訊息：" + error.message);   // 錯誤訊息：Cannot read properties of null (reading 'push')
+    console.log("錯誤堆疊：" + error.stack);     // 詳細錯誤堆疊資訊
+}
+```
 
 ## 原型(Prototype)
-- 在 JavaScript 中，所有物件都有一個隱藏屬性叫做 `[[Prototype]]`，這個屬性指向另一個物件，我們稱之為「原型」。通過這個機制，一個物件可以「繼承」其原型上的屬性和方法。
+- JavaScript 中，每個物件都有一個隱藏屬性 `[[Prototype]]`，指向另一個物件，稱為「原型」。
+- 物件可以透過原型繼承屬性和方法。
 ### 建構函式
 - 在 JavaScript 中，如果你想要創建多個類似的物件，通常會使用「建構函式」(constructor function)。
 ```js
@@ -233,7 +514,6 @@ const ta = new Person({
 });
 console.log(ta); // 輸出 { name: "TA", age: 23 }
 ```
-
 ### `prototype` 屬性
 - 如果我們想要讓所有 `Person` 建構函式創建的物件共享一些方法或屬性，可以使用 `prototype` 屬性。所有由 `Person` 創建的物件都會共享這些方法。
 ```js
@@ -244,6 +524,30 @@ Person.prototype.introduce = function() {
 // 所有由 `Person` 建構函式創建的物件都可以使用 `introduce` 方法：
 ta.introduce(); // 輸出 "Hi, I'm TA and I'm 23 years old."
 ```
+### 擴展原型屬性
+- 你可以在建構函式的 prototype 屬性上新增更多功能，讓所有物件共享：
+```js
+Person.prototype.legalAge = 18;
+Person.prototype.commuteWay = function () {
+    return this.age > this.legalAge ? "開車" : "走路";
+};
+
+const yuri = new Person({ name: "Yuri", age: 23 });
+console.log(yuri.commuteWay()); // 輸出：開車
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```html
 <!DOCTYPE html>
