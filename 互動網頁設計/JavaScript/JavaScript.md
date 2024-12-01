@@ -699,22 +699,7 @@ getThis3(); // [全域] 箭頭函式 this 指向: Window
 - 物件中如果有方法實作，當呼叫方法時,this會指向物件本身。
 - 箭頭函式有自己一套的綁定規則,並不符合隱式綁定。
 - 箭頭函式的this對象，主要是看上一層的作用域指向的this對象。
-```js
-function getThis1() {
-	console.log("[全域] 函式陳述式 this 指向:", this);
-}
 
-const getThis2 = function () {
-	console.log("[全域] 函式表達式 this 指向:", this);
-};
-
-const getThis3 = () => console.log("[全域] 箭頭函式 this 指向:", this);
-
-getThis1(); // [全域] 函式陳述式 this 指向: Window
-getThis2(); // [全域] 函式表達式 this 指向: Window
-getThis3(); // [全域] 箭頭函式 this 指向: Window
-```
-### 隱式綁定(Implicit binding)
 ```js
 const book = {
 	name: "小王子",
@@ -735,19 +720,51 @@ book.getThis1(); // [物件] inline函式 this: {name: '小王子' ...}
 	- thisValue：要綁定的 `this` 對象，必須指定。
 	- arg1, arg2, ..., argN：可選的參數列表
 ```js
+// TODO: 範例1
 const my0bject = {
-	x: 10,
-	addX: function (valuel, value2) {
-		return value1 + value2 + this.x;
-	},
+    x: 10,
+    addX: function (valuel, value2) {
+        return value1 + value2 + this.x;
+    },
 };
-
 //透過 bind 建立新的函式
 const addXFunction = my0bject.addX.bind({ x: 3 }, 1, 2);
 
 console.log(myObject.addX(1, 2)); // 13 ( this fld my0bject )
-console.log(addXFunction()); // 6 ( this #/ { x: 3} )
+console.log(addXFunction()); // 6
 ```
+```js
+// TODO: 範例2
+function add(a, b) {
+    return a + b + this.offset;
+}
+const calculator = { offset: 10 };
+
+// 使用 bind 將 this 綁定到 calculator，並傳入預設參數
+const boundAdd = add.bind(calculator, 5); // 預設 a = 5
+console.log(boundAdd(3)); // 結果: 5 + 3 + 10 = 18
+```
+
+```js
+// TODO: 範例3
+const button = {
+    label: "Click Me",
+    handleClick: function () {
+        console.log(`Button label is: ${this.label}`);
+    },
+};
+
+// 綁定到 DOM 按鈕點擊事件，預設 this 指向DOM元素(#myButton)，而不是 button 物件。
+document.querySelector("#myButton").addEventListener("click", button.handleClick);
+// 結果: Button label is: undefined (因為 this 指向 window)
+
+// 使用 bind 將 this 固定到 button
+document.querySelector("#myButton").addEventListener("click", button.handleClick.bind(button));
+// 結果: Button label is: Click Me
+```
+
+
+
 
 #### 呼叫函數(call function)
 - `call` 是 JavaScript 中的一個函式方法，用於改變函式內部的 `this` 指向，並立即執行該函式。
@@ -791,38 +808,19 @@ console.log(result02); // 應輸出：6 (1 + 2 + 3)
 ## 模組(module) -- ES Module(MSM)
 ![upgit_20241103_1730625196.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730625196.png)
 
-### 匯出
 ```js
-let maginNum = 1000;
-const printMsg = function (msg) {
-    console.log("ESM example", msg);
-};
-
-class Robot {}
-
-// ESM匯出
-export { maginNum, printMsg, Robot };
-
-// 也可以使用as
-// export { maginNum as mg, printMsg, Robot };
+// TODO: 導出：coreLogic.js
+export const someData = { key: "value" };
+export function someFn(param) {
+    return param + 1;
+}
 ```
+```js
+// TODO: 導入：dataProcesser.js
+import { someData, someFn } from "./coreLogic.js";
 
-### 匯入
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body></body>
-    <script type="module">
-        import { maginNum, printMsg, Robot } from "./js/index.js";
-        // import * as Mymodule from "./js/index.js"; // 為模組命名
-        console.log(printMsg(maginNum));
-    </script>
-</html>
+const newData = { ...someData, extraKey: "extraValue" };
+console.log(someFn(newData.key));
 ```
 
 
@@ -844,7 +842,7 @@ export { maginNum, printMsg, Robot };
 
 ### getElementsByName() 
 - 根據name屬性值取得元素：
-	- 通常用來取得input、select等表單元素，選擇鈕(radio)、核取方塊(checkbox)或下拉式清單都是有數個選項，而且每個選項的name屬性值均相同，此時取得的就是一群元素，而不是單一元素。
+	- 通常用來取得input、select等表單元素，選擇鈕(radio)、核取方塊(表單元素)或下拉式清單都是有數個選項，而且每個選項的name屬性值均相同，此時取得的就是一群元素，而不是單一元素。
 	- NodeList集合常用的成員如下:
 		- length:這個屬性表示NodeList集合的元素個數。
 		- item(i):這個方法用來取得第i+1個元素，i的值為0~length-1。
