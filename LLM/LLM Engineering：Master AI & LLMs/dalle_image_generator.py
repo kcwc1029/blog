@@ -14,8 +14,9 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 import base64
-from io import BytesIO
 from PIL import Image
+from io import BytesIO
+
 
 # 加載環境變數
 load_dotenv()

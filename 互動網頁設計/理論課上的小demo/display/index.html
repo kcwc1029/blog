@@ -3,8 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>互動網頁設計</title>
     </head>
-    <body></body>
-    <script src="./js/index.js"></script>
+    <body>
+        <button id="btn">顯示訊息</button>
+    </body>
+    <script>
+        let btn = document.querySelector("#btn"); // 選取元素
+        btn.addEventListener("click", () => {
+            // 監聽
+            window.alert("hello world01");
+        });
+
+        btn.addEventListener("click", () => {
+            // 監聽
+            window.alert("hello world02");
+        });
+
+        // 移除監聽
+        btn.removeEventListener("click", () => {
+            window.alert("hello world02");
+        });
+    </script>
 </html>
