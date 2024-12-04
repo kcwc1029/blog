@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a178b1c99986d57e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C&C++/【13 Introduction to Classes, Objects and Strings】.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "【13 Introduction to Classes, Objects and Strings】"
-            }
-          },
-          {
             "id": "ad361e243bd0b14a",
             "type": "leaf",
             "state": {
@@ -33,20 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "README"
-            }
-          },
-          {
-            "id": "36476dcca8b3e9c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C&C++/leetcode題目/數學基礎.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "數學基礎"
             }
           },
           {
@@ -63,8 +35,7 @@
               "title": "JavaScript"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -182,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md"
+                "file": "LLM/LLM Engineering：Master AI & LLMs/README.md"
               },
               "icon": "lucide-list",
-              "title": "JavaScript 的大綱"
+              "title": "README 的大綱"
             }
           }
         ],
@@ -205,29 +176,45 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "8ffa182c6bc82e1f",
+  "active": "ad361e243bd0b14a",
   "lastOpenFiles": [
-    "互動網頁設計/JavaScript/ppt58C6.tmp",
-    "互動網頁設計/JavaScript/pptFC3C.tmp",
-    "互動網頁設計/JavaScript/pptF257.tmp",
-    "互動網頁設計/JavaScript/ppt450F.tmp",
-    "互動網頁設計/JavaScript/ppt212A.tmp",
-    "互動網頁設計/JavaScript/ppt1523.tmp",
-    "互動網頁設計/JavaScript/ppt6503.tmp",
-    "互動網頁設計/JavaScript/ppt65B7.tmp",
-    "互動網頁設計/JavaScript/ppt503C.tmp",
-    "互動網頁設計/JavaScript/pptFBC2.tmp",
-    "互動網頁設計/JavaScript/ppt15C6.tmp",
+    "C&C++/程式實例/ch19/ch19_11.c",
+    "C&C++/程式實例/ch19/ch19_10.c",
+    "C&C++/程式實例/ch18/ch18_6.c",
+    "C&C++/程式實例/ch18/ch18_4.c",
+    "C&C++/程式實例/ch18/ch18_5.c",
+    "C&C++/程式實例/ch18/ch18_3.c",
+    "C&C++/程式實例/ch18/ch18_2.c",
+    "C&C++/程式實例/ch18/ch18_1.c",
+    "C&C++/程式實例/ch19/ch19_1.c",
+    "C&C++/程式實例/ch17/test.txt",
+    "C&C++/程式實例/ch17/data4.txt",
+    "C&C++/leetcode題目/attachments/20241112_051037663_iOS.png",
+    "C&C++/leetcode題目/attachments/20241106_112148821_iOS.png",
+    "C&C++/attachments/Pasted image 20241130155646.png",
+    "C&C++/attachments/Pasted image 20241113114643.png",
+    "C&C++/attachments/Pasted image 20241113113414.png",
+    "C&C++/(補充)自己寫的/運算式、運算子、if、while.md",
+    "C&C++/(補充)自己寫的/資料型態、變數、常數.md",
+    "C&C++/(補充)自己寫的/格式化輸入輸出.md",
+    "C&C++/(補充)自己寫的/【String】.md",
+    "C&C++/(補充)自己寫的/【OOP】.md",
+    "C&C++/(補充)自己寫的/【Function】.md",
+    "C&C++/(補充)自己寫的/【C語言基本觀念】.md",
+    "C&C++/(補充)自己寫的/【Array】.md",
+    "Arduino/MP32122_examples/PY/CH11 EAT/p2.PNG",
+    "Arduino/MP32122_examples/PY/CH11 EAT/p1.PNG",
+    "Arduino/MP32122_examples/PY/CH11 EAT/bg1.jpg",
+    "Arduino/MP32122_examples/PY/CH10 THL/bg1.jpg",
+    "變數、運算式、判斷式.md",
+    "互動網頁設計/JavaScript/JavaScript.md",
     "LLM/LLM Engineering：Master AI & LLMs/README.md",
     "C&C++/leetcode題目/數學基礎.md",
     "C&C++/【13 Introduction to Classes, Objects and Strings】.md",
     "C&C++/【14 Classes：Operator Overloading;  Class string 】.md",
     "C&C++/【15 Object-Oriented Programming： Inheritance】.md",
-    "互動網頁設計/JavaScript/JavaScript.md",
     "互動網頁設計/JavaScript/attachments/Pasted image 20241202143408.png",
-    "LLM/LLM Engineering：Master AI & LLMs/New York City_vacation_image.png",
     "LLM/LLM.md",
-    "C&C++/attachments/Pasted image 20241130155646.png",
     "C&C++/【12 C++ as a Better C; Introducing Object Technology】.md",
     "C&C++/leetcode題目/位運算.md",
     "C&C++/leetcode題目/數組基礎.md",
@@ -237,22 +224,6 @@
     "C&C++/【05 Arrays】.md",
     "LLM/未命名.md",
     "C&C++/【11 Other C Topics】.md",
-    "C&C++/【09 File Processing】.md",
-    "C&C++/【10 Preprocessor(預處理器)】.md",
-    "ubuntu/ubuntu.md",
-    "2024-11-22.md",
-    "C&C++/【08 Structures, Unions, Bit Manipulation and Enumerations】.md",
-    "C&C++/leetcode題目/預計排課.md",
-    "程式設計(leetcode)/attachments/20241112_051037663_iOS.png",
-    "程式設計(leetcode)/attachments/20241106_112148821_iOS.png",
-    "程式設計(leetcode)/預計排課.md",
-    "程式設計(leetcode)/stack.md",
-    "程式設計(leetcode)/字串基礎.md",
-    "Python/temp image/source dir/image04.jpg",
-    "Python/temp image/source dir/image08.jpg",
-    "Python/temp image/source dir/image07.jpg",
-    "Python/temp image/source dir/image06.jpg",
-    "Python/temp image/source dir/image05.jpg",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
