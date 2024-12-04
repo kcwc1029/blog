@@ -11,10 +11,14 @@
             "id": "da823ad68556731f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "C&C++/【16 Object-Oriented Programming：Polymorphism】.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新分頁"
+              "title": "【16 Object-Oriented Programming：Polymorphism】"
             }
           }
         ]
@@ -134,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "C&C++/【16 Object-Oriented Programming：Polymorphism】.md"
+              },
               "icon": "lucide-list",
-              "title": "大綱"
+              "title": "【16 Object-Oriented Programming：Polymorphism】 的大綱"
             }
           }
         ],
@@ -158,6 +164,8 @@
   },
   "active": "da823ad68556731f",
   "lastOpenFiles": [
+    "C&C++/【15 Object-Oriented Programming： Inheritance】.md",
+    "C&C++/【16 Object-Oriented Programming：Polymorphism】.md",
     "互動網頁設計/JavaScript/JavaScript.md",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
@@ -202,7 +210,6 @@
     "C&C++/【C語言基本觀念】.md",
     "C&C++/【Array】.md",
     "LLM/LLM Engineering：Master AI & LLMs/README.md",
-    "變數、運算式、判斷式.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
