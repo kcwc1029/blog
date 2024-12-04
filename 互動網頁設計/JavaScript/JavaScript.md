@@ -866,7 +866,7 @@ console.log(someFn(newData.key));
 
 ## 走訪節點
 - 也可以先取得DOM樹中的某個節點，然後再透過該節點和下列幾個屬性去走訪其它節點。
-- 這些屬性是唯讀的,只能用來取得節點,不能用來變更節點。
+- 這些屬性是read only的，不能用來變更節點。
 - parentNode：目前節點的父節點
 - previousSibling：目前節點的前一個兄弟節點。
 - nextSibling:：目前節點的後一個兄弟節點。
@@ -882,26 +882,28 @@ console.log(someFn(newData.key));
 - getAttribute()：根據參數指定的屬性名稱去取得屬性值。
 - setAttribute()：根據參數指定的屬性名稱與屬性根據參數指定的屬性名稱與屬性。如果重複就取代掉。
 - removeAttribute()：會移除參數指定的屬性。
+![upgit_20241202_1733120866.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241202_1733120866.png)
+
 ### 取得文字內容
-- textContent()：用於只需要純文字、不關心樣式的情境。
+- textContent()：
 	- 返回或設置元素內所有的純文字內容，不包含任何 HTML 標籤。
-	- 不會顯示被 CSS 樣式設置為 `display: none;` 的隱藏元素內容。
 	- 執行效率高於 `innerText`（因為它直接操作 DOM 節點，忽略樣式和渲染）。
+	- 如果元素的 CSS 被設置為 `display: none;`， `textContent` 還是可以讀到。
 ```js
 let element = document.querySelector(".example");
 console.log(element.textContent); // 取得所有純文字
 element.textContent = "新文字"; // 設置新的純文字內容
 ```
-- innerText()：用於獲取可見文字，且內容受樣式影響的情境。
+- innerText()：
 	- 返回或設置元素內的純文字內容，但它會受 CSS 樣式影響。
-	- 會解析樣式，僅返回可見的文字內容（不包含 `display: none;` 的元素）。
 	- 執行效率較低，因為它需要重新渲染和解析樣式。
+	- 如果元素的 CSS 被設置為 `display: none;`， `textContent` 還是可以讀到。
 ```js
 let element = document.querySelector(".example");
 console.log(element.innerText); // 取得可見文字
 element.innerText = "新文字"; // 設置新的可見文字
 ```
-- innerHTML()：用於操作帶有 HTML 結構的內容，但要確保內容的安全性。
+- innerHTML()：
 	- 會解析並返回 HTML 標籤，因此適合操作包含 HTML 的內容。
 ```js
 let element = document.querySelector(".example");
@@ -1125,156 +1127,178 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 ## 瀏覽器物件模型(BOM)
 ![upgit_20241030_1730300810.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300810.png)
 
+- 瀏覽器物件模型 (BOM) 是 JavaScript 用來與瀏覽器互動的一組 API
+- 提供對瀏覽器環境的控制和操作能力。
+- BOM 不依賴於 HTML 結構，而是專注於瀏覽器的功能層面，例如瀏覽器窗口、導航歷史、螢幕資訊等。
+
+### 核心特點
+- 以 window 作為全域物件：window 是全域的環境，包含瀏覽器相關的功能與屬性。
+	- 例如，警示對話框 (alert) 或定時器功能 (setTimeout) 都是 BOM 提供的，並由 window 物件管理。
+- BOM 的功能專注於瀏覽器層級，無需直接依賴於 HTML 或 DOM 結構。
+- 操作瀏覽器環境：BOM 可以用來控制瀏覽器的視窗行為，例如導航到其他頁面、控制瀏覽記錄、檢測螢幕尺寸等。
+- 跨瀏覽器的支援：雖然不同瀏覽器對 BOM 的部分功能支持可能會有差異，但核心功能（如 alert, location, navigator）在大多數瀏覽器中是通用的。
+
+
+
+
+
+
+
 ## window物件
 - 代表瀏覽器視窗或標籤頁。
 ![upgit_20241030_1730300885.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300885.png)
 
 ![upgit_20241030_1730300907.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300907.png)
 
-### 對話確認方塊window.confirm()
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <form action="#" id="myform">
-            <label for="name">姓名：</label>
-            <input type="text" id="name" />
-            <button type="submit">提交</button>
-        </form>
-    </body>
-    <script>
-        let myform = document.querySelector("#myform");
-        myform.addEventListener("submit", (e) => {
-            if (window.confirm("確定提交表單?")) {
-                // 回傳boolean
-                e.preventDefault();
-            }
-        });
-    </script>
-</html>
+### 常用 window 屬性
+- document：指向網頁的 Document 物件。
+```js
+console.log(window.document.title); // 獲取當前網頁標題
 ```
-### 開啟/關閉視窗window.open
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+- location：提供目前頁面的 URL 資訊。
+```js
+console.log(window.location.href); // 獲取完整的 URL
+window.location.href = "https://example.com"; // 跳轉到新頁面
+```
+- navigator：獲取瀏覽器相關資訊，例如用戶代理字串。
+```js
+console.log(window.navigator.userAgent); // 獲取瀏覽器的用戶代理字串
+```
+- history：訪問瀏覽器的歷史記錄。
+```js
+window.history.back(); // 回到上一頁
+window.history.forward(); // 前進到下一頁
+```
+- innerWidth 和 innerHeight：獲取瀏覽器視窗的寬度與高度。
+```js
+console.log(window.innerWidth);  // 瀏覽器視窗寬度
+console.log(window.innerHeight); // 瀏覽器視窗高度
+```
+### 常用 window方法
 
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <a href="javascript: openNewWindow()">開啟新視窗</a>
-        <a href="javascript: closeNewWindow()">關閉新視窗</a>
-    </body>
-    <script>
-        function openNewWindow() {
-            // 要先建立好，要open的html
-            myWin = window.open("index2.html", "myWin", "height=200", "width=400");
-        }
-        function closeNewWindow() {
-            if (myWin) {
-                myWin.close();
-            }
-        }
-    </script>
-</html>
-
+- alert()：顯示一個警告框。
+```js
+window.alert("歡迎來到本網站！");
+```
+- prompt()：顯示一個輸入框，允許用戶輸入文字。
+```js
+let name = window.prompt("請輸入你的名字：");
+console.log(`歡迎, ${name}!`);
+```
+- confirm()：顯示確認對話框。
+```js
+let isConfirmed = window.confirm("是否確定刪除資料？");
+console.log(isConfirmed ? "已刪除" : "取消操作");
+```
+- setTimeout() 和 clearTimeout()：延遲執行某個函數。
+```js
+let timer = window.setTimeout(() => {
+    console.log("延遲 3 秒執行！");
+}, 3000);
+window.clearTimeout(timer); // 清除延遲
+```
+- setInterval() 和 clearInterval()：重複執行某個函數。
+```js
+let interval = window.setInterval(() => {
+    console.log("每隔 1 秒執行一次！");
+}, 1000);
+window.clearInterval(interval); // 停止重複執行
+```
+- open()：打開一個新的瀏覽器窗口。
+```js
+let newWindow = window.open("https://example.com", "_blank", "width=600,height=400");
+```
+- scrollTo()：滾動到特定位置。
+```js
+window.scrollTo(0, 500); // 滾動到 Y 軸位置 500
 ```
 
-### 使用計時器
-#### 週期計算機
-- window.setInterval(要值行的函數名稱, 時間)：會回傳計時器的ID。
-- window.clearInterval(計時器ID)：用來停止計時器。
-#### 單次計算機
-- window.setTimeout(要值行的函數名稱, 時間)：會回傳計時器的ID。
-- window.clearTimeout(計時器ID)：用來停止計時器。
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <div id="clock"></div>
-        <button id="btn">停止線上時鐘</button>
-    </body>
-    <script>
-        let timer = window.setInterval(() => {
-            let clock = document.querySelector("#clock");
-            clock.textContent = new Date().toLocaleString();
-        }, 1000);
-
-        let btn = document.querySelector("#btn");
-        btn.addEventListener("click", () => {
-            window.clearInterval(timer);
-        });
-    </script>
-</html>
-
-```
 ## Location物件
 - 包含目前開啟網頁的URL相關資訊。
 ![upgit_20241031_1730367689.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730367689.png)
 
 ![upgit_20241031_1730367699.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730367699.png)
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <a href="javascript: location.reload();">重新載入</a>
-        <a href="javascript: location.replace('https://scholar.google.com.tw/');">導向google scholar</a>
-        <br />
-    </body>
-    <script>
-        for (let i in window.location) {
-            document.write(i + "：" + window.location[i] + "<br>");
-        }
-    </script>
-</html>
-
+### 常用 Location 屬性
+- href：完整的 URL，可以獲取或設定當前頁面的網址。
+```js
+console.log(location.href); // 獲取完整的 URL
+location.href = "https://example.com"; // 跳轉到新頁面
 ```
+- search：URL 中的查詢字串部分（`?` 後面的內容）。
+```js
+console.log(location.search); // 獲取 "?q=123" 部分
+```
+- hash：URL 中的片段識別符（`#` 後面的部分）。
+```js
+console.log(location.hash); // 獲取 "#section1" 部分
+location.hash = "#newSection"; // 將頁面滾動到新片段
+```
+- host：主機名稱和端口號。
+```js
+console.log(location.host); // 例如 "example.com:8080"
+```
+- pathname：網址的路徑部分（不含主機和查詢字串）。
+```js
+console.log(location.pathname); // 獲取 "/docs/index.html"
+```
+- protocol：URL 的協議部分（如 http: 或 https:）。
+```js
+console.log(location.protocol); // 獲取 "https:"
+```
+### 常用 Location 方法
+- reload()：重新載入當前開啟的網頁，效果相當於點選瀏覽器的重新整理按鈕。
+```js
+location.reload();
+```
+- replace(url)：導航到指定的 `url`，並取代當前網頁在瀏覽器記錄中的位置，無法回到前一頁。
+```js
+location.replace("https://example.com");
+```
+
+- assign(url)：導航到指定的 `url`，效果類似於 `href` 屬性的修改，可回到前一頁。
+```js
+location.assign("https://example.com");
+```
+- toString()：將當前的網址（`location.href`）轉換成字串格式。
+```js
+console.log(location.toString());
+```
+
+
+
 
 ## Navigator物件
 - 包含瀏覽器相關描述與系統資訊。
 ![upgit_20241031_1730368618.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730368618.png)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <a href="javascript: location.reload();">重新載入</a>
-        <a href="javascript: location.replace('https://scholar.google.com.tw/');">導向google scholar</a>
-        <br />
-    </body>
-    <script>
-        for (let i in window.navigator) {
-            document.write(i + "：" + window.navigator[i] + "<br>");
-        }
-    </script>
-</html>
+### 常用 Navigator 屬性
+- cookieEnabled：檢查瀏覽器是否啟用 Cookie 功能。
+```js
+console.log(navigator.cookieEnabled); // true 或 false
 ```
-
+- geolocation：提供訪問地理位置的功能，常用於基於位置的應用（例如地圖或導航）。
+```js
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position.coords.latitude, position.coords.longitude);
+});
+```
+- language：返回使用者的瀏覽器語言（如 "zh-TW" 表示繁體中文）。
+```js
+console.log(navigator.language); // 例如 "zh-TW"
+```
+- userAgent：返回瀏覽器的詳細資訊，用於檢測使用的裝置或系統類型。
+```js
+console.log(navigator.userAgent);
+// 例如 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36..."
+```
+### 常用 Navigator 方法
+- `getCurrentPosition()`（來自 `geolocation` 屬性）：獲取當前的地理位置。
+```js
+navigator.geolocation.getCurrentPosition(position => {
+    console.log("緯度: " + position.coords.latitude);
+    console.log("經度: " + position.coords.longitude);
+});
+```
 ## History物件
 - 包含瀏覽器的瀏覽歷程紀錄。
 ```html
@@ -1300,6 +1324,13 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 - 取得螢幕資訊，並調整網頁內容
 ![upgit_20241031_1730369514.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369514.png)
 
+### 常用 Screen 屬性
+- width/height：返回螢幕的寬/高度（以像素為單位）。
+```js
+console.log("螢幕寬度: " + screen.width + " 像素");
+console.log("螢幕高度: " + screen.height + " 像素");
+```
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1317,52 +1348,9 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
         document.write("colorDepth 屬性的值為 " + screen.colorDepth + "<br>");
     </script>
 </html>
-
 ```
-## Document物件
-![upgit_20241031_1730369690.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369690.png)
-
-![upgit_20241031_1730369702.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369702.png)
-
-![upgit_20241031_1730369747.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369747.png)
-
-- Document物件集合
-![upgit_20241031_1730369962.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369962.png)
-
-
 
 ## 陣列(array)
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <!-- <link rel="stylesheet" href="style.css" /> -->
-    </head>
-    <body></body>
-    <script>
-        let arr = ["A", "B", "C", "D", "E", "F"];
-        let temp = ["G", "H", "I", "J", "K", "L"];
-        console.log(arr.slice(2));
-        console.log(arr.slice(2, 4));
-        console.log(arr.slice(-1));
-        console.log(...arr); // 解包
-
-        // TODO: reverse
-        console.log(arr.reverse()); // 解包
-
-        // TODO: concat
-        console.log(arr.concat(temp));
-        console.log([...arr, ...temp]);
-
-        // TODO: join
-        console.log(arr.join("-"));
-    </script>
-</html>
-```
-
 - 基本操作
 ```js
 // 宣告陣列
@@ -1496,34 +1484,6 @@ console.log(name1, name2, name3); // Yuri Zoe Bob
 console.log(name1, name2, otherNames); // Yuri Zoe ['Bob', 'Sam', 'Ann', 'Joe']
 ```
 
-## set跟weakset
-- 建立物件型別的變數時,記憶體會先配置空間給這份資料，變數本身則是以「參考」的形式指到資料。
-- 強參考(Strong Reference)：因此只要這份資料有被一個以上的變數參考,就會留存在記憶體中。
-- 弱參考(Weak Reference)：就算這份資料有被參考到,但是在程式操作後仍然可以被清理,釋放出記憶體空間
-- weakset：
-	- 只接受物件型別的資料型態作為元素值
-	- 元素會以弱參考的方式參考到資料本身。因此當資料在記憶體中被回收時，對應的元素參考也會跟著被移除。
-	- 對於要存取DOM元素，使用weakSet，在記憶體上會比較理想。
-```js
-// 建立容器
-let set01 = new Set([1, 2, 3]);
-// WeakSet 只能儲存物件，不能儲存基本資料類型（如 number、string 等）
-let weakset01 = new WeakSet([{ id: 1 }, { id: 2 }, { id: 3 }]);
-
-// 查看元素個數
-console.log(set01.size);
-
-set01.add(4); // 增加
-set01.delete(4); // 刪除
-console.log(set01.has(2)); // 檢查
-
-const entries = set01.entries(); // 使用正確的變數名稱 set01
-for (let [key, value] of entries) {
-    console.log(key, value); // 因為在 Set 中，key 和 value 是相同的
-}
-// 清空
-set01.clear();
-```
 ## 事件處理
 ### 事件驅動(Event Driven)
 - Windows 作業系統中的視窗會持續監控使用者的各種事件，如視窗打開、關閉、調整大小、移動、輸入等。系統會根據接收到的事件訊息，將其傳遞給對應的視窗處理。
@@ -1541,35 +1501,59 @@ set01.clear();
 ![upgit_20241108_1731048567.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048567.png)
 ![upgit_20241108_1731048572.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048572.png)
 
-### 事件類型
-#### 使用者介面(UI)事件
+## 事件類型
+### 使用者介面(UI)事件
 - 與使用者界面變動有關的事件。
-- `load`：當瀏覽器載入網頁內容完成時觸發。
-- `unload`：當瀏覽器卸載網頁內容時觸發。
-- `error`：當載入錯誤時觸發。
 - `resize`：當視窗大小調整時觸發。
-- `scroll`：當視窗或元素被拖動時觸發。
-- `DOMContentLoaded`：HTML 文件載入完成時觸發，不包括樣式表或圖片。
-- `hashchange`：當 URL 的 hash 值改變時觸發。
-- `beforeunload`：當網頁即將卸載時觸發。
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>互動網頁設計</title>
-    </head>
-    <body>
-        <p>進入網頁時間：<span id="entrytime"></span></p>
-    </body>
-    <script>
-        entrytime = document.querySelector("#entrytime");
-        entrytime.textContent = new Date().toLocaleString();
-    </script>
-</html>
+```js
+window.addEventListener("resize", () => {
+    console.log(`新視窗大小：寬 ${window.innerWidth}, 高 ${window.innerHeight}`);
+});
 ```
-#### 鍵盤事件
+- `scroll`：當視窗或元素被拖動時觸發。
+```js
+window.addEventListener("scroll", () => {
+    console.log(`目前滾動位置：${window.scrollY}`);
+});
+```
+- `error`：當載入錯誤時觸發。
+```js
+window.addEventListener("error", (e) => {
+    console.log("載入錯誤！", e.message);
+});
+```
+- `load`：當瀏覽器載入網頁內容完成時觸發。
+```js
+window.addEventListener("load", () => {
+    console.log("頁面已載入完成！");
+});
+```
+- `DOMContentLoaded`：HTML 文件載入完成時觸發，不包括樣式表或圖片(所以會比`load`更快)。
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM 已完全載入！");
+});
+```
+- `beforeunload`：當網頁即將卸載時觸發(主要用於防止用戶意外關閉或離開頁面)。
+```js
+window.addEventListener("beforeunload", (event) => {
+    event.preventDefault();
+    event.returnValue = ""; // 必須設置，否則某些瀏覽器不會提示
+});
+```
+- `unload`：當瀏覽器卸載網頁內容時觸發(使用頻率較低，因為 `beforeunload` 更符合大多數需求)。
+```js
+window.addEventListener("unload", () => {
+    console.log("頁面即將卸載！");
+});
+```
+
+
+
+
+
+
+### 鍵盤事件
 - 與使用者鍵盤操作有關的事件。
 - `keydown`：當按下某個鍵時觸發。
 - `keyup`：當釋放某個鍵時觸發。
@@ -1599,12 +1583,13 @@ set01.clear();
     </script>
 </html>
 ```
-#### 滑鼠事件
+### 滑鼠事件
 - 與使用者滑鼠操作有關的事件。
 - `click`：當按下滑鼠按鍵並釋放時觸發。
 - `dblclick`：當按下兩次滑鼠按鍵時觸發。
 - `mousedown`、`mouseup`：當按下或釋放滑鼠按鍵時觸發。
-- `mousemove`、`mouseover`、`mouseout`：當滑鼠移動或進出元素時觸發。
+- `mousemove`：當滑鼠在元素上移動時觸發。
+- `mouseover`、`mouseout`：當滑鼠移動或進出元素時觸發。
 - `mousewheel`：當使用者滾動滑鼠滾輪時觸發。
 ```html
 <!DOCTYPE html>
@@ -1629,7 +1614,7 @@ set01.clear();
 </html>
 ```
 
-#### 表單事件：
+### 表單事件：
 - 與表單操作有關的事件。
 - `input`：當使用者在 `<input>`、`<select>` 等表單元素中輸入時觸發。
 - `change`：當表單元素值變更時觸發。
@@ -1638,7 +1623,7 @@ set01.clear();
 - `focus`、`blur`：當元素獲得或失去焦點時觸發。
 - `cut`、`copy`、`paste`：當剪切、複製或粘貼內容時觸發。
 
-#### 焦點事件
+### 焦點事件
 - 與元素焦點有關的事件。
 - `focus`、`focusin`：元素獲取焦點時觸發。
 - `blur`、`focusout`：元素失去焦點時觸發。
@@ -1677,12 +1662,12 @@ set01.clear();
 </html>
 ```
 
-### 定義事件處理/監聽
+## 定義事件處理/監聽
 - 要先確認
 	- 由哪個元件觸發
 	- 要觸發哪個事件
 	- 觸發的事件要繫結哪個處理/監聽事件
-#### 第一種方式：利用HTML元素的事件屬性設定
+### 第一種方式：利用HTML元素的事件屬性設定
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1701,7 +1686,7 @@ set01.clear();
     </script>
 </html>
 ```
-#### 第二種方式：DOM Level2事件監聽程式
+### 第二種方式：DOM Level事件監聽程式
 - 主要就是使用addEventListener()
 - 優點是，可以針對同一個物件去設定多個處理程式。
 ```html
@@ -1740,9 +1725,6 @@ set01.clear();
 
 ## 製作javascript lab01
 - [blog/互動網頁設計/JavaScript/javascript_demo_guess_number at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_guess_number)
-## 製作javascript lab02
-- [blog/互動網頁設計/JavaScript/javascript_demo_pig_game at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_pig_game)
-
 
 ## 類別(class)
 - `class` 是 ES6 (ECMAScript 2015) 引入的語法糖，主要用來讓 JavaScript 的物件導向寫法更接近其他傳統 OOP 語言 (例如 Java、C++)
