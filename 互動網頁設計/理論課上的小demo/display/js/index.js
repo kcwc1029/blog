@@ -1,18 +1,28 @@
-// 載入
-window.addEventListener("load", () => {
-    console.log("頁面已載入完成！");
-});
+// 先準備食材，花費 2 秒。
+// 加熱鍋具，花費 1 秒。
+// 加入食材並開始烹煮，花費 3 秒。
+// 最後調味，花費 1 秒。
+console.log("開始準備流程...");
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM 已完全載入！");
-});
+// 模擬第一步驟：先準備食材（2秒）
+setTimeout(() => {
+    console.log("步驟 1：準備食材完成");
 
-// 卸載
-window.addEventListener("beforeunload", (event) => {
-    event.preventDefault();
-    event.returnValue = ""; // 必須設置，否則某些瀏覽器不會提示
-});
+    // 模擬第二步驟：加熱鍋具（1秒）
+    setTimeout(() => {
+        console.log("步驟 2：加熱鍋具完成");
 
-window.addEventListener("unload", () => {
-    console.log("頁面即將卸載！");
-});
+        // 模擬第三步驟：加入食材並開始烹煮（3秒）
+        setTimeout(() => {
+            console.log("步驟 3：加入食材並烹煮完成");
+
+            // 模擬第四步驟：進行最後調味（1秒）
+            setTimeout(() => {
+                console.log("步驟 4：調味完成，準備上菜");
+
+                // 最後步驟：上菜完成
+                console.log("所有步驟完成，上菜！");
+            }, 1000);
+        }, 3000);
+    }, 1000);
+}, 2000);
