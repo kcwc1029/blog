@@ -1,3 +1,0 @@
-This is the testing file for Introduction to C.
-All of program can be run in Dec-C and Visual C++.
-By Jiin-Kwei Hung

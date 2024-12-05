@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【16 Object-Oriented Programming：Polymorphism】.md",
+                "file": "C&C++/【17 Introduction to Custom Templates】.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【16 Object-Oriented Programming：Polymorphism】"
+              "title": "【17 Introduction to Custom Templates】"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/【16 Object-Oriented Programming：Polymorphism】.md"
+                "file": "C&C++/【17 Introduction to Custom Templates】.md"
               },
               "icon": "lucide-list",
-              "title": "【16 Object-Oriented Programming：Polymorphism】 的大綱"
+              "title": "【17 Introduction to Custom Templates】 的大綱"
             }
           }
         ],
@@ -164,8 +164,13 @@
   },
   "active": "da823ad68556731f",
   "lastOpenFiles": [
-    "C&C++/【15 Object-Oriented Programming： Inheritance】.md",
+    "C&C++/leetcode題目/linked-list.md",
+    "C&C++/【17 Introduction to Custom Templates】.md",
+    "C&C++/leetcode題目/字串基礎.md",
+    "C&C++/leetcode題目/stack.md",
+    "C&C++/leetcode題目/數學基礎.md",
     "C&C++/【16 Object-Oriented Programming：Polymorphism】.md",
+    "C&C++/【15 Object-Oriented Programming： Inheritance】.md",
     "互動網頁設計/JavaScript/JavaScript.md",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
@@ -189,11 +194,8 @@
     "C&C++/leetcode題目/attachments/20241112_051037663_iOS.png",
     "C&C++/leetcode題目/預計排課.md",
     "C&C++/leetcode題目/數組基礎.md",
-    "C&C++/leetcode題目/數學基礎.md",
-    "C&C++/leetcode題目/字串基礎.md",
     "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
     "C&C++/leetcode題目/位運算.md",
-    "C&C++/leetcode題目/stack.md",
     "C&C++/(補充)自己寫的/運算式、運算子、if、while.md",
     "C&C++/(補充)自己寫的/資料型態、變數、常數.md",
     "C&C++/(補充)自己寫的/格式化輸入輸出.md",
@@ -208,8 +210,6 @@
     "C&C++/【OOP】.md",
     "C&C++/【Function】.md",
     "C&C++/【C語言基本觀念】.md",
-    "C&C++/【Array】.md",
-    "LLM/LLM Engineering：Master AI & LLMs/README.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",
