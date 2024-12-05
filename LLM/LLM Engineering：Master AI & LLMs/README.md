@@ -232,16 +232,15 @@ print(hf_token)
 
 ## Project：Huggingface API 測試：情感分析
 
--   huggingface_sentiment_analysis.py
+-   [huggingface_sentiment_analysis.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/huggingface_sentiment_analysis.py)
 
 ## Project：Huggingface API 測試：自動識別文本中的命名實體
 
--   huggingface_Named_Entity_Recognition.py
+-   [huggingface_Named_Entity_Recognition.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/huggingface_Named_Entity_Recognition.py)
 
 ## Project：Huggingface API 測試：回答基於提供的上下文（context）和問題（question）的問題。
 
 -   [huggingface_Question_Answering.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/huggingface_Question_Answering.py)
--   huggingface_Question_Answering.py
 
 ## Tokenizer
 
@@ -290,3 +289,7 @@ Assistant: It's sunny and warm.
 <User>: What's the weather today?
 <Assistant>: It's sunny and warm.
 ```
+
+### HuggingFace AutoTokenizer 編碼與解碼操作
+
+-   [tokenizer_demo.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/tokenizer_demo.py)：用於展示如何使用 HuggingFace 的 AutoTokenizer 對文本進行 tokenization（編碼）與 解碼 操作。主要操作流程包括：使用 API Token 登錄 HuggingFace 平台，下載特定模型的 Tokenizer，並對文字進行處理。
