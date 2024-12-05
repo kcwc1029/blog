@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/【17 Introduction to Custom Templates】.md",
+                "file": "互動網頁設計/JavaScript/JavaScript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【17 Introduction to Custom Templates】"
+              "title": "JavaScript"
+            }
+          },
+          {
+            "id": "472c806e710a97c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LLM/LLM Engineering：Master AI & LLMs/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -139,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/【17 Introduction to Custom Templates】.md"
+                "file": "LLM/LLM Engineering：Master AI & LLMs/README.md"
               },
               "icon": "lucide-list",
-              "title": "【17 Introduction to Custom Templates】 的大綱"
+              "title": "README 的大綱"
             }
           }
         ],
@@ -162,16 +177,44 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "da823ad68556731f",
+  "active": "472c806e710a97c5",
   "lastOpenFiles": [
-    "C&C++/leetcode題目/linked-list.md",
-    "C&C++/【17 Introduction to Custom Templates】.md",
-    "C&C++/leetcode題目/字串基礎.md",
-    "C&C++/leetcode題目/stack.md",
-    "C&C++/leetcode題目/數學基礎.md",
-    "C&C++/【16 Object-Oriented Programming：Polymorphism】.md",
-    "C&C++/【15 Object-Oriented Programming： Inheritance】.md",
     "互動網頁設計/JavaScript/JavaScript.md",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Question_Answering.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py copy.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis copy.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis.py",
+    "互動網頁設計/JavaScript/pptB254.tmp",
+    "互動網頁設計/JavaScript/ppt6FB3.tmp",
+    "互動網頁設計/JavaScript/ppt59E8.tmp",
+    "互動網頁設計/JavaScript/pptAED1.tmp",
+    "C&C++/leetcode題目/數組.md",
+    "C&C++/leetcode題目/數學.md",
+    "C&C++/leetcode題目/預計排課.md",
+    "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
+    "C&C++/leetcode題目/位運算.md",
+    "C&C++/leetcode題目/字串基礎.md",
+    "C&C++/【16 Introduction to Custom Templates】.md",
+    "C&C++/課程分配.md",
+    "C&C++/【11 C++ as a Better C; Introducing Object Technology】.md",
+    "C&C++/【08 File Processing】.md",
+    "C&C++/【12 Introduction to Classes, Objects and Strings】.md",
+    "C&C++/【14 Object-Oriented Programming： Inheritance】.md",
+    "C&C++/【13 Classes：Operator Overloading;  Class string 】.md",
+    "C&C++/【15 Object-Oriented Programming：Polymorphism】.md",
+    "C&C++/【10 Other C Topics】.md",
+    "C&C++/【09 Preprocessor(預處理器)】.md",
+    "C&C++/【07 Structures, Unions, Bit Manipulation and Enumerations】.md",
+    "C&C++/【06 Characters and Strings】.md",
+    "C&C++/【05 Points】.md",
+    "C&C++/【04 Arrays】.md",
+    "C&C++/【03 Functions】.md",
+    "C&C++/【02 Program Control】.md",
+    "C&C++/【01 Introduction to C Programming】.md",
+    "C&C++/【17 Introduction to Custom Templates】.md",
+    "C&C++/leetcode題目/linked-list.md",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
     "Python/temp image/source dir/image06.jpg",
@@ -180,36 +223,8 @@
     "Python/temp image/source dir/image03.jpg",
     "Python/temp image/source dir/image02.jpg",
     "Python/temp image/source dir/image01.jpg",
-    "Python/temp image/source dir",
-    "Python/temp image",
     "Python/solar_animation.gif",
-    "Python/openAI/【langchain】.ipynb",
-    "Python/openAI/【OpenAI】.ipynb",
-    "Python/openAI/video-script-generator/__pycache__/utils.cpython-312.pyc",
-    "Python/openAI/video-script-generator/__pycache__/emotion.cpython-312.pyc",
-    "Python/openAI/video-script-generator/__pycache__",
-    "Python/openAI/video-script-generator/utils.py",
-    "Python/openAI/video-script-generator/main.py",
-    "Python/openAI/video-script-generator/emotion.py",
     "C&C++/leetcode題目/attachments/20241112_051037663_iOS.png",
-    "C&C++/leetcode題目/預計排課.md",
-    "C&C++/leetcode題目/數組基礎.md",
-    "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
-    "C&C++/leetcode題目/位運算.md",
-    "C&C++/(補充)自己寫的/運算式、運算子、if、while.md",
-    "C&C++/(補充)自己寫的/資料型態、變數、常數.md",
-    "C&C++/(補充)自己寫的/格式化輸入輸出.md",
-    "C&C++/(補充)自己寫的/【String】.md",
-    "C&C++/(補充)自己寫的/【OOP】.md",
-    "C&C++/(補充)自己寫的/【Function】.md",
-    "C&C++/(補充)自己寫的/【C語言基本觀念】.md",
-    "C&C++/(補充)自己寫的/【Array】.md",
-    "C&C++/課程分配.md",
-    "C&C++/格式化輸入輸出.md",
-    "C&C++/【String】.md",
-    "C&C++/【OOP】.md",
-    "C&C++/【Function】.md",
-    "C&C++/【C語言基本觀念】.md",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",

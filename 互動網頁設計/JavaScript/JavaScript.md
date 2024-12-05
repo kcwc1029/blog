@@ -1727,7 +1727,7 @@ window.addEventListener("unload", () => {
 - [blog/互動網頁設計/JavaScript/javascript_demo_guess_number at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_guess_number)
 
 ## 類別(class)
-- `class` 是 ES6 (ECMAScript 2015) 引入的語法糖，主要用來讓 JavaScript 的物件導向寫法更接近其他傳統 OOP 語言 (例如 Java、C++)
+- `class` 是 ES6 (ECMAScript 2015) 引入的語法糖，主要用來讓 JavaScript 的物件導向寫法更接近其他傳統 OOP 語言 (例如 Java、C++)。
 - `class` 背後其實還是基於 prototype-based inheritance (原型繼承) 的機制。所以在底層上，`class` 實際上是透過 prototype 的方式來實現物件導向。
 ```js
 class Product {
