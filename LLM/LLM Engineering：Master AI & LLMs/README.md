@@ -204,9 +204,7 @@ if __name__ == "__main__":
 -   Hub：共享平台，方便用戶下載或上傳模型、數據集與代碼。
 -   Inference API：即時推理服務，無需本地環境配置即可調用模型。
 
-### 設定 HuggingFace API
-
-## 使用 HuggingFace Pipelines
+### 使用 HuggingFace Pipelines
 
 ```bash
 pip install -q transformers datasets diffusers
@@ -293,3 +291,48 @@ Assistant: It's sunny and warm.
 ### HuggingFace AutoTokenizer 編碼與解碼操作
 
 -   [tokenizer_demo.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/tokenizer_demo.py)：用於展示如何使用 HuggingFace 的 AutoTokenizer 對文本進行 tokenization（編碼）與 解碼 操作。主要操作流程包括：使用 API Token 登錄 HuggingFace 平台，下載特定模型的 Tokenizer，並對文字進行處理。
+
+## Instruct variants of models
+
+-   Instruct 模型 是經過額外訓練的模型版本，專門用於處理具有結構化提示（prompts）的輸入。
+-   它們的名稱通常會在尾部帶有 "Instruct"，例如 Llama-3.1-8B-Instruct。
+-   這些模型適合在對話（Chat）中使用，能更好地理解並生成針對性回應。
+-   apply_chat_template() 是一個實用方法，可以將傳統對話格式（例如聊天記錄）轉換為模型可以理解的輸入格式。
+
+```
+// 假設你有以下對話
+用戶：你好！今天的天氣如何？
+助手：今天晴天，氣溫25度，非常適合出門。
+
+// 通過 apply_chat_template，可以將它轉換為模型適配的結構化輸入格式
+System: 你是一個天氣助手，回答用戶的問題。
+User: 你好！今天的天氣如何？
+Assistant: 今天晴天，氣溫25度，非常適合出門。
+```
+
+-   [huggingface_chat_formatter.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/huggingface_chat_formatter.py)
+
+## Models
+
+### Project: 使用 HuggingFace 提供的 Meta-LLaMA 模型 進行對話式 AI 的開發
+
+-   分詞器 (Tokenizer)：將文字輸入轉換為模型可以處理的 tokens。
+-   量化 (Quantization)：減少記憶體佔用，讓大型模型能在有限硬體資源下運行。
+-   模型推理 (Inference)：生成回應，根據使用者提供的問題給出答案。
+-   GPU 整合：利用 CUDA 加速深度學習模型運算。
+
+```bash
+# 執行以下指令安裝依賴
+pip install  requests torch bitsandbytes transformers sentencepiece accelerate
+
+# 安裝支援 CUDA 的 bitsandbytes
+pip install --upgrade bitsandbytes
+
+# 安裝 CUDA 工具包 CUDA https://reurl.cc/b3EGEM
+```
+
+-   [quantized_inference.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/quantized_inference.py)
+
+### Project: 針對 quantized_inferene 增加流式輸出功能（Streaming）
+
+-   [quantized_inference_stream.py](../LLM%20Engineering：Master%20AI%20&%20LLMs/quantized_inference_stream.py)
