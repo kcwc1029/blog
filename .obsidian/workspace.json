@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "README"
             }
+          },
+          {
+            "id": "c523902eadb3ad61",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C&C++/leetcode題目/貪心.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "貪心"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -154,10 +168,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LLM/LLM Engineering：Master AI & LLMs/README.md"
+                "file": "C&C++/leetcode題目/貪心.md"
               },
               "icon": "lucide-list",
-              "title": "README 的大綱"
+              "title": "貪心 的大綱"
             }
           }
         ],
@@ -177,26 +191,28 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "472c806e710a97c5",
+  "active": "c523902eadb3ad61",
   "lastOpenFiles": [
+    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference_stream.py",
+    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference copy.py",
+    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference.py",
+    "LLM/LLM Engineering：Master AI & LLMs/tt.py",
+    "LLM/LLM Engineering：Master AI & LLMs/t.py",
+    "LLM/LLM Engineering：Master AI & LLMs/huggingface_chat_formatter.py",
+    "C&C++/leetcode題目/字串.md",
+    "C&C++/leetcode題目/貪心.md",
+    "LLM/LLM Engineering：Master AI & LLMs/README.md",
     "LLM/LLM Engineering：Master AI & LLMs/tokenizer_demo.py",
     "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis.py",
     "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis123.py",
     "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py",
-    "LLM/LLM Engineering：Master AI & LLMs/t.py",
     "互動網頁設計/JavaScript/JavaScript.md",
     "LLM/LLM Engineering：Master AI & LLMs/huggingface_Question_Answering.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py copy.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis copy.py",
-    "互動網頁設計/JavaScript/pptB254.tmp",
     "C&C++/leetcode題目/數組.md",
     "C&C++/leetcode題目/數學.md",
     "C&C++/leetcode題目/預計排課.md",
     "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
     "C&C++/leetcode題目/位運算.md",
-    "C&C++/leetcode題目/字串基礎.md",
     "C&C++/【16 Introduction to Custom Templates】.md",
     "C&C++/課程分配.md",
     "C&C++/【11 C++ as a Better C; Introducing Object Technology】.md",
@@ -213,8 +229,6 @@
     "C&C++/【04 Arrays】.md",
     "C&C++/【03 Functions】.md",
     "C&C++/【02 Program Control】.md",
-    "C&C++/【01 Introduction to C Programming】.md",
-    "C&C++/【17 Introduction to Custom Templates】.md",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
     "Python/temp image/source dir/image06.jpg",
