@@ -1,6 +1,6 @@
 - [jQuery](https://jquery.com/)
 
-## 使用方式
+## 1. 使用方式
 - 方式1：下載套件
 ![upgit_20241102_1730514005.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730514005.png)
 
@@ -9,7 +9,7 @@
 ![upgit_20241102_1730514145.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730514145.png)
 
 
-## 第一個jQuery
+## 2. 第一個jQuery
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -33,23 +33,23 @@
 
 ```
 
-## jQuery核心
+## 3. jQuery核心
 ```
 $(選擇器).method(參數)
 ```
-### 基本選擇器
-- 通配選擇器：`$("*")` – 選擇所有元素。
-- 類型選擇器：`$("h1")` – 選擇 `<h1>` 元素。
-- ID 選擇器：`$("#id")` – 選擇 `id` 屬性為指定值的元素。
-- 類別選擇器：`$(".class")` – 選擇 `class` 屬性為指定值的元素。
+### 3.1. 基本選擇器
+- 通配選擇器：`$("*")`：選擇所有元素。
+- 類型選擇器：`$("h1")`： 選擇 `<h1>` 元素。
+- ID 選擇器：`$("#id")` ：選擇 `id` 屬性為指定值的元素。
+- 類別選擇器：`$(".class")`：選擇 `class` 屬性為指定值的元素。
 
-### 結構選擇器
-- 子選擇器：`$("ul li")` – 選擇 `<ul>` 的直接子元素 `<li>`。
-- 後代選擇器：`$("p a")` – 選擇 `<p>` 元素的所有後代 `<a>`。
-- 相鄰兄弟選擇器：`$("img + p")` – 選擇緊接在 `<img>` 之後的 `<p>`。
-- 全部兄弟選擇器：`$("img ~ p")` – 選擇所有位於 `<img>` 後的兄弟 `<p>` 元素。
+### 3.2. 結構選擇器
+- 子選擇器：`$("ul li")`：選擇 `<ul>` 的直接子元素 `<li>`。
+- 後代選擇器：`$("p a")`：選擇 `<p>` 元素的所有後代 `<a>`。
+- 相鄰兄弟選擇器：`$("img + p")`：選擇緊接在 `<img>` 之後的 `<p>`。
+- 全部兄弟選擇器：`$("img ~ p")`：選擇所有位於 `<img>` 後的兄弟 `<p>` 元素。
 
-### 屬性選擇器
+### 3.3. 屬性選擇器
 - 基本屬性選擇器：`$("[attr]")` – 選擇有 `attr` 屬性的元素。
 - 特定值屬性選擇器：`$("[class='apple']")` – 選擇 `class` 屬性值為 `apple` 的元素。
 - 部分匹配屬性選擇器：
@@ -57,46 +57,46 @@ $(選擇器).method(參數)
   - 前綴匹配：`$("[class^='apple']")` – 選擇 `class` 屬性以 `apple` 開頭的元素。
   - 後綴匹配：`$("[class$='apple']")` – 選擇 `class` 屬性以 `apple` 結尾的元素。
 
-### 表單選擇器
+### 3.4. 表單選擇器
 - 基本表單元素：
-  - `$("input")` – 選擇所有 `<input>` 元素。
-  - `$("input:radio")` – 選擇所有類型為 `radio` 的 `<input>`。
-  - `$("input:checkbox")` – 選擇所有類型為 `checkbox` 的 `<input>`。
+  - `$("input")`：選擇所有 `<input>` 元素。
+  - `$("input:radio")`：選擇所有類型為 `radio` 的 `<input>`。
+  - `$("input:checkbox")`：選擇所有類型為 `checkbox` 的 `<input>`。
 - 其他表單元素：
-  - `:text` – 選擇類型為 `text` 的 `<input>`。
-  - `:password` – 選擇類型為 `password` 的 `<input>`。
-  - `:submit` – 選擇類型為 `submit` 的 `<input>`。
-  - `:selected` – 選擇下拉清單中被選取的項目。
+  - `:text`：選擇類型為 `text` 的 `<input>`。
+  - `:password`：選擇類型為 `password` 的 `<input>`。
+  - `:submit`：選擇類型為 `submit` 的 `<input>`。
+  - `:selected`：選擇下拉清單中被選取的項目。
 
-### 狀態選擇器
+### 3.5. 狀態選擇器
 - 啟用或禁用：
-  - `:enabled` – 選擇所有啟用的 `<input>`。
-  - `:disabled` – 選擇所有禁用的 `<input>`。
+  - `:enabled`：選擇所有啟用的 `<input>`。
+  - `:disabled`：選擇所有禁用的 `<input>`。
 - 選取或未選取：
-  - `:checked` – 選擇所有被選取的 `<input>`（例如 `checkbox` 或 `radio`）。
-  - `:not(:checked)` – 選擇所有尚未選取的 `<input>`。
+  - `:checked`：選擇所有被選取的 `<input>`（例如 `checkbox` 或 `radio`）。
+  - `:not(:checked)`：選擇所有尚未選取的 `<input>`。
 
-### 其他虛擬選擇器
+### 3.6. 其他虛擬選擇器
 - 索引選擇器：
-  - `:first` – 選擇第一個元素。
-  - `:last` – 選擇最後一個元素。
-  - `:eq(index)` – 選擇指定索引的元素。
-  - `:gt(index)` – 選擇索引值大於 `index` 的元素。
-  - `:lt(index)` – 選擇索引值小於 `index` 的元素。
+  - `:first`：選擇第一個元素。
+  - `:last`：選擇最後一個元素。
+  - `:eq(index)`：選擇指定索引的元素。
+  - `:gt(index)`：選擇索引值大於 `index` 的元素。
+  - `:lt(index)`：選擇索引值小於 `index` 的元素。
 - 奇偶選擇器：
-  - `:odd` – 選擇索引值為奇數的元素。
-  - `:even` – 選擇索引值為偶數的元素。
+  - `:odd`：選擇索引值為奇數的元素。
+  - `:even`：選擇索引值為偶數的元素。
 - 其他：
-  - `:contains(text)` – 選擇包含指定文字的元素。
-  - `:has(selector)` – 選擇包含指定選擇器的元素。
-  - `:empty` – 選擇所有沒有子元素的元素。
-  - `:parent` – 選擇所有有子元素的元素。
-  - `:hidden` – 選擇所有隱藏的元素。
-  - `:visible` – 選擇所有可見的元素。
+  - `:contains(text)`：選擇包含指定文字的元素。
+  - `:has(selector)`：選擇包含指定選擇器的元素。
+  - `:empty`：選擇所有沒有子元素的元素。
+  - `:parent`：選擇所有有子元素的元素。
+  - `:hidden`：選擇所有隱藏的元素。
+  - `:visible`：選擇所有可見的元素。
 
 
 
-### 存取元素方法
+### 3.7. 存取元素方法
 - text()：取出元素內容
 ![upgit_20241102_1730516201.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730516201.png)
 
@@ -313,14 +313,14 @@ $(選擇器).method(參數)
     </script>
 </html>
 ```
-### 操作集合中的每個物件
-- each()方法的語法如下，用來針對物件或陣列進行重複運算。
+### 3.8. 操作集合中的每個物件
+- each()：用來針對物件或陣列進行重複運算。
 ![upgit_20241102_1730519573.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730519573.png)
 
 ![upgit_20241102_1730519885.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730519885.png)
 
 
-### 操作CSS設定
+### 3.9. 操作CSS設定
 ![upgit_20241102_1730522244.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730522244.png)
 
 
@@ -358,7 +358,7 @@ $(選擇器).method(參數)
 ```
 
 
-### 取得元素高度寬度
+### 3.10. 取得元素高度寬度
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -385,7 +385,7 @@ $(選擇器).method(參數)
 </html>
 ```
 
-### 移除元素
+### 3.11. 移除元素
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -413,9 +413,9 @@ $(選擇器).method(參數)
 
 
 
-## jQuery DOM 操作方法
+## 4. jQuery DOM 操作方法
 
-### 選擇子元素
+### 4.1. 選擇子元素
 - `.find(selector)`：從選定元素中找到符合 `selector` 的所有後代元素。
     - 範例：`$("p").find("span").css("color", "red");` 將 `<p>` 元素中的所有 `<span>` 元素的文字設為紅色。
 - `.children(selector)`：從選定元素中找到符合 `selector` 的直接子元素。
@@ -457,12 +457,12 @@ $(選擇器).method(參數)
 </html>
 
 ```
-###  選擇父元素
-- **`.closest(selector)`**：從選定元素開始，沿 DOM 樹向上查找，返回最接近且符合 `selector` 的祖先元素。
+### 4.2. 選擇父元素
+- `.closest(selector)`：從選定元素開始，沿 DOM 樹向上查找，返回最接近且符合 `selector` 的祖先元素。
     - 範例：`$("li.item-1").closest("ul").css("color", "red");` 選取最近的 `<ul>` 祖先元素並設為紅色。
-- **`.parent(selector)`**：找到符合 `selector` 的直接父元素。
+- `.parent(selector)`：找到符合 `selector` 的直接父元素。
     - 範例：`$("p").parent(".selected").css("color", "red");` 將 `<p>` 元素的直接父元素設為紅色。
-- **`.parents(selector)`**：從選定元素開始，沿 DOM 樹向上查找，找到所有符合 `selector` 的祖先元素。
+- `.parents(selector)`：從選定元素開始，沿 DOM 樹向上查找，找到所有符合 `selector` 的祖先元素。
     - 範例：`$("p").parents(".selected").css("color", "red");` 將所有符合 `.selected` 的祖先元素設為紅色。
 ```html
 <html lang="en">
@@ -496,29 +496,19 @@ $(選擇器).method(參數)
     </script>
 </html>
 ```
-### 選擇兄弟元素
-- **`.siblings(selector)`**：找到符合 `selector` 的所有兄弟元素。
-    - `$("li.active").siblings().css("color", "red");` 將 `li.active` 的所有兄弟元素設為紅色。
-- **`.next(selector)`**：找到符合 `selector` 的下一個兄弟元素。
-    - `$("li.active").next().css("color", "red");` 將 `li.active` 的下一個兄弟元素設為紅色。
-- **`.nextAll(selector)`**：找到符合 `selector` 的所有後續兄弟元素。
-    - `$("li.active").nextAll().css("color", "red");` 將 `li.active` 後的所有兄弟元素設為紅色。
-- **`.prev(selector)`**：找到符合 `selector` 的前一個兄弟元素。
-    - `$("li.active").prev().css("color", "red");` 將 `li.active` 的前一個兄弟元素設為紅色。
-- **`.prevAll(selector)`**：找到符合 `selector` 的所有前面的兄弟元素。
-    - `$("li.active").prevAll().css("color", "red");` 將 `li.active` 前的所有兄弟元素設為紅色。
+### 4.3. 選擇兄弟元素
+- `.siblings(selector)`：找到符合 `selector` 的所有兄弟元素。
+- `.next(selector)`：找到符合 `selector` 的下一個兄弟元素。
+- `.nextAll(selector)`：找到符合 `selector` 的所有後續兄弟元素。
+- `.prev(selector)`：找到符合 `selector` 的前一個兄弟元素。
+- `.prevAll(selector)`：找到符合 `selector` 的所有前面的兄弟元素。
 
-## jQuery DOM 篩選方法
+## 5. jQuery DOM 篩選方法
 - .eq(index)：選擇指定索引的元素。
-	- `$("li").eq(1).css("color", "red"); // 將索引為1的項目2設為紅色`
-- .first()：選擇第一個元素。
-	- `$("li").first().css("color", "red"); // 將第一個項目設為紅色`
-- last()：選擇最後一個元素。
-	- `$("li").last().css("color", "red"); // 將最後一個項目設為紅色`
+- .first()：選擇第一個元素。`
+- last()：選擇最後一個元素。`
 - even()：選擇索引為偶數的元素（0、2、4...）。
-	- `$("li").even().css("color", "red"); // 將偶數索引的項目設為紅色`
 - odd()：選擇索引為奇數的元素（1、3、5...）。
-	- `$("li").odd().css("color", "blue"); // 將奇數索引的項目設為藍色`
 - is(selector)：檢查當前元素集合是否符合指定的選擇器條件。
 ```html
 <input type="checkbox" id="check">
@@ -544,7 +534,7 @@ $(選擇器).method(參數)
     $("li").filter(":odd").css("color", "red"); // 選擇奇數索引項目並設為紅色
 </script>
 ```
-## Query 事件處理
+## 6. jQuery 事件處理
 - on()：用於為元素綁定事件處理程序。你可以為同一元素綁定多個事件。
 ```js
 // 語法
@@ -581,7 +571,7 @@ $(function () {
 });
 ```
 
-### event物件
+### 6.1. event物件
 ![upgit_20241102_1730525209.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730525209.png)
 - 當我們要在事件處理程式中存取Event物件時，可以透過名稱為e的參數來加以傳遞。
 - 且e必須是第一個參數。
@@ -596,12 +586,12 @@ $("input").on("click", function (e) {
 
 
 
-## jQuery 的 HTML 表單驗證
+## 7. jQuery 的 HTML 表單驗證
 - 表單驗證 (Form Validation) 是用來檢查使用者在表單欄位輸入的資料是否正確，防止使用者輸入錯誤資料。
 	- 忘記輸入資料
 	- 資料格式不正確
 	- 資料超出範圍
-### 使用 click 事件的表單驗證
+### 7.1. 使用 click 事件的表單驗證
 - 當使用者按下 **"提交"** 按鈕後，檢查是否有任何必填欄位是空白。
 - 若有空白欄位，則會自動將其框線標示為紅色，以提示使用者補充資料。
 ```html
@@ -646,7 +636,7 @@ $("input").on("click", function (e) {
 </body>
 </html>
 ```
-### 即時驗證欄位資料
+### 7.2. 即時驗證欄位資料
 - 當使用者離開 (blur) 某個輸入欄位時，立即檢查該欄位的輸入是否為空。
 - 若欄位為空，則顯示紅色框線，並提示使用者補充資料。
 ```html
@@ -682,8 +672,8 @@ $("input").on("click", function (e) {
 ```
 
 
-## Query 動畫與特效
-### 基本特效
+## 8. Query 動畫與特效
+### 8.1. 基本特效
 - hide()：隱藏符合的元素
 	- `$('#element').hide(600); // 600 毫秒內隱藏`
 - show()：顯示符合的元素
@@ -692,7 +682,7 @@ $("input").on("click", function (e) {
 	- `$('#element').toggle(); // 無參數切換顯示狀態`
 	- `$('#element').toggle(600); // 600 毫秒內切換`
 
-### 淡入/淡出特效
+### 8.2. 淡入/淡出特效
 - fadeIn()/fadeOut()：淡入/淡出特效顯示元素
 	- `$('#element').fadeIn(400); // 400 毫秒內淡入顯示`
 	- `$('#element').fadeOut(400); // 400 毫秒內淡出隱藏`
@@ -701,7 +691,7 @@ $("input").on("click", function (e) {
 - fadeToggle()：切換淡入/淡出特效
 	- `$('#element').fadeToggle(400); // 400 毫秒內切換淡入/淡出`
 
-### 滑動特效
+### 8.3. 滑動特效
 - slideDown()/slideUp()：滑動顯示/隱藏元素
 	- `$('#element').slideDown(600); // 600 毫秒內由上往下滑動顯示`
 	- `$('#element').slideUp(600); // 600 毫秒內由下往上滑動隱藏`
@@ -771,7 +761,7 @@ $("input").on("click", function (e) {
 ```
 
 
-## AJAX
+## 9. AJAX
 - load()：將伺服端的遠端文件使用AJAX方式載入
 - getScript()：使用AJAX方式執行伺服端JavaScript程式檔案
 - get()：使用HTTP GET方法送出AJAX請求和取得回應
@@ -781,7 +771,7 @@ $("input").on("click", function (e) {
 	- 簡化處理 JSON 格式的資料，不需要再手動 `JSON.parse()`。
 - ajax()：使用XMLHttpRequest物件送出AJAX請求
 	- 是 jQuery 提供的 **最通用、最靈活** 的 AJAX 方法，允許你自訂各種請求參數 (如 HTTP 方法、資料類型、標頭、回應處理等)。
-### 在AJAX中談JSON
+### 9.1. 在AJAX中談JSON
 - 「JSON」的全名是(JavaScript Object Notation)，這是一種AJAX技術常用的資料交換格式,類似XML,事實上,JSON就是一個JavaScript物件的文字表示法。
 - JSON 與 JavaScript 物件之間的轉換：
 	- **將 JavaScript 物件轉換為 JSON 字串**：`JSON.stringify()`
@@ -820,7 +810,7 @@ $("input").on("click", function (e) {
     </script>
 </html>
 ```
-### load()：將伺服端的遠端文件使用AJAX方式載入
+### 9.2. load()：將伺服端的遠端文件使用AJAX方式載入
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -847,7 +837,7 @@ $("input").on("click", function (e) {
     </body>
 </html>
 ```
-### get()：使用HTTP GET方法送出AJAX請求和取得回應
+### 9.3. get()：使用HTTP GET方法送出AJAX請求和取得回應
 - 取得寶可夢資料（例如皮卡丘），並在控制台中顯示名稱和重量。
 ```html
 <!DOCTYPE html>
@@ -875,7 +865,7 @@ $("input").on("click", function (e) {
     </body>
 </html>
 ```
-### ajax()：使用XMLHttpRequest物件送出AJAX請求
+### 9.4. ajax()：使用XMLHttpRequest物件送出AJAX請求
 - 支援 **GET**、**POST**、**PUT**、**DELETE** 等多種 HTTP 方法。
 - 可以設定回應資料的類型，如 `json`、`xml`、`html`、`text`。
 - 可以設定錯誤處理 (`error`) 及完成時的處理 (`complete`)。

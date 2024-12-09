@@ -1,6 +1,6 @@
 - JavaScript是一種應用廣泛的瀏覽器端Script，瀏覽器大多內建JavaScript直譯器。
 - JavaScript和HTML、CSS都是網頁設計的核心技術，其中JavaScript用來定義網頁的行為，例如即時更新地圖、輪播圖片等。
-## 基本運作流程
+## 1. 基本運作流程
 1. 瀏覽器透過作業系統，將網址發送給DNS Server。
 2. DNS Server解析網址，將處理的結果組成完整的IP位址並回傳。
 3. 瀏覽器知道IP位址後發出網路請求，透過TCP/IP4的通訊協定對 Target Server，也就是網頁所在的伺服器來建立連線。
@@ -13,12 +13,12 @@
 ![upgit_20241103_1730615963.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730615963.png)
 
 
-## 在HTML中寫js
+## 2. 在HTML中寫js
 - 寫在script裡面。
 - 一般會建議寫在最後面，尤其是當有大的JavaScript程式時，先讓渲染引擎將網頁顯示出來再載入JavaScript程式，比較不會有畫面延遲的情況。
 ![upgit_20241024_1729754092.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729754092.png)
 
-## data type
+## 3. data type
 - JavaScript的型別分為基本型別(primitive type)與物件型別(object type)兩種類型。
 - 基本型別(primitive type： number 、 string 、 boolen、 undefined、 null等。
 - 物件型別(object type)：
@@ -33,13 +33,13 @@
 3. 把變數var1指派(assign)到資料test,作為初始值。
 ![upgit_20241103_1730618059.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618059.png)
 
-### 作用域(Scope)
+### 3.1. 作用域(Scope)
 - 全域作用域(Global Scope)：程式碼的任何地方都可以存取跟操作該變數。
 - 函式作用域(Function Scope)：
 - 區塊作用域(Block Scope)：像是for/while迴圈範圍、if...else條件句範圍。
 ![upgit_20241103_1730618375.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618375.png)
 
-## 函數
+## 4. 函數
 ![upgit_20241103_1730618563.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730618563.png)
 
 - 輸入的對應叫做參數(Arguments/Parameters),用途是傳入程序所對應到的「函式」,讓函式對參數進行處理。
@@ -65,7 +65,7 @@ let sum = (a, b) => {
 };
 ```
 
-### 閉包(Closure) 和Currying
+### 4.1. 閉包(Closure) 和Currying
 - Closure：是指在函式內部返回另一個函式時，內部函式可以「記住」外部函式的變數，即使外部函式已經執行完畢。
 ```js
 // 使用閉包生成函式
@@ -93,7 +93,7 @@ console.log(getRemoteAPI("products/list")); // 輸出：https://myapp.com/produc
 
 
 
-### 立即執行函式(Immediately Invoked Function, IIFE)
+### 4.2. 立即執行函式(Immediately Invoked Function, IIFE)
 - IIFE(Immediately Invoked Function)是一種在定義完後立即執行的函式。
 - 不需要顯式呼叫，函式會自動執行一次。
 - IIFE 的優點
@@ -110,7 +110,7 @@ const getResult = (function () {
 console.log(getResult, myArray); // 1234567 ['Yuri', 'Zoe']
 ```
 
-## 物件導向基本概念：
+## 5. 物件導向基本概念：
 - 物件 (Object)：代表生活中的事物，由 屬性 (Property) 和 方法 (Method) 組成。
 	- 汽車是一個物件，包含品牌 (屬性) 和啟動 (方法)。
 - 屬性 (Property)：描述物件的特徵或狀態。
@@ -119,7 +119,7 @@ console.log(getResult, myArray); // 1234567 ['Yuri', 'Zoe']
 	- 汽車的發動、停止、加速等動作。
 - 事件 (Event)：特定情況下物件的反應，例如按下按鈕觸發某動作。
 	- 汽車的加速事件 (accelerate)。
-### 類別與物件的關係
+### 5.1. 類別與物件的關係
 - 類別 (Class)：定義物件的模板或藍圖，用於創建具相同屬性和方法的物件。
 	- Car 類別可以用來創建 Toyota 和 Tesla 等物件。
 - 物件 (Object)：類別的實例化結果。
@@ -127,9 +127,9 @@ console.log(getResult, myArray); // 1234567 ['Yuri', 'Zoe']
 
 
 
-### 建立物件的兩種方式
+### 5.2. 建立物件的兩種方式
 
-#### 使用實體方式 (Object Literal)
+#### 5.2.1. 使用實體方式 (Object Literal)
 - 語法簡單直觀，適合快速建立物件。
 - 直接使用花括號 {} 定義物件及其屬性與方法。
 ```js
@@ -148,7 +148,7 @@ delete user.age;    // 刪除屬性
 console.log(user.name); // 輸出：TA
 ```
 
-#### 使用建構子方式 (Constructor Function)
+#### 5.2.2. 使用建構子方式 (Constructor Function)
 - 適合建立結構相似的多個物件。
 - 使用 new Object() 或自定義建構子函式進行建立。
 ```js
@@ -164,8 +164,8 @@ user.showMsg = function () {
 user.showMsg(); // 彈出訊息：Hi, 我是 TA!
 ```
 
-### 物件導向的四大特性 (OOP)
-####  封裝 (Encapsulation)
+### 5.3. 物件導向的四大特性 (OOP)
+#### 5.3.1. 封裝 (Encapsulation)
 - 將物件的屬性和方法封裝在內部，限制外部直接存取，提供物件的安全性。
 - 使用 getter 和 setter 來間接存取或修改屬性。
 ```js
@@ -189,7 +189,7 @@ let user = new User("TA", "12345");
 console.log(user.password); // 輸出：密碼是隱藏的！
 user.password = "67890";     // 更新密碼
 ```
-#### 繼承 (Inheritance)
+#### 5.3.2. 繼承 (Inheritance)
 - 子類別繼承父類別的屬性和方法，實現代碼重用。
 - 使用 extends 關鍵字實現繼承。
 ```js
@@ -216,7 +216,7 @@ let myCar = new Car("Toyota", "Corolla");
 myCar.start();  // 輸出：Toyota 啟動！
 myCar.drive();  // 輸出：Toyota Corolla 正在行駛！
 ```
-#### 多型 (Polymorphism)
+#### 5.3.3. 多型 (Polymorphism)
 - 不同的物件可以用相同的方法呼叫，並根據物件的類型執行不同的行為。
 - 可透過覆寫 (Override) 父類別的方法來實現。
 ```js
@@ -245,7 +245,7 @@ animals.forEach(animal => animal.speak());
 // 貓叫：喵喵！
 // 動物發出聲音！
 ```
-#### 抽象 (Abstraction)
+#### 5.3.4. 抽象 (Abstraction)
 - 將物件的核心功能對外暴露，隱藏不必要的細節。
 - JavaScript 中可透過抽象類別或接口模擬抽象。
 ```js
@@ -271,15 +271,15 @@ console.log(myCircle.getArea()); // 輸出：78.53981633974483
 ```
 
 
-### JavaScript中的三種物件模型：
+### 5.4. JavaScript中的三種物件模型：
 - ECMAScript物件模型：基本語法與資料型別。
 - DOM物件模型：針對 HTML 元素的操作。
 - BOM物件模型：瀏覽器相關的物件，例如 `Window`、`Location`。
 
 
 
-## 內建物件
-### number物件
+## 6. 內建物件
+### 6.1. number物件
 ![upgit_20241024_1729768059.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768059.png)
 
 ![upgit_20241024_1729768068.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768068.png)
@@ -319,7 +319,7 @@ let x = 123.456;
 console.log(x.toString()); // 輸出：123.456
 
 ```
-### string物件
+### 6.2. string物件
 ![upgit_20241024_1729768723.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768723.png)
 ```js
 ////////// 查詢與檢查 //////////
@@ -369,7 +369,7 @@ console.log(text.trim()); // 輸出：Hello, World!
 let text = "Ha";
 console.log(text.repeat(3)); // 輸出：HaHaHa
 ```
-### Math物件
+### 6.3. Math物件
 ![upgit_20241024_1729768754.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768754.png)
 
 ![upgit_20241024_1729768766.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768766.png)
@@ -402,7 +402,7 @@ console.log(Math.sqrt(9)); // 輸出：3
 console.log(Math.cbrt(27)); // 平方根。輸出：3
 ```
 
-### Date物件
+### 6.4. Date物件
 ![upgit_20241024_1729768822.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768822.png)
 
 ```js
@@ -420,7 +420,7 @@ console.log(now.getSeconds()); // 返回秒數（0-59）
 console.log(now.getTime()); // 返回自 1970 年 1 月 1 日以來的毫秒數
 ```
 
-### Array物件
+### 6.5. Array物件
 ![upgit_20241024_1729768863.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768863.png)
 
 ![upgit_20241024_1729768872.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729768872.png)
@@ -470,7 +470,7 @@ let arr2 = [3, 4];
 console.log(arr1.concat(arr2)); // 合併多個陣列，返回新陣列。
 ```
 
-### Error 物件與錯誤處理機制
+### 6.6. Error 物件與錯誤處理機制
 ```js
 try{
 	可能發生例外之敘述
@@ -495,10 +495,10 @@ try {
 }
 ```
 
-## 原型(Prototype)
+## 7. 原型(Prototype)
 - JavaScript 中，每個物件都有一個隱藏屬性 `[[Prototype]]`，指向另一個物件，稱為「原型」。
 - 物件可以透過原型繼承屬性和方法。
-### 建構函式
+### 7.1. 建構函式
 - 在 JavaScript 中，如果你想要創建多個類似的物件，通常會使用「建構函式」(constructor function)。
 ```js
 function Person(attributes) {
@@ -514,7 +514,7 @@ const ta = new Person({
 });
 console.log(ta); // 輸出 { name: "TA", age: 23 }
 ```
-### `prototype` 屬性
+### 7.2. `prototype` 屬性
 - 如果我們想要讓所有 `Person` 建構函式創建的物件共享一些方法或屬性，可以使用 `prototype` 屬性。所有由 `Person` 創建的物件都會共享這些方法。
 ```js
 Person.prototype.introduce = function() {
@@ -524,7 +524,7 @@ Person.prototype.introduce = function() {
 // 所有由 `Person` 建構函式創建的物件都可以使用 `introduce` 方法：
 ta.introduce(); // 輸出 "Hi, I'm TA and I'm 23 years old."
 ```
-### 擴展原型屬性
+### 7.3. 擴展原型屬性
 - 你可以在建構函式的 prototype 屬性上新增更多功能，讓所有物件共享：
 ```js
 Person.prototype.legalAge = 18;
@@ -585,7 +585,7 @@ console.log(yuri.commuteWay()); // 輸出：開車
 ```
 
 
-## 原型鏈 (Prototype Chain)
+## 8. 原型鏈 (Prototype Chain)
 - 使用 `Object.create()`
 ```js
 // 立一個基礎的物件作為最上層的原型
@@ -618,8 +618,8 @@ student.study(); // 輸出: Bob is studying.
 console.log(student.grade); // 輸出: A
 ```
 
-## this
-### 執行環境的生命週期
+## 9. this
+### 9.1. 執行環境的生命週期
 - 創造階段 (Creation Phase)：
     - 分配記憶體空間給變數和函式。
     - 進行變數提升 (Hoisting)。
@@ -630,7 +630,7 @@ console.log(student.grade); // 輸出: A
     - 透過 `this` 和作用域鏈，存取所需的變數和函式。
     - 當函式執行完成或遇到 `return`，從堆疊中移除執行環境。
 
-### 執行環境的分類
+### 9.2. 執行環境的分類
 1. 全域執行環境 (Global Execution Context)：
     - 在程式啟動時首先建立的執行環境。
     - 負責管理全域變數和函式，並將 `this` 綁定到全域物件（瀏覽器中是 `window`，Node.js 中是 `global`）。
@@ -677,7 +677,7 @@ console.log(mtBook.getName()); // 書名小王子
 - 不過在JavaScript中,this關鍵字會隨著執行環境、特殊的語法、函式呼叫的方式等會有變動。
 - 這種動態決定函式執行環境中this對象,我們通常叫做「綁定」(binding)。
 
-### 預設綁定(Default binding)
+### 9.3. 預設綁定(Default binding)
 - 在全域宣告的函式,this會預設指向全域物件(可能是瀏覽器中的window,或是Node.js中的global)。
 ```js
 function getThis1() {
@@ -695,7 +695,7 @@ getThis2(); // [全域] 函式表達式 this 指向: Window
 getThis3(); // [全域] 箭頭函式 this 指向: Window
 ```
 
-### 隱式綁定(Implicit binding)
+### 9.4. 隱式綁定(Implicit binding)
 - 物件中如果有方法實作，當呼叫方法時,this會指向物件本身。
 - 箭頭函式有自己一套的綁定規則,並不符合隱式綁定。
 - 箭頭函式的this對象，主要是看上一層的作用域指向的this對象。
@@ -711,9 +711,9 @@ const book = {
 book.getThis1(); // [物件] inline函式 this: {name: '小王子' ...}
 ```
 
-### 顯式綁定(Explicit binding)
+### 9.5. 顯式綁定(Explicit binding)
 
-#### 綁定函數(bind function)
+#### 9.5.1. 綁定函數(bind function)
 - 在 JavaScript 中，當我們希望函式的 `this` 值被綁定到特定對象，或者想在呼叫函式時自動傳入一些固定的參數。
 - `bind` 可以讓你創建一個新的函式，這個函式的 `this` 值被綁定到特定對象，並且可以預設某些參數。
 - `function.bind(thisValue, arg1, arg2, ..., argN);` 
@@ -766,7 +766,7 @@ document.querySelector("#myButton").addEventListener("click", button.handleClick
 
 
 
-#### 呼叫函數(call function)
+#### 9.5.2. 呼叫函數(call function)
 - `call` 是 JavaScript 中的一個函式方法，用於改變函式內部的 `this` 指向，並立即執行該函式。
 - 與 `bind` 不同的是，`call` 不會返回一個新的函式，而是直接執行。
 ```js
@@ -786,7 +786,7 @@ const result02 = myObject.addX.call({ x: 3 }, 1, 2);
 console.log(result02); // 應輸出：6 (1 + 2 + 3)
 ```
 
-#### 呼叫函數(apply function)
+#### 9.5.3. 呼叫函數(apply function)
 - 跟call依樣，差別是後面的參數要放到陣列裡。
 ```js
 const myObject = {
@@ -805,7 +805,7 @@ const result02 = myObject.addX.apply({ x: 3 }, [1, 2]);
 console.log(result02); // 應輸出：6 (1 + 2 + 3)
 ```
 
-## 模組(module) -- ES Module(MSM)
+## 10. 模組(module) -- ES Module(MSM)
 ![upgit_20241103_1730625196.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241103_1730625196.png)
 
 ```js
@@ -824,7 +824,7 @@ console.log(someFn(newData.key));
 ```
 
 
-## 文件物件模型(Document Object Model、DOM)
+## 11. 文件物件模型(Document Object Model、DOM)
 - DOM 是一種由 W3C 制定的應用程式介面，提供操作 HTML、XML 文件結構的方式。
 - DOM 將 HTML 結構轉換為樹狀結構 (DOM 樹)，讓程式可以使用 JavaScript 存取與操作文件中的物件 (如元素、屬性)。
 - 每個 HTML 標籤代表一個物件，物件具有屬性、方法和事件，可以用 JavaScript 進行操作與變更。
@@ -833,14 +833,14 @@ console.log(someFn(newData.key));
 
 ![upgit_20241024_1729769629.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729769629.png)
 
-## 取得元素節點
-### getElementByld()
+## 12. 取得元素節點
+### 12.1. getElementByld()
 - 根據id屬性值取得元素
 ![upgit_20241024_1729770517.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729770517.png)
 
 ![upgit_20241024_1729770540.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729770540.png)
 
-### getElementsByName() 
+### 12.2. getElementsByName() 
 - 根據name屬性值取得元素：
 	- 通常用來取得input、select等表單元素，選擇鈕(radio)、核取方塊(表單元素)或下拉式清單都是有數個選項，而且每個選項的name屬性值均相同，此時取得的就是一群元素，而不是單一元素。
 	- NodeList集合常用的成員如下:
@@ -848,23 +848,23 @@ console.log(someFn(newData.key));
 		- item(i):這個方法用來取得第i+1個元素，i的值為0~length-1。
 ![upgit_20241024_1729772057.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729772057.png)
 
-### getElementsByTagName()
+### 12.3. getElementsByTagName()
 - 根據標籤名稱取得元素：
 	- length:這個屬性表示NodeList集合的元素個數。
 	- item(i):這個方法用來取得第i+1個元素，i的值為0~length-1。
 ![upgit_20241024_1729772437.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729772437.png)
 
 
-### getElementsByClassName()
+### 12.4. getElementsByClassName()
 - 根據類別名稱取得元素
 ![upgit_20241024_1729772559.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241024_1729772559.png)
 
-### querySelector()/querySelectorAll()
+### 12.5. querySelector()/querySelectorAll()
 - 根據CSS選擇器取得元素/所有元素。
 - 較為推薦使用。
 ![upgit_20241026_1729946978.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241026_1729946978.png)
 
-## 走訪節點
+## 13. 走訪節點
 - 也可以先取得DOM樹中的某個節點，然後再透過該節點和下列幾個屬性去走訪其它節點。
 - 這些屬性是read only的，不能用來變更節點。
 - parentNode：目前節點的父節點
@@ -875,16 +875,16 @@ console.log(someFn(newData.key));
 - lastChild：目前節點的最後一個子節點。
 ![upgit_20241026_1729947729.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241026_1729947729.png)
 
-## 取得/設定元素的屬性值與文字內容
+## 14. 取得/設定元素的屬性值與文字內容
 
-### 取得屬性值
+### 14.1. 取得屬性值
 - hasAttribute()：會檢查參數指定的屬性是否存在。
 - getAttribute()：根據參數指定的屬性名稱去取得屬性值。
 - setAttribute()：根據參數指定的屬性名稱與屬性根據參數指定的屬性名稱與屬性。如果重複就取代掉。
 - removeAttribute()：會移除參數指定的屬性。
 ![upgit_20241202_1733120866.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241202_1733120866.png)
 
-### 取得文字內容
+### 14.2. 取得文字內容
 - textContent()：
 	- 返回或設置元素內所有的純文字內容，不包含任何 HTML 標籤。
 	- 執行效率高於 `innerText`（因為它直接操作 DOM 節點，忽略樣式和渲染）。
@@ -910,19 +910,19 @@ let element = document.querySelector(".example");
 console.log(element.innerHTML); // 取得 HTML 結構和內容
 element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 ```
-## 新增節點
+## 15. 新增節點
 ![upgit_20241030_1730276902.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730276902.png)
 
-## 更新節點
+## 16. 更新節點
 ![upgit_20241030_1730277473.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730277473.png)
 
 
-## 移除節點
+## 17. 移除節點
 ![upgit_20241030_1730277312.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730277312.png)
 
 
-## 存取表單內容
-### 取得文字欄
+## 18. 存取表單內容
+### 18.1. 取得文字欄
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -962,7 +962,7 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 </html>
 ```
 
-### 取得radiobox的值
+### 18.2. 取得radiobox的值
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1002,7 +1002,7 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
     </script>
 </html>
 ```
-### 取得checkbox的值
+### 18.3. 取得checkbox的值
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1043,7 +1043,7 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 </html>
 ```
 
-### 取得selected的值
+### 18.4. 取得selected的值
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1088,7 +1088,7 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 </html>
 
 ```
-## 操作CSS
+## 19. 操作CSS
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1124,14 +1124,14 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 </html>
 ```
 
-## 瀏覽器物件模型(BOM)
+## 20. 瀏覽器物件模型(BOM)
 ![upgit_20241030_1730300810.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300810.png)
 
 - 瀏覽器物件模型 (BOM) 是 JavaScript 用來與瀏覽器互動的一組 API
 - 提供對瀏覽器環境的控制和操作能力。
 - BOM 不依賴於 HTML 結構，而是專注於瀏覽器的功能層面，例如瀏覽器窗口、導航歷史、螢幕資訊等。
 
-### 核心特點
+### 20.1. 核心特點
 - 以 window 作為全域物件：window 是全域的環境，包含瀏覽器相關的功能與屬性。
 	- 例如，警示對話框 (alert) 或定時器功能 (setTimeout) 都是 BOM 提供的，並由 window 物件管理。
 - BOM 的功能專注於瀏覽器層級，無需直接依賴於 HTML 或 DOM 結構。
@@ -1144,13 +1144,13 @@ element.innerHTML = "<strong>新內容</strong>"; // 設置新的 HTML 結構
 
 
 
-## window物件
+## 21. window物件
 - 代表瀏覽器視窗或標籤頁。
 ![upgit_20241030_1730300885.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300885.png)
 
 ![upgit_20241030_1730300907.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241030_1730300907.png)
 
-### 常用 window 屬性
+### 21.1. 常用 window 屬性
 - document：指向網頁的 Document 物件。
 ```js
 console.log(window.document.title); // 獲取當前網頁標題
@@ -1174,7 +1174,7 @@ window.history.forward(); // 前進到下一頁
 console.log(window.innerWidth);  // 瀏覽器視窗寬度
 console.log(window.innerHeight); // 瀏覽器視窗高度
 ```
-### 常用 window方法
+### 21.2. 常用 window方法
 
 - alert()：顯示一個警告框。
 ```js
@@ -1213,13 +1213,13 @@ let newWindow = window.open("https://example.com", "_blank", "width=600,height=4
 window.scrollTo(0, 500); // 滾動到 Y 軸位置 500
 ```
 
-## Location物件
+## 22. Location物件
 - 包含目前開啟網頁的URL相關資訊。
 ![upgit_20241031_1730367689.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730367689.png)
 
 ![upgit_20241031_1730367699.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730367699.png)
 
-### 常用 Location 屬性
+### 22.1. 常用 Location 屬性
 - href：完整的 URL，可以獲取或設定當前頁面的網址。
 ```js
 console.log(location.href); // 獲取完整的 URL
@@ -1246,7 +1246,7 @@ console.log(location.pathname); // 獲取 "/docs/index.html"
 ```js
 console.log(location.protocol); // 獲取 "https:"
 ```
-### 常用 Location 方法
+### 22.2. 常用 Location 方法
 - reload()：重新載入當前開啟的網頁，效果相當於點選瀏覽器的重新整理按鈕。
 ```js
 location.reload();
@@ -1268,10 +1268,10 @@ console.log(location.toString());
 
 
 
-## Navigator物件
+## 23. Navigator物件
 - 包含瀏覽器相關描述與系統資訊。
 ![upgit_20241031_1730368618.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730368618.png)
-### 常用 Navigator 屬性
+### 23.1. 常用 Navigator 屬性
 - cookieEnabled：檢查瀏覽器是否啟用 Cookie 功能。
 ```js
 console.log(navigator.cookieEnabled); // true 或 false
@@ -1291,7 +1291,7 @@ console.log(navigator.language); // 例如 "zh-TW"
 console.log(navigator.userAgent);
 // 例如 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36..."
 ```
-### 常用 Navigator 方法
+### 23.2. 常用 Navigator 方法
 - `getCurrentPosition()`（來自 `geolocation` 屬性）：獲取當前的地理位置。
 ```js
 navigator.geolocation.getCurrentPosition(position => {
@@ -1299,7 +1299,7 @@ navigator.geolocation.getCurrentPosition(position => {
     console.log("經度: " + position.coords.longitude);
 });
 ```
-## History物件
+## 24. History物件
 - 包含瀏覽器的瀏覽歷程紀錄。
 ```html
 <!DOCTYPE html>
@@ -1320,11 +1320,11 @@ navigator.geolocation.getCurrentPosition(position => {
 </html>
 
 ```
-## Screen物件
+## 25. Screen物件
 - 取得螢幕資訊，並調整網頁內容
 ![upgit_20241031_1730369514.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730369514.png)
 
-### 常用 Screen 屬性
+### 25.1. 常用 Screen 屬性
 - width/height：返回螢幕的寬/高度（以像素為單位）。
 ```js
 console.log("螢幕寬度: " + screen.width + " 像素");
@@ -1350,7 +1350,7 @@ console.log("螢幕高度: " + screen.height + " 像素");
 </html>
 ```
 
-## 陣列(array)
+## 26. 陣列(array)
 - 基本操作
 ```js
 // 宣告陣列
@@ -1484,8 +1484,8 @@ console.log(name1, name2, name3); // Yuri Zoe Bob
 console.log(name1, name2, otherNames); // Yuri Zoe ['Bob', 'Sam', 'Ann', 'Joe']
 ```
 
-## 事件處理
-### 事件驅動(Event Driven)
+## 27. 事件處理
+### 27.1. 事件驅動(Event Driven)
 - Windows 作業系統中的視窗會持續監控使用者的各種事件，如視窗打開、關閉、調整大小、移動、輸入等。系統會根據接收到的事件訊息，將其傳遞給對應的視窗處理。
 - 事件觸發：JavaScript 等瀏覽器端 Script 採用事件驅動模式，監控 HTML 文件或 HTML 元素發生的事件，如：
 	- load事件：網頁內容載入完成。
@@ -1493,7 +1493,7 @@ console.log(name1, name2, otherNames); // Yuri Zoe ['Bob', 'Sam', 'Ann', 'Joe']
 	- 點擊事件：當使用者在 HTML 元素上點擊時觸發。
 - 事件觸發後，事件驅動模式會依次執行事件，讓程式等待執行完成後再處理後續事件。
 
-### 事件處理模型
+### 27.2. 事件處理模型
 - 事件捕捉 (Event Capturing)：
 	- 當事件觸發時，從最外層的父元素開始捕捉，逐層向內直到觸發事件的元素。
 - 事件冒泡 (Event Bubbling)：
@@ -1501,8 +1501,8 @@ console.log(name1, name2, otherNames); // Yuri Zoe ['Bob', 'Sam', 'Ann', 'Joe']
 ![upgit_20241108_1731048567.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048567.png)
 ![upgit_20241108_1731048572.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731048572.png)
 
-## 事件類型
-### 使用者介面(UI)事件
+## 28. 事件類型
+### 28.1. 使用者介面(UI)事件
 - 與使用者界面變動有關的事件。
 - `resize`：當視窗大小調整時觸發。
 ```js
@@ -1553,7 +1553,7 @@ window.addEventListener("unload", () => {
 
 
 
-### 鍵盤事件
+### 28.2. 鍵盤事件
 - 與使用者鍵盤操作有關的事件。
 - `keydown`：當按下某個鍵時觸發。
 - `keyup`：當釋放某個鍵時觸發。
@@ -1583,7 +1583,7 @@ window.addEventListener("unload", () => {
     </script>
 </html>
 ```
-### 滑鼠事件
+### 28.3. 滑鼠事件
 - 與使用者滑鼠操作有關的事件。
 - `click`：當按下滑鼠按鍵並釋放時觸發。
 - `dblclick`：當按下兩次滑鼠按鍵時觸發。
@@ -1614,7 +1614,7 @@ window.addEventListener("unload", () => {
 </html>
 ```
 
-### 表單事件：
+### 28.4. 表單事件：
 - 與表單操作有關的事件。
 - `input`：當使用者在 `<input>`、`<select>` 等表單元素中輸入時觸發。
 - `change`：當表單元素值變更時觸發。
@@ -1623,7 +1623,7 @@ window.addEventListener("unload", () => {
 - `focus`、`blur`：當元素獲得或失去焦點時觸發。
 - `cut`、`copy`、`paste`：當剪切、複製或粘貼內容時觸發。
 
-### 焦點事件
+### 28.5. 焦點事件
 - 與元素焦點有關的事件。
 - `focus`、`focusin`：元素獲取焦點時觸發。
 - `blur`、`focusout`：元素失去焦點時觸發。
@@ -1662,12 +1662,12 @@ window.addEventListener("unload", () => {
 </html>
 ```
 
-## 定義事件處理/監聽
+## 29. 定義事件處理/監聽
 - 要先確認
 	- 由哪個元件觸發
 	- 要觸發哪個事件
 	- 觸發的事件要繫結哪個處理/監聽事件
-### 第一種方式：利用HTML元素的事件屬性設定
+### 29.1. 第一種方式：利用HTML元素的事件屬性設定
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1686,7 +1686,7 @@ window.addEventListener("unload", () => {
     </script>
 </html>
 ```
-### 第二種方式：DOM Level事件監聽程式
+### 29.2. 第二種方式：DOM Level事件監聽程式
 - 主要就是使用addEventListener()
 - 優點是，可以針對同一個物件去設定多個處理程式。
 ```html
@@ -1718,15 +1718,15 @@ window.addEventListener("unload", () => {
 </html>
 
 ```
-### Event物件
+### 29.3. Event物件
 ![upgit_20241031_1730379747.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730379747.png)
 
 ![upgit_20241031_1730379759.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/10/upgit_20241031_1730379759.png)
 
-## 製作javascript lab01
+## 30. 製作javascript lab01
 - [blog/互動網頁設計/JavaScript/javascript_demo_guess_number at main · kcwc1029/blog (github.com)](https://github.com/kcwc1029/blog/tree/main/%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88/JavaScript/javascript_demo_guess_number)
 
-## 類別(class)
+## 31. 類別(class)
 - `class` 是 ES6 (ECMAScript 2015) 引入的語法糖，主要用來讓 JavaScript 的物件導向寫法更接近其他傳統 OOP 語言 (例如 Java、C++)。
 - `class` 背後其實還是基於 prototype-based inheritance (原型繼承) 的機制。所以在底層上，`class` 實際上是透過 prototype 的方式來實現物件導向。
 ```js
@@ -1758,7 +1758,7 @@ const product02 = new Product("TA02", 87);
 product02.displayProduct();
 ```
 
-## 回調函數(callback)
+## 32. 回調函數(callback)
 - 中心思想：一個很大的Process，他會需要一段時間。
 - 因為所有的網路請求都可能會造成阻塞JS執行，導致後續任務無法被快速處裡。
 - 同步執行(Synchronous execution)：
@@ -1775,7 +1775,7 @@ setTimeout(() => {
 console.log(3);
 ```
 
-## Promise
+## 33. Promise
 - 為了處理caallback hell
 ```js
 // 先準備食材，花費 2 秒。
@@ -1898,7 +1898,7 @@ getEven()
     .finally(() => console.log("執行結束~~"));
 ```
 
-## 非同步：async與await
+## 34. 非同步：async與await
 - 將Promise納入標準後,解決了以往寫非同步時容易產生的回呼地獄。
 - 不過如果有多個非同步,或是有複雜的判斷邏輯時,Promise的寫法還是會讓程式產生巢狀結構,語意上也不好解讀。
 - 所以async與await主要是用來簡化 `.then` 的語法，使非同步程式碼更易讀，更接近同步風格(可以避免過多的 `.then` 嵌套)。
@@ -1982,7 +1982,7 @@ async function cookProcess() {
 // 執行流程
 cookProcess();
 ```
-## Fetch API
+## 35. Fetch API
 - 基本用法
 ```js
 fetch(url, Request物件 )
@@ -1997,11 +1997,11 @@ fetch(url, Request物件 )
 	- text()：回應文字字串
 	- json()：回傳JSON物件
 	- blob()：回傳二進位資料,例如:圖片
-### Request 物件的常用屬性
+### 35.1. Request 物件的常用屬性
 - method：HTTP 請求方法：GET、POST、PUT、DELETE
 - headers：HTTP 標頭資訊
 - body：請求的資料（GET 和 HEAD 不適用）
-### Response 物件的常用屬性
+### 35.2. Response 物件的常用屬性
 - headers：取得回應資料的標頭資訊
 - ok：請求是否成功（true 或 false）
 - status：HTTP 狀態碼（200 表示成功）
@@ -2126,7 +2126,7 @@ fetch(url, Request物件 )
 </html>
 ```
 
-## 產生器
+## 36. 產生器
 - 產生器是一種特殊的函數，可以暫停其執行並在需要時恢復。
 - 產生器函數會返回一個**迭代器物件**，每次執行產生器函數的 `next()` 方法時，就會暫停在 `yield` 關鍵字上，並返回 `yield` 後的值。
 - **`yield`**：用於暫停產生器函數的執行，並返回一個值。
@@ -2188,7 +2188,7 @@ async function* checkStatus(times) {
 })();
 ```
 
-## Symbol
+## 37. Symbol
 - `Symbol` 是 JavaScript 中新增的一種原始資料型別，與 `string`、`number`、`boolean` 等並列。
 - `Symbol` 最主要的用途是用來建立唯一的標識（identifier）
 - 每個 `Symbol` 都是唯一的，且即使兩個 `Symbol` 表面上內容相同，它們也是不相等的。
@@ -2210,12 +2210,12 @@ console.log(sym1 === sym2); // false
 ```
 
 
-## 代理物件(Proxy)
+## 38. 代理物件(Proxy)
 - 用來代理目標物建，也就是「改變、中介」目標物建的基礎操作。
 - 基本語法：`const proxy = new Proxy(target, handler);`
 	- `target`：要代理的物件
 	- `handler`：定義攔截行為的物件，它包含若干“攔截器”方法（稱為 traps），這些方法會在對 `target` 執行特定操作時被觸發。
-### 常見的 `Proxy` 操作方法（Traps）
+### 38.1. 常見的 `Proxy` 操作方法（Traps）
 - `get(target, property)`：攔截對屬性的讀取操作。
 - `set(target, property, value)`：攔截對屬性的設定操作。
 - `deleteProperty(target, property)`：攔截屬性的刪除操作。
@@ -2325,7 +2325,7 @@ console.log("theme" in settingsProxy); // true
 console.log("password" in settingsProxy); // 禁止訪問密碼屬性 -> false
 ```
 
-### `Proxy` 的用途
+### 38.2. `Proxy` 的用途
 1. 資料驗證：用 `set` 攔截器來驗證資料輸入是否合法。
 2. 屬性監控：監控對物件屬性的讀取、設定和刪除操作。
 3. 隱藏資料：使用 `get` 和 `has` 操作來隱藏某些屬性。
@@ -2333,65 +2333,86 @@ console.log("password" in settingsProxy); // 禁止訪問密碼屬性 -> false
 5. 虛擬屬性：在 `get` 操作中生成虛擬屬性而不是在物件上直接定義。
 
 
-## 映射(Reflect)
+## 39. 映射(Reflect)
+- `Reflect` 是 ES6所新增的一個全域物件，它提供一組用於操作物件的靜態方法，這些方法的功能與部分傳統操作 (例如 `obj[prop]`、`delete obj[prop]`、`prop in obj`、`Function.prototype.apply()` 等) 類似，但以更一致、函式化的方式呈現。
+- `Reflect` 就像是「物件操作的工具箱」，將以往分散在語法糖或內建函式上的功能，統一以函式的形式提供。
 - 可以想成它是為某些內建方法或運算指令,提供另一種替代方式。
-- 在某些情況下,使用映射提供的方法反而會比較理想(提供更合適的回傳結果、統一使用函式呼叫的方式、提升程式碼的可讀性等等)。
-- `Reflect` 沒有構造函數，因此不需要 `new` 關鍵字。所有方法都直接調用。
+### 39.1. 好處：
+- 一致性：傳統在存取、刪除、判斷屬性時，有些用運算子 (`delete obj.prop`, `prop in obj`)，有些用函式 (如 `Object.defineProperty()` )。`Reflect` 將這些能力整合為一組函式呼叫，讓程式碼在結構上更統一，也易於理解。
+- 更好的回傳值處理：某些傳統操作在失敗時會回傳 `false`，或丟出錯誤，`Reflect` 方法通常會提供更具描述性的回傳值，或保持一致的回傳邏輯，讓程式設計者更容易撰寫穩健的程式。
+- 與 Proxy 搭配使用：`Reflect` 常與 `Proxy` 搭配，用於在 `Proxy` 的攔截器中呼叫對應的 `Reflect` 方法，取得跟原始物件行為相同的結果，方便自行在攔截的同時附加額外邏輯又保持原有操作行為的正確性。
+### 39.2. `Reflect` 與傳統操作比較
 ```js
-Reflect.get(target, property, receiver);
-Reflect.set(target, property, value, receiver);
-Reflect.has(target, property);
-Reflect.deleteProperty(target, property);
-Reflect.apply(target, thisArgument, argumentsList);
-Reflect.construct(target, argumentsList);
+// 讀取屬性
+傳統：obj[prop]
+Reflect版：Reflect.get(obj, prop)
+
+// 設定屬性
+傳統：obj[prop] = value
+Reflect版：Reflect.set(obj, prop, value)
+
+// 刪除屬性
+傳統：delete obj[prop]
+Reflect版：Reflect.deleteProperty(obj, prop)
+
+// 屬性存在性判斷
+傳統：prop in obj
+Reflect版：Reflect.has(obj, prop)
+
+// 函數呼叫與建構
+傳統：func.apply(thisArg, args)
+Reflect版：Reflect.apply(func, thisArg, args)
 ```
-
+### 39.3. 範例與應用場景
+- 在程式中同時需要動態讀取屬性、檢查屬性是否存在、或刪除屬性，使用 Reflect 可以使程式碼風格一致，都以函式呼叫的形式出現。
 ```js
-// Reflect.get(target, property, receiver)
-// 用於讀取物件的屬性。這個方法與 target[property] 的效果相似，但更安全。
-const person = { name: "Alice", age: 25 };
-console.log(Reflect.get(person, "name")); // Alice
-console.log(Reflect.get(person, "age")); // 25
+const user = { name: "Bob", age: 20 };
 
-// Reflect.set(target, property, value, receiver)
-// 類似 target[property] = value，如果設定成功，返回 true，否則返回 false。
-Reflect.set(person, "age", 30);
-console.log(person.age); // 30
+// 傳統寫法
+console.log("name" in user); // true
+console.log(user["age"]);   // 20
+delete user.age;
 
-// eflect.has(target, property)
-// 檢查物件是否有某個屬性。相當於 property in target。
-console.log(Reflect.has(person, "name")); // true
-console.log(Reflect.has(person, "height")); // false
+// Reflect寫法
+console.log(Reflect.has(user, "name")); // true
+console.log(Reflect.get(user, "name")); // Bob
+Reflect.deleteProperty(user, "age");
+```
+- 在 Proxy 中使用 Reflect
+```js
+let target = { name: "Alice", age: 25 };
+let proxy = new Proxy(target, {
+  get: (target, prop, receiver) => {
+    console.log(`正在讀取屬性：${prop}`);
+    // 使用 Reflect.get 取得原本的值，保持原本物件行為
+    return Reflect.get(target, prop, receiver);
+  }
+});
 
-// Reflect.deleteProperty(target, property)
-// 用於刪除物件的屬性。相當於 delete target[property]
-Reflect.deleteProperty(person, "age");
-console.log(person); // { name: "Alice" }
-
-// Reflect.apply(target, thisArgument, argumentsList)
-// 用於調用函數，類似於 Function.prototype.apply()。它允許我們在指定的 this 上下文中執行函數。
-function greet(name) {
-    return `Hello, ${name}`;
+console.log(proxy.name); // 正在讀取屬性：name -> Alice
+```
+- `Reflect.construct` 可依條件決定要建構哪種類型的物件
+```js
+class Dog {
+  constructor(name) { this.name = name; }
 }
 
-console.log(Reflect.apply(greet, undefined, ["Alice"])); // Hello, Alice
+class Cat {
+  constructor(name) { this.name = name; }
+}
+
+function createPet(type, name) {
+  let Ctor = (type === "dog") ? Dog : Cat;
+  return Reflect.construct(Ctor, [name]);
+}
+
+let myPet = createPet("dog", "Buddy");
+console.log(myPet); // Dog { name: "Buddy" }
 ```
-
-### 可能還要放reflect跟proxy的結合，但好難.....
-- [JavaScript: Proxy & Reflect (youtube.com)](https://www.youtube.com/watch?v=CR-I1XwHqxQ)
-
-
-## JS建議的學習順序總結：
+## 40. JS建議的學習順序總結：
 - **Three.js** - 入門 3D 圖形概念。
 - **Babylon.js** - 進階 3D 開發和遊戲應用。
 - **TensorFlow.js** - 機器學習應用，增強智能。
 - **PixiJS** - 專注於高效的 2D 圖形渲染和動畫。
 
-
-
-
 ![upgit_20241102_1730513872.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241102_1730513872.png)
-
-
-
-
