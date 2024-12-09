@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "互動網頁設計/JavaScript/JavaScript.md",
+                "file": "互動網頁設計/jQuery/jQuery.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JavaScript"
-            }
-          },
-          {
-            "id": "472c806e710a97c5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LLM/LLM Engineering：Master AI & LLMs/README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
+              "title": "jQuery"
             }
           },
           {
@@ -41,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/leetcode題目/貪心.md",
+                "file": "C&C++/leetcode題目/Backtracking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "貪心"
+              "title": "Backtracking"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -168,10 +153,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/leetcode題目/貪心.md"
+                "file": "互動網頁設計/jQuery/jQuery.md"
               },
               "icon": "lucide-list",
-              "title": "貪心 的大綱"
+              "title": "jQuery 的大綱"
             }
           }
         ],
@@ -191,23 +176,34 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "c523902eadb3ad61",
+  "active": "da823ad68556731f",
   "lastOpenFiles": [
-    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference_stream.py",
-    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference copy.py",
-    "LLM/LLM Engineering：Master AI & LLMs/quantized_inference.py",
-    "LLM/LLM Engineering：Master AI & LLMs/tt.py",
-    "LLM/LLM Engineering：Master AI & LLMs/t.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_chat_formatter.py",
-    "C&C++/leetcode題目/字串.md",
-    "C&C++/leetcode題目/貪心.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/whisper_llama_meeting_summarizer.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/音樂測試.mp3",
+    "LLM/LLM Engineering-Master AI & LLMs/t.py",
+    "LLM/LLM Engineering-Master AI & LLMs/README.md",
+    "LLM/LLM Engineering-Master AI & LLMs",
+    "LLM/LLM-Engineering-MasterAI&LLMs/dalle_image_generator.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/website_summary_openai.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/計算機概論助手_chat_interface.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/website_summary_ollama.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/tokenizer_demo.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/t.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/README.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/quantized_inference_stream.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/New York City_vacation_image.png",
+    "LLM/LLM Engineering-MasterAI&LLMs/README.md",
+    "LLM/LLM Engineering-MasterAI&LLMs/New York City_vacation_image.png",
     "LLM/LLM Engineering：Master AI & LLMs/README.md",
-    "LLM/LLM Engineering：Master AI & LLMs/tokenizer_demo.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_sentiment_analysis123.py",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Named_Entity_Recognition.py",
+    "LLM/LLM Engineering-Master AI & LLMs/New York City_vacation_image.png",
+    "互動網頁設計/jQuery/jQuery.md",
+    "互動網頁設計/jQuery/attachments/Pasted image 20241208171416.png",
+    "互動網頁設計/JavaScript/Three.js.md",
     "互動網頁設計/JavaScript/JavaScript.md",
-    "LLM/LLM Engineering：Master AI & LLMs/huggingface_Question_Answering.py",
+    "互動網頁設計/JavaScript/ECharts.js.md",
+    "C&C++/leetcode題目/Backtracking.md",
+    "C&C++/leetcode題目/貪心.md",
+    "C&C++/leetcode題目/字串.md",
     "C&C++/leetcode題目/數組.md",
     "C&C++/leetcode題目/數學.md",
     "C&C++/leetcode題目/預計排課.md",
@@ -222,23 +218,12 @@
     "C&C++/【13 Classes：Operator Overloading;  Class string 】.md",
     "C&C++/【15 Object-Oriented Programming：Polymorphism】.md",
     "C&C++/【10 Other C Topics】.md",
-    "C&C++/【09 Preprocessor(預處理器)】.md",
-    "C&C++/【07 Structures, Unions, Bit Manipulation and Enumerations】.md",
-    "C&C++/【06 Characters and Strings】.md",
-    "C&C++/【05 Points】.md",
-    "C&C++/【04 Arrays】.md",
-    "C&C++/【03 Functions】.md",
-    "C&C++/【02 Program Control】.md",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
     "Python/temp image/source dir/image06.jpg",
     "Python/temp image/source dir/image05.jpg",
     "Python/temp image/source dir/image04.jpg",
     "Python/temp image/source dir/image03.jpg",
-    "Python/temp image/source dir/image02.jpg",
-    "Python/temp image/source dir/image01.jpg",
-    "Python/solar_animation.gif",
-    "C&C++/leetcode題目/attachments/20241112_051037663_iOS.png",
     "文獻閱讀/五年級學生運算思維能力與數學學習成就關係之探討/五年級學生運算思維能力與數學學習成就關係之探討.canvas",
     "VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測/VR火災逃生訓練計畫：學習進展受火災現場感知、虛擬實境操作挫折感和遊戲自我效能的預測.canvas",
     "透過電腦遊戲促進高階學習/透過電腦遊戲促進高階學習.canvas",

@@ -1,15 +1,15 @@
-## Three.js WebGL OpenGl之間關係
+## 1. Three.js WebGL OpenGl之間關係
 ![upgit_20241104_1730709324.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241104_1730709324.png)
 - three.js：上層的API函式庫,負責在Canvas裡面執行一些繪圖;它的底層是用WebGL API來處理繪圖的。
 - WebGL:一個JS的API,讓工程師可以控制每一顆像素要呈現的RGB顏色。它會再跟CPU、GPU溝通,最後成功繪製在螢幕的像素上。
 - OpenGL：是一個業界標準
 
-## three.js的四個物件
+## 2. three.js的四個物件
 - 鏡頭(camera)：
 - 場景(Scene)
 - 渲染(Renderer)渲染到螢幕，並藉由requestAnimationFrame不斷更新螢幕。
 
-## 建立第一個Three.js
+## 3. 建立第一個Three.js
 ```js
 // step1
 const scene = new THREE.Scene();
@@ -125,9 +125,9 @@ animate();
 </html>
 ```
 
-## three.js 空間座標
+## 4. three.js 空間座標
 
-### 巢狀結構
+### 4.1. 巢狀結構
 ![upgit_20241104_1730712079.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241104_1730712079.png)
 - 巢狀結構中，最大的影響是空間。
 - XYZ軸也是一種樹狀結構，每一個物件都有一個空間數值，而這些空間數值就是相對於父元件。
@@ -172,7 +172,7 @@ animate();
 ![upgit_20241104_1730719506.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241104_1730719506.png)
 
 
-### 自轉與公轉
+### 4.2. 自轉與公轉
 ```js
 // 建立場景跟相機
 const scene = new THREE.Scene();
@@ -216,12 +216,12 @@ cube.position.x += 0.01;
 cube.scale.x+=0.01
 ```
 
-## 矩陣
+## 5. 矩陣
 - 3D場景中的每個物件都是上下層結構關係(意即子元件的空間是相對於父空間)。
 - 每一種結構都會有三種型變(位移、縮放、旋轉)。
 - 而這3種型變是有順序的：位移=>旋轉=>縮放。
 
-### 字元件也有兩個位置座標
+### 5.1. 字元件也有兩個位置座標
 - 以Mesh來說：
 	- const meshPosition = new Mesh().position; // 自己本身的Mesh位置屬性
 	- const geometryPosition = new Mesh().geometry.position; // Mesh裡面的geometry的位置屬性
@@ -256,7 +256,7 @@ animate();
 // => 使用矩陣解決
 ```
 
-### Matrix4
+### 5.2. Matrix4
 
 
 

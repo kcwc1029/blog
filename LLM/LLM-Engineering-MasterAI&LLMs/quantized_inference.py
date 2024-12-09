@@ -6,9 +6,9 @@
 - 推理及文字生成
 - GPU 資源管理
 
-- 要安裝的東西 https://reurl.cc/b3EGEM
+- 要安裝的東西 https://reurl.cc/b3EGEM(確保已安裝支持 GPU 的 CUDA 和 cuDNN。)
 - 要安裝支持 CUDA 的 bitsandbytes  pip install --upgrade bitsandbytes
-
+- 將 HuggingFace 的 API Token 儲存在 .env 文件中
 """
 from dotenv import load_dotenv
 import os
@@ -23,8 +23,8 @@ class CFG:
     GEMMA2 = "google/gemma-2-2b-it"
     QWEN2 = "Qwen/Qwen2-7B-Instruct" # exercise for you
     messages = [
-        {"role": "system", "content": "You are a humorous AI assistant."},
-        {"role": "user", "content": "Please tell a science-related joke for an engineering graduate student to make them happy."}
+        {"role": "system", "content": "你是一個體貼的好女孩"},
+        {"role": "user", "content": "為一個工程科學系研究生講一個笑話，讓他開心一點"}
     ]
 
 ##### 加載環境變數 #####
@@ -41,20 +41,27 @@ quant_config = BitsAndBytesConfig(
 )
 
 ##### 分詞器初始化 #####
-def generate(model, messages):
-    snapshot_download(CFG.LLAMA)  # 如果模型不存在於本地，會下載到快取中。
-    tokenizer = AutoTokenizer.from_pretrained(model)
-    tokenizer.pad_token = tokenizer.eos_token
-    inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
-    streamer = TextStreamer(tokenizer)
-    model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", quantization_config=quant_config)
-    outputs = model.generate(inputs, max_new_tokens=200, streamer=streamer)
-    print(tokenizer.decode(outputs[0]))
+snapshot_download(CFG.LLAMA)  # 如果模型不存在於本地，會下載到快取中。
+tokenizer = AutoTokenizer.from_pretrained(CFG.LLAMA)  # 加載分詞器。
+tokenizer.pad_token = tokenizer.eos_token  # 設置填充值為結束符。
 
-    del tokenizer, streamer, model, inputs, outputs
-    torch.cuda.empty_cache()
+##### 準備模型輸入 #####
+inputs = tokenizer.apply_chat_template(  # 將對話內容轉換為模型可讀的格式。
+    CFG.messages,
+    return_tensors="pt"  # 輸出 PyTorch 張量，便於計算。
+)
 
-if __name__ == "__main__":
-    generate(CFG.QWEN2, CFG.messages)
+##### 加載模型 #####
+model = AutoModelForCausalLM.from_pretrained(
+    CFG.LLAMA, 
+    device_map="auto",  # 自動將模型分配至 GPU。
+    quantization_config=quant_config  # 套用量化設定。
+)
 
+##### 生成文字輸出 #####
+outputs = model.generate(inputs, max_new_tokens=80)  # 根據輸入生成回應，最大 80 個 tokens。
+print(tokenizer.decode(outputs[0]))  # 解碼 tokens 為可讀文字，並輸出。
 
+##### 清理資源 #####
+del inputs, outputs, model  # 刪除變數以釋放記憶體。
+torch.cuda.empty_cache()  # 清空 GPU 快取記憶體。
