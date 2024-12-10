@@ -34,8 +34,37 @@
               "icon": "lucide-file",
               "title": "Backtracking"
             }
+          },
+          {
+            "id": "70ecbea911ba0e05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LLM/LLM-Engineering-MasterAI&LLMs/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "cad8909febbfcc05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C&C++/leetcode題目/linked-list.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "linked-list"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -153,10 +182,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "互動網頁設計/jQuery/jQuery.md"
+                "file": "LLM/LLM-Engineering-MasterAI&LLMs/README.md"
               },
               "icon": "lucide-list",
-              "title": "jQuery 的大綱"
+              "title": "README 的大綱"
             }
           }
         ],
@@ -176,48 +205,48 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "da823ad68556731f",
+  "active": "70ecbea911ba0e05",
   "lastOpenFiles": [
-    "LLM/LLM-Engineering-MasterAI&LLMs/whisper_llama_meeting_summarizer.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/音樂測試.mp3",
-    "LLM/LLM Engineering-Master AI & LLMs/t.py",
-    "LLM/LLM Engineering-Master AI & LLMs/README.md",
-    "LLM/LLM Engineering-Master AI & LLMs",
-    "LLM/LLM-Engineering-MasterAI&LLMs/dalle_image_generator.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/website_summary_openai.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/計算機概論助手_chat_interface.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/website_summary_ollama.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/tokenizer_demo.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/t.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/README.md",
-    "LLM/LLM-Engineering-MasterAI&LLMs/quantized_inference_stream.py",
-    "LLM/LLM-Engineering-MasterAI&LLMs/New York City_vacation_image.png",
-    "LLM/LLM Engineering-MasterAI&LLMs/README.md",
-    "LLM/LLM Engineering-MasterAI&LLMs/New York City_vacation_image.png",
-    "LLM/LLM Engineering：Master AI & LLMs/README.md",
-    "LLM/LLM Engineering-Master AI & LLMs/New York City_vacation_image.png",
-    "互動網頁設計/jQuery/jQuery.md",
-    "互動網頁設計/jQuery/attachments/Pasted image 20241208171416.png",
-    "互動網頁設計/JavaScript/Three.js.md",
-    "互動網頁設計/JavaScript/JavaScript.md",
-    "互動網頁設計/JavaScript/ECharts.js.md",
-    "C&C++/leetcode題目/Backtracking.md",
-    "C&C++/leetcode題目/貪心.md",
-    "C&C++/leetcode題目/字串.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/__pycache__/visualize.cpython-310.pyc",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/visualize.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/__pycache__/dataset_loader.cpython-310.pyc",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/dataset_loader.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/__pycache__/config.cpython-310.pyc",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/__pycache__",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/config.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/main.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor/t.py",
+    "LLM/LLM-Engineering-MasterAI&LLMs/Project：Price Predictor",
+    "LLM/LLM-Engineering-MasterAI&LLMs/vector_db/f17e4d49-cdde-4bac-ae8b-ad40a705fdc7/link_lists.bin",
+    "C&C++/leetcode題目/linked-list.md",
     "C&C++/leetcode題目/數組.md",
-    "C&C++/leetcode題目/數學.md",
     "C&C++/leetcode題目/預計排課.md",
-    "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
-    "C&C++/leetcode題目/位運算.md",
-    "C&C++/【16 Introduction to Custom Templates】.md",
-    "C&C++/課程分配.md",
-    "C&C++/【11 C++ as a Better C; Introducing Object Technology】.md",
-    "C&C++/【08 File Processing】.md",
-    "C&C++/【12 Introduction to Classes, Objects and Strings】.md",
-    "C&C++/【14 Object-Oriented Programming： Inheritance】.md",
-    "C&C++/【13 Classes：Operator Overloading;  Class string 】.md",
-    "C&C++/【15 Object-Oriented Programming：Polymorphism】.md",
-    "C&C++/【10 Other C Topics】.md",
+    "互動網頁設計/jQuery/jQuery.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/README.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/products/Rellm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/products/Markellm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/products/Homellm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/products/Carllm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Samuel Trenton.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Samantha Greene.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Oliver Spencer.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Maxine Thompson.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Jordan K. Bishop.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Jordan Blake.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Emily Tran.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Emily Carter.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Avery Lancaster.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Alex Thomson.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Alex Harper.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/employees/Alex Chen.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/contracts/Contract with Velocity Auto Solutions for Carllm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/contracts/Contract with TechDrive Insurance for Carllm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/contracts/Contract with GreenValley Insurance for Homellm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/誤刪knowledge-base/contracts/Contract with Stellar Insurance Co. for Rellm.md",
+    "LLM/LLM-Engineering-MasterAI&LLMs/New York City_vacation_image.png",
+    "LLM/LLM Engineering-MasterAI&LLMs/New York City_vacation_image.png",
+    "LLM/LLM Engineering-Master AI & LLMs/New York City_vacation_image.png",
+    "互動網頁設計/jQuery/attachments/Pasted image 20241208171416.png",
     "Python/temp image/source dir/image08.jpg",
     "Python/temp image/source dir/image07.jpg",
     "Python/temp image/source dir/image06.jpg",

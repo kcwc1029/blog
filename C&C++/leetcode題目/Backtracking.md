@@ -1,5 +1,7 @@
-### 17. Letter Combinations of a Phone Number
+### 17.Letter Combinations of a Phone Number
+
 ![upgit_20241207_1733561921.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241207_1733561921.png)
+
 ```cpp
 class Solution {
 public:
@@ -15,9 +17,9 @@ public:
         {8, "tuv"},
         {9, "wxyz"}
     };
-    void backtracking(vector<string>& ans, 
-                    string& s, 
-                    const string& digits, 
+    void backtracking(vector<string>& ans,
+                    string& s,
+                    const string& digits,
                     int index){
         // 終止條件：若index等於digits長度，表示已選好全部字母
         if(index==digits.size()){
@@ -37,28 +39,12 @@ public:
     vector<string> letterCombinations(string digits) {
         // NOTE: 重組各種s，然後裝晉ans
         vector<string> ans;
-        string s; 
+        string s;
         // NOTE: 極端條件
         if(digits=="") return ans;
         backtracking(ans, s, digits, 0);
-        
+
         return ans;
     }
 };
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
