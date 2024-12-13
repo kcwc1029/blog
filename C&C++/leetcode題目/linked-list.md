@@ -83,11 +83,62 @@ public:
     }
 };
 ```
+### 0.4. 83.Remove Duplicates from Sorted List
+- 要刪除某格節點，就是將他的【上一個】直接指向下一個(沒人指=消失)
+```cpp
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        // 空集合檢查
+        if(head==nullptr)return head;
 
+        ListNode* dummy = new ListNode(0); // 創建真正的 dummy 節點
+        dummy->next = head;
+        ListNode* curr = head;
+        while(curr->next){
+            if(curr->val == curr->next->val){
+                curr->next = curr->next->next;
+            }else{
+                curr = curr->next;
+            }
+        }
+        return dummy->next;
+    }
+};
+```
+### 0.5. 141.Linked List Cycle
+- 解法：快慢指針：快指針走兩步，慢指針走一步，如果有成環，快慢指針有一天一定會相遇。
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* left = head;
+        ListNode* right = head;
+        while(right && right->next){
+            left = left->next;
+            right = right->next->next;
+            if(left==right) return true;
+        }
+        return false;
+    }
+};
+```
 
-
-
-
-
-
-
+### 0.6. 160.Intersection of Two Linked Lists
+![upgit_20241212_1733970327.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241212_1733970327.png)
+```cpp
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *pA = headA;
+        ListNode *pB = headB;
+        while(pA != pB){
+            if(pA!=nullptr)pA = pA->next;
+            else pA = headB;
+            if(pB!=nullptr)pB = pB->next;
+            else pB = headA;
+        }
+        return pA;
+    }
+};
+```

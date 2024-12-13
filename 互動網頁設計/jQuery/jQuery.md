@@ -597,43 +597,49 @@ $("input").on("click", function (e) {
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>表單驗證示範</title>
-    <style type="text/css">
-        .error { border: 2px solid red; }
-    </style>
-    <script src="jquery.min.js"></script>
-</head>
-<body>
-    <div class="content">
-        <form action="#">
-            姓名: <input type="text" id="name"/><br/>
-            電郵: <input type="text" id="email"/><br/>
-            <textarea rows="5" cols="25" id="comment"></textarea><br/>
-            <input type="submit" value="送出"/>
-        </form>
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <title>表單驗證示範</title>
+        <style type="text/css">
+            .error {
+                border: 2px solid red;
+            }
+        </style>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="content">
+            <form action="#">
+                姓名: <input type="text" id="name" /><br />
+                電郵: <input type="text" id="email" /><br />
+                <textarea rows="5" cols="25" id="comment"></textarea><br />
+                <input type="submit" value="送出" />
+            </form>
+        </div>
 
-    <script>
-        $(document).ready(function() {
-	        // 【:】過濾選擇器 (Filter Selector)，用來選取特定類型(type)的元素。
-            $(':submit').click(function(event) {
-                $(':text').each(function() {
-                    if($(this).val().length == 0) {
-                        $(this).addClass('error');
+        <script>
+            // 驗證輸入框是否為空
+            $(":submit").click(function (event) {
+                event.preventDefault(); // 阻止表單提交
+                $("input[type='text'], textarea").each(function () {
+                    if ($(this).val().length == 0) {
+                        $(this).addClass("error"); // 添加紅色邊框
+                    } else {
+                        $(this).removeClass("error"); // 移除紅色邊框
                     }
                 });
-                event.preventDefault();
             });
-            
-			// TODO: 使用者在做修正
-            $(':input').focus(function() {
-                $(this).removeClass('error');
+
+            // 當輸入框獲得焦點時移除紅色邊框
+            $(":input").focus(function () {
+                $(this).removeClass("error");
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
 ```
 ### 7.2. 即時驗證欄位資料
@@ -648,7 +654,11 @@ $("input").on("click", function (e) {
     <style type="text/css">
         .error { border: 2px solid red; }
     </style>
-    <script src="jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
 </head>
 <body>
     <div class="content">
@@ -767,15 +777,15 @@ $("input").on("click", function (e) {
 - get()：使用HTTP GET方法送出AJAX請求和取得回應
 - post()：使用HTTP POST方法送出AJAX請求和取得回應
 - getJSON()：使用HTTP GET方法取得伺服端的JSON資料
-	- 僅限 JSON 資料。若伺服器回應的資料不是 JSON 格式，請求會失敗。
+	- 若伺服器回應的資料不是 JSON 格式，請求會失敗。
 	- 簡化處理 JSON 格式的資料，不需要再手動 `JSON.parse()`。
 - ajax()：使用XMLHttpRequest物件送出AJAX請求
-	- 是 jQuery 提供的 **最通用、最靈活** 的 AJAX 方法，允許你自訂各種請求參數 (如 HTTP 方法、資料類型、標頭、回應處理等)。
+	- 是jQuery 提供的 最通用、最靈活 的 AJAX 方法，允許你自訂各種請求參數 (如 HTTP 方法、資料類型、標頭、回應處理等)。
 ### 9.1. 在AJAX中談JSON
 - 「JSON」的全名是(JavaScript Object Notation)，這是一種AJAX技術常用的資料交換格式,類似XML,事實上,JSON就是一個JavaScript物件的文字表示法。
 - JSON 與 JavaScript 物件之間的轉換：
-	- **將 JavaScript 物件轉換為 JSON 字串**：`JSON.stringify()`
-	- **將 JSON 字串轉換為 JavaScript 物件**：`JSON.parse()`
+	- 將 JavaScript 物件轉換為 JSON 字串：`JSON.stringify()`
+	- 將 JSON 字串轉換為 JavaScript 物件：`JSON.parse()`
 ```html
 <html lang="en">
     <head>
@@ -958,3 +968,5 @@ $("input").on("click", function (e) {
 </html>
 
 ```
+
+

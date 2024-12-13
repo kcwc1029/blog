@@ -1,30 +1,51 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <!-- jQuery -->
-        <script
-            src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
-            crossorigin="anonymous"
-        ></script>
+        <title>Pokémon API Example</title>
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
-        <ul class="list">
-            <li>項目 1</li>
-            <li>項目 2</li>
-            <li>項目 3</li>
-            <li>項目 4</li>
-            <li>項目 5</li>
-        </ul>
+        <h1>Pokémon 資訊</h1>
+        <input type="text" id="pokemonName" placeholder="Enter Pokémon name" />
+        <button id="fetchPokemon">Fetch Pokémon</button>
+
+        <!-- Display Pokémon data -->
+        <div id="pokemonInfo" style="display: none">
+            <h2 id="name"></h2>
+            <img id="sprite" alt="Pokémon Image" />
+            <p>Type: <span id="type"></span></p>
+            <p>Height: <span id="height"></span></p>
+            <p>Weight: <span id="weight"></span></p>
+        </div>
     </body>
     <script>
-        // 除了最後一個項目（項目 5），其他項目設為紅色
-        $(".list li").not(":last").css("color", "red");
-        // 為包含 <li> 的 <ul> 元素添加黑色邊框。
-        $("ul").has("li").css("border", "1px solid black");
-        // 將第 2 個項目（項目 2）加粗
-        $(".list li").filter(":nth-child(2)").css("font-weight", "bold");
+        // Fetch Pokémon data when the button is clicked
+        $(document).ready(function () {
+            $("#fetchPokemon").on("click", function () {
+                const pokemonName = $("#pokemonName").val().toLowerCase();
+
+                // Call PokeAPI using jQuery's AJAX method
+                $.ajax({
+                    url: `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+                    method: "GET",
+                    success: function (data) {
+                        // Update HTML with Pokémon data
+                        $("#name").text(data.name);
+                        $("#sprite").attr("src", data.sprites.front_default);
+                        $("#type").text(data.types.map((typeInfo) => typeInfo.type.name).join(", "));
+                        $("#height").text(data.height);
+                        $("#weight").text(data.weight);
+                        $("#pokemonInfo").show();
+                    },
+                    error: function () {
+                        alert("Pokémon not found. Please try another name.");
+                        $("#pokemonInfo").hide();
+                    },
+                });
+            });
+        });
     </script>
 </html>
