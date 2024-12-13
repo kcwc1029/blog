@@ -1,4 +1,19 @@
-### 17.Letter Combinations of a Phone Number
+### 0.1. 模板
+```cpp
+void backtracking(参数) {
+    if (终止条件) {
+        存放结果;
+        return;
+    }
+
+    for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) {
+        处理节点;
+        backtracking(路径，选择列表); // 递归
+        回溯，撤销处理结果
+    }
+}
+```
+### 0.2. 17.Letter Combinations of a Phone Number
 
 ![upgit_20241207_1733561921.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241207_1733561921.png)
 
@@ -48,3 +63,32 @@ public:
     }
 };
 ```
+### 0.3. 78.Subsets
+```cpp
+class Solution {
+public:
+    void backtracking(vector<vector<int>>& ans,vector<int>& temp,vector<int>& nums,int x){
+        // 依照要求，本題要先放，再做檢查
+        ans.push_back(temp);
+        // 終止條件
+        if(x==nums.size()) return;
+
+        for(int i=x;i<nums.size();i++){
+            temp.push_back(nums[i]);
+            backtracking(ans, temp, nums, i+1);
+            temp.pop_back();
+        }
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> temp;
+        backtracking(ans, temp, nums, 0);
+        return ans;
+    }
+};
+```
+
+
+
+
+
