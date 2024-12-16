@@ -8,12 +8,12 @@
 
 ## 2. 監督式學習（Supervised Learning）
 
--   監督式學習需要**標註過的數據**（有輸入和對應的輸出），模型學習數據中輸入和輸出之間的映射關係。
+-   監督式學習需要標註過的數據（有輸入和對應的輸出），模型學習數據中輸入和輸出之間的映射關係。
 -   讓模型能夠根據新的輸入預測對應的輸出。
 -   類型：
     -   分類（Classification）：預測類別，例如判斷圖片中的物體是貓還是狗。
     -   回歸（Regression）：預測連續值，例如房價、溫度等。
--   應用： - 電郵垃圾郵件分類 - 房價預測 - 醫學影像診斷
+-   應用： 電郵垃圾郵件分類 - 房價預測 - 醫學影像診斷
     ![upgit_20241216_1734325589.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241216_1734325589.png)
 
 ## 3. 非監督式學習（Unsupervised Learning）
@@ -207,3 +207,33 @@
 ## 16. Project：patient heart disease
 
 -   [patient_heart_disease_classfication.ipynb](./patient%20heart%20disease/patient_heart_disease_classfication.ipynb)
+
+## 17. Ensemble
+
+-   資料來源：[台大資訊 人工智慧導論 | FAI 2.4: Ensemble Bagging](https://www.youtube.com/watch?v=sw2BpP8oAH0&t=711s)
+-   多個弱模型組合：將多個「弱模型」（簡單但不一定完美的模型，例如決策樹）集合起來。
+
+### 17.1. Bagging（Bootstrap Aggregating）
+
+-   透過隨機抽樣產生多個子數據集，並在每個子數據集上訓練一個模型。最終的預測結果是所有模型輸出的平均值（回歸）或投票（分類）。
+-   特點：能夠降低過擬合風險，適合高方差的模型。
+-   範例：隨機森林 (Random Forest)。
+
+### 17.2. Random Forest
+
+![upgit_20241216_1734349449.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241216_1734349449.png)
+
+-   Random Forest (RF) = random sampling + decision tree
+-   數據隨機性：透過 Bootstrap 抽樣法，隨機從原始資料集中抽取子樣本，並在每個子樣本上建立一棵決策樹。
+-   特徵隨機性：在每次節點分裂時，隨機選取部分特徵進行分裂，而不是使用所有特徵。
+-   最終結果：
+    -   對於 分類 問題：多棵決策樹的結果透過「投票」決定最終分類結果。
+    -   對於 回歸 問題：多棵決策樹的輸出取平均值作為最終預測結果。
+
+## 18. 處裡文字編碼(one-hot)
+
+-   [one_hot_car_sales.ipynb](./care%20sales/one_hot_car_sales.ipynb)
+
+## 19. 處裡缺失值
+
+-   [missing_value_care_sales.ipynb](./care%20sales//missing_value_care_sales.ipynb)
