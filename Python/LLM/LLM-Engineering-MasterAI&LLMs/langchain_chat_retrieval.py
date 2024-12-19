@@ -79,7 +79,7 @@ vectorstore = Chroma.from_documents(
 )
 print(f"Vectorstore created with {vectorstore._collection.count()} documents")  # 打印存儲的文檔數量
 
-
+ 
 """
 ##### NOTE: 啟動聊天機器人 #####
 1. 使用 ConversationalRetrievalChain 建立檢索型對話鏈。

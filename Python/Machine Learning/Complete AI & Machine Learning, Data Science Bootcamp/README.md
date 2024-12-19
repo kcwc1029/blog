@@ -237,3 +237,29 @@
 ## 19. 處裡缺失值
 
 -   [missing_value_care_sales.ipynb](./care%20sales//missing_value_care_sales.ipynb)
+
+## 20. 針對問題，選擇一個對的 estimator
+
+-   [heart_diseas_choose_model](./choose%20differt%20model/heart_diseas_choose_model.ipynb)
+-   [California_choose_model.ipynb](./choose%20differt%20model/California_choose_model.ipynb)
+
+## 21. Deep Learning and Unstructured Data
+
+![upgit_20241219_1734590968.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241219_1734590968.png)
+
+![upgit_20241219_1734591012.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241219_1734591012.png)
+
+![upgit_20241219_1734591100.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241219_1734591100.png)
+
+### 21.1. 為什麼要選擇 TensorFlow 作為深度學習框架
+
+-   TensorFlow 支援 GPU 運行，加速計算。
+-   TensorFlow 提供許多內建的深度學習模型，這些模型是預先訓練好的
+-   TensorFlow 是一個完整的技術堆疊，可以處理
+    -   數據預處理（preprocess）：對數據進行清理和格式化。
+    -   模型構建（model）：訓練和測試深度學習模型。
+    -   部署（deploy）：將模型部署到生產環境中，例如移動設備或雲端服務。
+
+## 22. Project：犬種識別(Dog Breed Identification)
+
+-   資料來源：https://www.kaggle.com/c/dog-breed-identification/data
