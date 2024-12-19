@@ -164,6 +164,17 @@ async def delete_book(book_id: int):
     return {"message": f"Book with ID {book_id} not found!", "books": BOOKS}
 ```
 
+### BUG：可以開啟終端機，但是瀏覽器開不起來
+
+-   遇到端口占用問題
+
+![upgit_20241217_1734436266.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241217_1734436266.png)
+
+```shell
+// 刪除程序30320
+taskkill /PID 17056 /F
+```
+
 ## 2. OpenAI
 
 ### 2.1. 基本串接 open api key
@@ -322,6 +333,184 @@ async def chat_page(request: Request):
 
 ### 4.1. Project：增加 bootstrap
 
-![upgit_20241213_1734098666.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241213_1734098666.png)
+![upgit_20241217_1734436715.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241217_1734436715.png)
 
--   [simple chatbot](./simple%20chatbot/main.py)
+-   [simple fastapi openai chatbot](./simple%20fastapi%20openai%20chat/main.py)
+
+## DALL·E
+
+-   DALL·E 是由 OpenAI 所開發
+-   基於自然語言描述生成圖片
+-   我覺得，生成的效果...還是不要用比較好(笑)
+
+![Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-WYB6CF9VHGthYaYJ7gOVZO1e/user-1wR0pFyX4cLV2P6jpQBHCevE/img-zlzmTsj3HUESujzE1WFP6ex6.png?st=2024-12-17T11%3A14%3A53Z&se=2024-12-17T13%3A14%3A53Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-17T11%3A01%3A01Z&ske=2024-12-18T11%3A01%3A01Z&sks=b&skv=2024-08-04&sig=r6c559k4J41QriSf0q0OcREQKfMzSzwE9CWGY69bods%3D)
+
+```python
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+"""
+NOTE: 初始化環境變量和 OpenAI API
+使用 dotenv 加載環境變量，並初始化 OpenAI API 密鑰。
+"""
+# 加載 .env 文件
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # 從 .env 文件讀取 API 密鑰
+openai = OpenAI(api_key=OPENAI_API_KEY)  # 初始化 OpenAI 客戶端
+
+response = openai.images.generate(
+    prompt="幫我生成一個好看的微肉美女",
+    n=1,
+    size="1024x1024"
+)
+
+image_url = response.data[0].url
+print(response.data[0])
+print()
+print(image_url)
+```
+
+### Project：open api 結合 DALL·E 生成圖像
+
+![upgit_20241217_1734443178.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241217_1734443178.png)
+
+-   這份程式碼主要是一個 使用 FastAPI 框架 和 OpenAI API 的網頁應用，讓使用者可以透過輸入文字描述，生成對應的圖片並顯示在網頁上。
+-   [simple image fastapi openai](./simple%20image%20fastapi%20openai/main.py)
+
+## WebSocket
+
+-   WebSocket API 提供雙向互動通訊，連接使用者的瀏覽器和伺服器。
+-   使用 WebSocket 時，能夠根據事件發送與接收訊息，不需要頻繁輪詢伺服器。
+-   適合即時應用，如聊天與遊戲。
+-   與傳統 HTTP 請求不同，WebSocket 使用雙向通訊。
+-   `pip install websockets`
+
+### 建立 FastAPI WebSocket 服務(gpt 生成的，仍未測試)
+
+```python
+from fastapi import FastAPI, WebSocket
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+# HTML 測試頁面 (前端介面)
+html = """
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket Test</title>
+    </head>
+    <body>
+        <h1>WebSocket Test</h1>
+        <input id="messageInput" type="text" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+        <ul id="messages"></ul>
+
+        <script>
+            const ws = new WebSocket("ws://localhost:8000/ws");
+            const messages = document.getElementById("messages");
+
+            ws.onmessage = function(event) {
+                const message = document.createElement("li");
+                message.textContent = event.data;
+                messages.appendChild(message);
+            };
+
+            function sendMessage() {
+                const input = document.getElementById("messageInput");
+                ws.send(input.value);
+                input.value = "";
+            }
+        </script>
+    </body>
+</html>
+"""
+
+@app.get("/")
+async def get():
+    return HTMLResponse(html)
+
+# WebSocket 連接
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()  # 接受 WebSocket 連線
+    while True:
+        data = await websocket.receive_text()  # 接收文字訊息
+        print(f"收到訊息: {data}")
+        await websocket.send_text(f"你發送了: {data}")  # 發送回應訊息
+
+```
+
+## Project：WebSocket with OpenAI & FastAPI
+
+-   PAPER
+-   實現了一個 聊天機器人 Web 應用，使用了 FastAPI 作為後端框架、WebSocket 進行即時通訊，並透過 OpenAI GPT-3.5 API 生成回應。同時，使用 Bootstrap 提供簡潔美觀的使用者介面。
+
+![upgit_20241218_1734531528.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241218_1734531528.png)
+
+-   啟動方式：終端`uvicorn main:app --reload`
+-   [WebSocket with OpenAI & FastAPI](./WebSocket%20with%20OpenAI%20&%20FastAPI/main.py)
+-
+
+## websocket 部屬
+
+-   將 Project[WebSocket with OpenAI & FastAPI](./WebSocket%20with%20OpenAI%20&%20FastAPI/main.py)進行部屬(透過更改 WebSocket URL)的方式。
+-   更改 WebSocket URL
+
+```js
+let websocketString = "";
+if (window.location.hostname === "127.0.0.1") {
+    websocketString = "ws://localhost:8000/ws";
+} else {
+    websocketString = `wss://${window.location.hostname}/ws`;
+}
+
+let ws = new WebSocket(websocketString);
+```
+
+-   生成安裝包 requiurements.txt `pip freeze > requiurements.txt`
+
+## 部屬方式
+
+### 靜態網站部署
+
+-   適合只包含 HTML、CSS、JavaScript 的網站
+-   個人作品集、部落格、簡單展示網站。
+-   GitHub Pages
+-   Vercel
+-   Netlify
+
+### 動態網站部署
+
+-   Heroku
+-   Render
+-   Fly.io
+-   需要後端邏輯的應用，如部落格、論壇、API 服務。
+
+-   這邊使用 Render 進行部屬
+
+![upgit_20241218_1734533394.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241218_1734533394.png)
+
+![upgit_20241218_1734534810.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241218_1734534810.png)
+
+### BUG：部署出錯誤
+
+-   原因：因為 python 環境沒有處裡好
+-   重新建造一個虛擬環境
+
+```bash
+# 創建 Conda 環境
+conda create -n myenv python=3.11
+
+# 激活環境
+conda activate myenv
+
+# 安裝 pip（可選）
+conda install pip
+
+# 安裝 requirements.txt 內的套件
+pip install -r requirements.txt
+
+# 確定本地環境可以運行之後，開始做環境打包文件
+pip freeze > requirements.txt
+```
