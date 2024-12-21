@@ -164,7 +164,7 @@ async def delete_book(book_id: int):
     return {"message": f"Book with ID {book_id} not found!", "books": BOOKS}
 ```
 
-### BUG：可以開啟終端機，但是瀏覽器開不起來
+### 1.7. BUG：可以開啟終端機，但是瀏覽器開不起來
 
 -   遇到端口占用問題
 
@@ -337,7 +337,7 @@ async def chat_page(request: Request):
 
 -   [simple fastapi openai chatbot](./simple%20fastapi%20openai%20chat/main.py)
 
-## DALL·E
+## 5. DALL·E
 
 -   DALL·E 是由 OpenAI 所開發
 -   基於自然語言描述生成圖片
@@ -370,14 +370,14 @@ print()
 print(image_url)
 ```
 
-### Project：open api 結合 DALL·E 生成圖像
+### 5.1. Project：open api 結合 DALL·E 生成圖像
 
 ![upgit_20241217_1734443178.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241217_1734443178.png)
 
 -   這份程式碼主要是一個 使用 FastAPI 框架 和 OpenAI API 的網頁應用，讓使用者可以透過輸入文字描述，生成對應的圖片並顯示在網頁上。
 -   [simple image fastapi openai](./simple%20image%20fastapi%20openai/main.py)
 
-## WebSocket
+## 6. WebSocket
 
 -   WebSocket API 提供雙向互動通訊，連接使用者的瀏覽器和伺服器。
 -   使用 WebSocket 時，能夠根據事件發送與接收訊息，不需要頻繁輪詢伺服器。
@@ -385,7 +385,7 @@ print(image_url)
 -   與傳統 HTTP 請求不同，WebSocket 使用雙向通訊。
 -   `pip install websockets`
 
-### 建立 FastAPI WebSocket 服務(gpt 生成的，仍未測試)
+### 6.1. 建立 FastAPI WebSocket 服務(gpt 生成的，仍未測試)
 
 ```python
 from fastapi import FastAPI, WebSocket
@@ -441,7 +441,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
 ```
 
-## Project：WebSocket with OpenAI & FastAPI
+## 7. Project：WebSocket with OpenAI & FastAPI
 
 -   PAPER
 -   實現了一個 聊天機器人 Web 應用，使用了 FastAPI 作為後端框架、WebSocket 進行即時通訊，並透過 OpenAI GPT-3.5 API 生成回應。同時，使用 Bootstrap 提供簡潔美觀的使用者介面。
@@ -452,7 +452,7 @@ async def websocket_endpoint(websocket: WebSocket):
 -   [WebSocket with OpenAI & FastAPI](./WebSocket%20with%20OpenAI%20&%20FastAPI/main.py)
 -
 
-## websocket 部屬
+## 8. websocket 部屬
 
 -   將 Project[WebSocket with OpenAI & FastAPI](./WebSocket%20with%20OpenAI%20&%20FastAPI/main.py)進行部屬(透過更改 WebSocket URL)的方式。
 -   更改 WebSocket URL
@@ -470,9 +470,9 @@ let ws = new WebSocket(websocketString);
 
 -   生成安裝包 requiurements.txt `pip freeze > requiurements.txt`
 
-## 部屬方式
+## 9. 部屬方式
 
-### 靜態網站部署
+### 9.1. 靜態網站部署
 
 -   適合只包含 HTML、CSS、JavaScript 的網站
 -   個人作品集、部落格、簡單展示網站。
@@ -480,7 +480,7 @@ let ws = new WebSocket(websocketString);
 -   Vercel
 -   Netlify
 
-### 動態網站部署
+### 9.2. 動態網站部署
 
 -   Heroku
 -   Render
@@ -493,7 +493,7 @@ let ws = new WebSocket(websocketString);
 
 ![upgit_20241218_1734534810.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241218_1734534810.png)
 
-### BUG：部署出錯誤
+### 9.3. BUG：部署出錯誤
 
 -   原因：因為 python 環境沒有處裡好
 -   重新建造一個虛擬環境
