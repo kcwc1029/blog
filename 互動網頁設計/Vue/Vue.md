@@ -343,17 +343,36 @@ created() {
 
 -   [with_component.html](./show%20component/with_component.html)
 
-## 19. vue CLI
+## 建立 vue 專案：vue CLI 跟 Vite
 
--   安裝 nodejs
-    -   可以透過檢查
+-   Vue CLI 的全名是 Vue.js Command-Line Interface,直譯為「Vue 專案指令介面」
+-   透過終端機作為介面,提供開發者常見的配置選擇,協助開發者快速建立一個「立即可用」的 Vue 專案,
+-   省去手動建立資料夾架構、設定各項配置與引入常用套件的時間,讓開發者可以專注在專案的開發。
+-   Vue CLI 基於 Webpack 和 Webpack Dev Server 進行打包和執行本地開發伺服器,而 Webpack 的策略是「先打包、後啟動伺服器」,無論今天是在開發階段還是正式階段,一律先打包專案,根據打包完成的專案來啟動伺服器,所以在專案資源、程式碼越來越多的時候,可以明顯發現「伺服器啟動」和「更新速度」變得越來越慢。
+
+![upgit_20241221_1734756230.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734756230.png)
+
+-   既然已經有了 Vue CLI,那為什麼還要再推出 Vite?接下來要了解 Vite 的誕生解決了什麼問題。
+-   Vite 是法文「快速」的意思,而它被開發的主要目的就是為了解決在 Vue CLI 上「伺服器啟動慢」和「更新速度慢」的問題。
+-   Vite 則是在開發階段捨棄打包,直接啟動伺服器,利用原生 ES Module 的特性,在每次瀏覽器請求檔案時,按照需求即時進行編譯。如此一來,就可以大幅提升啟動和更新的速度,當然也讓使用者體驗變得更好(而在正式環境下則基於 Rollup 進行打包,而 Rollup 同樣是利用原生 ES Module 進行打包)。
+
+![upgit_20241221_1734756222.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734756222.png)
+
+### Vue CLI 和 Vite 所涵蓋的主要工作如下：
+
+-   建立基礎專案架構。
+-   整合官方工具鏈(例如:狀態管理器 Pinia、路由管理 Vue Router …… )。
+-   打包專案。
+-   在本地啟動伺服器環境進行開發。
+
+### 實作安裝：必裝 nodejs
 
 ```
 node -v
 npm -v
 ```
 
--   全域安裝 Vue CLI
+### 實作安裝：使用 vue CLI 安裝 vue 專案
 
 ```
 npm install -g @vue/cli
@@ -379,17 +398,25 @@ Set-ExecutionPolicy RemoteSigned
 
 ```
 vue create my-vue-project
-cd my-vue-project // 切換到專案目錄
-```
+cd my-vue-project // 切換到專案目錄(不能大寫)
 
--   運行開發伺服器
-
-```
-npm run serve
-// 這會啟動開發伺服器，通常會在 `http://localhost:8080` 上運行。
+// 運行開發伺服器
+npm run serve // 這會啟動開發伺服器，通常會在 `http://localhost:8080` 上運行。
 ```
 
 ![upgit_20241108_1731044252.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731044252.png)
+
+### 實作安裝：使用 vite 安裝 vue 專案
+
+```
+npm init vue@latest // 這邊會叫你輸入專案名稱
+cd vue-project-build-vite
+npm install
+npm run dev
+```
+
+![upgit_20241221_1734756450.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734756450.png)
+![upgit_20241221_1734756016.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734756016.png)
 
 ### 19.1. vscode 可以安裝的套件
 
@@ -400,6 +427,14 @@ npm run serve
     ![upgit_20241118_1731929845.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241118_1731929845.png)
 
 ### 19.2. 專案架構
+
+-   assets:放靜態資源,例如:圖片、CSS 樣式檔案等等。
+-   components:放元件檔。
+-   views:放路由元件(通常為畫面/頁面)。
+-   stores:與狀態管理器(例如:Pinia)相關的檔案。
+-   router:與路由管理(例如:Vue Router)相關的檔案。
+
+![upgit_20241221_1734757770.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734757770.png)
 
 ![upgit_20241108_1731054583.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731054583.png)
 
@@ -420,32 +455,51 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 ## 20. 增加元件(component)
 
+-   setup 函數是每個組件的核心入口：setup 提供一個簡單、乾淨的方式來組織和管理資料流。
+-   我們可以用`<script setup>`這個語法糖，但也別忘了 setup 本身是一個組件
+
+### setup 組件的參數
+
+-   props：父層傳遞下來的狀態或方法
+-   context：包含以下四個屬性：
+    -   attrs：父層傳遞的屬性（類似 HTML 元素的屬性）。
+    -   slots：父層傳遞的 HTML 片段（插槽內容）。
+    -   emit：子組件用來向父層觸發事件的方法。
+    -   expose：讓子組件暴露方法或狀態給父層。
+-   父層可以傳遞 props、attrs、slots 給子元件，而子元件可以透過 emit 發出訊號，或是透過 expose 暴露想讓父層取得的狀態或方法。
+
+### provide 和 inject 的功能
+
+-   用於跨層級傳遞數據。
+-   解決 Prop Drilling（需要層層傳遞 props）的問題。
+-   父層組件可以使用 provide 提供數據，子孫組件使用 inject 獲取數據。
+-   適用於 Plugin 或全局狀態管理：可以在整個應用中共享狀態或屬性。
+
+### 實作一個 component
+
 ![upgit_20241108_1731057088.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057088.png)
 
-![upgit_20241108_1731057655.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057655.png)
+![upgit_20241221_1734760146.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734760146.png)
 
-![upgit_20241108_1731057696.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057696.png)
+-   [vue-project-compoment-friends]("./vue-project-compoment-friends/src/main.js")
 
-![upgit_20241108_1731057708.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241108_1731057708.png)
+## 21.1. props (property 的縮寫)
 
-## 21. component 通訊
-
--   **不加括號**：僅在事件觸發時執行方法（推薦用法）。
--   **加上括號**：在綁定時就立即執行方法（通常不是你想要的行為）。
-
-### 21.1. props (property 的縮寫)
+![upgit_20241221_1734764731.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241221_1734764731.png)
 
 -   他是單向數據流(父元件=>子元件)
+-   在父層引用元件時,我們可以透過 v-bind 傳遞「props」和「attribute」給元件,「props」需要在元件中一一宣告,而其餘沒有被宣告為 props 的都會被歸類在 attribute。
 -   支援的 prop 值：String、Number、Boolean、Array、Object、Date、Function、Symbol
-    ![upgit_20241111_1731303575.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731303575.png)
 
-![upgit_20241111_1731307509.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731307509.png)
+-   [vue-project-props]("./vue-project-props/src/main.js")
 
-![upgit_20241111_1731307551.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731307551.png)
-
-### 21.2. $emit
+## 21.2. $emit
 
 -   他是單向數據流(子元件=>父元件)
+-
+
+---
+
     ![upgit_20241111_1731310224.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731310224.png)
 
 ![upgit_20241111_1731310543.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241111_1731310543.png)

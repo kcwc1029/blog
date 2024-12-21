@@ -259,7 +259,12 @@
     -   數據預處理（preprocess）：對數據進行清理和格式化。
     -   模型構建（model）：訓練和測試深度學習模型。
     -   部署（deploy）：將模型部署到生產環境中，例如移動設備或雲端服務。
+-   `pip install tensorflow`
 
 ## 22. Project：犬種識別(Dog Breed Identification)
 
 -   資料來源：https://www.kaggle.com/c/dog-breed-identification/data
+
+-   data set 存放方式
+
+![upgit_20241219_1734592145.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241219_1734592145.png)
