@@ -122,6 +122,7 @@ public:
 ```
 
 
+
 ### 0.5. 40.Combination Sum II
 - 根據39題，但不能重複
 ```cpp
@@ -155,3 +156,75 @@ public:
     }
 };
 ```
+
+
+
+
+### 0.6. 46.Permutations
+- 给定一个不含重复数字的数组nums ，返回其所有可能的全排列。
+![upgit_20241225_1735098588.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241225_1735098588.png)
+```cpp
+class Solution {
+public:
+    vector<vector<int>> ans;
+    
+    vector<vector<int>> permute(vector<int>& nums) {
+        backtracking(nums, 0);
+        return ans;
+    }
+
+    void backtracking(vector<int>& nums, int startIndex){
+        // 終止條件：到最後一個
+        if(startIndex == nums.size()){
+            ans.push_back(nums);
+            return;
+        }
+        for(int i=startIndex;i<nums.size();i++){
+            swap(nums[i], nums[startIndex]);
+            backtracking(nums, startIndex+1);
+            swap(nums[i], nums[startIndex]);
+        }
+    }
+};
+```
+
+### 0.7. 47.Permutations II
+- 给定一个可包含重复数字的序列 nums ，按任意顺序返回所有不重复的全排列。
+![upgit_20241226_1735193561.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241226_1735193561.png)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> ans;
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        backtracking(nums, 0);
+        return ans;
+    }
+    void backtracking(vector<int>& nums, int startindex){
+        // 終止條件
+        if(startindex == nums.size()){
+            ans.push_back(nums);
+            return;
+        }
+        // NOTE: 查找重複
+        set<int> s;
+        for(int i=startindex;i<nums.size();i++){
+            if(s.find(nums[i])!=s.end()) continue;
+            s.insert(nums[i]);
+            swap(nums[i], nums[startindex]);
+            backtracking(nums, startindex+1);
+            swap(nums[i], nums[startindex]);
+        }
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+

@@ -20,6 +20,7 @@
         "sstream": "cpp",
         "streambuf": "cpp",
         "tuple": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "chrono": "cpp"
     }
 }
