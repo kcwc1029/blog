@@ -1,3 +1,7 @@
+## ESP32 接腳圖
+
+![upgit_20250107_1736232321.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/01/upgit_20250107_1736232321.png)
+
 ## Project：使用 ESP32 LODIN D32 發送郵件
 
 ![upgit_20241231_1735625527.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/12/upgit_20241231_1735625527.png)
@@ -106,3 +110,54 @@
 ![upgit_20250103_1735891910.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/01/upgit_20250103_1735891910.png)
 
 ![upgit_20250103_1735891962.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/01/upgit_20250103_1735891962.png)
+
+## python\*AI 生醫大感測
+
+### 膚電反應
+
+-   生理基礎：當人類說謊或感到緊張時，交感神經系統會被激活，引發血管收縮與汗腺分泌增加。
+-   電阻變化：汗液中富含電解質，具有良好的導電性，導致皮膚電阻降低。
+-   GSR 技術：基於皮膚電阻變化，GSR (Galvanic Skin Response) 技術可用於測量情緒與壓力。
+    -   當皮膚電阻越來越小，就代表說謊可能性提高
+-   數據讀取：
+    -   ESP32 的 ADC (Analog-to-Digital Converter) 轉換模擬信號為數位數據，便於進一步處理與分析。
+
+### 土壤濕度感測器的應用
+
+-   感測器通過測量電壓變化來反映濕度狀況，類似於測量皮膚電阻的原理。
+-   ESP32 開發板可將模擬電壓信號轉換為數位信號，便於後續數據分析與處理。
+-   接線方式：壤濕度感測器的連接
+    -   VCC → 3V
+    -   GND → GND
+    -   A0(信號腳) → GPIO36
+
+### ESP32 的 ADC 設定：
+
+-   土壤溫溼度的類比輸出腳位，連接到 ESP32 類比輸入角為，在使用 ADC 類別，變能測量電壓，得知電阻變化
+-   atten (衰減量)：用於調整輸入電壓範圍。
+    -   ADC.ATTN_0DB：100mV ~ 950mV
+    -   ADC.ATTN_2_5DB：100mV ~ 1250mV
+    -   ADC.ATTN_6DB：150mV ~ 1750mV
+    -   ADC.ATTN_11DB：150mV ~ 2450mV
+-   width (位元數)：用於調整 ADC 的取樣位元，位元數越高，解析度越高，數據越精細。
+    -   ADC.WIDTH_9BIT： 9 位元 (0 ~ 511)
+    -   ADC.WIDTH_10BIT：10 位元 (0 ~ 1023)
+    -   ADC.WIDTH_11BIT：11 位元 (0 ~ 2047)
+    -   ADC.WIDTH_12BIT：12 位元 (0 ~ 4095)
+
+```py
+import time
+from machine import Pin, ADC
+
+ADC_PIN=Pin(39)
+adc = ADC(ADC_PIN)
+adc.width(ADC.WIDTH_9BIT)
+adc.atten(ADC.ATTN_11DB)
+
+while True:
+    gsr = adc.read()
+    print(gsr)
+    time.sleep(1)
+```
+
+![image](https://cdn.discordapp.com/attachments/1286741860538122281/1326128953165086801/IMG_8836.jpg?ex=677e4d54&is=677cfbd4&hm=688b23bcca18d9e4ad3fe534da15bc1d66b26f389223bb61ff9de7ee824a2bb4&)
