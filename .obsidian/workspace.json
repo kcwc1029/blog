@@ -4,21 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "90eb9784e63064ef",
+        "id": "b177547b9c680990",
         "type": "tabs",
         "children": [
           {
-            "id": "b682efda2e46bf65",
+            "id": "27918cd327e1bcd1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
+                "file": "作業系統/作業系統.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "動態規劃(dynamic-programming)"
+              "title": "作業系統"
+            }
+          },
+          {
+            "id": "1f7560dbed0ce3d5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "c++/C Programming For Beginners/c(正確).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "c(正確)"
             }
           }
         ]
@@ -77,7 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 356.5
   },
   "right": {
     "id": "8d7f124c8bc7eb67",
@@ -137,10 +151,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C&C++/leetcode題目/動態規劃(dynamic-programming).md"
+                "file": "作業系統/作業系統.md"
               },
               "icon": "lucide-list",
-              "title": "動態規劃(dynamic-programming) 的大綱"
+              "title": "作業系統 的大綱"
             }
           }
         ],
@@ -160,46 +174,46 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "b682efda2e46bf65",
+  "active": "853cefececf4cc93",
   "lastOpenFiles": [
-    "ESP32/test.py",
-    "C&C++/leetcode題目/linked-list.md",
-    "C&C++/leetcode題目/stack.md",
-    "C&C++/leetcode題目/數組.md",
-    "unity/script.md",
-    "unity/新增 文字文件.txt",
-    "unity/README.md.txt",
-    "unity",
-    "新增資料夾",
-    "ESP32/README.md",
-    "ESP32/ESP32 to thinkspeak/main.py",
-    "ESP32/ESP32 to thinkspeak/connect_wifi.py",
-    "ESP32/ESP32 to thinkspeak/config.py",
-    "ESP32/ESP32 to thinkspeak",
+    "STM32/ARM Cortex/project02/01_helloworld/01_helloworld.launch",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.list",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.elf",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.map",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/syscalls.o",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/syscalls.d",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.o",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.d",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/main.o",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Startup/startup_stm32f407vetx.o",
+    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.cyclo",
+    "STM32/ARM Cortex/README.md",
+    "c sharp/README.md",
+    "c++/C Programming For Beginners/c(正確).md",
+    "c++/C Programming For Beginners - Master the C Language/c.md",
+    "C&C++/C Programming For Beginners - Master the C Language/c.md",
+    "C&C++/C Programming For Beginners/C455.md",
     "README.md",
-    "C&C++/leetcode題目/字串.md",
+    "C&C++/C Programming For Beginners/c.md",
+    "ubuntu/Linux Training 2024/README.md",
+    "ubuntu/Linux Training 2024/1.md",
+    "C&C++/leetcode題目/數組.md",
+    "作業系統/作業系統.md",
+    "C&C++/leetcode題目/stack.md",
     "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
+    "計算機結構組織/計算機結構.md",
+    "ESP32/README.md",
+    "C&C++/leetcode題目/linked-list.md",
+    "unity/script.md",
+    "C&C++/leetcode題目/字串.md",
     "D1mini(ESP8266)/D1mini.md",
     "ESP32/temp/README.md",
-    "ESP32/temp",
-    "ESP32/mail_ESP32_LODIND32/umail.py",
     "ESP32/mail_ESP32_LODIND32/README.md",
     "ESP32/1.md",
     "D1mini(ESP8266)/mail_ESP32_LODIND32/README.md",
     "D1mini(ESP8266)/temp/README.md",
-    "C&C++/leetcode題目/Backtracking.md",
     "D1mini(ESP8266)/MP32410_examples/ch05/temp/ball0.jpg",
-    "ubuntu/Linux Training 2024/1.md",
-    "ubuntu/GNU Make & Makefile To Build C/udemy-makefile/README.md",
-    "ubuntu/GNU Make & Makefile To Build C/udemy-makefile/Fix-Bug/README.md",
-    "ubuntu/GNU Make & Makefile To Build C/1.md",
-    "ubuntu/Linux System Programming Techniques & Concepts/LibraryDesigning/README.md",
-    "ubuntu/Linux System Programming Techniques & Concepts/1.md",
-    "Arduino/Arduino輕鬆入門(2014)/README.md",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/@vue/cli-service/generator/template/src/assets/logo.png",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/send/node_modules/debug/node_modules/ms/readme.md",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/send/node_modules/debug/node_modules/ms/license.md",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/hpack.js/node_modules/readable-stream/doc/wg-meetings/2015-01-30.md",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_world.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_word.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_zip.png",
