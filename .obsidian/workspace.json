@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b177547b9c680990",
+        "id": "8d4d4bb434963747",
         "type": "tabs",
         "children": [
           {
-            "id": "27918cd327e1bcd1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "作業系統/作業系統.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "作業系統"
-            }
-          },
-          {
-            "id": "1f7560dbed0ce3d5",
+            "id": "3fa6783af230dcf5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -66,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#define",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -151,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "作業系統/作業系統.md"
+                "file": "c++/C Programming For Beginners/c(正確).md"
               },
               "icon": "lucide-list",
-              "title": "作業系統 的大綱"
+              "title": "c(正確) 的大綱"
             }
           }
         ],
@@ -174,22 +160,27 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "853cefececf4cc93",
+  "active": "3fa6783af230dcf5",
   "lastOpenFiles": [
+    "c++/【全部整理】.md",
+    "c++/C Programming For Beginners/tempCodeRunnerFile.c",
+    "c++/C Programming For Beginners/testc.exe",
+    "c++/Nine Grid Game/nine_grid_game.c",
+    "c++/Nine Grid Game",
+    "c++/nine_labyrinth_game.c",
+    "c++/【00全部整理】.md",
+    "c++/(補充)自己寫的/運算式、運算子、if、while.md",
+    "c++/【01 Introduction to C Programming】.md",
+    "作業系統/作業系統.md",
+    "c++/(補充)自己寫的/01資料A型態、變數、常數.md",
+    "c++/C Programming For Beginners/c(正確).md",
     "STM32/ARM Cortex/project02/01_helloworld/01_helloworld.launch",
     "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.list",
     "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.elf",
     "STM32/ARM Cortex/project02/01_helloworld/Debug/01_helloworld.map",
     "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/syscalls.o",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/syscalls.d",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.o",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.d",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/main.o",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Startup/startup_stm32f407vetx.o",
-    "STM32/ARM Cortex/project02/01_helloworld/Debug/Src/sysmem.cyclo",
     "STM32/ARM Cortex/README.md",
     "c sharp/README.md",
-    "c++/C Programming For Beginners/c(正確).md",
     "c++/C Programming For Beginners - Master the C Language/c.md",
     "C&C++/C Programming For Beginners - Master the C Language/c.md",
     "C&C++/C Programming For Beginners/C455.md",
@@ -198,7 +189,6 @@
     "ubuntu/Linux Training 2024/README.md",
     "ubuntu/Linux Training 2024/1.md",
     "C&C++/leetcode題目/數組.md",
-    "作業系統/作業系統.md",
     "C&C++/leetcode題目/stack.md",
     "C&C++/leetcode題目/動態規劃(dynamic-programming).md",
     "計算機結構組織/計算機結構.md",
@@ -208,10 +198,6 @@
     "C&C++/leetcode題目/字串.md",
     "D1mini(ESP8266)/D1mini.md",
     "ESP32/temp/README.md",
-    "ESP32/mail_ESP32_LODIND32/README.md",
-    "ESP32/1.md",
-    "D1mini(ESP8266)/mail_ESP32_LODIND32/README.md",
-    "D1mini(ESP8266)/temp/README.md",
     "D1mini(ESP8266)/MP32410_examples/ch05/temp/ball0.jpg",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/@vue/cli-service/generator/template/src/assets/logo.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_world.png",

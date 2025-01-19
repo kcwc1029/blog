@@ -2,23 +2,28 @@
 #include <stdlib.h>
 
 int main() {
-    int *pNumber = (int *)malloc(5 * sizeof(int)); // 分配 5 個 int 的空間
+    int no [4] = {10, 12, 14, 16};
+    printf("%p\n", no); // 陣列本身地址 = 陣列第一個元素的地址
+    printf("%d\n", *(no)); // 取值
 
-    if (pNumber == NULL) {
-        printf("記憶體分配失敗！\n");
-        return 1;
+
+    int num[2][4]= {
+        312, 16, 35, 65,
+        52, 111, 77, 80
+    };
+    // 計算行數與列數
+    size_t m = sizeof(num) / sizeof(num[0]);
+    size_t n = sizeof(num[0]) / sizeof(num[0][0]);
+
+
+    printf("%p\n", *(num+1)); // 
+    printf("%p\n", *(num+1)+1); // 
+    printf("%d\n", *(*(num+1)+1)); // 
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            printf("%d\t", *(*(num+i)+j));
+        }
     }
-
-    // 初始化分配的記憶體
-    for (int i = 0; i < 5; i++) {
-        pNumber[i] = i + 1;
-    }
-
-    // 輸出數值
-    for (int i = 0; i < 5; i++) {
-        printf("pNumber[%d] = %d\n", i, pNumber[i]);
-    }
-
-    free(pNumber); // 釋放記憶體
     return 0;
 }
