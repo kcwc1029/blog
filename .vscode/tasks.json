@@ -1,28 +1,29 @@
 {
-    "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "C/C++: gcc.exe 建置使用中檔案",
-            "command": "C:/MinGW/bin/gcc.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "C:/MinGW/bin"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "偵錯工具產生的工作。"
-        }
-    ],
-    "version": "2.0.0"
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: gcc.exe 編譯",
+			"command": "C:/MinGW/bin/gcc.exe",
+			"args": ["-g", "${file}", "-o", "${fileBasenameNoExtension}"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": ["$gcc"]
+		},
+		{
+			"type": "shell",
+			"label": "C/C++: 執行程式 (外部終端)",
+			"command": "cmd",
+			"args": ["/c", "start", "cmd", "/k", "${workspaceFolder}\\${fileBasenameNoExtension}.exe"],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"dependsOn": "C/C++: gcc.exe 編譯"
+		}
+	],
+	"version": "2.0.0"
 }

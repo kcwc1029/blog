@@ -169,8 +169,21 @@ public:
 };
 ```
 
-
-### 0.8. 206.Reverse Linked List
+### 0.8. 876.Middle of the Linked List
+```cpp
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head, *fast = head;
+        while (fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+};
+```
+### 0.9. 206.Reverse Linked List
 ```cpp
 class Solution {
 public:
@@ -223,3 +236,96 @@ public:
     }
 };
 ```
+
+### 0.10. 234.Palindrome Linked List
+- 用到
+	- 876檢查中間
+	- 206反轉
+```cpp
+class Solution {
+public:
+    // TODO: 找到中間node
+    ListNode* middleNode(ListNode* head){
+        ListNode* slow = head, *fast = head;
+        while (fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+    // TODO: 反轉linked
+    ListNode* reverseList(ListNode* head){
+        ListNode* pre = nullptr, *cur = head;
+        while(cur){
+            ListNode* nxt = cur->next;
+            cur->next = pre;
+            // 往下一個陀洞
+            pre = cur;
+            cur = nxt;
+        }
+        return pre;
+    }
+
+    // TODO: 反轉linked
+    bool isPalindrome(ListNode* head) {
+        ListNode* mid = middleNode(head); // 找中間
+        ListNode* head2 = reverseList(mid);// 反轉
+        while(head2){
+            if(head->val!=head2->val){
+                return false;        
+            }
+            head = head->next;
+            head2 = head2->next;
+        }
+        return true;
+    }
+};
+```
+
+### 0.11. 86.Partition List
+- 所有小于 `x` 的节点都出现在 大于或等于 `x` 的节点之前。
+```
+head = [1,4,3,2,5,2], x = 3
+所以3後面的兩個2，要移到3前面
+4跟5不用動
+```
+- 建立兩個指標small_dummy跟big_dummy，去把原資料拆開。
+```cpp
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        // 建立兩個空節點跟各自指針
+        ListNode *smallDummy = new ListNode(0);
+        ListNode *bigDummy = new ListNode(0);
+        ListNode *small = smallDummy;
+        ListNode *big = bigDummy;
+        // 開始跑原本迴圈
+        while(head != nullptr){
+            if(head->val<x){
+                small->next = head;
+                small = small->next;
+            }else{
+                big->next = head;
+                big = big->next;
+            }
+            head = head->next;
+        }
+        // 區分成兩條後
+        // 小的尾吧->大的頭
+        small->next = bigDummy->next;
+        // 大的尾吧皆nullptr
+        big->next = nullptr;
+        return smallDummy->next;
+    }
+};
+```
+
+
+
+
+### 0.12. 234.Palindrome Linked List
+- 檢查Linked List484由回文組成
+- 先找到中間的那個節點 => 快慢指針
+
+
+

@@ -1,4 +1,4 @@
-// TODO: ±N¸ô®|¤¤ªº¨C­Ó¤l¸ê®Æ§¨¦WºÙ©â¥X
+// TODO: åˆ‡å‰²å­—ä¸²
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,13 +8,16 @@ int main(void){
     char *start = pathname;
     char file[12][10];
     int fileCount = 0;
-    // NOTE: strtok¥Îªk
-    const char delimeters[] = "/";
+    // NOTE: strtokç”¨æ³•
+    const char delimeters[] = "/"; 
+    // const char delimeters = '/';  // å¦‚æœåªæœ‰ä¸€å€‹
+    // const char delimeters[] = "/*!";  // å¦‚æœæœ‰å¤šå€‹åˆ‡å­—å…ƒ
+    
     start = strtok(start, delimeters);
     while (start != NULL) {
         strcpy(file[fileCount], start);
         fileCount++;
-        start = strtok(NULL, delimeters); // ±q¤W¦¸°±¤U¨Óªº¦a¤èÄ~Äò§ä
+        start = strtok(NULL, delimeters); // å¾ä¸Šæ¬¡åœä¸‹ä¾†çš„åœ°æ–¹ç¹¼çºŒæ‰¾
     }
     for (int i = 0; i < fileCount; i++){
         printf("%s\n", file[i]);
@@ -22,15 +25,8 @@ int main(void){
     return 0;
 }
 
-// ¿é¥X
+// è¼¸å‡º
 // user
 // local
 // bin
 // tt
-
-void printArray(int a[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("a[%d] = %d (Address: %p)\n", i, a[i], (void*)&a[i]);
-    }
-    printf("\n");
-}
