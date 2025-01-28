@@ -1665,6 +1665,257 @@ char *strtok(char *string, delimeters);
 
 -   [切割字串](./strchr/strtok.c)
 
+## 宣告修飾
+
+### 輸出各整數類別位元小
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void){
+    printf("sizeof(short int) = %ld\n",sizeof(short int));
+    printf("sizeof(int) = %ld\n",	 sizeof(int));
+    printf("sizeof(long) = %ld\n",	 sizeof(long));
+    printf("sizeof(long int) = %ld\n",	 sizeof(long int));
+    printf("sizeof(long long int) = %ld\n", 	 sizeof(long long int));
+    return 0;
+}
+
+// 輸出
+// sizeof(short int) = 2
+// sizeof(int) = 4
+// sizeof(long) = 4
+// sizeof(long int) = 4
+// sizeof(long long int) = 8
+```
+
+### C99 有號數
+
+-   解決了不同平台上整數大小不一致的問題
+
+```c
+#include <stdint.h>
+
+
+int main(void){
+    printf("sizeof(uint8_t) = %ld\n",	 sizeof(uint8_t));
+    printf("sizeof(uint16_t) = %ld\n",	 sizeof(uint16_t));
+    printf("sizeof(uint32_t) = %ld\n",	 sizeof(uint32_t));
+    printf("sizeof(uint64_t) = %ld\n", 	 sizeof(uint64_t));
+    printf("UINT8_MAX = %u\n", UINT8_MAX);
+    printf("UINT16_MAX = %u\n", UINT16_MAX);
+    printf("UINT32_MAX = %u\n", UINT32_MAX);
+    printf("UINT64_MAX = %lu\n", UINT64_MAX);
+    return 0;
+}
+
+// 輸出
+// sizeof(short int) = 2
+// sizeof(int) = 4
+// sizeof(long) = 4
+// sizeof(long int) = 4
+// sizeof(long long int) = 8
+// INT8_MIN = -128 INT8_MAX = 127
+// INT16_MIN = -32768 INT16_MAX = 32767
+// INT32_MIN = -2147483648 INT32_MAX = 2147483647
+// INT64_MIN = 0
+// INT64_MAX = -2147483648
+```
+
+### C99 無號數
+
+```c
+#include <stdint.h>
+
+
+int main(void){
+    printf("sizeof(uint8_t) = %ld\n",	 sizeof(uint8_t));
+    printf("sizeof(uint16_t) = %ld\n",	 sizeof(uint16_t));
+    printf("sizeof(uint32_t) = %ld\n",	 sizeof(uint32_t));
+    printf("sizeof(uint64_t) = %ld\n", 	 sizeof(uint64_t));
+    printf("UINT8_MAX = %u\n", UINT8_MAX);
+    printf("UINT16_MAX = %u\n", UINT16_MAX);
+    printf("UINT32_MAX = %u\n", UINT32_MAX);
+    printf("UINT64_MAX = %lu\n", UINT64_MAX);
+    return 0;
+}
+
+// 輸出
+// //sizeof(uint8_t) = 1
+// sizeof(uint16_t) = 2
+// sizeof(uint32_t) = 4
+// sizeof(uint64_t) = 8
+// UINT8_MAX = 255
+// UINT16_MAX = 65535
+// UINT32_MAX = 4294967295
+// UINT64_MAX = 4294967295t) = 8
+```
+
+### const 指標
+
+```
+int *ptrToInt = &i; ptrToInt 一個指向 int 型別變數的指標
+const int *ptrToConstInt = &i; 一個指向 const int 型別變數 的指標(可以用*區分) => 不能透過指標修改目標變數的值，但可以改變指標的指向
+int * const constPtrToInt = &i; 一個指向 int 的 常量指標 => 只能指向初始化時的地址，但可以透過指標修改目標變數的值
+```
+
+### static
+
+-   更改生命週期：從程式開始執行時初始化，一直存在於程式運行期間，直到程式結束才會被銷毀。
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+void foo(void){
+    int i = 0;
+    i++;
+    printf("foo: i = %d ", i);
+}
+void bar(void){
+    static int i = 0;
+    i++;
+    printf("bar: i = %d ", i);
+}
+
+
+int main(void){
+    for (int j = 0; j < 5; j++){
+        foo();
+    }
+    printf("\n");
+    for (int j = 0; j < 5; j++){
+        bar();
+    }
+    return 0;
+}
+
+// 輸出
+// foo: i = 1 foo: i = 1 foo: i = 1 foo: i = 1 foo: i = 1
+// bar: i = 1 bar: i = 2 bar: i = 3 bar: i = 4 bar: i = 5
+```
+
+## 結構(structuure)
+
+-   一名學生有以下資料：
+    -   name：string
+    -   student ID：string
+    -   phone：string
+    -   各學期平均成績：float[]
+    -   birth：3 個 int
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+struct student {
+    char name[10];
+    char id[20];
+    char phone[20];
+    float grade[4]; // 16
+    int birthYear, birthMonth, birthDay; // 12
+};
+
+int main(void){
+    struct student john;
+    printf("sizeof(john) = %ld\n", sizeof(john));
+    return 0;
+}
+```
+
+### 結構初始化
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+struct student {
+    char name[10];
+    char id[20];
+    char phone[20];
+    float grade[4]; // 16
+    int birthYear, birthMonth, birthDay; // 12
+};
+
+int main(void){
+    struct student john = {
+        "John Smith",
+        "12345",
+        "1234567",
+        {4.0, 3.9, 3.8, 3.6},
+        2000, 1, 1
+    };
+    printf("name is %s\n", john.name);
+    printf("id is %d\n", john.id);
+    printf("phone is %s\n", john.phone);
+    printf("john.grade[0] is %f\n", john.grade[0]);
+    return 0;
+}
+```
+
+### 結構指標
+
+-   按照正常想法，如果要在結構指標取值，需要先使用星號取整個結構的值，在用結構的語法 => \*(ptr).id
+-   可以直接寫成 ptr->id
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+struct student {
+    char name[10];
+    char id[20];
+    char phone[20];
+    float grade[4]; // 16
+    int birthYear, birthMonth, birthDay; // 12
+};
+
+int main(void){
+    struct student john = {
+        "John",
+        "12345",
+        "1234567",
+        {4.0, 3.9, 3.8, 3.6},
+        2000, 1, 1
+    };
+    struct student *ptr = &john;
+    strcpy(ptr->phone, "00000"); // 使用 strncpy 複製字符串，避免超出邊界
+    printf("name is %s\n", ptr->name);
+    printf("phone is %s\n", ptr->phone);
+    return 0;
+}
+
+// 輸出
+// name is John
+// phone is 00000
+```
+
+-   [使用結構處理負數](./complex/complex01.c)
+-   [結構傳遞](./complex/complex02.c)
+
+### typedef
+
+-   結構在初是化實，要寫兩個英文字母，typedef 可以把它節和在一起
+-   [在結構中使用 typedef](./complex/complex03.c)
+
+### 結構標題檔
+
+-   [可以把結構用標題檔儲存](./complex/complex04.c)
+
+### 在結構中使用結構
+
+-   [在結構中使用結構](./complex/student01.c)
+
 ## 程式記憶體分段
 
 -   程式在執行時，會將記憶體劃分為不同的區域（分段）
@@ -1672,6 +1923,12 @@ char *strtok(char *string, delimeters);
 -   安全性：將程式碼與數據分離，防止數據被意外修改。
 -   效率：根據數據的特性（例如是否可修改、是否初始化）進行分類存儲，提高記憶體使用效率。
 -   管理方便：分段後，作業系統可以更輕鬆地管理記憶體，例如設置唯讀保護或動態分配記憶體。
+
+## recusion
+
+-   [遞迴費博那係數](./recusion/fib.c)
+-   [實作最大公因數](./recusion/gcd.c)
+-   [實作和內塔](./recusion/hanio.c)
 
 ### 常見的分段（Sections）
 
@@ -1695,6 +1952,38 @@ char *strtok(char *string, delimeters);
 -   通常是唯讀的，防止數據被修改。
 -   可以節省記憶體，因為相同的常量可能會被共享。
 -   `const char *str = "Hello, World!";  // 字串常量存儲在 .rodata 段`
+
+## 檔案處理
+
+-   開啟檔案方式
+
+```c
+#include <stdio.h>
+FILE *fp;
+fp = open(filename, option)
+
+fclose(fp); //關閉檔案
+
+// 開啟模式
+// r
+// w：
+// a：append
+```
+
+### 以字元處理檔案
+
+```c
+int fget(FILE *p)
+int fput(int c, FILE *p)
+```
+
+### 重複讀取字元到 EOF
+
+```c
+while((c=fget(fp))!=EOF){
+
+}
+```
 
 ### 分段在記憶體中的佈局(從低地址到高地址)
 

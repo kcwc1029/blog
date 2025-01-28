@@ -1,32 +1,33 @@
-// TODO: 將路徑中的每個子資料夾名稱抽出
+// TODO: 
+// 和內塔3種模式 A B C
+// 假設有n個盤子，
+// 將n-1個盤子，利用C當buffer，將A搬到B
+// 將1個盤子由A搬到C
+// 將n-1個盤子，利用A當buffer，將B搬到C
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int main(void){
-    char pathname[] = "/user/local/bin/tt";
-    char *start = pathname;
-    char file[12][10];
-    int fileCount = 0;
-    // NOTE: strtok用法
-    const char delimeters[] = "/";
-    start = strtok(start, delimeters);
-    while (start != NULL) {
-        strcpy(file[fileCount], start);
-        fileCount++;
-        start = strtok(NULL, delimeters); // 從上次停下來的地方繼續找
+void hanoi(int n, char src, char buffer, char dst){
+    if(n==1){
+        printf("from %c to %c\n", src, dst);
+    }else{
+        hanoi(n-1, src, dst, buffer);
+        printf("from %c to %c\n", src, dst);
+        hanoi(n-1, buffer, src, dst);
     }
-    for (int i = 0; i < fileCount; i++){
-        printf("%s\n", file[i]);
-    }
-    return 0;
 }
 
+int main(){
+    int n=4;
+    hanoi(n, 'A', 'B', 'C');
+    return 0;
+}
 // 輸出
-// user
-// local
-// bin
-// tt
+// name is John
+// grade is 4.000000
+// birthDay day is 29
 
 void printArray(int a[], int size) {
     for (int i = 0; i < size; i++) {
