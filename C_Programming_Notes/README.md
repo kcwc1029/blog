@@ -1973,8 +1973,8 @@ fclose(fp); //關閉檔案
 ### 以字元處理檔案
 
 ```c
-int fget(FILE *p)
-int fput(int c, FILE *p)
+int fget(FILE *p) // 讀取字元並回傳
+int fput(int c, FILE *p) // 寫入(成功寫入的話也會回傳)
 ```
 
 ### 重複讀取字元到 EOF
@@ -1983,6 +1983,68 @@ int fput(int c, FILE *p)
 while((c=fget(fp))!=EOF){
 
 }
+```
+
+-   [文字覆蓋範例](./file/file01.c)
+-   [文字添加範例](./file/file02.c)
+-   [文字讀寫範例](./file/file03.c)
+
+### 以行處理檔案
+
+```c
+int fgets(char *string, int num, FILE *p) // 讀取一行並回傳
+int fputs(const char *string, FILE *p) // 寫入(成功寫入的話也會回傳)
+
+// 使用fgets讀檔
+#define STRINGLEN 128
+char string[STRINGLEN];
+
+while(fgets(string, STRINGLEN, fp)!=NULL){
+    // ...
+}
+```
+
+-   [以 fput 逐行寫入，在逐行讀取](./file/file04.c)
+
+### 以格式處理檔案
+
+```c
+int fprintf(FILE *fp, const char *format, ...);
+int fscanf(FILE *fp, const char *format, ...);
+```
+
+-   [使用 fprintf，fscanf 讀寫檔案](./file/file05.c)
+
+### 二進制檔案處理
+
+-   [文字與二進制差別](./file/file06.c)
+
+### 緩衝區為主的輸出入
+
+-   緩衝區(buffer)是一塊記憶體，用來暫存數據，避免每次寫入或讀取文件時都直接操作磁碟，提升效率。
+
+```c
+int fread(void *buffer, int size, int n, FILE *fp);
+// fread以二進制的方式，由fp連結的檔案中讀取n筆資料，每筆資料大小為size
+// 這些資料由檔案讀到buffer
+
+int fwrite(const void *buffer, int size, int n, FILE *fp);
+// fwrite以二進制的方式將n筆資料大小為size的資料從buffer寫到檔案
+```
+
+-   [使用 fread，fwrite](./file/file07.c)
+-   [將 struct 取操作](./file/file08.c)
+
+### fseek 移動讀寫位置
+
+```c
+int fseek(FILE *fp, long int offset, int base);
+// 將讀寫位置跳到offset及base所指示的位置
+// offset 是以byte為單位
+// base可分為3種：
+//  SEEK_SET：從檔案開頭開始計算位移量 offset
+//  SEEK_CUR：從目前檔案指標位置開始計算位移量 offset
+//  SEEK_END：從檔案結尾開始計算位移量 offset
 ```
 
 ### 分段在記憶體中的佈局(從低地址到高地址)

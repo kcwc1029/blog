@@ -1,4 +1,3 @@
-// TODO: 
 #include <stdio.h>
 #define NAMELEN 20
 #define PHONENUM 10
@@ -14,7 +13,7 @@ typedef struct student {
     int day;
 } Student;
 
-// TODO: ¶Ç¤J¤@­Ó Student µ²ºcªº«ü¼Ğ¡A±N¨ä¦UÄæ¦ì¦L¥X
+// TODO: å‚³å…¥ä¸€å€‹ Student çµæ§‹çš„æŒ‡æ¨™ï¼Œå°‡å…¶å„æ¬„ä½å°å‡º
 void printStudent(Student *s){
     puts(s->name);
     printf("id = %d\n", s->id);
@@ -22,17 +21,17 @@ void printStudent(Student *s){
     printf("%d %d %d\n", s->year, s->month, s->day);    
 }
 
-// TODO: ¥H¤å¦r/¤G¶i¨îÅªÀÉ
+// TODO: ä»¥æ–‡å­—/äºŒé€²åˆ¶è®€æª”
 void dumpFile(char *filename, char *mode){
-    // TODO: ¥H«ü©w¼Ò¦¡¶}±ÒÀÉ®×
+    // TODO: ä»¥æŒ‡å®šæ¨¡å¼é–‹å•Ÿæª”æ¡ˆ
     FILE *fp = fopen(filename, mode);
-    // TODO: Åª¨úÀÉ®×
-    int c; // ¥Î¨Ó¦s©ñÅª¨ú¨ìªº¦r¤¸ (¥H int Àx¦s¦³§U©ó§PÂ_ EOF)
-    int count = 0; // ¥Î¨Ó­pºâÅª¨ì¦h¤Ö Bytes
+    // TODO: è®€å–æª”æ¡ˆ
+    int c; // ç”¨ä¾†å­˜æ”¾è®€å–åˆ°çš„å­—å…ƒ (ä»¥ int å„²å­˜æœ‰åŠ©æ–¼åˆ¤æ–· EOF)
+    int count = 0; // ç”¨ä¾†è¨ˆç®—è®€åˆ°å¤šå°‘ Bytes
     while ((c = fgetc(fp)) != EOF){
-        printf("%02x ", c); // 16¶i¦ì¿é¥X¡A¼e«×2¦ì¼Æ
+        printf("%02x ", c); // 16é€²ä½è¼¸å‡ºï¼Œå¯¬åº¦2ä½æ•¸
         count++;
-        // Åªº¡ 8 Bytes (¦r¤¸) «á´N´«¦æ¤@¦¸
+        // è®€æ»¿ 8 Bytes (å­—å…ƒ) å¾Œå°±æ›è¡Œä¸€æ¬¡
         if (count % 16 == 0){
             putchar('\n');
         }
@@ -51,11 +50,11 @@ int main(void){
 
 
     FILE *fp = fopen("file", "wb");
-    fwrite(a, sizeof(Student), 2, fp); // °}¦C a ¦³ 2 ­Ó Student µ²ºc¤¸¯À
+    fwrite(a, sizeof(Student), 2, fp); // é™£åˆ— a æœ‰ 2 å€‹ Student çµæ§‹å…ƒç´ 
     fclose(fp);
 
     fp = fopen("file", "rb");
-    fread(b, sizeof(Student), 2, fp); // °}¦C b ¦³ 2 ­Ó Student µ²ºc¤¸¯À
+    fread(b, sizeof(Student), 2, fp); // é™£åˆ— b æœ‰ 2 å€‹ Student çµæ§‹å…ƒç´ 
     fclose(fp);
 
     for (int i = 0; i < 2; i++){
@@ -64,7 +63,7 @@ int main(void){
     dumpFile("file", "rb");
     return 0;
 }
-// ¿é¥X
+// è¼¸å‡º
 // John Smith
 // id = 12345
 // grade = 3.000000 3.000000 3.000000 3.000000
@@ -84,12 +83,3 @@ int main(void){
 
 // there are 128 bytes
 // file name: file
-
-
-
-void printArray(int a[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("a[%d] = %d (Address: %p)\n", i, a[i], (void*)&a[i]);
-    }
-    printf("\n");
-}
