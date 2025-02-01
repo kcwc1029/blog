@@ -23,6 +23,8 @@
 		"cmath": "cpp",
 		"chrono": "cpp",
 		"stdlib.h": "c",
-		"date.h": "c"
+		"date.h": "c",
+		"string.h": "c",
+		"typeinfo": "c"
 	}
 }
