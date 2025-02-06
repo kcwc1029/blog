@@ -25,6 +25,7 @@
 		"stdlib.h": "c",
 		"date.h": "c",
 		"string.h": "c",
-		"typeinfo": "c"
+		"typeinfo": "c",
+		"stdio.h": "c"
 	}
 }
