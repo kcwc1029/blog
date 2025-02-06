@@ -2047,7 +2047,143 @@ int fseek(FILE *fp, long int offset, int base);
 //  SEEK_END：從檔案結尾開始計算位移量 offset
 ```
 
-### 分段在記憶體中的佈局(從低地址到高地址)
+-   [使用 fseek 操作檔案](./file/file09.c)
+
+### EOF 測試
+
+-   前面都是使用 fget 去檢查回傳質是否為 EOF，其實 stdio.h 也有專門測試 EOF 的函數
+-   EOF 是一種狀態，而非一種字元
+
+```c
+int feof(FILE *fp)
+
+// 讀取檢查
+int c = fget(fp);
+while(!feof(fp)){
+    // ...
+    c = fget(fp);
+}
+```
+
+## 動態記憶體配置
+
+-   malloc：跟系統要記憶體
+-   free：還系統記憶體
+
+```c
+#include <stdlib>
+void *malloc(int size);
+void free(void *ptr);
+```
+
+-   [跟系統要求一個 int 的記憶體空間](./dynamic%20memory/malloc01.c)
+-   [跟系統要求一個結構的記憶體空間](./dynamic%20memory/malloc02.c)
+
+## LinkList(可以用力扣去說明)
+
+-   節點概念
+
+```c
+typedef struct listNode{
+    int data;
+    struct listNode *next;
+}ListNode;
+```
+
+-   [建立 listNode](./LinkList/create_node.c)
+-   [遍歷 listNode](./LinkList/traverse_node.c)
+
+## 前置處理
+
+### #include
+
+### #define
+
+### 條件編譯(#if)
+
+```c
+#define DEBUG_LEVEL 4
+
+#if DEBUG_LEVEL==3
+執行...
+#endif
+
+#if DEBUG_LEVEL==4
+執行...
+#endif
+```
+
+-   有時候我們需要修改 DEBUG_LEVEL 的值，但又不想到檔案內修改，可以使用命令行去修改
+
+```
+gcc -DEBUG_LEVEL=8 program.c
+```
+
+-   但這樣會有重複定義的問題，因此程式碼可以修改成
+
+```c
+#ifndef DEBUG_LEVEL
+#define DEBUG_LEVEL 4
+執行...
+#endif
+```
+
+### `__LINE__ __FILE__`
+
+-   取得當前程式碼的行號和檔案名
+
+```
+__LINE__	取得當前行號（整數）
+__FILE__	取得當前檔案名稱（字串）
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("這行是第 %d 行，檔案名稱是 %s\n", __LINE__, __FILE__);
+    return 0;
+}
+// 輸出
+// 這行是第 4 行，檔案名稱是 .\test.c
+```
+
+## C standard library (stdlib)
+
+### 排序：qsort
+
+```c
+void qsort(void *base, int num, int size, int(*compare)(const void*, const void*))
+```
+
+-   [qsort](./Stdlib/qsort.c)
+-   [qsort 排序日期](./Stdlib/qsort_date.c)
+-   [qsort 排序字串陣列](./Stdlib/qsort_string.c)
+-   [以 1 的個數做排序](./Stdlib/qsort_1bit.c)
+
+### 字串轉換函數：
+
+```
+atoi(const char *str)：string to int
+atol(const char *str)：string to long
+atof(const char *str)：string to float
+strtol(const char *str, char **ptr, int base)：字串依照基底轉換為長整數
+```
+
+-   [字串轉數值](./Stdlib/stdlib_conversion.c)
+
+### 產生隨機數：
+
+```c
+#include <time.h>
+
+void srand(unsigned int seed); // 設定隨機數產生器的種子
+int rand(void); // 產生一個範圍在 0 到 RAND_MAX 之間的隨機整數
+```
+
+-   [隨機數](./Stdlib/rand.c)
+
+## 分段在記憶體中的佈局(從低地址到高地址)
 
 -   .text 段：存儲程式碼。
 -   .rodata 段：存儲唯讀數據。
@@ -2055,6 +2191,18 @@ int fseek(FILE *fp, long int offset, int base);
 -   .bss 段：存儲未初始化的全局變數。
 -   Heap（堆）：用於動態記憶體分配（例如 malloc）。
 -   Stack（堆疊）：用於存儲區域變數和函數調用信息。
+
+## C 語言的命令列參數（Command Line Arguments）
+
+```
+int main(int argc, char *argv[])
+// argc：參數的個數（包含程式本身）
+// *argv[]：參數的陣列
+```
+
+-   [列出命令列參數](./Command_Line_Arguments/print_command_line.c)
+-   [轉換數值](./Command_Line_Arguments/command_line_change.c)
+-   [使用 strtol() 處理進階數字轉換](./Command_Line_Arguments/command_line_strtol.c)
 
 ## 5. GPT 給的學習關鍵字
 

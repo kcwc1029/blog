@@ -13,15 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "作業系統/作業系統.md",
+                "file": "計算機結構組織/計算機結構.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "作業系統"
+              "title": "計算機結構"
+            }
+          },
+          {
+            "id": "83e919be9237c5c2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -40,7 +53,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "檔案瀏覽器"
@@ -137,10 +151,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "作業系統/作業系統.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "作業系統 的大綱"
+              "title": "大綱"
             }
           }
         ],
@@ -160,19 +176,21 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "3fa6783af230dcf5",
+  "active": "83e919be9237c5c2",
   "lastOpenFiles": [
-    "C_Programming_Notes/file/file08.c",
-    "C_Programming_Notes/file/file07.c",
-    "c++/file",
-    "C_Programming_Notes/file/file06.c",
-    "c++/text",
-    "c++/binary",
-    "C_Programming_Notes/file/file05.c",
-    "C_Programming_Notes/file/file04.c",
-    "c++/output.txt",
-    "C_Programming_Notes/file/file03.c",
-    "C_Programming_Notes/file/file02.c",
+    "作業系統/作業系統.md",
+    "計算機結構組織/計算機結構.md",
+    "STM32/MCU1/test/test.ioc",
+    "STM32/MCU1/test",
+    "STM32/MCU1/hello/hello.launch",
+    "STM32/MCU1/hello/Debug/hello.list",
+    "STM32/MCU1/hello/Debug/hello.elf",
+    "STM32/MCU1/hello/Debug/hello.map",
+    "STM32/MCU1/hello/Debug/Src/syscalls.o",
+    "STM32/MCU1/hello/Debug/Src/sysmem.o",
+    "STM32/MCU1/hello/Debug/Src/syscalls.d",
+    "STM32/MCU1/hello/Debug/Src/main.o",
+    "STM32/Foundation course on Embedded C programming using STM32 Microcontroller/Embedded-C/README.md",
     "D1mini(ESP8266)/README.md",
     "c++/leetcode題目/數組.md",
     "C_Programming_Notes/README.md",
@@ -188,7 +206,6 @@
     "c++/【00全部整理】.md",
     "c++/(補充)自己寫的/運算式、運算子、if、while.md",
     "c++/【01 Introduction to C Programming】.md",
-    "作業系統/作業系統.md",
     "c++/(補充)自己寫的/01資料A型態、變數、常數.md",
     "STM32/ARM Cortex/README.md",
     "c sharp/README.md",
@@ -197,7 +214,6 @@
     "C&C++/C Programming For Beginners/C455.md",
     "README.md",
     "C&C++/C Programming For Beginners/c.md",
-    "ubuntu/Linux Training 2024/README.md",
     "D1mini(ESP8266)/MP32410_examples/ch05/temp/ball0.jpg",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/@vue/cli-service/generator/template/src/assets/logo.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_world.png",
