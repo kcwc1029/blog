@@ -20,18 +20,6 @@
               "icon": "lucide-file",
               "title": "作業系統"
             }
-          },
-          {
-            "id": "e6f2ba09cb23652f",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "作業系統/os.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "os"
-            }
           }
         ]
       }
@@ -178,9 +166,11 @@
   },
   "active": "3fa6783af230dcf5",
   "lastOpenFiles": [
-    "作業系統/os.pdf",
-    "作業系統/作業系統.md",
     "計算機結構組織/co.pdf",
+    "計算機結構組織/co_compressed.pdf",
+    "作業系統/os.pdf",
+    "作業系統/os_compressed.pdf",
+    "作業系統/作業系統.md",
     "計算機結構組織/計算機結構v2.md",
     "2025就業博覽會_彥賀ver.pdf",
     "2025就業博覽會.md",
@@ -210,7 +200,6 @@
     "Docker/Nodejs App Start Setup/node_modules/type-is/README.md",
     "Docker/Nodejs App Start Setup/Dockerfile",
     "Docker/Nodejs App Start Setup/node_modules/debug/src/node.js",
-    "Docker/Nodejs App Start Setup/node_modules/debug/src/index.js",
     "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/README.md",
     "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/CHANGELOG.md",
     "Docker/Nodejs App Start Setup/node_modules/express/History.md",
