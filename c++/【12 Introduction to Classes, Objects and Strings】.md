@@ -1,7 +1,7 @@
-## Defining a Class with a Member Function
+## 1. Defining a Class with a Member Function
 - 類別是一種藍圖，用來設計物件(Object)的結構和功能。
 - 可以想像成「模型」，例如 GradeBook 是「課程成績簿」的設計藍圖。
-### 類別的基本結構
+### 1.1. 類別的基本結構
 - 類別名稱：
 	- 使用 class 關鍵字來定義類別，後接類別名稱。
 	- 類別名稱的命名建議首字母大寫，使用 Pascal 命名法 (例：GradeBook)。
@@ -18,7 +18,7 @@ public:
 }; // 類別結尾記得加分號
 ```
 
-### 如何使用類別與物件
+### 1.2. 如何使用類別與物件
 - 建立類別物件
 ```c
 // 類別名稱 物件名稱
@@ -29,7 +29,7 @@ GradeBook myGradeBook; // 建立一個 GradeBook 的物件
 // 使用「物件名稱 + . + 函式名稱」的方式呼叫。
 myGradeBook.displayMessage(); // 呼叫 displayMessage 函式
 ```
-### 完整範例
+### 1.3. 完整範例
 ```c
 #include <iostream>
 using namespace std;
@@ -48,12 +48,12 @@ int main() {
     return 0;
 }
 ```
-## Defining a Member Function with a Parameter
-### 什麼是函式的參數？
+## 2. Defining a Member Function with a Parameter
+### 2.1. 什麼是函式的參數？
 - 參數是提供給函式的額外資訊，幫助函式完成任務。
 - 當我們呼叫函式時，傳入的值稱為「引數 (argument)」。
 - 舉例：你點外賣時，告訴店家「我要加起司」，這就是「參數」。
-### 用參數改變函式行為
+### 2.2. 用參數改變函式行為
 ```c
 // 函式沒有參數：固定輸出訊息。
 void displayMessage() {
@@ -66,7 +66,7 @@ void displayMessage(string courseName) {
 }
 ```
 
-### 實際案例：用參數自訂歡迎訊息
+### 2.3. 實際案例：用參數自訂歡迎訊息
 ```c
 #include <iostream>
 #include <string>
@@ -91,20 +91,20 @@ int main() {
     return 0;
 }
 ```
-## Data Members, set Member Functions and get Member Functions
-### 什麼是資料成員？
+## 3. Data Members, set Member Functions and get Member Functions
+### 3.1. 什麼是資料成員？
 - 資料成員是類別內的變數，用來儲存物件的屬性。
 - 每個物件都擁有自己的資料成員，像是一個獨立的存放區。
 - 範例：  `string courseName;` 是一個資料成員，用來記錄課程名稱。
-### 為什麼需要資料成員？
+### 3.2. 為什麼需要資料成員？
 - 資料儲存：幫助物件記住自己的狀態。例：`courseName` 可以記住課程名稱。
 - 封裝資料：透過「隱藏內部細節」提升安全性，避免資料被外部程式隨意更改。
-### 封裝 (Encapsulation) 
+### 3.3. 封裝 (Encapsulation) 
 - 封裝：資料成員通常設定為 `private`，避免外部程式直接存取。
 - 如何操作資料成員？
     - 使用「`set` 成員函式」來修改值。
     - 使用「`get` 成員函式」來取得值。
-### set 函式
+### 3.4. set 函式
 - 負責修改資料成員的值。
 - 又稱 Mutator (修改器)。
 ```c
@@ -112,14 +112,14 @@ void setCourseName(string name){
 	courseName = name; 
 }
 ```
-### `get` 函式
+### 3.5. `get` 函式
 - 用於取得資料成員的值 (也稱為 Accessor)。
 ```c
 string getCourseName() const {
 	return courseName; 
 }
 ```
-### 完整範例：設置與取得課程名稱
+### 3.6. 完整範例：設置與取得課程名稱
 ```c
 // 定義類別：`GradeBook`
 // 包含資料成員 `courseName`。
@@ -149,11 +149,11 @@ public:
     }
 };
 ```
-## Class Scope and Accessing Class Members 
-### 類別範疇 (Class Scope)
+## 4. Class Scope and Accessing Class Members 
+### 4.1. 類別範疇 (Class Scope)
 - 資料成員 和 成員函式 屬於類別的範疇，能直接互相存取。
 - 非成員函式預設定義在全域範疇 (Global Scope)。
-#### 內部存取 (Inline Access)
+#### 4.1.1. 內部存取 (Inline Access)
 ```c
 #include <iostream>
 using namespace std;
@@ -176,7 +176,7 @@ int main() {
 Balance: 100
 */
 ```
-#### 外部存取 (External Access)
+#### 4.1.2. 外部存取 (External Access)
 - 成員函式的定義在類別外部，只在類別內提供函式的原型 (宣告)。
 - 需要使用 範疇解析運算符 (::) 指定函式所屬的類別。
 - 適合更複雜或較長的函式實作，讓類別定義保持簡潔。
@@ -212,7 +212,7 @@ int main() {
 Balance: 200
 */
 ```
-## Initializing Objects with Constructors
+## 5. Initializing Objects with Constructors
 - 建構函式是一種特殊的成員函式，用於在**物件建立時自動執行**，幫助物件初始化。
 - 特點：
 	- 名稱必須與類別相同。
@@ -221,7 +221,7 @@ Balance: 200
 - 建構函式的用途
 	- 物件初始化：在物件創建時自動設定屬性的初始值。
 	- 簡化程式碼：避免額外的設定步驟。
-### 基本結構
+### 5.1. 基本結構
 ```c
 class 類別名稱 {
 public:
@@ -255,7 +255,7 @@ int main() {
     return 0;
 }
 ```
-### 初始化列表 (Member Initializer List)
+### 5.2. 初始化列表 (Member Initializer List)
 - 是一種簡化的語法，讓資料成員在建構函式執行前初始化。
 - 為什麼使用初始化列表：提升執行效率，避免重複操作。
 - 不使用初始化列表：
@@ -270,7 +270,7 @@ GradeBook(string name) : courseName(name) {} // 初始化列表
 // 在物件建立時，`courseName` 直接被初始化為 `name`。
 // 不需要經過「先建構、再指派」的步驟。
 ```
-#### 必須使用初始化列表的情況
+#### 5.2.1. 必須使用初始化列表的情況
 - 常數成員 (`const`)：常數成員必須在初始化列表中設定，因為無法在建構函式內指派。
 ```c
 class Example {
@@ -302,7 +302,7 @@ public:
 };
 ```
 
-#### 完整範例：有與沒有初始化列表的比較
+#### 5.2.2. 完整範例：有與沒有初始化列表的比較
 ```c
 #include <iostream>
 #include <string>
@@ -345,7 +345,7 @@ int main() {
     return 0;
 }
 ```
-### 預設建構函式 (Default Constructor)
+### 5.3. 預設建構函式 (Default Constructor)
 - 無參數的建構函式，用於初始化資料成員為預設值。
 - 如果類別未定義任何建構函式，編譯器會自動生成一個空的預設建構函式。
 ```c
@@ -369,7 +369,7 @@ int main() {
     return 0;
 }
 ```
-## Destructors(解構子)
+## 6. Destructors(解構子)
 - 解構函式名稱為 類別名稱前加上波浪號 (~)。
 - 用於執行物件銷毀前的收尾工作 (例如釋放資源)。
 - 不接收參數，不回傳任何值，也不能指定回傳型別 (連 void 都不允許)。
@@ -379,14 +379,14 @@ public:
     ~Example(); // 解構函式
 };
 ```
-### 解構函式的功能
+### 6.1. 解構函式的功能
 - 內存管理：
 	- 解構函式本身不釋放物件的記憶體，僅執行收尾工作。
 	- 物件記憶體的真正釋放由系統完成。
 - 資源釋放：
 	- 用於釋放分配的動態記憶體 (如 new 配對 delete)。
 	- 關閉檔案、釋放網路連線或其他外部資源。
-### 解構函式範例
+### 6.2. 解構函式範例
 ```c
 #include <iostream>
 using namespace std;
@@ -407,14 +407,14 @@ int main() {
     return 0;
 }
 ```
-## When Constructors and Destructors Are Called
+## 7. When Constructors and Destructors Are Called
 - 隱式呼叫：
 	- 建構函式：當物件被建立時自動呼叫。
 	- 解構函式：當物件超出作用域或程式終止時自動呼叫。
 - 呼叫順序：
 	- 建構函式按物件建立順序執行。
 	- 解構函式按建構函式相反順序執行（即後建構的物件先解構）。
-### 不同範圍的建構與解構行為
+### 7.1. 不同範圍的建構與解構行為
 - 全域範圍的物件：
 	- 建構函式在 main 函式執行前呼叫。
 	- 解構函式在 main 結束後呼叫。
@@ -426,14 +426,14 @@ int main() {
 	- 建構函式僅在第一次執行到物件定義處時呼叫。
 	- 解構函式在 main 結束時或程式呼叫 exit 時執行。
 	- 若程式直接使用 abort 終止，則不呼叫靜態物件的解構函式。
-### 程式中止的影響
+### 7.2. 程式中止的影響
 - exit 函式：
 	- 立即結束程式。
 	- 不會呼叫區域物件的解構函式，但仍會呼叫全域與靜態物件的解構函式。
 - abort 函式：
 	- 強制結束程式。
 	- 不呼叫任何物件的解構函式。
-### 範例
+### 7.3. 範例
 - 定義類別 CreateAndDestroy結構
 ```c
 // CreateAndDestroy.h
@@ -540,12 +540,12 @@ Object 3  destructor runs  (local static in main)
 Object 1  destructor runs  (global before main)
 */
 ```
-## Placing a Class in a Separate File for Reusability
-### 為什麼要把類別分離至標頭檔？
+## 8. Placing a Class in a Separate File for Reusability
+### 8.1. 為什麼要把類別分離至標頭檔？
 - 重用性：將類別寫在標頭檔 (.h)，其他程式可以用 #include 指令快速重用。
 - 清楚的結構：主程式的邏輯和類別定義分開，讓程式更容易閱讀與維護。
 - 工程開發標準：大型專案中，類別通常會分為 .h（定義）和 .cpp（實作）。
-### 隱式轉換是什麼
+### 8.2. 隱式轉換是什麼
 - 隱式轉換（Implicit Conversion），也稱為**型別自動轉換**，是 C++ 編譯器自動將一種資料型別轉換為另一種相容型別的過程。
 - 例如：整數轉換為浮點數、較小型別轉換為較大型別。這個過程不需要程式設計師明確指定，編譯器會自動完成。
 ```c
@@ -561,7 +561,7 @@ int asciiValue = c; // 隱式轉換：將字元 'A' 轉換為其 ASCII 值 65
 	- 精度損失
 	- 數值溢位
 	- 語意不清
-#### 如何避免隱式轉換： 
+#### 8.2.1. 如何避免隱式轉換： 
 - 使用 explicit 關鍵字
 ```c
 class GradeBook {
@@ -578,8 +578,8 @@ GradeBook gb2("CS101");  // 正確：明確呼叫建構函式
 ```c
 double result = static_cast<double>(5) / 2; // 明確地將整數轉換為浮點數
 ```
-### 基本分離結構
-#### 標頭檔 (`GradeBook.h`)
+### 8.3. 基本分離結構
+#### 8.3.1. 標頭檔 (`GradeBook.h`)
 - 放類別定義和函式的宣告，不包含具體的函式內容
 ```c
 #include <string> // 提供 std::string 類別
@@ -595,7 +595,7 @@ private:
     std::string courseName;              // 資料成員: 課程名稱
 };
 ```
-#### 實作檔 (GradeBook.cpp)
+#### 8.3.2. 實作檔 (GradeBook.cpp)
 ```c
 #include "GradeBook.h" // 導入標頭檔
 #include <iostream>
@@ -615,7 +615,7 @@ void GradeBook::displayMessage() const {
     cout << "Welcome to the course: " << getCourseName() << endl; // 顯示歡迎訊息
 }
 ```
-#### 主程式檔 (main.cpp)
+#### 8.3.3. 主程式檔 (main.cpp)
 ```c
 #include <iostream>
 #include "GradeBook.h" // 導入類別定義
@@ -630,10 +630,10 @@ int main() {
     return 0;
 }
 ```
-## Separating Interface from Implementation
+## 9. Separating Interface from Implementation
 ![upgit_20241129_1732859164.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2024/11/upgit_20241129_1732859164.png)
 
-### 介面與實作分離的概念
+### 9.1. 介面與實作分離的概念
 - 介面 (Interface)：
 	- 定義類別的公開成員函式 (Public Member Functions)，描述可用的功能及其使用方式。
 	- 位於 .h 標頭檔，僅包含函式原型 (Prototypes)。
@@ -643,7 +643,7 @@ int main() {
 - 目的：
 	- 提高程式的模組化與可讀性。
 	- 隱藏實作細節，減少客戶程式對類別內部的依賴。
-### 分離的結構與組件
+### 9.2. 分離的結構與組件
 - 標頭檔 (`GradeBook.h`)
 ```c
 // 定義類別的介面
@@ -703,8 +703,8 @@ int main() {
 }
 ```
 
-## Time Class Case Study
-### 定義class的結構：Time.h
+## 10. Time Class Case Study
+### 10.1. 定義class的結構：Time.h
 ```c
 #ifndef TIME_H // Include Guard：防止重複包含 header
 #define TIME_H
@@ -726,7 +726,7 @@ private:
 
 #endif
 ```
-### 負責class的實作 (implementation)：Time.cpp
+### 10.2. 負責class的實作 (implementation)：Time.cpp
 ```c
 #include <iostream>
 #include <iomanip>      // for std::setw and std::setfill(填充寬度與填充字元)
@@ -766,7 +766,7 @@ void Time::printStandard() const {
          << setw(2) << second << (hour < 12 ? " AM" : " PM");
 } // end function printStandard
 ```
-### 實例化class
+### 10.3. 實例化class
 ```c
 #include <iostream>
 #include <stdexcept>    // 用於處理 invalid_argument 例外
@@ -824,15 +824,15 @@ Universal time: 13:27:06
 Standard time: 1:27:06 PM
 */
 ```
-## friend Functions and friend Classes
-### friend 函數
+## 11. friend Functions and friend Classes
+### 11.1. friend 函數
 - 是一個非成員函數，但有權限訪問類別的公有與非公有成員。
 - 可以是獨立函數，也可以是其他類別的成員函數。
 - 限制與特性
 	- 授予友元權限：友元關係需要被授權，無法自行取得。
 	- 非對稱性：若類別 A 是類別 B 的 friend，B 不會自動成為 A 的 friend。
 	- 非傳遞性：若 A 是 B 的 friend，B 是 C 的 friend，則 A 不會自動成為 C 的 friend。
-#### friend 宣告
+#### 11.1.1. friend 宣告
 - 函數宣告
 ```c
 // 使用關鍵字 friend 修飾函數原型。
@@ -847,7 +847,7 @@ class ClassOne {
     friend class ClassTwo;
 };
 ```
-### 範例：使用 friend 函數修改私有成員
+### 11.2. 範例：使用 friend 函數修改私有成員
 ```c
 class Count {
     // 宣告並實作 friend 函數
@@ -869,7 +869,7 @@ int main() {
     return 0;
 }
 ```
-## Using the this Pointer
+## 12. Using the this Pointer
 - this 是一個指向物件自身的隱含指標。
 - 非靜態成員函數中，this 被編譯器作為隱式參數傳遞。
 - 不佔用物件本身的內存空間 (sizeof 不包含 this)。
@@ -881,7 +881,7 @@ void setHour(int hour) {
 }
 ```
 
-## static Class Members
+## 13. static Class Members
 - 用於共享類別中所有物件的單一變數，不屬於特定物件。
 - 表示全類別共用的資訊，而非每個物件特有的資料。
 - 不需物件即可呼叫，為類別提供服務，而非物件。
@@ -890,7 +890,7 @@ void setHour(int hour) {
 ```c
 unsigned int Employee::count = 0;
 ```
-### 範例
+### 13.1. 範例
 ```c
 #include <iostream>
 #include <string>

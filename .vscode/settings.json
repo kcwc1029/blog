@@ -26,6 +26,9 @@
 		"date.h": "c",
 		"string.h": "c",
 		"typeinfo": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"format": "cpp",
+		"xstring": "cpp",
+		"xutility": "cpp"
 	}
 }

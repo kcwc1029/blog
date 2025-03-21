@@ -20,6 +20,18 @@
               "icon": "lucide-file",
               "title": "作業系統"
             }
+          },
+          {
+            "id": "e6f2ba09cb23652f",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "作業系統/os.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "os"
+            }
           }
         ]
       }
@@ -78,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 312.5
   },
   "right": {
     "id": "8d7f124c8bc7eb67",
@@ -166,51 +178,50 @@
   },
   "active": "3fa6783af230dcf5",
   "lastOpenFiles": [
-    "README.md",
-    "c++/leetcode題目/數學.md",
-    "c++/leetcode題目/數組.md",
-    "c++/leetcode題目/linked-list.md",
-    "c++/leetcode題目/Backtracking.md",
-    "c++/leetcode題目/動態規劃(dynamic-programming).md",
-    "c++/leetcode題目/stack.md",
-    "c++/leetcode題目/預計排課.md",
-    "計算機結構組織/計算機結構.md",
-    "c++/leetcode題目/貪心.md",
-    "c++/leetcode題目/位運算.md",
-    "c++/leetcode題目/attachments/20241106_112148821_iOS.png",
-    "c++/leetcode題目/字串.md",
+    "作業系統/os.pdf",
     "作業系統/作業系統.md",
-    "STM32/MCU1/test/test.ioc",
-    "STM32/MCU1/test",
-    "STM32/MCU1/hello/hello.launch",
-    "STM32/MCU1/hello/Debug/hello.list",
-    "STM32/MCU1/hello/Debug/hello.elf",
-    "STM32/MCU1/hello/Debug/hello.map",
-    "STM32/MCU1/hello/Debug/Src/syscalls.o",
-    "STM32/MCU1/hello/Debug/Src/sysmem.o",
-    "STM32/MCU1/hello/Debug/Src/syscalls.d",
-    "STM32/MCU1/hello/Debug/Src/main.o",
-    "STM32/Foundation course on Embedded C programming using STM32 Microcontroller/Embedded-C/README.md",
-    "D1mini(ESP8266)/README.md",
-    "C_Programming_Notes/README.md",
-    "C_Programming_Notes/C_Programming_Notes.md",
-    "c++/C_Programming_Notes.md",
-    "c++/C Programming For Beginners/c(正確).md",
-    "c++/【全部整理】.md",
-    "c++/【00全部整理】.md",
-    "c++/(補充)自己寫的/運算式、運算子、if、while.md",
-    "c++/【01 Introduction to C Programming】.md",
-    "c++/(補充)自己寫的/01資料A型態、變數、常數.md",
-    "STM32/ARM Cortex/README.md",
-    "c sharp/README.md",
+    "計算機結構組織/co.pdf",
+    "計算機結構組織/計算機結構v2.md",
+    "2025就業博覽會_彥賀ver.pdf",
+    "2025就業博覽會.md",
+    "2025就業博爛會.txt",
+    "就業.txt",
+    "計算機結構組織/計算機結構v1.md",
+    "作業系統/attachments/Pasted image 20250310143833.png",
+    "作業系統/attachments/Pasted image 20250306220512.png",
+    "作業系統/attachments",
+    "未命名.md",
+    "README.md",
+    "作業系統/OS_DDrowio.drawio",
+    "Docker/README.md",
+    "c++/【12 Introduction to Classes, Objects and Strings】.md",
+    "Docker/Nodejs App Start Setup/node_modules/side-channel-list/CHANGELOG.md",
+    "Docker/Nodejs App Start Setup/node_modules/vary/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/iconv-lite/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/vary/HISTORY.md",
+    "Docker/Nodejs App Start Setup/node_modules/parseurl/HISTORY.md",
+    "Docker/Nodejs App Start Setup/node_modules/statuses/HISTORY.md",
+    "Docker/Nodejs App Start Setup/node_modules/side-channel/CHANGELOG.md",
+    "Docker/Nodejs App Start Setup/node_modules/toidentifier/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/side-channel/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/parseurl/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/statuses/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/ms/license.md",
+    "Docker/Nodejs App Start Setup/node_modules/type-is/README.md",
+    "Docker/Nodejs App Start Setup/Dockerfile",
+    "Docker/Nodejs App Start Setup/node_modules/debug/src/node.js",
+    "Docker/Nodejs App Start Setup/node_modules/debug/src/index.js",
+    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/README.md",
+    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/CHANGELOG.md",
+    "Docker/Nodejs App Start Setup/node_modules/express/History.md",
+    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/body-parser/README.md",
+    "c++/leetcode題目/attachments/20241106_112148821_iOS.png",
     "D1mini(ESP8266)/MP32410_examples/ch05/temp/ball0.jpg",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/@vue/cli-service/generator/template/src/assets/logo.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_world.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_word.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_zip.png",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_wrench.png",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_world.png",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_word.png",
-    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_width.png"
+    "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/serve-index/public/icons/page_white_world.png"
   ]
 }
