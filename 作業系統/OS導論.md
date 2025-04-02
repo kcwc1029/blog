@@ -1,0 +1,231 @@
+# computer system structure
+-   hardware：CPU、memory、IO
+-   OS
+-   application system：office、compiler、assembler
+-   user
+    組成
+
+## 1. Bare Machine & Extended Machine
+
+![upgit_20250331_1743397362.png|613x394](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743397362.png)
+
+## 2. OS 架構
+
+![upgit_20250331_1743398562.png|1084x428](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743398562.png)
+
+OS 之 interface：
+
+-   command interpreter(命令解譯器)：
+    -   形式：menu、command(text)、GUI
+-   system call：作為 user programs 與 OS 之間溝通
+
+## 3. 作業系統（Operating System, OS）之目的
+
+-   作為使用者與硬體之間的介面：提供一個介面讓使用者更容易操作電腦
+-   提供讓使用者程式容易執行的環境：提供抽象化、簡單的 API 環境
+-   作為資源分配者（Resource Allocator）：負責分配、協調所有資源（CPU、記憶體、I/O 裝置等）
+-   監管使用者程序的執行（Control Program）：保護系統與其他程式的安全，防止惡意或無意的錯誤操作
+
+## 4. Multiprogramming System（多重程式設計系統）
+
+定義：系統同時載入多個 processes，並行執行
+目的：提升 CPU 使用率（CPU utilization），避免 CPU idle
+方法：使用 CPU scheduling（排班）技術，讓 CPU 在多個 processes 之間快速切換（context switch）
+
+Multiprogramming Degree（多重程式度）
+
+-   定義：系統中「同時存在 並可能被執行」的 process 數量
+-   Degree 越高 → CPU 使用率越高
+-   但要注意 Thrashing（過度切換導致效能下降）
+
+processes 同時執行方式
+
+![upgit_20250331_1743399638.png|656x290](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743399638.png)
+
+## 5. Time-Sharing System（分時系統）
+
+是 multiprogramming 的 logical extension（邏輯延伸）
+最大差別
+
+-   CPU 切換不同工作的頻率更高
+-   讓每個使用者都覺得自己有互動式的操作體驗（interactive computing）
+    特徵（Features）：
+-   強調 user 的快速反應時間（response time）要短
+-   強調對每位使用者一律公平對待：無論使用者背景或需求皆有公平資源分配
+-   創造「每位使用者都認為擁有自己的電腦」的錯覺：事實上是共用系統，但感受如專屬電腦
+-   適合互動式應用程式（User Interactive Applications）：如：Windows、Unix、Linux、Solaris…等作業系統
+-   使用輪詢排班（Round Robin）：一種公平且常見的 CPU scheduling 策略
+-   使用虛擬記憶體（virtual memory）：每個使用者看似擁有自己的記憶體空間（logical memory）
+-   使用排程技術（spooling）：提升 I/O 裝置效率，支援佇列式操作
+
+### 5.1. Spooling 技術（Simultaneous Peripheral Operations On-Line）
+
+![upgit_20250331_1743400455.png|734x275](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743400455.png)
+
+定義：利用 磁碟（Disk）做為中介媒介，讓 CPU 可以同時處理多個工作（jobs）
+並實現 computation 與 I/O operations 的 重疊執行（overlay execution）
+特點：
+
+-   通常用於 I/O 裝置存取速度慢（如印表機）
+-   實現 多工執行（並行處理）：I/O & 計算同時進行
+    運作流程：
+-   CPU 將輸出資料（output data）寫入 spooling 區的暫存檔（spooling file）
+-   當 CPU 完成輸出工作，就可以繼續其他工作（不需等 I/O 完成）
+-   輸出裝置（例如印表機）再從 spooling 區取出資料進行輸出作業
+
+【補充】buffering
+![upgit_20250331_1743400517.png|676x334](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743400517.png)
+
+【比較】Spooling vs Buffering 的主要差異
+
+| 特徵         | **Spooling**                     | **Buffering**                  |
+| ------------ | -------------------------------- | ------------------------------ |
+|              | Spooling 管工作                  | Buffering 管資料               |
+| **儲存位置** | 基於 **磁碟（Disk）**            | 基於 **記憶體（Memory）**      |
+| **主要目的** | 管理**多個工作（Jobs）**         | 暫存**資料流（Data Stream）**  |
+| **用途情境** | 常用於**共享裝置**（如印表機）   | 常用於處理**I/O 裝置速度差異** |
+| **資源規模** | 可儲存**大量資料**（因為用磁碟） | **短期暫存**、容量小           |
+| **運作特性** | 支援**工作排隊**、作業分離       | 支援**資料暫存**、速度調整     |
+| **工作數量** | 同時處理**多個 Jobs**            | 一次通常針對**單一 Job**       |
+
+## 6. Multiprocessor System（多處理器系統）
+
+![upgit_20250331_1743400836.png|674x204](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743400836.png)
+
+又稱：Multiprocessing, Parallel System, Tightly-coupled System
+定義：指一部電腦內擁有多顆 CPU（或 processors）
+特徵：
+
+-   一台系統中有 多顆 CPU
+-   處理器 共享資源（memory, I/O devices, bus, etc.）
+-   共用一個 clock 控制時脈
+-   使用 同一作業系統
+-   多數採用 shared memory 結構（非分散式）
+    優點（Benefits）：
+-   Increased Throughput：多個 processes 可在不同 CPU 同時執行（平行運算）
+    -   但注意：n 顆 CPU 的效能 不等於 n 倍效能 => processor 間通訊開銷、資源競爭（例如同時爭搶 bus）
+-   Increased Reliability（可靠度提升）：
+    -   任一 processor 故障，其他仍可繼續工作
+    -   系統不會全面癱瘓 → 稱為 graceful degradation（漸進式退化）
+-   Economy of Scale（規模經濟）：多顆 CPU 共享系統資源，降低硬體成本（相較於多台單機）
+
+架構分類
+### 6.1. SMP（Symmetric Multiprocessors）對稱型
+
+-   每顆處理器功能一致，皆可獨立處理任務
+-   支援 Load Balancing（負載平衡）
+-   優點：OS 設計簡單（每顆 CPU 功能一致）、高 reliability、高 throughput
+
+### 6.2. ASMP（Asymmetric Multiprocessors）非對稱型
+
+-   處理器分工不同：Master-Slave 架構：Master CPU 負責控制與分派任務，Slave CPUs 負責執行
+-   缺點：
+    -   效能瓶頸集中在 Master 上
+    -   若 Master 故障，系統易癱瘓
+
+## 7. Multiprocessor System（多處理器系統）vs MultiCore CPU
+
+![upgit_20250331_1743401728.png|742x310](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743401728.png)
+
+## 8. Distributed System（分散式系統）
+
+![upgit_20250331_1743402172.png|741x359](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/03/upgit_20250331_1743402172.png)
+
+又稱 Loosely-coupled System（鬆散耦合）
+特徵（Features）
+
+-   每部機器 都有自己獨立的 Processor、Memory、Bus、I/O 等
+-   Processors 間的 時脈（Clock）不同步
+-   每個 Processor 的 OS 也不一定相同
+-   彼此透過網路（LAN, MAN, WAN）連接
+-   使用 Message Passing 溝通（不使用 shared memory）
+    優點
+-   高 reliability、高 throughput
+-   resource sharing：支援 client-server-model => 只要某些 server 擁有該能力(computing server、file serer、mail server)則其他 CP 共享即可
+-   communication needs：internet、email
+
+## 9. Real-Time System（即時系統）
+
+分為兩種：
+
+### 9.1. Hard Real-Time System（硬即時系統）
+
+定義：系統必須保證「關鍵任務」在確切時間內完成
+應用：飛機控制、核電廠監控、自駕車剎車系統等
+特性：
+
+-   所有任務皆有時間限制（Time Constraint）
+-   資料輸入 → 必須即時處理（data gathering, CPU 速度快, 演算法佳）
+-   使用嚴格排程策略，如：Monotonic（單調排程）、EDF（Earliest Deadline First）
+-   禁用虛擬記憶體、分頁機制（避免不可預測延遲）
+-   不等於 Time-sharing，不能讓任務被打斷太久
+
+![upgit_20250401_1743480937.png|780x236](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/04/upgit_20250401_1743480937.png)
+
+### 9.2. Soft Real-Time System（軟即時系統）
+
+定義：
+
+-   確保 real-time process 獲得最高優先權直到執行完畢
+-   雖然有時限，但允許偶爾錯過
+    應用：多媒體播放、虛擬實境（VR）、模擬系統
+    特性：
+-   使用 Preemptive Priority 排程，並避免 Aging（老化）
+-   依賴作業系統的 Kernel，需降低 Dispatch latency（排程延遲）
+-   可用虛擬記憶體，但實作時：
+    -   所有 real-time process 資料不可被換出到硬碟
+-   可與 Time-sharing 系統共存
+-   現代 OS 多支援 soft real-time（部分支援）
+
+## 10. Batch System（批次系統）
+
+定義：
+
+-   將一堆非急迫/具週期性工作集中處理，不需使用者互動
+-   執行效率高但無法即時回應需求
+    應用：統計分析、薪資計算、大型報表
+    不適用即時任務、也非 user-interactive
+
+## 11. Handheld System（手持式系統）
+
+定義：
+
+-   指 PDA、智慧型手機等裝置
+-   因硬體資源受限，導致軟體設計也必須受限制
+
+| **Hardware 限制** | **Software 設計要求**            |
+| ----------------- | -------------------------------- |
+| 處理器較慢        | 演算法要簡化，運算不能太密集     |
+| 記憶體空間有限    | 程式碼要精簡                     |
+| 螢幕顯示空間小    | 顯示介面要簡單精練（如網頁壓縮） |
+
+## 12. 【整理】 Multiprocessor vs Distributed 系統比較
+
+| 項目          | **Tightly-Coupled System**           | **Loosely-Coupled (Distributed) System** |
+| ------------- | ------------------------------------ | ---------------------------------------- |
+| 別名          | Multiprocessor System                | Distributed System（分散式）             |
+| 資源共用      | 共用 memory、bus 等                  | 各 CPU 各自有資源（獨立）                |
+| 時脈（Clock） | 共用同一個 clock                     | 不一定同步                               |
+| 作業系統      | 共用一套 OS                          | 多 OS 各自管理                           |
+| 通訊方式      | Shared memory                        | Message passing（透過網路）              |
+| 優點          | 高效能、可靠性高、規模經濟（成本低） | 支援資源共享、通訊彈性、擴充性好         |
+
+## 13. 【整理】 SMP vs ASMP 架構比較
+
+| 項目       | **SMP（對稱型）**              | **ASMP（非對稱型）**            |
+| ---------- | ------------------------------ | ------------------------------- |
+| 處理器能力 | 每個處理器能力相同，共享工作量 | 有主從架構，Master 分配工作     |
+| 設計複雜度 | OS 較難設計，但效能高          | OS 較易設計，但效能與可靠度較低 |
+| 代表性     | 較新系統普遍採用               | 常見於早期或嵌入式系統          |
+
+## 14. 【整理】 Real-Time 系統比較
+
+| 項目                     | **Hard Real-Time**                       | **Soft Real-Time**                                         |
+| ------------------------ | ---------------------------------------- | ---------------------------------------------------------- |
+| 定義                     | 任務若未在**期限內完成** → 即失敗        | 任務應在期限內完成，但偶爾延遲可接受                       |
+| 設計考量 1               | 所有時間限制為絕對限制                   | 可容許小延遲                                               |
+| 設計考量 2               | 不使用虛擬記憶體，避免資料被換出         | 可使用虛擬記憶體，但 real-time process 資料不能被 swap out |
+| 設計考量 3               | 需 kernel 快速反應，避免中斷延遲         | 需要調度延遲（dispatch latency）控制                       |
+| 作業系統支持             | 一般 OS（Linux/Windows）不支援           | 多數 OS 可支援                                             |
+| 可否與 time-sharing 並存 | ❌ 不可                                  | ✅ 可以                                                    |
+| CPU 排程策略             | 是否支援 deadline 排程、是否 schedulable | 使用 **preemptive priority** 且避免 Aging                  |
