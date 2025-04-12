@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8d4d4bb434963747",
+        "id": "b0568bbcb9987b10",
         "type": "tabs",
         "children": [
           {
-            "id": "3fa6783af230dcf5",
+            "id": "49cee8ec3009796a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "作業系統/作業系統.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "作業系統"
+              "title": "新分頁"
             }
           }
         ]
@@ -53,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#define",
+                "query": "Privileged Instruction（特權指令）",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -138,13 +134,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "作業系統/作業系統.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "作業系統 的大綱"
+              "title": "大綱"
             }
           }
         ],
@@ -164,46 +159,46 @@
       "command-palette:開啟命令面板": false
     }
   },
-  "active": "3fa6783af230dcf5",
+  "active": "49cee8ec3009796a",
   "lastOpenFiles": [
-    "計算機結構組織/co.pdf",
-    "計算機結構組織/co_compressed.pdf",
-    "作業系統/os.pdf",
-    "作業系統/os_compressed.pdf",
-    "作業系統/作業系統.md",
-    "計算機結構組織/計算機結構v2.md",
-    "2025就業博覽會_彥賀ver.pdf",
-    "2025就業博覽會.md",
-    "2025就業博爛會.txt",
-    "就業.txt",
-    "計算機結構組織/計算機結構v1.md",
+    "作業系統/10disk and file management.md",
+    "作業系統/Disk and File Management.md",
+    "作業系統/Virtual Memory.md",
+    "作業系統/Memory Management.md",
+    "作業系統/Process Synchronization.md",
+    "作業系統/Deadlock.md",
+    "作業系統/Thread.md",
+    "作業系統/Process.md",
+    "作業系統/作業系統元件.md",
+    "作業系統/IO運作方式.md",
+    "作業系統/導論.md",
+    "作業系統/README.md",
+    "作業系統/09Virtual Memory.md",
+    "作業系統/02IO運作方式.md",
+    "作業系統/03作業系統元件.md",
+    "作業系統/04Process&Thread.md",
+    "作業系統/05Thread.md",
+    "作業系統/06deadlock.md",
+    "未命名 2.md",
+    "作業系統/08memory management.md",
+    "作業系統/07Process Synchronization.md",
+    "未命名 1.md",
+    "計算機結構組織/04single cycle CPU.md",
+    "計算機結構組織/05multi cycle.md",
+    "作業系統/作業系統_舊.md",
+    "計算機結構組織/03評估計算機效能.md",
+    "STM32/MCU1/hh",
+    "STM32/MCU1/h",
+    "STM32/MCU1/hh/hh Debug.launch",
+    "STM32/MCU1/hh/Debug/hh.list",
+    "STM32/MCU1/hh/Debug/hh.elf",
+    "STM32/MCU1/hh/Debug/hh.map",
+    "STM32/MCU1/hh/Debug/Core/Src/system_stm32f4xx.o",
+    "STM32/MCU1/hh/Debug/Core/Src/system_stm32f4xx.d",
+    "STM32/MCU1/hh/Debug/Core/Src/syscalls.o",
+    "STM32/MCU1/hh/Debug/Core/Src/sysmem.o",
     "作業系統/attachments/Pasted image 20250310143833.png",
     "作業系統/attachments/Pasted image 20250306220512.png",
-    "作業系統/attachments",
-    "未命名.md",
-    "README.md",
-    "作業系統/OS_DDrowio.drawio",
-    "Docker/README.md",
-    "c++/【12 Introduction to Classes, Objects and Strings】.md",
-    "Docker/Nodejs App Start Setup/node_modules/side-channel-list/CHANGELOG.md",
-    "Docker/Nodejs App Start Setup/node_modules/vary/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/iconv-lite/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/vary/HISTORY.md",
-    "Docker/Nodejs App Start Setup/node_modules/parseurl/HISTORY.md",
-    "Docker/Nodejs App Start Setup/node_modules/statuses/HISTORY.md",
-    "Docker/Nodejs App Start Setup/node_modules/side-channel/CHANGELOG.md",
-    "Docker/Nodejs App Start Setup/node_modules/toidentifier/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/side-channel/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/parseurl/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/statuses/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/ms/license.md",
-    "Docker/Nodejs App Start Setup/node_modules/type-is/README.md",
-    "Docker/Nodejs App Start Setup/Dockerfile",
-    "Docker/Nodejs App Start Setup/node_modules/debug/src/node.js",
-    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/README.md",
-    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/qs/CHANGELOG.md",
-    "Docker/Nodejs App Start Setup/node_modules/express/History.md",
-    "Docker/Nodejs App Start Setup/node_modules/express/node_modules/body-parser/README.md",
     "c++/leetcode題目/attachments/20241106_112148821_iOS.png",
     "D1mini(ESP8266)/MP32410_examples/ch05/temp/ball0.jpg",
     "互動網頁設計/Vue/vue-project-dynamic-components/node_modules/@vue/cli-service/generator/template/src/assets/logo.png",
