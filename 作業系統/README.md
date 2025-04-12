@@ -6,7 +6,7 @@
 -   [Process](./Process.md)
 -   [Thread](./Thread.md)
 -   [Deadlock](./Deadlock.md)
--   [Process Synchronization]
+-   [Process Synchronization](./Process%20Synchronization.md)
 -   [Memory Management](./Memory%20Management.md)
 -   [Virtual Memory](./Virtual%20Memory.md)
 -   [Disk and File Management](./Disk%20and%20File%20Management.md)
